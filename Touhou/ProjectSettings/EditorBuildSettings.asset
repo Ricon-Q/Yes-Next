@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Eientei/Eientei.unity
+    guid: 04899d906481cb44c8f0518fa94f09b9
+  - enabled: 1
+    path: Assets/Scenes/Eientei/Eientei_Garden.unity
+    guid: 4e529a9f806e5ef4c9f951bbb1f49864
+  - enabled: 1
+    path: Assets/Scenes/Eientei/Eientei_Room.unity
+    guid: 543a5ac3261e8bd4ab3f25a2d76b1204
+  - enabled: 1
+    path: Assets/Scenes/Kourindou/Kourindou.unity
+    guid: c52f66240a727c14c8959e3f69669562
+  - enabled: 1
+    path: Assets/Scenes/Kourindou/Kourindou_Shop.unity
+    guid: e3a9ac09d18af824a8a4254c3ba3b92d
+  - enabled: 1
+    path: Assets/Scenes/Village/Village_Bookstore.unity
+    guid: 2d8183da7d66ce5499847c97ef832182
+  - enabled: 1
+    path: Assets/Scenes/Village/Village_Main.unity
+    guid: 9c94550df59c4d2428fe321fc46f63fc
+  - enabled: 1
+    path: Assets/Scenes/Village/Village_School.unity
+    guid: db12864fa4346534a90e6e5d8b798d88
+  - enabled: 1
+    path: Assets/Scenes/Village/Village_Shop.unity
+    guid: f2c6f29fd77757446b88b4cc35ead609
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 4a2a51d9ce50238419b17dfa06834abc
+  m_configObjects: {}
