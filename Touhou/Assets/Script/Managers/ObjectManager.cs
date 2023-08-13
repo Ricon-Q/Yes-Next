@@ -14,7 +14,7 @@ public class ObjectManager : MonoBehaviour
     private static ObjectManager instance;
     
     // <씬 이름 - 게임 오브젝트 리스트>로 이루어져 있는 딕셔너리
-    public Dictionary<string, List<GameObjectData>> sceneObjectData = 
+    [SerializeField] public Dictionary<string, List<GameObjectData>> sceneObjectData = 
         new Dictionary<string, List<GameObjectData>>();
 
 
@@ -52,6 +52,15 @@ public class ObjectManager : MonoBehaviour
         }
 
         sceneObjectData[sceneName].Add(data);
+        // Debug.Log
+        // (
+        // "AddData : " + data.name + 
+        // "\n===data info===" + 
+        // // "\nDataCode : " + data.code +
+        // "\nObjectType : " + data.ObjectType +
+        // "\nGameObject : " + data.obj.name + 
+        // "\nPosition : " + data.position
+        // );
     }
 
     public void RemoveObjectData(string sceneName, GameObjectData data)
@@ -77,6 +86,14 @@ public class ObjectManager : MonoBehaviour
     {
         // 모든 씬의 오브젝트 데이터를 하나의 리스트 형태로 반환
         return sceneObjectData.Values.SelectMany(list => list).ToList();
+    }
+
+    public void RemoveAllObjectDataInScene(string sceneName)
+    {
+        if (sceneObjectData.ContainsKey(sceneName))
+        {
+            sceneObjectData.Remove(sceneName); // 해당 씬의 데이터 모두 제거
+        }
     }
 
 }

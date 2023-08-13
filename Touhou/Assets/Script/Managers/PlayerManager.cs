@@ -89,7 +89,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene Loaded");
+        // Debug.Log("Scene Loaded");
         transform.position = playerPosition;
     }
 

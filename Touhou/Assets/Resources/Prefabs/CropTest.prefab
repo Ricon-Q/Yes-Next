@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7504138011735363215}
-  - component: {fileID: 1837759422849879225}
   - component: {fileID: 9136316041264213321}
   - component: {fileID: 2995102462938473024}
+  - component: {fileID: -5678260410295606371}
   m_Layer: 0
-  m_Name: PlantTest
+  m_Name: CropTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,24 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1837759422849879225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 975382657914056838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69b2351726743b48ad56ae633968d57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 9136316041264213321}
-  growthStages:
-  - {fileID: -1552798901, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
-  - {fileID: 709821895, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
-  - {fileID: 782662530, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
-  - {fileID: 1549350013, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
 --- !u!212 &9136316041264213321
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -149,3 +131,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &-5678260410295606371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975382657914056838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f40ba818e2809408e8532303154b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1552798901, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
+  - {fileID: 709821895, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
+  - {fileID: 782662530, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
+  - {fileID: 1549350013, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
+  plantedDay: 0
+  originalPrefab: {fileID: 975382657914056838}

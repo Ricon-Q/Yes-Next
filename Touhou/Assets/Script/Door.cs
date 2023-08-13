@@ -11,7 +11,7 @@ public class Door : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Debug.Log("Interacting with the door");
+        // Debug.Log("Interacting with the door");
         
         if (!string.IsNullOrEmpty(targetSceneName))
         {   
