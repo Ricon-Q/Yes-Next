@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 // 2. 오브젝트 생성시 TimeMager의 day를 받아와 plantedDay에 저장한다
 // 3. 현재의 day를 currentDay에 저장
 // 4. (currentDay - plantedDay)를 계산하여 스프라이트 순서 결정
+// 5. 수확시 수확물을 플레이어의 인벤토리에 추가한다
 
 public class Crop : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Crop : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private TimeManager timeManager;
     private ObjectManager objectManager;
+    private GameObject CropOutput;
     
     private void Awake()
     {
