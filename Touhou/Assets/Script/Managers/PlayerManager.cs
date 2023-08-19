@@ -38,16 +38,17 @@ public class PlayerManager : MonoBehaviour
     private Vector3 playerPosition;
     private SaveManager saveManager;
     private TimeManager timeManager;
+    public InventoryObject inventory;
 
     private void Start()
     {
-        Vector3 lastPosition = saveManager.LoadPlayerPosition(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        // Vector3 lastPosition = saveManager.LoadPlayerPosition(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
     
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        saveManager = FindObjectOfType<SaveManager>();
+        // saveManager = FindObjectOfType<SaveManager>();
         timeManager = FindObjectOfType<TimeManager>();
 
         if(instance == null)
@@ -77,6 +78,19 @@ public class PlayerManager : MonoBehaviour
             PlantNewPlant();    
         }   
         //
+
+        //Inventory Save Load
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            inventory.Save();
+            Debug.Log("Saved");
+        }    
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            inventory.Load();
+            
+            Debug.Log("Loaded");
+        }
     }
 
     private void FixedUpdate()

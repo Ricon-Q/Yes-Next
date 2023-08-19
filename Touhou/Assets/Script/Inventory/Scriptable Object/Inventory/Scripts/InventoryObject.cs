@@ -16,15 +16,18 @@ public class InventoryObject : ScriptableObject
 
     public void AddItem(Item _item, int _amount)
     {
+        // 아이템이 Countable = false일 경우
         if(!_item.Countable)
         {
             SetEmptySlot(_item, _amount);
             return;
         }
+        // 아이템이 Countable = true일 경우
         for(int i = 0; i < Container.Items.Length; i++)
         {
             if(Container.Items[i].ID == _item.Id)
             {
+                // 이미 있는 아이템일 경우 갯수 추가
                 Container.Items[i].AddAmount(_amount);
                 return;
             }
@@ -73,8 +76,12 @@ public class InventoryObject : ScriptableObject
 
             // IFormatter formatter = new BinaryFormatter();
             // Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
-            // Container = (Inventory)formatter.Deserialize(stream);
+            // Inventory newContainer = (Inventory)formatter.Deserialize(stream);
             // stream.Close();
+            // for (int i = 0; i < Container.Items.Length; i++)
+            // {
+            //     Container.Items[i].UpdateSlot(newContainer.Items[i].ID, newContainer.Items[i].item, newContainer.Items[i].amount);
+            // }
         }
     }
 
@@ -84,6 +91,23 @@ public class InventoryObject : ScriptableObject
         Container = new Inventory();
     }
 
+    public void MoveItem(InventorySlot item1, InventorySlot item2)
+    {
+        InventorySlot temp = new InventorySlot(item2.ID, item2.item, item2.amount);
+        item2.UpdateSlot(item1.ID, item1.item, item1.amount);
+        item1.UpdateSlot(temp.ID, temp.item, temp.amount);
+    }
+
+    public void RemoveItem(Item _item)
+    {
+        for (int i = 0; i < Container.Items.Length; i++)
+        {
+            if(Container.Items[i].item == _item)
+            {
+                Container.Items[i].UpdateSlot(-1, null, 0);
+            }
+        }
+    }
 }
 
 [System.Serializable]

@@ -18,6 +18,7 @@ public class UIKeySetting : MonoBehaviour
         {
             ToggleInventory();
         }
+
     }
 
     // Inventory

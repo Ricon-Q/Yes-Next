@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item Database", menuName = "InventoryTest/Items/DataBase")]
 public class ItemDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
 {
+    // Database
+    
     public ItemObject[] Items;
     public Dictionary<int, ItemObject> GetItem = new Dictionary<int, ItemObject>();
 
