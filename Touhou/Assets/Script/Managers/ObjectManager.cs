@@ -52,15 +52,7 @@ public class ObjectManager : MonoBehaviour
         }
 
         sceneObjectData[sceneName].Add(data);
-        // Debug.Log
-        // (
-        // "AddData : " + data.name + 
-        // "\n===data info===" + 
-        // // "\nDataCode : " + data.code +
-        // "\nObjectType : " + data.ObjectType +
-        // "\nGameObject : " + data.obj.name + 
-        // "\nPosition : " + data.position
-        // );
+        Debug.Log(sceneObjectData[sceneName]);
     }
 
     public void RemoveObjectData(string sceneName, GameObjectData data)

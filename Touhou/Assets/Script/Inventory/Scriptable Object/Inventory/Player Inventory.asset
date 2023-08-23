@@ -16,42 +16,42 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 9972077f69d33554abcfb7f8e0edb7aa, type: 2}
   Container:
     Items:
-    - ID: -1
+    - ID: 2
       item:
-        Name: 
-        Id: 0
-        Countable: 0
-      amount: 0
-    - ID: -1
+        Name: Seed
+        Id: 2
+        Countable: 1
+      amount: 3
+    - ID: 1
       item:
-        Name: 
-        Id: 0
-        Countable: 0
-      amount: 0
-    - ID: -1
+        Name: Fertilizer
+        Id: 1
+        Countable: 1
+      amount: 1
+    - ID: 3
       item:
-        Name: 
-        Id: 0
+        Name: Tool
+        Id: 3
         Countable: 0
-      amount: 0
-    - ID: -1
+      amount: 1
+    - ID: 0
       item:
-        Name: 
+        Name: Crop
         Id: 0
-        Countable: 0
-      amount: 0
-    - ID: -1
+        Countable: 1
+      amount: 1
+    - ID: 3
       item:
-        Name: 
-        Id: 0
+        Name: Tool
+        Id: 3
         Countable: 0
-      amount: 0
-    - ID: -1
+      amount: 1
+    - ID: 3
       item:
-        Name: 
-        Id: 0
+        Name: Tool
+        Id: 3
         Countable: 0
-      amount: 0
+      amount: 1
     - ID: -1
       item:
         Name: 

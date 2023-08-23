@@ -8,6 +8,18 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
 
+    public float speed;     // 이동 속도
+    public float maxHealth = 100;        // 최대 체력
+    public float currentHealth = 100;    // 현재 체력
+    public float maxFatigue = 100;       // 최대 피로도
+    public float currentFatigue = 100;   // 현재 피로도
+    public float maxHunger = 100;        // 최대 만복도
+    public float currentHunger = 100;    // 현재 만복도
+
+
+
+
+
     // 테스트용 변수들
     public GameObject plantPrefab; // 식물 게임 오브젝트 변수
     private GameObject currentPlant;
@@ -26,8 +38,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public float Speed;
-
     Rigidbody2D rigid;
     float h;
     float v;
@@ -36,14 +46,10 @@ public class PlayerManager : MonoBehaviour
     GameObject ScanObject;
 
     private Vector3 playerPosition;
-    private SaveManager saveManager;
+    // private SaveManager saveManager;
     private TimeManager timeManager;
+    [SerializeField] private DialogueManager dialogueManager;
     public InventoryObject inventory;
-
-    private void Start()
-    {
-        // Vector3 lastPosition = saveManager.LoadPlayerPosition(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-    }
     
     private void Awake()
     {
@@ -69,7 +75,7 @@ public class PlayerManager : MonoBehaviour
         //Scan Object
         if(Input.GetButtonDown("Interact") && ScanObject != null)
         {
-            ScanInteract();
+            ScanInteract(ScanObject);
         }
 
         // 테스트
@@ -96,7 +102,7 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
-        rigid.velocity = moveVec * Speed;
+        rigid.velocity = moveVec * speed;
 
         DrawScanRay();
     }
@@ -119,13 +125,13 @@ public class PlayerManager : MonoBehaviour
     
     private void InputMove()
     {
-        h = Input.GetAxisRaw("Horizontal");
-        v = Input.GetAxisRaw("Vertical");
+        h = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+        v = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
-        bool hDown = Input.GetButtonDown("Horizontal");
-        bool vDown = Input.GetButtonDown("Vertical");
-        bool hUp = Input.GetButtonUp("Horizontal");
-        bool vUp = Input.GetButtonUp("Vertical");
+        bool hDown = dialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
+        bool vDown = dialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
+        bool hUp = dialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
+        bool vUp = dialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
 
         // Set isHorizonMove
         if(hDown || vUp)
@@ -148,7 +154,7 @@ public class PlayerManager : MonoBehaviour
     {
         //Ray
         Debug.DrawRay(rigid.position, dirVec * 0.7f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.7f, LayerMask.GetMask("Object"));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dirVec, 0.7f, LayerMask.GetMask("Interactable"));
 
         if(rayHit.collider != null)
         {
@@ -160,17 +166,10 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void ScanInteract()
+    private void ScanInteract(GameObject ScanObject)
     {
-        Interactable interactable = ScanObject.GetComponent<Interactable>();
-        if (interactable != null)
-        {
-            interactable.Interact();
-        }
-        else
-        {
-            Debug.Log("This is : " + ScanObject.name);
-        }
+        // Debug.Log("ScanInteract " + ScanObject);
+        dialogueManager.Interact(ScanObject);
     }
 
     // public void SavePlayerPosition()
@@ -206,12 +205,12 @@ public class PlayerManager : MonoBehaviour
 
     //테스트용 함수
     private void PlantNewPlant()
-{
-    if (plantPrefab != null)
     {
-        Vector3 spawnPosition = new Vector3(rigid.position.x, rigid.position.y, 0) + dirVec * 0.7f; // Raycast 끝 부분에 생성
-        currentPlant = Instantiate(plantPrefab, spawnPosition, Quaternion.identity);
+        if (plantPrefab != null)
+        {
+            Vector3 spawnPosition = new Vector3(rigid.position.x, rigid.position.y, 0) + dirVec * 0.7f; // Raycast 끝 부분에 생성
+            currentPlant = Instantiate(plantPrefab, spawnPosition, Quaternion.identity);
+        }
     }
-}
     //
 }

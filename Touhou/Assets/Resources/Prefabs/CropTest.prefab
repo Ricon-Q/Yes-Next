@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9136316041264213321}
   - component: {fileID: 2995102462938473024}
   - component: {fileID: -5678260410295606371}
-  m_Layer: 0
+  - component: {fileID: -9143291943232385439}
+  m_Layer: 6
   m_Name: CropTest
-  m_TagString: Untagged
+  m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &-5678260410295606371
 MonoBehaviour:
@@ -149,4 +150,19 @@ MonoBehaviour:
   - {fileID: 782662530, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
   - {fileID: 1549350013, guid: 5bb6e996ed896e742ae0fe5e5f34ccbf, type: 3}
   plantedDay: 0
-  originalPrefab: {fileID: 975382657914056838}
+  id: 0
+  textMeshPro: {fileID: 0}
+--- !u!114 &-9143291943232385439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975382657914056838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5802de8418360e4b816c26e2298145e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 100
+  isNpc: 0

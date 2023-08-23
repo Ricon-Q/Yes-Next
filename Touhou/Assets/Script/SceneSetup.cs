@@ -10,7 +10,7 @@ public class SceneSetup : MonoBehaviour
     {
         string sceneName = SceneManager.GetActiveScene().name;
 
-        Debug.Log("Setup Scene " + sceneName);
+        // Debug.Log("Setup Scene " + sceneName);
 
         List<GameObjectData> objectDataList = ObjectManager.Instance.GetObjectsDataInScene(sceneName);
 
@@ -22,6 +22,7 @@ public class SceneSetup : MonoBehaviour
                 // Debug.Log(objData.obj + " is not NULL");
                 GameObject instantiatedObj = Instantiate(objData.obj, objData.position, Quaternion.identity);
                 loadData(objData, instantiatedObj);
+                Debug.Log("Load Object : " + objData.obj);
                 // 추가 정보 설정...
             }
             //모든 오브젝트 로드 후 씬 데이터 전체 삭제

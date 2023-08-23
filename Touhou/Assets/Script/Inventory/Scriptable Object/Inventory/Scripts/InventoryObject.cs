@@ -100,13 +100,13 @@ public class InventoryObject : ScriptableObject
 
     public void RemoveItem(Item _item)
     {
-        for (int i = 0; i < Container.Items.Length; i++)
-        {
-            if(Container.Items[i].item == _item)
-            {
-                Container.Items[i].UpdateSlot(-1, null, 0);
-            }
-        }
+        // for (int i = 0; i < Container.Items.Length; i++)
+        // {
+        //     if(Container.Items[i].item == _item)
+        //     {
+        //         Container.Items[i].UpdateSlot(-1, null, 0);
+        //     }
+        // }
     }
 }
 

@@ -127,6 +127,9 @@ public class DisplayInventory : MonoBehaviour
             var img = mouseObject.AddComponent<Image>();
             img.sprite = inventory.database.GetItem[itemDisplayed[obj].ID].uiDisplay;
             img.raycastTarget = false;
+            obj.transform.GetChild(0).transform.localScale = new Vector3 (0, 0, 0);
+            obj.transform.GetChild(1).transform.localScale = new Vector3 (0, 0, 0);
+
         }
 
         mouseItem.obj = mouseObject;
@@ -144,6 +147,8 @@ public class DisplayInventory : MonoBehaviour
             inventory.RemoveItem(itemDisplayed[obj].item);
         }
         Destroy(mouseItem.obj);
+        obj.transform.GetChild(0).transform.localScale = new Vector3 (1, 1, 1);
+        obj.transform.GetChild(1).transform.localScale = new Vector3 (1, 1, 1);
         mouseItem.item = null;
     }
     
