@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 //키보드 방향키를 이용한 상하좌우 이동
 
@@ -15,10 +16,6 @@ public class PlayerManager : MonoBehaviour
     public float currentFatigue = 100;   // 현재 피로도
     public float maxHunger = 100;        // 최대 만복도
     public float currentHunger = 100;    // 현재 만복도
-
-
-
-
 
     // 테스트용 변수들
     public GameObject plantPrefab; // 식물 게임 오브젝트 변수
@@ -46,16 +43,14 @@ public class PlayerManager : MonoBehaviour
     GameObject ScanObject;
 
     private Vector3 playerPosition;
-    // private SaveManager saveManager;
-    private TimeManager timeManager;
-    [SerializeField] private DialogueManager dialogueManager;
+    // [SerializeField] private DialogueManager dialogueManager;
     public InventoryObject inventory;
     
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        // saveManager = FindObjectOfType<SaveManager>();
-        timeManager = FindObjectOfType<TimeManager>();
+
+        // controls = new Controls();
 
         if(instance == null)
         {
@@ -70,20 +65,20 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        InputMove();
+        // InputMove();
 
-        //Scan Object
-        if(Input.GetButtonDown("Interact") && ScanObject != null)
-        {
-            ScanInteract(ScanObject);
-        }
+        // //Scan Object
+        // if(Input.GetButtonDown("Interact") && ScanObject != null)
+        // {
+        //     ScanInteract(ScanObject);
+        // }
 
-        // 테스트
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            PlantNewPlant();    
-        }   
-        //
+        // // 테스트
+        // if (Input.GetKeyDown(KeyCode.X))
+        // {
+        //     PlantNewPlant();    
+        // }   
+        // //
 
         //Inventory Save Load
         if(Input.GetKeyDown(KeyCode.Space))
@@ -97,12 +92,21 @@ public class PlayerManager : MonoBehaviour
             
             Debug.Log("Loaded");
         }
+
+        HandleMove();
+    }
+
+    private void HandleMove()
+    {
+        dirVec = InputManager.Instance.GetMoveDirection();
+        rigid.velocity = dirVec * speed;
+        // Debug.Log(rigid.velocity);
     }
 
     private void FixedUpdate()
     {
-        Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
-        rigid.velocity = moveVec * speed;
+        // Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
+        // rigid.velocity = moveVec * speed;
 
         DrawScanRay();
     }
@@ -116,38 +120,50 @@ public class PlayerManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        // controls.Enable();
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        // controls.Disable();
     }
     
     private void InputMove()
     {
-        h = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
-        v = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
+        // h = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Horizontal");
+        // v = dialogueManager.isAction ? 0 : Input.GetAxisRaw("Vertical");
 
-        bool hDown = dialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
-        bool vDown = dialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
-        bool hUp = dialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
-        bool vUp = dialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
+        // bool hDown = dialogueManager.isAction ? false : Input.GetButtonDown("Horizontal");
+        // bool vDown = dialogueManager.isAction ? false : Input.GetButtonDown("Vertical");
+        // bool hUp = dialogueManager.isAction ? false : Input.GetButtonUp("Horizontal");
+        // bool vUp = dialogueManager.isAction ? false : Input.GetButtonUp("Vertical");
 
-        // Set isHorizonMove
-        if(hDown || vUp)
-            isHorizonMove = true;
-        else if(vDown || hUp)
-            isHorizonMove = false;
 
-        // Set
-        if(vDown && v == 1)
-            dirVec = Vector3.up;
-        else if(vDown && v == -1)
-            dirVec = Vector3.down;
-        else if(hDown && h == -1)
-            dirVec = Vector3.left;
-        else if(hDown && h == 1)
-            dirVec = Vector3.right;
+
+        // h = Input.GetAxisRaw("Horizontal");
+        // v = Input.GetAxisRaw("Vertical");
+
+        // bool hDown = Input.GetButtonDown("Horizontal");
+        // bool vDown = Input.GetButtonDown("Vertical");
+        // bool hUp = Input.GetButtonUp("Horizontal");
+        // bool vUp = Input.GetButtonUp("Vertical");
+
+        // // Set isHorizonMove
+        // if(hDown || vUp)
+        //     isHorizonMove = true;
+        // else if(vDown || hUp)
+        //     isHorizonMove = false;
+
+        // // Set
+        // if(vDown && v == 1)
+        //     dirVec = Vector3.up;
+        // else if(vDown && v == -1)
+        //     dirVec = Vector3.down;
+        // else if(hDown && h == -1)
+        //     dirVec = Vector3.left;
+        // else if(hDown && h == 1)
+        //     dirVec = Vector3.right;
     }
 
     private void DrawScanRay()
@@ -168,8 +184,8 @@ public class PlayerManager : MonoBehaviour
 
     private void ScanInteract(GameObject ScanObject)
     {
-        // Debug.Log("ScanInteract " + ScanObject);
-        dialogueManager.Interact(ScanObject);
+        Debug.Log("ScanInteract " + ScanObject);
+        // dialogueManager.Interact(ScanObject);
     }
 
     // public void SavePlayerPosition()
@@ -185,17 +201,17 @@ public class PlayerManager : MonoBehaviour
 
     public void increaseMinute(int minute)
     {
-        timeManager.increaseMinute(minute);
+        TimeManager.Instance.increaseMinute(minute);
     }
 
     public void increaseHour(int hour)
     {
-        timeManager.increaseHour(hour);
+        TimeManager.Instance.increaseHour(hour);
     }
     
     public void increaseDay(int day)
     {
-        timeManager.increaseDay(day);
+        TimeManager.Instance.increaseDay(day);
     }
 
     public void setPlayerPosition(Vector3 DoorWayPosition)

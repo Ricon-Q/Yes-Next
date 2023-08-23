@@ -15,9 +15,11 @@ public class Door : MonoBehaviour, Interactable
         
         if (!string.IsNullOrEmpty(targetSceneName))
         {   
-            FindObjectOfType<PlayerManager>().setPlayerPosition(DoorWayPosition);
+            // FindObjectOfType<PlayerManager>().setPlayerPosition(DoorWayPosition);
+            PlayerManager.Instance.setPlayerPosition(DoorWayPosition);
             // FindObjectOfType<PlayerManager>().SavePlayerPosition();
-            FindObjectOfType<PlayerManager>().increaseMinute(5);
+            // FindObjectOfType<PlayerManager>().increaseMinute(5);
+            TimeManager.Instance.increaseMinute(5);
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetSceneName);
         }
         else

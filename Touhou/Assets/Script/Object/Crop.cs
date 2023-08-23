@@ -22,7 +22,7 @@ public class Crop : MonoBehaviour
 
     private TimeManager timeManager;
     private ObjectManager objectManager;
-    private DialogueManager dialogueManager;
+    // private DialogueManager dialogueManager;
 
     private SpriteRenderer spriteRenderer;
     public TextMeshProUGUI textMeshPro;
@@ -41,7 +41,7 @@ public class Crop : MonoBehaviour
     {
         SetupData();
         objectManager.AddObjectData(SceneManager.GetActiveScene().name, data);
-        textMeshPro = GameObject.Find("DialogueManager/Canvas/Image")?.GetComponentInChildren<TextMeshProUGUI>();
+        // textMeshPro = GameObject.Find("DialogueManager/Canvas/Image")?.GetComponentInChildren<TextMeshProUGUI>();
     }
     private void Update() 
     {
