@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool toggleInventoryPressed = false;
+    // private bool onLeftClick = false;
 
     private static InputManager instance;
 
@@ -44,6 +45,8 @@ public class InputManager : MonoBehaviour
         }
     }
 
+
+    // Keyborad
 
     public void MovePressed(InputAction.CallbackContext context)
     {
@@ -105,6 +108,7 @@ public class InputManager : MonoBehaviour
         } 
     }
 
+    // Get
     public Vector2 GetMoveDirection() 
     {
         return moveDirection;
@@ -146,5 +150,26 @@ public class InputManager : MonoBehaviour
     {
         submitPressed = false;
     }
+
+
+    // Mouse
+    // public void OnLeftClick(InputAction.CallbackContext context)
+    // {
+    //     if (context.performed)
+    //     {
+    //         onLeftClick = true;
+    //     }
+    //     else if (context.canceled)
+    //     {
+    //         onLeftClick = false;
+    //     } 
+    // }
+
+    // public bool GetLeftClickPressed() 
+    // {
+    //     bool result = onLeftClick;
+    //     onLeftClick = false;
+    //     return result;
+    // }
 
 }
