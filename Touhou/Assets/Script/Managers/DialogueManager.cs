@@ -43,6 +43,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
+    [Header("Shop UI")]
+    [SerializeField] private GameObject shopPanel;
+    private Dictionary<string, System.Action> choiceActions = new Dictionary<string, System.Action>();
+
+
     private Story currentStory;
     
     public bool dialogueIsPlaying { get; private set; }
@@ -59,6 +64,11 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+
+        shopPanel.SetActive(false);
+
+        choiceActions["Exit"] = ExitDialogueMode;
+        choiceActions["Shop"] = EnterShopMode;
     }
 
     private void Update()
@@ -138,7 +148,24 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex) 
     {
+        Choice choice = currentStory.currentChoices[choiceIndex];
+        string choiceText = choice.text;
+        Debug.Log(choiceText);
+
+         // 선택지에 해당하는 함수 실행
+        if (choiceActions.ContainsKey(choiceText))
+        {
+            choiceActions[choiceText].Invoke();
+        }
+
         currentStory.ChooseChoiceIndex(choiceIndex);
+    }
+
+    public void EnterShopMode()
+    {
+        shopPanel.SetActive(true);
+        Debug.Log("상점 모드입니다.");
+        ExitDialogueMode();
     }
 
 }
