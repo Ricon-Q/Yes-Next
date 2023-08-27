@@ -44,7 +44,7 @@ public class InventoryManager : MonoBehaviour
 
     // Inventory
     public GameObject InventoryCanvas;
-    private bool isInventoryOpen = false;
+    public bool isInventoryOpen = false;
     
     private void SetupInventory()
     {

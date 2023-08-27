@@ -42,10 +42,9 @@ public class DialogueManager : MonoBehaviour
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
-
-    [Header("Shop UI")]
-    [SerializeField] private GameObject shopPanel;
     private Dictionary<string, System.Action> choiceActions = new Dictionary<string, System.Action>();
+
+    [SerializeField] private NPC npcScript;
 
 
     private Story currentStory;
@@ -65,8 +64,6 @@ public class DialogueManager : MonoBehaviour
             index++;
         }
 
-        shopPanel.SetActive(false);
-
         choiceActions["Exit"] = ExitDialogueMode;
         choiceActions["Shop"] = EnterShopMode;
     }
@@ -84,11 +81,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, NPC npcInfo)
     {
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        npcScript = npcInfo;
 
         ContinueStory();
     }
@@ -163,8 +161,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterShopMode()
     {
-        shopPanel.SetActive(true);
-        Debug.Log("상점 모드입니다.");
+        ShopManager.Instance.EnterShopMode(npcScript);
         ExitDialogueMode();
     }
 

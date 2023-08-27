@@ -107,7 +107,7 @@ public class PlayerManager : MonoBehaviour
         // Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
         // rigid.velocity = moveVec * speed;
         
-        if(DialogueManager.Instance.dialogueIsPlaying)
+        if(DialogueManager.Instance.dialogueIsPlaying || InventoryManager.Instance.isInventoryOpen)
         {
             return;
         }

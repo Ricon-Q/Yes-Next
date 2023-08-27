@@ -39,3 +39,15 @@
 //         textMeshPro.text = "이것의 이름은 " + scanObj.name + "이라고 한다";
 //     }
 // }
+
+using UnityEngine;
+
+public class NPC : MonoBehaviour
+{
+    public string name;
+    public bool isShopable;
+    public Sprite portrait;
+    public InventoryObject inventoryObject;
+    public int affection;
+
+}

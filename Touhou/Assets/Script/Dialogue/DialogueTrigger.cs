@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Profiling;
 using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
@@ -9,6 +10,9 @@ public class DialogueTrigger : MonoBehaviour
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
+
+    [Header("NPC INFO")]
+    [SerializeField] private NPC npcScript;
 
     private bool playerInRange;
 
@@ -25,7 +29,7 @@ public class DialogueTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if(InputManager.Instance.GetInteractPressed())
             {
-                DialogueManager.Instance.EnterDialogueMode(inkJSON);
+                DialogueManager.Instance.EnterDialogueMode(inkJSON, npcScript);
             }
         }
         else
