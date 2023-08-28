@@ -1,13 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // 상점을 담당하는 싱글톤 스크립트
-// 1. DialogueManager에서 상점 선택지를 누르면 EnterShopMode 함수가 실행되며 ShopManager 스크립트로 넘어간다.
-// 2. 상점 스크립트에선 판매자(NPC)의 인벤토리, 호감도, 이름, 초상화와 같은 정보들을 할당한다.
+// V1. DialogueManager에서 상점 선택지를 누르면 EnterShopMode 함수가 실행되며 ShopManager 스크립트로 넘어간다. 
+// V2. 상점 스크립트에선 판매자(NPC)의 인벤토리, 호감도, 이름, 초상화와 같은 정보들을 할당한다.
 // 3. 해당 정보들을 바탕으로 왼쪽에 NPC 패널을 채운다.
-// 4. 왼쪽에는 플레이어의 인벤토리를 받아온다. 인벤토리에서 상점에 판매할 수 없는 아이템은 제외한다.
+// 4. 오른쪽에는 플레이어의 인벤토리를 받아온다. 인벤토리에서 상점에 판매할 수 없는 아이템은 제외한다.
 // 5. 가운데는 거래창이 있으며 상단에는 판매 모드, 구매 모드 버튼이 있다. 
 // 6. 판매 모드일때는 플레이어 인벤토리만 클릭할 수 있으며 구매 모드에서는 NPC의 판매 목록만 클릭할 수 있다.
 // 7. 어느 모드에서 해당하는 인벤토리의 원하는 아이템을 클릭하면 해당 아이템은 강조표시가 되며, 같은 아이템이 가운데 거래창에 생긴다.
@@ -22,15 +24,31 @@ public class ShopManager : MonoBehaviour
 
     [Header("Shop UI")]
     [SerializeField] private GameObject shopPanel;
-    [SerializeField] private GameObject NPCPanel;
+
+    [Header("NPC Panel")]
+    [SerializeField] private GameObject npcPanel;
+    [SerializeField] private GameObject npcPotrait;
+    [SerializeField] private GameObject textFrame;
+    [SerializeField] private GameObject affectionFram;
+    [SerializeField] private GameObject itemFrame;
+
+    public ShopNpcDisplay shopNpcDisplay;
+
+    [Header("Player Panel")]
     [SerializeField] private GameObject playerPanel;
+    [SerializeField] private GameObject displayInventory;
+    [SerializeField] private ShopPlayerDisplay playerDisplay;
+
+    [Header("Middle Panel")]
     [SerializeField] private GameObject middlePanel;
+    public ShopMiddleDisplay shopMiddleDisplay;
 
     [Header("NPC Info")]
     [SerializeField] private NPC npcInfo;
 
     [Header("Player Info")]
     [SerializeField] private InventoryObject playerInventory;
+    public GameObject inventoryPrefab;
 
     private static ShopManager instance;
     public static ShopManager Instance
@@ -55,7 +73,7 @@ public class ShopManager : MonoBehaviour
         else { Destroy(this.gameObject); }
     }
 
-    private void Start()
+    private void Start() 
     {
         shopPanel.SetActive(false);
         isShopMode = false;
@@ -74,12 +92,18 @@ public class ShopManager : MonoBehaviour
         shopPanel.SetActive(true);
         npcInfo = npcScript;
         isShopMode = true;
+
+        // playerDisplay.EnterShopMode();
+        shopNpcDisplay.EnterShopMode(npcInfo.inventoryObject);
+        shopMiddleDisplay.EnterShopMode();
     }
 
     public void ExitShopMode()
     {
         shopPanel.SetActive(false);
         isShopMode = false;
+        shopNpcDisplay.ExitShopMode();
+        shopMiddleDisplay.ExitShopMode();
     }
 
     public void DisplayNPCPanel()
