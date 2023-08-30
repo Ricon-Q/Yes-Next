@@ -23,6 +23,7 @@ public class Item
     public string Name;
     public int Id;
     public bool Countable;
+
     public Item(ItemObject item)
     {
         Name = item.name;

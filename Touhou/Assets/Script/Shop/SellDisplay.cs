@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using TMPro;
+using UnityEngine.UI;
 
-public class ShopNpcDisplay : MonoBehaviour
+public class SellDisplay : MonoBehaviour
 {
     public int X_START;
     public int Y_START;
@@ -14,27 +14,35 @@ public class ShopNpcDisplay : MonoBehaviour
     public int Y_SPACE_BETWEEN_ITEM;
     public int NUMBER_OF_COLUMN;
     public InventoryObject inventory;
+    // public InventoryObject emptyInventory;
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>();
     public GameObject inventoryPrefab;
+    private bool isShopMode = false;
 
-    public SellDisplay buyDisplay;
-
-    // public ShopMiddleDisplay 
-
-    public void EnterShopMode(InventoryObject inventoryObject)
+    
+    private void Start()
     {
-        inventory = inventoryObject;
+        inventory.Save();
+        isShopMode = false;
         CreateSlots();
     }
-    public void ExitShopMode()
+
+    private void Update() 
     {
-        // inventory.Clear();
+        // Debug.Log("Update");
+        DisplaySlot();
+    }
+    public void EnterShopMode()
+    {
+        isShopMode = true;
     }
 
-    private void Update()
+    public void ExitShopMode()
     {
-        DisplaySlot();
+        isShopMode = false;
+        inventory.Load();
+        // Reset();
     }
 
     public void CreateSlots()
@@ -46,20 +54,10 @@ public class ShopNpcDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
-            
+            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
-    }
-    public Vector3 GetPosition(int i)
-    {
-        // 슬롯 위치 계산
-        return new Vector3
-        (
-            X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)),
-            Y_START + (-Y_SPACE_BETWEEN_ITEM * (i/NUMBER_OF_COLUMN)), 
-            0f
-        );
     }
 
     public void DisplaySlot()
@@ -87,29 +85,47 @@ public class ShopNpcDisplay : MonoBehaviour
             }
         }
     }
-
-    private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    
+    public Vector3 GetPosition(int i)
     {
-        EventTrigger trigger = obj.GetComponent<EventTrigger>();
-        var eventTrigger = new EventTrigger.Entry();
-        eventTrigger.eventID = type;
-        eventTrigger.callback.AddListener(action);
-        trigger.triggers.Add(eventTrigger);
+        // 슬롯 위치 계산
+        return new Vector3
+        (
+            X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)),
+            Y_START + (-Y_SPACE_BETWEEN_ITEM * (i/NUMBER_OF_COLUMN)), 
+            0f
+        );
     }
 
-    public void OnClick(GameObject obj)
+    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    // {
+    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
+    //     var eventTrigger = new EventTrigger.Entry();
+    //     eventTrigger.eventID = type;
+    //     eventTrigger.callback.AddListener(action);
+    //     trigger.triggers.Add(eventTrigger);
+    // }
+
+    // public void OnClick(GameObject obj)
+    // {
+        
+    // }
+
+    public void Reset()
     {
-        if(itemDisplayed[obj].ID != -1)
-        {
-            Item clickedItem = itemDisplayed[obj].item;
+        // Reset 함수가 호출되면 해당 인벤토리만 로드하도록 수정합니다.
+        Debug.Log(gameObject.name + " : Reset | inventory name : " + inventory.name);
+        inventory.Load();
+    }
 
-            // Retrieve the ItemObject from the ItemDatabaseObject using the clicked item's Id
-            ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
+    public void AddItem(Item _item)
+    {
+        inventory.AddItem(_item, 1);
+    }
 
-            // Create a new Item object here using the constructor which takes an ItemObject
-            Item itemToAdd = new Item(itemObjectToAdd);
-
-            buyDisplay.AddItem(itemToAdd);
-        }
+    private void OnApplicationQuit() 
+    {
+        // 어플리케이션이 종료될 때, 모든 인벤토리를 정리하도록 수정합니다.
+        inventory.Clear();
     }
 }

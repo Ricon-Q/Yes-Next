@@ -144,7 +144,7 @@ public class DisplayInventory : MonoBehaviour
         }
         else
         {
-            inventory.RemoveItem(itemDisplayed[obj].item);
+            // inventory.RemoveItem(itemDisplayed[obj].item);
         }
         Destroy(mouseItem.obj);
         obj.transform.GetChild(0).transform.localScale = new Vector3 (1, 1, 1);

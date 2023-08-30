@@ -19,6 +19,7 @@ public class InventoryObject : ScriptableObject
         // 아이템이 Countable = false일 경우
         if(!_item.Countable)
         {
+            // Debug.Log("Cant count");
             SetEmptySlot(_item, _amount);
             return;
         }
@@ -98,15 +99,20 @@ public class InventoryObject : ScriptableObject
         item1.UpdateSlot(temp.ID, temp.item, temp.amount);
     }
 
-    public void RemoveItem(Item _item)
+    public void RemoveItem(Item _item, int amount)
     {
-        // for (int i = 0; i < Container.Items.Length; i++)
-        // {
-        //     if(Container.Items[i].item == _item)
-        //     {
-        //         Container.Items[i].UpdateSlot(-1, null, 0);
-        //     }
-        // }
+        for (int i = 0; i < Container.Items.Length; i++)
+        {
+            if(Container.Items[i].item == _item)
+            {
+                Container.Items[i].amount -= amount;
+
+                if(Container.Items[i].amount <= 0)
+                {
+                    Container.Items[i].UpdateSlot(-1, null, 0);
+                }
+            }
+        }
     }
 }
 

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e93ec80e0de716f4c951f20e347fad9a, type: 3}
-  m_Name: Player Inventory
+  m_Name: Shop Buy Inventory
   m_EditorClassIdentifier: 
-  savePath: /Inventory.Save
+  savePath: /ShopBuyInventory.save
   database: {fileID: 11400000, guid: 9972077f69d33554abcfb7f8e0edb7aa, type: 2}
   Container:
     Items:

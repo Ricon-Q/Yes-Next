@@ -32,7 +32,6 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject affectionFram;
     [SerializeField] private GameObject itemFrame;
 
-    public ShopNpcDisplay shopNpcDisplay;
 
     [Header("Player Panel")]
     [SerializeField] private GameObject playerPanel;
@@ -41,7 +40,10 @@ public class ShopManager : MonoBehaviour
 
     [Header("Middle Panel")]
     [SerializeField] private GameObject middlePanel;
-    public ShopMiddleDisplay shopMiddleDisplay;
+    public SellDisplay buyDisplay;
+    public SellDisplay sellDisplay;
+    public ShopNpcDisplay shopNpcDisplay;
+    public ShopPlayerDisplay shopPlayerDisplay;
 
     [Header("NPC Info")]
     [SerializeField] private NPC npcInfo;
@@ -82,9 +84,9 @@ public class ShopManager : MonoBehaviour
     private void Update()
     {
         if(!isShopMode) { return; }
-        DisplayNPCPanel();
-        DisplayMiddlePanel();
-        DisplayPlayerPanel();    
+        // DisplayNPCPanel();
+        // DisplayMiddlePanel();
+        // DisplayPlayerPanel();    
     }
 
     public void EnterShopMode(NPC npcScript)
@@ -95,29 +97,43 @@ public class ShopManager : MonoBehaviour
 
         // playerDisplay.EnterShopMode();
         shopNpcDisplay.EnterShopMode(npcInfo.inventoryObject);
-        shopMiddleDisplay.EnterShopMode();
+        shopPlayerDisplay.EnterShopMode();
+        buyDisplay.EnterShopMode();
+        sellDisplay.EnterShopMode();
+        
     }
 
     public void ExitShopMode()
     {
+        shopNpcDisplay.ExitShopMode();
+        shopPlayerDisplay.ExitShopMode();
+        buyDisplay.ExitShopMode();
+        sellDisplay.ExitShopMode();
+
         shopPanel.SetActive(false);
         isShopMode = false;
-        shopNpcDisplay.ExitShopMode();
-        shopMiddleDisplay.ExitShopMode();
     }
 
-    public void DisplayNPCPanel()
+    // public void DisplayNPCPanel()
+    // {
+
+    // }
+
+    // public void DisplayPlayerPanel()
+    // {
+
+    // }
+
+    // public void DisplayMiddlePanel()
+    // {
+
+    // }
+
+    public void ResetShop()
     {
-
-    }
-
-    public void DisplayPlayerPanel()
-    {
-
-    }
-
-    public void DisplayMiddlePanel()
-    {
-
+        shopPlayerDisplay.Reset();
+        sellDisplay.Reset();
+        buyDisplay.Reset();
+        Debug.Log("Resetshop");
     }
 }

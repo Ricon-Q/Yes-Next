@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93ec80e0de716f4c951f20e347fad9a, type: 3}
   m_Name: Test Inventory
   m_EditorClassIdentifier: 
-  savePath: NPCTest.save
+  savePath: /NPCTest.save
   database: {fileID: 11400000, guid: 9972077f69d33554abcfb7f8e0edb7aa, type: 2}
   Container:
     Items:
@@ -22,18 +22,18 @@ MonoBehaviour:
         Id: 2
         Countable: 1
       amount: 1
-    - ID: 3
+    - ID: -1
       item:
-        Name: Tool
-        Id: 3
+        Name: 
+        Id: 0
         Countable: 0
-      amount: 1
-    - ID: 1
+      amount: 0
+    - ID: -1
       item:
-        Name: Fertilizer
-        Id: 1
-        Countable: 1
-      amount: 1
+        Name: 
+        Id: 0
+        Countable: 0
+      amount: 0
     - ID: -1
       item:
         Name: 
