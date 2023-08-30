@@ -24,7 +24,6 @@ public class DisplayInventory : MonoBehaviour
 
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>(); // 게임 오브젝트 - 인벤토리 슬롯 딕셔너리
-
     // Start is called before the first frame update
     void Start()
     {

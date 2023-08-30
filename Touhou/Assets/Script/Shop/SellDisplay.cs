@@ -128,4 +128,9 @@ public class SellDisplay : MonoBehaviour
         // 어플리케이션이 종료될 때, 모든 인벤토리를 정리하도록 수정합니다.
         inventory.Clear();
     }
+
+    public void ConfirmDeal()
+    {
+        inventory.Load();
+    }
 }

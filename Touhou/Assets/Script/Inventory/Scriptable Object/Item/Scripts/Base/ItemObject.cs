@@ -14,6 +14,8 @@ public abstract class ItemObject : ScriptableObject
     public Sprite uiDisplay;
     public ItemType type;
     public bool countable;
+    public int buyPrice;
+    public int SellPrice;
     [TextArea(15, 20)] public string description;   
 }
 
@@ -23,12 +25,16 @@ public class Item
     public string Name;
     public int Id;
     public bool Countable;
+    public int BuyPrice;
+    public int SellPrice;
 
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.Id;
         Countable = item.countable;
+        BuyPrice = item.buyPrice;
+        SellPrice = item.SellPrice;
     }
 }
 

@@ -20,21 +20,31 @@ public class ShopPlayerDisplay : MonoBehaviour
     public GameObject inventoryPrefab;
     public SellDisplay sellDisplay;
     private bool isShopMode;
+    public TextMeshProUGUI priceText;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI totalPriceText;
+    private PlayerManager playerManager;
+    public long totalSellPrice;
     // public MouseItem mouseItem = new MouseItem();
     
     private void Start() 
     {
+        playerManager = PlayerManager.Instance;
         isShopMode = false;
         CreateSlots();
     }
     private void Update()
     {
         DisplaySlot();
+        moneyText.text = playerManager.money.ToString("n0");
+        priceText.text = totalSellPrice.ToString("n0");
+        totalPriceText.text = "+" + totalSellPrice.ToString("n0");
     }
 
     public void EnterShopMode()
     {
         inventory.Save();
+        totalSellPrice = 0;
         isShopMode = true;
     }
 
@@ -45,6 +55,11 @@ public class ShopPlayerDisplay : MonoBehaviour
         isShopMode = false;
     }
 
+    public void ConfirmDeal()
+    {
+        totalSellPrice = 0;
+        inventory.Save();
+    }
 
     public void CreateSlots()
     {
@@ -122,12 +137,14 @@ public class ShopPlayerDisplay : MonoBehaviour
 
             sellDisplay.AddItem(itemToAdd);
             inventory.RemoveItem(itemDisplayed[obj].item, 1);
+            totalSellPrice += itemToAdd.SellPrice;
         }
     }
 
     public void Reset()
     {
         Debug.Log("Shop Player Display Reset");
+        totalSellPrice = 0;
         inventory.Load();
     }
 }

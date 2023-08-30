@@ -15,5 +15,8 @@ MonoBehaviour:
   Id: 0
   uiDisplay: {fileID: 1273219198, guid: bd6ac75a54ca19f4db86b62aa5500eb7, type: 3}
   type: 1
+  countable: 1
+  buyPrice: 2000
+  SellPrice: 800
   description: Apple
   restoreHealthValue: 16

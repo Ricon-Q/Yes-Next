@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -40,7 +41,7 @@ public class ShopManager : MonoBehaviour
 
     [Header("Middle Panel")]
     [SerializeField] private GameObject middlePanel;
-    public SellDisplay buyDisplay;
+    public BuyDisplay buyDisplay;
     public SellDisplay sellDisplay;
     public ShopNpcDisplay shopNpcDisplay;
     public ShopPlayerDisplay shopPlayerDisplay;
@@ -51,6 +52,13 @@ public class ShopManager : MonoBehaviour
     [Header("Player Info")]
     [SerializeField] private InventoryObject playerInventory;
     public GameObject inventoryPrefab;
+
+    public GameObject confirmPanel;
+
+    private long total;
+    private long finalPrice;
+    public TextMeshProUGUI totalText;
+    public GameObject warningPanel;
 
     private static ShopManager instance;
     public static ShopManager Instance
@@ -77,13 +85,16 @@ public class ShopManager : MonoBehaviour
 
     private void Start() 
     {
+        confirmPanel.SetActive(false);
         shopPanel.SetActive(false);
+        warningPanel.SetActive(false);
         isShopMode = false;
     }
 
     private void Update()
     {
         if(!isShopMode) { return; }
+        calculateTotal();
         // DisplayNPCPanel();
         // DisplayMiddlePanel();
         // DisplayPlayerPanel();    
@@ -128,12 +139,38 @@ public class ShopManager : MonoBehaviour
     // {
 
     // }
+    public void calculateTotal()
+    {
+        total = shopPlayerDisplay.totalSellPrice - shopNpcDisplay.totalBuyPrice;
+        totalText.text = total.ToString("n0");
+    }
 
     public void ResetShop()
     {
         shopPlayerDisplay.Reset();
+        shopNpcDisplay.Reset();
         sellDisplay.Reset();
         buyDisplay.Reset();
         Debug.Log("Resetshop");
+    }
+
+    public void ConfirmDeal()
+    {
+        finalPrice = total + PlayerManager.Instance.money;
+        if(finalPrice >= 0)
+        {
+            PlayerManager.Instance.money = finalPrice;
+            shopPlayerDisplay.ConfirmDeal();
+            shopNpcDisplay.ConfirmDeal();
+            sellDisplay.ConfirmDeal();
+            buyDisplay.ConfirmDeal();
+
+            Debug.Log("Success Deal");
+        }
+        else
+        {   
+            warningPanel.SetActive(true);
+            Debug.Log("Fail Deal");
+        }
     }
 }

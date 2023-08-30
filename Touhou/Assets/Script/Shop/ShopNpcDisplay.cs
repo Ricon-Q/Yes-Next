@@ -18,12 +18,17 @@ public class ShopNpcDisplay : MonoBehaviour
         new Dictionary<GameObject, InventorySlot>();
     public GameObject inventoryPrefab;
 
-    public SellDisplay buyDisplay;
+    public BuyDisplay buyDisplay;
+    public TextMeshProUGUI priceText;
+    public TextMeshProUGUI totalBuyPriceText;
+    public long totalBuyPrice;
+    
 
     // public ShopMiddleDisplay 
 
     public void EnterShopMode(InventoryObject inventoryObject)
     {
+        totalBuyPrice = 0;
         inventory = inventoryObject;
         CreateSlots();
     }
@@ -35,6 +40,8 @@ public class ShopNpcDisplay : MonoBehaviour
     private void Update()
     {
         DisplaySlot();
+        priceText.text = totalBuyPrice.ToString("n0");
+        totalBuyPriceText.text = "-" + totalBuyPrice.ToString("n0");
     }
 
     public void CreateSlots()
@@ -110,6 +117,17 @@ public class ShopNpcDisplay : MonoBehaviour
             Item itemToAdd = new Item(itemObjectToAdd);
 
             buyDisplay.AddItem(itemToAdd);
+            totalBuyPrice += itemToAdd.BuyPrice;
         }
+    }
+
+    public void Reset()
+    {
+        totalBuyPrice = 0;
+    }
+
+    public void ConfirmDeal()
+    {
+        totalBuyPrice = 0;
     }
 }

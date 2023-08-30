@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     public float currentFatigue = 100;   // 현재 피로도
     public float maxHunger = 100;        // 최대 만복도
     public float currentHunger = 100;    // 현재 만복도
+    public long money = 0; // 현재 자금
 
     // 테스트용 변수들
     public GameObject plantPrefab; // 식물 게임 오브젝트 변수

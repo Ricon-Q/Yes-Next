@@ -21,88 +21,118 @@ MonoBehaviour:
         Name: Seed
         Id: 2
         Countable: 1
+        BuyPrice: 1500
+        SellPrice: 1000
       amount: 1
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0
     - ID: -1
       item:
         Name: 
         Id: 0
         Countable: 0
+        BuyPrice: 0
+        SellPrice: 0
       amount: 0

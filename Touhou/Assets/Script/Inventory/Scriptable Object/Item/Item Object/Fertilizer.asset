@@ -16,4 +16,6 @@ MonoBehaviour:
   uiDisplay: {fileID: -176752624, guid: bd6ac75a54ca19f4db86b62aa5500eb7, type: 3}
   type: 2
   countable: 1
+  buyPrice: 1500
+  SellPrice: 900
   description: 
