@@ -71,8 +71,6 @@ public class ShopPlayerDisplay : MonoBehaviour
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
             AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
-            // AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
-            // AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }

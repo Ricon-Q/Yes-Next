@@ -98,20 +98,6 @@ public class SellDisplay : MonoBehaviour
         );
     }
 
-    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
-    // {
-    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
-    //     var eventTrigger = new EventTrigger.Entry();
-    //     eventTrigger.eventID = type;
-    //     eventTrigger.callback.AddListener(action);
-    //     trigger.triggers.Add(eventTrigger);
-    // }
-
-    // public void OnClick(GameObject obj)
-    // {
-        
-    // }
-
     public void Reset()
     {
         // Reset 함수가 호출되면 해당 인벤토리만 로드하도록 수정합니다.

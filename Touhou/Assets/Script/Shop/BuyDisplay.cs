@@ -134,11 +134,6 @@ public class BuyDisplay : MonoBehaviour
         inventory.Clear();
     }
 
-    // public void ComfirmDeal()
-    // {
-    //     inventory.Load();
-    // }
-
     public void ConfirmDeal()
     {
         // Iterate over all items in the inventory

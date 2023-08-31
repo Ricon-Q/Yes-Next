@@ -27,20 +27,20 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject shopPanel;
 
     [Header("NPC Panel")]
-    [SerializeField] private GameObject npcPanel;
-    [SerializeField] private GameObject npcPotrait;
-    [SerializeField] private GameObject textFrame;
-    [SerializeField] private GameObject affectionFram;
-    [SerializeField] private GameObject itemFrame;
+    // [SerializeField] private GameObject npcPanel;
+    // [SerializeField] private GameObject npcPotrait;
+    // [SerializeField] private GameObject textFrame;
+    // [SerializeField] private GameObject affectionFram;
+    // [SerializeField] private GameObject itemFrame;
 
 
     [Header("Player Panel")]
-    [SerializeField] private GameObject playerPanel;
-    [SerializeField] private GameObject displayInventory;
+    // [SerializeField] private GameObject playerPanel;
+    // [SerializeField] private GameObject displayInventory;
     [SerializeField] private ShopPlayerDisplay playerDisplay;
 
     [Header("Middle Panel")]
-    [SerializeField] private GameObject middlePanel;
+    // [SerializeField] private GameObject middlePanel;
     public BuyDisplay buyDisplay;
     public SellDisplay sellDisplay;
     public ShopNpcDisplay shopNpcDisplay;
@@ -50,8 +50,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private NPC npcInfo;
 
     [Header("Player Info")]
-    [SerializeField] private InventoryObject playerInventory;
-    public GameObject inventoryPrefab;
+    // [SerializeField] private InventoryObject playerInventory;
+    // public GameObject inventoryPrefab;
 
     public GameObject confirmPanel;
 
@@ -93,11 +93,7 @@ public class ShopManager : MonoBehaviour
 
     private void Update()
     {
-        if(!isShopMode) { return; }
         calculateTotal();
-        // DisplayNPCPanel();
-        // DisplayMiddlePanel();
-        // DisplayPlayerPanel();    
     }
 
     public void EnterShopMode(NPC npcScript)
@@ -125,20 +121,6 @@ public class ShopManager : MonoBehaviour
         isShopMode = false;
     }
 
-    // public void DisplayNPCPanel()
-    // {
-
-    // }
-
-    // public void DisplayPlayerPanel()
-    // {
-
-    // }
-
-    // public void DisplayMiddlePanel()
-    // {
-
-    // }
     public void calculateTotal()
     {
         total = shopPlayerDisplay.totalSellPrice - shopNpcDisplay.totalBuyPrice;
