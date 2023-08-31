@@ -14,6 +14,7 @@ public class SellDisplay : MonoBehaviour
     public int Y_SPACE_BETWEEN_ITEM;
     public int NUMBER_OF_COLUMN;
     public InventoryObject inventory;
+    public ShopPlayerDisplay shopPlayerInventory;
     // public InventoryObject emptyInventory;
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>();
@@ -54,7 +55,7 @@ public class SellDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
@@ -121,6 +122,33 @@ public class SellDisplay : MonoBehaviour
     public void AddItem(Item _item)
     {
         inventory.AddItem(_item, 1);
+    }
+
+    private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    {
+        EventTrigger trigger = obj.GetComponent<EventTrigger>();
+        var eventTrigger = new EventTrigger.Entry();
+        eventTrigger.eventID = type;
+        eventTrigger.callback.AddListener(action);
+        trigger.triggers.Add(eventTrigger);
+    }
+
+    public void OnClick(GameObject obj)
+    {
+        if(itemDisplayed[obj].ID != -1)
+        {
+            Item clickedItem = itemDisplayed[obj].item;
+
+            // Retrieve the ItemObject from the ItemDatabaseObject using the clicked item's Id
+            ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
+
+            // Create a new Item object here using the constructor which takes an ItemObject
+            Item itemToAdd = new Item(itemObjectToAdd);
+
+            shopPlayerInventory.inventory.AddItem(itemToAdd, 1);
+            inventory.RemoveItem(itemDisplayed[obj].item, 1);
+            shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice;
+        }
     }
 
     private void OnApplicationQuit() 

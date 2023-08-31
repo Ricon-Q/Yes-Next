@@ -3832,6 +3832,7 @@ MonoBehaviour:
   Y_SPACE_BETWEEN_ITEM: 107
   NUMBER_OF_COLUMN: 5
   inventory: {fileID: 11400000, guid: 85b961eb1f9e77945b5e1079daff7e2d, type: 2}
+  shopPlayerInventory: {fileID: 72550436}
   inventoryPrefab: {fileID: 3252193120887582192, guid: 46b0a6c4225dab44fa3f6f13bc4a1928, type: 3}
 --- !u!1 &498943018
 GameObject:
@@ -11658,6 +11659,7 @@ MonoBehaviour:
   inventory: {fileID: 11400000, guid: 4e33bf4dbe7fcd5428ca0e32e17687d1, type: 2}
   playerInventory: {fileID: 11400000, guid: e38b999320b9e544ab6c868373fc3099, type: 2}
   inventoryPrefab: {fileID: 3252193120887582192, guid: 46b0a6c4225dab44fa3f6f13bc4a1928, type: 3}
+  shopNpcDisplay: {fileID: 348811299}
 --- !u!1 &1910736980
 GameObject:
   m_ObjectHideFlags: 0

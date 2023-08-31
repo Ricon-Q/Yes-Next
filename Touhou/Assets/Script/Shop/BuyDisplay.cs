@@ -22,6 +22,7 @@ public class BuyDisplay : MonoBehaviour
     public GameObject inventoryPrefab;
     private bool isShopMode = false;
 
+    public ShopNpcDisplay shopNpcDisplay;
     
     private void Start()
     {
@@ -56,7 +57,7 @@ public class BuyDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
@@ -99,19 +100,21 @@ public class BuyDisplay : MonoBehaviour
         );
     }
 
-    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
-    // {
-    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
-    //     var eventTrigger = new EventTrigger.Entry();
-    //     eventTrigger.eventID = type;
-    //     eventTrigger.callback.AddListener(action);
-    //     trigger.triggers.Add(eventTrigger);
-    // }
+    private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    {
+        EventTrigger trigger = obj.GetComponent<EventTrigger>();
+        var eventTrigger = new EventTrigger.Entry();
+        eventTrigger.eventID = type;
+        eventTrigger.callback.AddListener(action);
+        trigger.triggers.Add(eventTrigger);
+    }
 
-    // public void OnClick(GameObject obj)
-    // {
+    public void OnClick(GameObject obj)
+    {
         
-    // }
+        shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice;
+        inventory.RemoveItem(itemDisplayed[obj].item, 1);
+    }
 
     public void Reset()
     {
@@ -144,18 +147,18 @@ public class BuyDisplay : MonoBehaviour
             // Get the current item
             InventorySlot currentItem = inventory.Container.Items[i];
 
-        // Check if the current item is valid (ID is not -1)
-        if (currentItem.ID >= 0)
-        {
-            // Create a new ItemObject using the ID of the current item
-            ItemObject itemObjectToAdd = inventory.database.GetItem[currentItem.item.Id];
-            // Create a new Item using the ItemObject
-            Item itemToAdd = new Item(itemObjectToAdd);
-            // Add the item to the playerInventory
-            playerInventory.AddItem(itemToAdd, currentItem.amount);
+            // Check if the current item is valid (ID is not -1)
+            if (currentItem.ID >= 0)
+            {
+                // Create a new ItemObject using the ID of the current item
+                ItemObject itemObjectToAdd = inventory.database.GetItem[currentItem.item.Id];
+                // Create a new Item using the ItemObject
+                Item itemToAdd = new Item(itemObjectToAdd);
+                // Add the item to the playerInventory
+                playerInventory.AddItem(itemToAdd, currentItem.amount);
+            }
         }
-    }
-    // Load the inventory
-    inventory.Load();
+        // Load the inventory
+        inventory.Load();
     }
 }
