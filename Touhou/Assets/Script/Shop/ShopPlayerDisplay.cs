@@ -19,7 +19,6 @@ public class ShopPlayerDisplay : MonoBehaviour
         new Dictionary<GameObject, InventorySlot>();
     public GameObject inventoryPrefab;
     public SellDisplay sellDisplay;
-    private bool isShopMode;
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI totalPriceText;
@@ -30,7 +29,6 @@ public class ShopPlayerDisplay : MonoBehaviour
     private void Start() 
     {
         playerManager = PlayerManager.Instance;
-        isShopMode = false;
         CreateSlots();
     }
     private void Update()
@@ -45,14 +43,12 @@ public class ShopPlayerDisplay : MonoBehaviour
     {
         inventory.Save();
         totalSellPrice = 0;
-        isShopMode = true;
     }
 
     public void ExitShopMode()
     {
         // Reset();
         inventory.Load();
-        isShopMode = false;
     }
 
     public void ConfirmDeal()

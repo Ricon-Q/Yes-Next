@@ -20,14 +20,12 @@ public class BuyDisplay : MonoBehaviour
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>();
     public GameObject inventoryPrefab;
-    private bool isShopMode = false;
 
     public ShopNpcDisplay shopNpcDisplay;
     
     private void Start()
     {
         inventory.Save();
-        isShopMode = false;
         CreateSlots();
     }
 
@@ -38,12 +36,10 @@ public class BuyDisplay : MonoBehaviour
     }
     public void EnterShopMode()
     {
-        isShopMode = true;
     }
 
     public void ExitShopMode()
     {
-        isShopMode = false;
         inventory.Load();
         // Reset();
     }

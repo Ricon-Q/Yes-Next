@@ -151,25 +151,4 @@ public class InputManager : MonoBehaviour
         submitPressed = false;
     }
 
-
-    // Mouse
-    // public void OnLeftClick(InputAction.CallbackContext context)
-    // {
-    //     if (context.performed)
-    //     {
-    //         onLeftClick = true;
-    //     }
-    //     else if (context.canceled)
-    //     {
-    //         onLeftClick = false;
-    //     } 
-    // }
-
-    // public bool GetLeftClickPressed() 
-    // {
-    //     bool result = onLeftClick;
-    //     onLeftClick = false;
-    //     return result;
-    // }
-
 }
