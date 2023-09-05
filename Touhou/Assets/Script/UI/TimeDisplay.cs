@@ -23,9 +23,9 @@ public class TimeDisplay : MonoBehaviour
         {
             // 시간 데이터를 가져와서 Text UI 요소에 표시합니다.
 
-            minuteDisplay = timeManager.time.minute;
-            hourDisplay = timeManager.time.hour;
-            dayDisplay = timeManager.time.day;
+            minuteDisplay = timeManager.timeData.minute;
+            hourDisplay = timeManager.timeData.hour;
+            dayDisplay = timeManager.timeData.day;
             string timeString = $"{dayDisplay}일차 {hourDisplay}시 {minuteDisplay}분";
             timeText.text = timeString;
         }

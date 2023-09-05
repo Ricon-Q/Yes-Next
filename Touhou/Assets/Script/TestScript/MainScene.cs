@@ -27,13 +27,13 @@ public class MainScene : MonoBehaviour
     {
         DisableMenuButtons();
         DataPersistenceManager.Instance.NewGame();
-        SceneManager.LoadSceneAsync("Eientei_Room");
+        SceneManager.LoadSceneAsync("Setup");
     }
 
     public void OnContinueGameClicked()
     {
         DisableMenuButtons();
-        SceneManager.LoadSceneAsync("Eientei_Room");
+        SceneManager.LoadSceneAsync("Setup");
     }
 
     private void DisableMenuButtons()

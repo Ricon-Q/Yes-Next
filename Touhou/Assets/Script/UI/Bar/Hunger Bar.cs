@@ -15,6 +15,6 @@ public class HungerBar : MonoBehaviour
 
     private void Update() 
     {
-        slider.value = playerManager.currentHunger / playerManager.maxHunger;
+        slider.value = playerManager.playerData.currentHunger / playerManager.playerData.maxHunger;
     }
 }

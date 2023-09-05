@@ -6,17 +6,11 @@ using UnityEngine.InputSystem;
 
 //키보드 방향키를 이용한 상하좌우 이동
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDataPersistence
 {
 
     public float speed;     // 이동 속도
-    public float maxHealth = 100;        // 최대 체력
-    public float currentHealth = 100;    // 현재 체력
-    public float maxFatigue = 100;       // 최대 피로도
-    public float currentFatigue = 100;   // 현재 피로도
-    public float maxHunger = 100;        // 최대 만복도
-    public float currentHunger = 100;    // 현재 만복도
-    public long money = 0; // 현재 자금
+    public PlayerData playerData;
 
     private static PlayerManager instance;
 
@@ -123,5 +117,17 @@ public class PlayerManager : MonoBehaviour
     public void SetPlayerPosition(Vector3 DoorWayPosition)
     {
         playerPosition = DoorWayPosition;
+    }
+
+    public void LoadData(GameData data)
+    {
+        // Debug.Log("Player Data Load");
+        this.playerData = data.playerData;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        // Debug.Log("Player Data Save");
+        data.playerData = this.playerData;
     }
 }

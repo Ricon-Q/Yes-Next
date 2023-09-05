@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : MonoBehaviour, IDataPersistence
 {
     private static TimeManager instance;
-
-    [System.Serializable]
-    public class Time
-    {
-        public int minute = 0;
-        public int hour = 0;
-        public int day = 1;
-        public int month = 1;
-    }
+    public TimeData timeData;
 
     public Time time;
 
-    private void Awake()
+    private void Awake() 
     {
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -44,28 +36,38 @@ public class TimeManager : MonoBehaviour
 
     public void increaseMinute(int minute)
     {
-        time.minute += minute;
+        timeData.minute += minute;
 
-        if(time.minute >= 60)
+        if(timeData.minute >= 60)
         {
-            time.minute = time.minute - 60;
+            timeData.minute = timeData.minute - 60;
             increaseHour(1);
         }
     }
 
     public void increaseHour(int hour)
     {
-        time.hour += hour;
+        timeData.hour += hour;
 
-        if(time.hour >= 24)
+        if(timeData.hour >= 24)
         {
-            time.hour = time.hour - 24;
+            timeData.hour = timeData.hour - 24;
             increaseDay(1);
         }
     }
 
     public void increaseDay(int day)
     {
-        time.day += day;
+        timeData.day += day;
+    }
+
+    public void LoadData(GameData data)
+    {
+        this.timeData = data.timeData;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.timeData = this.timeData;
     }
 }

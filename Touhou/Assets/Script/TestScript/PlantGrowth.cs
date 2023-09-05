@@ -30,9 +30,9 @@ public class PlantGrowth : MonoBehaviour
         // 날짜 변화를 감지하고 스프라이트 변경
         if (timeManager != null && currentStage < growthStages.Length - 1)
         {
-            if (timeManager.time.day > currentStage + 1)
+            if (timeManager.timeData.day > currentStage + 1)
             {
-                currentStage = Mathf.Min(timeManager.time.day - 1, growthStages.Length - 1);
+                currentStage = Mathf.Min(timeManager.timeData.day - 1, growthStages.Length - 1);
                 spriteRenderer.sprite = growthStages[currentStage];
             }
         }

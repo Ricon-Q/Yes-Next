@@ -15,6 +15,6 @@ public class HealthBar : MonoBehaviour
 
     private void Update() 
     {
-        slider.value = playerManager.currentHealth / playerManager.maxHealth;
+        slider.value = playerManager.playerData.currentHealth / playerManager.playerData.maxHealth;
     }
 }

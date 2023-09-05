@@ -34,7 +34,7 @@ public class ShopPlayerDisplay : MonoBehaviour
     private void Update()
     {
         DisplaySlot();
-        moneyText.text = playerManager.money.ToString("n0");
+        moneyText.text = playerManager.playerData.money.ToString("n0");
         priceText.text = totalSellPrice.ToString("n0");
         totalPriceText.text = "+" + totalSellPrice.ToString("n0");
     }

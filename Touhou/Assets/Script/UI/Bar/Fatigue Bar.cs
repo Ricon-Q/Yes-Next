@@ -15,6 +15,6 @@ public class FatigueBar : MonoBehaviour
 
     private void Update() 
     {
-        slider.value = playerManager.currentFatigue / playerManager.maxFatigue;
+        slider.value = playerManager.playerData.currentFatigue / playerManager.playerData.maxFatigue;
     }
 }

@@ -13,69 +13,41 @@ using UnityEngine.SceneManagement;
 public class Crop : MonoBehaviour
 {
     [SerializeField]private Sprite[] sprites;
-    [SerializeField]private int plantedDay;
-    public int id;
-    // [SerializeField]private GameObject originalPrefab;
-
     private int currentDay;
-    private CropObjectData data;
-
-    private TimeManager timeManager;
-    private ObjectManager objectManager;
-    // private DialogueManager dialogueManager;
-
+    public CropData cropData;
+    public bool spawnedBefore = false;
     private SpriteRenderer spriteRenderer;
-    public TextMeshProUGUI textMeshPro;
-    // private GameObject CropOutput;
+    public string objectName;
     
-    private void Awake()
+    private void Awake() 
     {
-        data = new CropObjectData();
-        timeManager = TimeManager.Instance;
-        objectManager = ObjectManager.Instance;
+        cropData = new CropData(
+                                    TimeManager.Instance.timeData.day, 
+                                    this.transform.position, 
+                                    this.objectName,
+                                    SceneManager.GetActiveScene().name
+                                );
         spriteRenderer = GetComponent<SpriteRenderer>();
-        plantedDay = timeManager.time.day;
         spriteRenderer.sprite = sprites[0];
     }
-    private void Start() 
+    private void Start()
     {
-        SetupData();
-        objectManager.AddObjectData(SceneManager.GetActiveScene().name, data);
-        // textMeshPro = GameObject.Find("DialogueManager/Canvas/Image")?.GetComponentInChildren<TextMeshProUGUI>();
+        CheckSpawnedBefore();
     }
     private void Update() 
     {
-        currentDay = timeManager.time.day;
+        currentDay = TimeManager.Instance.timeData.day;
         SetSprite();
-    }
-
-    
-    private void SetupData()
-    {
-        data.name = "CropTest";
-        data.obj = Resources.Load<GameObject>("Prefabs/CropTest");
-        // data.code = objectManager.sceneObjectData[SceneManager.GetActiveScene().name].Count;
-        data.position = this.transform.position;
-        data.plantedDay = plantedDay;
-        // data.sprites = sprites;
-    }
-
-    public void SetPlantedDay(int day)
-    {
-        plantedDay = day;
     }
     
     private void SetSprite()
     {
-        spriteRenderer.sprite = sprites[Math.Clamp(currentDay - plantedDay, 0, sprites.Length-1)];
+        spriteRenderer.sprite = sprites[Math.Clamp(currentDay - cropData.plantedDay, 0, sprites.Length-1)];
     }
 
-    // public void Interact(GameObject scanObj)
-    // {
-    //     textMeshPro.text = 
-    //     "Crop Name : " + scanObj.name + 
-    //     "\nDay : " + (Math.Clamp(currentDay - plantedDay, 0, sprites.Length-1)+1) + " / " + sprites.Length;
-
-    //     // dialogueManager.ScriptInteract(text)
-    // }
+    public void CheckSpawnedBefore()
+    {
+        if(spawnedBefore) return;
+        CropManager.Instance.AddCropData(cropData);
+    }
 }

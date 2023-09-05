@@ -78,7 +78,7 @@ public class ShopManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }    
         else { Destroy(this.gameObject); }
     }
@@ -138,10 +138,10 @@ public class ShopManager : MonoBehaviour
 
     public void ConfirmDeal()
     {
-        finalPrice = total + PlayerManager.Instance.money;
+        finalPrice = total + PlayerManager.Instance.playerData.money;
         if(finalPrice >= 0)
         {
-            PlayerManager.Instance.money = finalPrice;
+            PlayerManager.Instance.playerData.money = finalPrice;
             shopPlayerDisplay.ConfirmDeal();
             shopNpcDisplay.ConfirmDeal();
             sellDisplay.ConfirmDeal();

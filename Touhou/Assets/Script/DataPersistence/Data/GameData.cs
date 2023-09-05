@@ -1,16 +1,83 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 [System.Serializable]
 public class GameData
 {
-    public int deathCount;
+    public PlayerData playerData;
+    public TimeData timeData;
+
+    // public SerializableDictionary<string, List<CropData>> cropDatas;
+    // public Dictionary<string, List<CropData>> cropDatas;
+    public List<CropData> cropDatas;
+    // public List<int> test;
 
     // 해당 생성자들의 값들은 기본 값이다
     // 데이터에 로드할 것이 없을때 아래 값들을 가져온다
     public GameData()
     {
-        this.deathCount = 0;
+        this.playerData = new PlayerData();
+        this.timeData = new TimeData();
+        // this.cropDatas = new SerializableDictionary<string, List<CropData>>();
+        this.cropDatas = new List<CropData>();
+    }
+}
+
+[System.Serializable]
+public class PlayerData
+{
+    public float maxHealth;        // 최대 체력
+    public float currentHealth;    // 현재 체력
+    public float maxFatigue;       // 최대 피로도
+    public float currentFatigue;   // 현재 피로도
+    public float maxHunger;        // 최대 만복도
+    public float currentHunger;    // 현재 만복도
+    public long money;
+
+    public PlayerData()
+    {
+        this.maxHealth = 100;
+        this.currentHealth = 100;    
+        this.maxFatigue = 100;       
+        this.currentFatigue = 100;   
+        this.maxHunger = 100;        
+        this.currentHunger = 100;    
+        this.money = 0;
+    }
+}
+
+[System.Serializable]
+public class TimeData
+{
+    public int minute;
+    public int hour;
+    public int day;
+    public int month;
+
+    public TimeData()
+    {
+        this.minute = 1;
+        this.hour = 2;
+        this.day = 3;
+        this.month = 4;
+    }
+}
+
+[System.Serializable]
+public class CropData
+{
+    public int plantedDay;
+    public Vector3 position;
+    public string name;
+    public string sceneName;
+    public CropData(int plantedDay, Vector3 position, string name, string sceneName)
+    {
+        this.plantedDay = plantedDay;
+        this.position = position;
+        this.name = name;
+        this.sceneName = sceneName;
     }
 }
