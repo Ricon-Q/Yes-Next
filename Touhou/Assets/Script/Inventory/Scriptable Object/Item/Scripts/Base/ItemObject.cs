@@ -15,7 +15,9 @@ public abstract class ItemObject : ScriptableObject
     public ItemType type;
     public bool countable;
     public int buyPrice;
-    public int SellPrice;
+    public int sellPrice;
+    public bool craftable;
+    public bool sellable;
     [TextArea(15, 20)] public string description;   
 }
 
@@ -23,18 +25,24 @@ public abstract class ItemObject : ScriptableObject
 public class Item
 {
     public string Name;
+    public ItemType type;
     public int Id;
-    public bool Countable;
     public int BuyPrice;
     public int SellPrice;
+    public bool Sellable;
+    public bool Craftable;
+    public bool Countable;
 
     public Item(ItemObject item)
     {
         Name = item.name;
         Id = item.Id;
-        Countable = item.countable;
         BuyPrice = item.buyPrice;
-        SellPrice = item.SellPrice;
+        SellPrice = item.sellPrice;
+        Sellable = item.sellable;
+        Craftable = item.craftable;
+        Countable = item.countable;
+
     }
 }
 

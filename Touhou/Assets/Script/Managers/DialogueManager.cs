@@ -66,6 +66,9 @@ public class DialogueManager : MonoBehaviour
 
         choiceActions["Exit"] = ExitDialogueMode;
         choiceActions["Shop"] = EnterShopMode;
+        choiceActions["Affection +2"] = AddAffection;
+
+        // 디버그용 코드
     }
 
     private void Update()
@@ -84,20 +87,19 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON, NPC npcInfo)
     {
         currentStory = new Story(inkJSON.text);
+        currentStory.variablesState["npcAffection"] = npcInfo.npcData.affection;
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
         npcScript = npcInfo;
 
         ContinueStory();
     }
-
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
-
     private void ContinueStory()
     {
         if(currentStory.canContinue)
@@ -111,7 +113,6 @@ public class DialogueManager : MonoBehaviour
             ExitDialogueMode();
         }
     }
-
     private void DisplayChoices()
     {
         List<Choice> currentChoices = currentStory.currentChoices;
@@ -136,19 +137,17 @@ public class DialogueManager : MonoBehaviour
 
         StartCoroutine(SelectFirstChoice());
     }
-
     private IEnumerator SelectFirstChoice()
     {
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
     }
-
     public void MakeChoice(int choiceIndex) 
     {
         Choice choice = currentStory.currentChoices[choiceIndex];
         string choiceText = choice.text;
-        Debug.Log(choiceText);
+        // Debug.Log(choiceText);
 
          // 선택지에 해당하는 함수 실행
         if (choiceActions.ContainsKey(choiceText))
@@ -158,11 +157,14 @@ public class DialogueManager : MonoBehaviour
 
         currentStory.ChooseChoiceIndex(choiceIndex);
     }
-
     public void EnterShopMode()
     {
         ShopManager.Instance.EnterShopMode(npcScript);
         ExitDialogueMode();
     }
-
+    public void AddAffection()
+    {
+        npcScript.npcData.affection += 2;
+        currentStory.variablesState["npcAffection"] = npcScript.npcData.affection;
+    }
 }

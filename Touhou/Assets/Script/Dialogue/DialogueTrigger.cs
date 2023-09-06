@@ -20,6 +20,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         playerInRange = false;
         visualCue.SetActive(false);    
+        
     }
 
     private void Update()

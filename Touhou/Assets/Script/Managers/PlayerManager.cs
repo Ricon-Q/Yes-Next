@@ -114,20 +114,71 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
             ScanObject = null;
         }
     }
+    
     public void SetPlayerPosition(Vector3 DoorWayPosition)
     {
         playerPosition = DoorWayPosition;
     }
-
+    
     public void LoadData(GameData data)
     {
         // Debug.Log("Player Data Load");
         this.playerData = data.playerData;
     }
-
+    
     public void SaveData(ref GameData data)
     {
         // Debug.Log("Player Data Save");
         data.playerData = this.playerData;
     }
+    
+    public void ChangeCurrentHealth(float value)
+    {
+        this.playerData.currentHealth = value;
+    }
+    public void ChangeMaxHealth(float value)
+    {
+        this.playerData.maxHealth = value;
+    }
+    public void ChangeCurrentFatigue(float value)
+    {
+        this.playerData.currentFatigue = value;
+    }
+    public void ChangeMaxFatigue(float value)
+    {
+        this.playerData.maxFatigue = value;
+    }
+    public void ChangeCurrentHunger(float value)
+    {
+        this.playerData.currentHunger = value;
+    }
+    public void ChangeMaxHunger(float value)
+    {
+        this.playerData.maxHunger = value;
+    } 
+    public void AddCurrentHealth(float value)
+    {
+        this.playerData.currentHealth += value;
+    }
+    public void AddMaxHealth(float value)
+    {
+        this.playerData.maxHealth += value;
+    }
+    public void AddCurrentFatigue(float value)
+    {
+        this.playerData.currentFatigue += value;
+    }
+    public void AddMaxFatigue(float value)
+    {
+        this.playerData.maxFatigue += value;
+    }
+    public void AddCurrentHunger(float value)
+    {
+        this.playerData.currentHunger += value;
+    }
+    public void AddMaxHunger(float value)
+    {
+        this.playerData.maxHunger += value;
+    }
+
 }

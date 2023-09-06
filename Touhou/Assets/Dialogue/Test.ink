@@ -1,3 +1,4 @@
+VAR npcAffection = 0
 -> main
 
 === main ===

@@ -9,11 +9,8 @@ public class GameData
 {
     public PlayerData playerData;
     public TimeData timeData;
-
-    // public SerializableDictionary<string, List<CropData>> cropDatas;
-    // public Dictionary<string, List<CropData>> cropDatas;
     public List<CropData> cropDatas;
-    // public List<int> test;
+    public List<NpcData> npcDatas;
 
     // 해당 생성자들의 값들은 기본 값이다
     // 데이터에 로드할 것이 없을때 아래 값들을 가져온다
@@ -23,6 +20,7 @@ public class GameData
         this.timeData = new TimeData();
         // this.cropDatas = new SerializableDictionary<string, List<CropData>>();
         this.cropDatas = new List<CropData>();
+        this.npcDatas = new List<NpcData>();
     }
 }
 
@@ -63,6 +61,23 @@ public class TimeData
         this.hour = 2;
         this.day = 3;
         this.month = 4;
+    }
+}
+
+[System.Serializable]
+public class NpcData
+{
+    public string name;
+    public Vector3 position;
+    public int affection;
+    public string sceneName;
+    
+    public NpcData(string name, Vector3 position, int affection, string sceneName)
+    {
+        this.name = name;
+        this.position = position;
+        this.affection = affection;
+        this.sceneName = sceneName;
     }
 }
 
