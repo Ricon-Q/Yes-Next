@@ -17,5 +17,7 @@ MonoBehaviour:
   type: 2
   countable: 1
   buyPrice: 1500
-  SellPrice: 900
-  description: 
+  sellPrice: 1000
+  craftable: 0
+  sellable: 1
+  description: Fertilizer Description

@@ -12,7 +12,7 @@ public class MainScene : MonoBehaviour
     public void GoToRoom()
     {
         // if(InputManager.Instance.GetLeftClickPressed())
-        SceneManager.LoadScene("Eientei_Room");
+        SceneManager.LoadScene("Debug_Main");
     }
 
     private void Start() 

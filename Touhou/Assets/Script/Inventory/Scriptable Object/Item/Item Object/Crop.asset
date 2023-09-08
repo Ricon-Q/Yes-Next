@@ -17,6 +17,8 @@ MonoBehaviour:
   type: 1
   countable: 1
   buyPrice: 2000
-  SellPrice: 800
-  description: Apple
+  sellPrice: 1500
+  craftable: 0
+  sellable: 1
+  description: Crop Description
   restoreHealthValue: 16

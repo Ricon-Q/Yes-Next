@@ -12,6 +12,7 @@ public class InventoryObject : ScriptableObject
     public string savePath;
     public ItemDatabaseObject database;
     public Inventory Container;
+    public Inventory test;
 
 
     public void AddItem(Item _item, int _amount)
@@ -99,7 +100,7 @@ public class InventoryObject : ScriptableObject
         item1.UpdateSlot(temp.ID, temp.item, temp.amount);
     }
 
-    public void RemoveItem(Item _item, int amount)
+    public void RemoveItem(Item _item, int amount = 1)
     {
         for (int i = 0; i < Container.Items.Length; i++)
         {

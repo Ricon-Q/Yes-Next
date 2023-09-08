@@ -42,7 +42,6 @@ public class Item
         Sellable = item.sellable;
         Craftable = item.craftable;
         Countable = item.countable;
-
     }
 }
 

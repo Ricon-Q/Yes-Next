@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 1733610411}
   - component: {fileID: 1733610410}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2198,6 +2198,11 @@ MonoBehaviour:
   X_SPACE_BETWEEN_ITEM: 125
   NUMBER_OF_COLUMN: 3
   Y_SPACE_BETWEEN_ITEM: 125
+  itemInfoPanel: {fileID: 0}
+  isInfoPanelOpen: 0
+  itemImage: {fileID: 0}
+  itemName: {fileID: 0}
+  descriptionText: {fileID: 0}
 --- !u!1 &1914012405
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,12 +51,12 @@ public class SellDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate(BaseEventData data) { OnClick(obj, data); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
     }
-
     public void DisplaySlot()
     {
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemDisplayed)
@@ -101,10 +101,19 @@ public class SellDisplay : MonoBehaviour
         inventory.Load();
     }
 
-    public void AddItem(Item _item)
+    public void AddItem(Item _item, int amount = 1)
     {
-        inventory.AddItem(_item, 1);
+        inventory.AddItem(_item, amount);
     }
+
+    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    // {
+    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
+    //     var eventTrigger = new EventTrigger.Entry();
+    //     eventTrigger.eventID = type;
+    //     eventTrigger.callback.AddListener(action);
+    //     trigger.triggers.Add(eventTrigger);
+    // }
 
     private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
@@ -115,24 +124,71 @@ public class SellDisplay : MonoBehaviour
         trigger.triggers.Add(eventTrigger);
     }
 
-    public void OnClick(GameObject obj)
+
+    // public void OnClick(GameObject obj)
+    // {
+    //     if(itemDisplayed[obj].ID != -1)
+    //     {
+    //         Item clickedItem = itemDisplayed[obj].item;
+
+    //         // Retrieve the ItemObject from the ItemDatabaseObject using the clicked item's Id
+    //         ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
+
+    //         // Create a new Item object here using the constructor which takes an ItemObject
+    //         Item itemToAdd = new Item(itemObjectToAdd);
+
+    //         shopPlayerInventory.inventory.AddItem(itemToAdd, 1);
+    //         inventory.RemoveItem(itemDisplayed[obj].item, 1);
+    //         shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice;
+    //     }
+    // }
+
+    public void OnClick(GameObject obj, BaseEventData data)
     {
+        PointerEventData pointerData = data as PointerEventData;
+
         if(itemDisplayed[obj].ID != -1)
         {
             Item clickedItem = itemDisplayed[obj].item;
-
-            // Retrieve the ItemObject from the ItemDatabaseObject using the clicked item's Id
             ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
-
-            // Create a new Item object here using the constructor which takes an ItemObject
             Item itemToAdd = new Item(itemObjectToAdd);
 
-            shopPlayerInventory.inventory.AddItem(itemToAdd, 1);
-            inventory.RemoveItem(itemDisplayed[obj].item, 1);
-            shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice;
+            if (pointerData.button == PointerEventData.InputButton.Left)
+            {
+                // Left click action
+                shopPlayerInventory.inventory.AddItem(itemToAdd, 1);
+                inventory.RemoveItem(itemDisplayed[obj].item, 1);
+                shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice;
+            }
+            else if (pointerData.button == PointerEventData.InputButton.Right)
+            {
+                // Right click action
+                
+                if(itemDisplayed[obj].item.Countable == true)
+                {
+                    if(itemDisplayed[obj].amount >= 10)
+                    {
+                        shopPlayerInventory.inventory.AddItem(itemToAdd, 10);
+                        inventory.RemoveItem(itemDisplayed[obj].item, 10);
+                        shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice * 10;
+                    }
+                    else
+                    {
+                        shopPlayerInventory.inventory.AddItem(itemToAdd, itemDisplayed[obj].amount);
+                        shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice * itemDisplayed[obj].amount;
+                        inventory.RemoveItem(itemDisplayed[obj].item, itemDisplayed[obj].amount);
+                    } 
+                }
+                else
+                {
+                    shopPlayerInventory.inventory.AddItem(itemToAdd, 1);
+                    inventory.RemoveItem(itemDisplayed[obj].item, 1);
+                    shopPlayerInventory.totalSellPrice -= itemToAdd.SellPrice;
+                }
+                  
+            }
         }
     }
-
     private void OnApplicationQuit() 
     {
         // 어플리케이션이 종료될 때, 모든 인벤토리를 정리하도록 수정합니다.

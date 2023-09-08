@@ -181,4 +181,13 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
         this.playerData.maxHunger += value;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        var item = other.GetComponent<GroundItem>();
+        if(item)
+        {
+            inventory.AddItem(new Item(item.item), 1);
+            Destroy(other.gameObject);
+        }
+    }
 }

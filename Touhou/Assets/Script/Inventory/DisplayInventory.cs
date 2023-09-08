@@ -22,12 +22,21 @@ public class DisplayInventory : MonoBehaviour
     public int NUMBER_OF_COLUMN;
     public int Y_SPACE_BETWEEN_ITEM;
 
+    public GameObject itemInfoPanel;
+    public bool isInfoPanelOpen = false;
+    public Image itemImage;
+    public TextMeshProUGUI itemName;
+    public TextMeshProUGUI descriptionText; 
+    // public GameObject highlight;
+
+
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>(); // 게임 오브젝트 - 인벤토리 슬롯 딕셔너리
     // Start is called before the first frame update
     void Start()
     {
         CreateSlots();
+        itemInfoPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -81,12 +90,14 @@ public class DisplayInventory : MonoBehaviour
         {
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+            // obj.transform.Find("highlight").gameObject.SetActive(false);
 
             AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
             AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate(BaseEventData data) { OnClick(obj, data); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
@@ -100,21 +111,17 @@ public class DisplayInventory : MonoBehaviour
         eventTrigger.callback.AddListener(action);
         trigger.triggers.Add(eventTrigger);
     }
-    
-
     public void OnEnter(GameObject obj)
     {
         mouseItem.hoverObj = obj;
         if(itemDisplayed.ContainsKey(obj))
             mouseItem.hoverItem = itemDisplayed[obj];
     }
-
     public void OnExit(GameObject obj)
     {
         mouseItem.hoverObj = null;
         mouseItem.hoverItem = null;
-    }
-    
+    } 
     public void OnDragStart(GameObject obj)
     {
         var mouseObject = new GameObject();
@@ -129,12 +136,10 @@ public class DisplayInventory : MonoBehaviour
             obj.transform.GetChild(0).transform.localScale = new Vector3 (0, 0, 0);
             obj.transform.GetChild(1).transform.localScale = new Vector3 (0, 0, 0);
 
+            mouseItem.obj = mouseObject;
+            mouseItem.item = itemDisplayed[obj];
         }
-
-        mouseItem.obj = mouseObject;
-        mouseItem.item = itemDisplayed[obj];
     }
-    
     public void OnDragEnd(GameObject obj)
     {   
         if(mouseItem.hoverObj)
@@ -150,11 +155,50 @@ public class DisplayInventory : MonoBehaviour
         obj.transform.GetChild(1).transform.localScale = new Vector3 (1, 1, 1);
         mouseItem.item = null;
     }
-    
     public void OnDrag(GameObject obj)
     {
         if(mouseItem.obj != null)
             mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
+    }
+    public void OnClick(GameObject obj, BaseEventData data)
+    {
+        PointerEventData pointerData = data as PointerEventData;
+        
+        if (pointerData.button == PointerEventData.InputButton.Left)
+        {
+            // Left click action
+            Debug.Log(itemDisplayed[obj].ID);
+            if(itemDisplayed[obj].ID >= 0)
+            {
+                OpenInfoPanel();
+                // highlight = obj.transform.Find("highlight").gameObject;
+                // highlight.SetActive(true);
+                ItemObject itemObjectToShow = inventory.database.GetItem[itemDisplayed[obj].item.Id];
+                itemImage.sprite = itemObjectToShow.uiDisplay;
+                itemName.text = "<" + itemObjectToShow.name + ">";
+                descriptionText.text = itemObjectToShow.description; 
+            }
+            else
+            {
+                CloseInfoPanel();
+            }
+        }
+        else if (pointerData.button == PointerEventData.InputButton.Right)
+        {  
+            // Right click action
+            Debug.Log("Right click action");
+        }
+    }
+
+    public void OpenInfoPanel()
+    {
+        itemInfoPanel.SetActive(true);
+        isInfoPanelOpen = true;
+    }
+    public void CloseInfoPanel()
+    {
+        itemInfoPanel.SetActive(false);
+        isInfoPanelOpen = false;
     }
 }
 

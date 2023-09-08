@@ -53,7 +53,8 @@ public class BuyDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate(BaseEventData data) { OnClick(obj, data); });
 
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
@@ -96,6 +97,15 @@ public class BuyDisplay : MonoBehaviour
         );
     }
 
+    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    // {
+    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
+    //     var eventTrigger = new EventTrigger.Entry();
+    //     eventTrigger.eventID = type;
+    //     eventTrigger.callback.AddListener(action);
+    //     trigger.triggers.Add(eventTrigger);
+    // }
+
     private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -105,11 +115,47 @@ public class BuyDisplay : MonoBehaviour
         trigger.triggers.Add(eventTrigger);
     }
 
-    public void OnClick(GameObject obj)
-    {
+    // public void OnClick(GameObject obj)
+    // {
         
-        shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice;
-        inventory.RemoveItem(itemDisplayed[obj].item, 1);
+    //     shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice;
+    //     inventory.RemoveItem(itemDisplayed[obj].item, 1);
+    // }
+
+    public void OnClick(GameObject obj, BaseEventData data)
+    {
+        PointerEventData pointerData = data as PointerEventData;
+
+        if (pointerData.button == PointerEventData.InputButton.Left)
+        {
+            // Left click action
+            shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice;
+            inventory.RemoveItem(itemDisplayed[obj].item, 1);
+        }
+        else if (pointerData.button == PointerEventData.InputButton.Right)
+        {
+            // Right click action
+            
+            if(itemDisplayed[obj].item.Countable == true)
+            {
+                if(itemDisplayed[obj].amount >= 10)
+                {
+                    shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice * 10;
+                    inventory.RemoveItem(itemDisplayed[obj].item, 10);
+                }
+                else
+                {
+                    shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice * itemDisplayed[obj].amount;
+                    inventory.RemoveItem(itemDisplayed[obj].item, itemDisplayed[obj].amount);
+                }
+            }
+            else
+            {
+                shopNpcDisplay.totalBuyPrice -= itemDisplayed[obj].item.BuyPrice;
+                inventory.RemoveItem(itemDisplayed[obj].item, 1);
+            }
+            
+        }
     }
 
     public void Reset()
@@ -119,9 +165,9 @@ public class BuyDisplay : MonoBehaviour
         inventory.Load();
     }
 
-    public void AddItem(Item _item)
+    public void AddItem(Item _item, int amount = 1)
     {
-        inventory.AddItem(_item, 1);
+        inventory.AddItem(_item, amount);
     }
 
     private void OnApplicationQuit() 

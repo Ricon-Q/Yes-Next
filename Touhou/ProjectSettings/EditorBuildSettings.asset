@@ -18,6 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Kourindou/Kourindou.unity
     guid: c52f66240a727c14c8959e3f69669562
   - enabled: 1
+    path: Assets/Scenes/Debug/Debug_Item.unity
+    guid: 2c63ef9e368c230469f0a053bebb9df9
+  - enabled: 1
+    path: Assets/Scenes/Debug/Debug_Main.unity
+    guid: f251b9a4353dc0743a7bd418386e3d04
+  - enabled: 1
+    path: Assets/Scenes/Debug/Debug_NPC.unity
+    guid: 1aa9e0052c98c3044973f9a6cbf39b76
+  - enabled: 1
     path: Assets/Scenes/Kourindou/Kourindou_Shop.unity
     guid: e3a9ac09d18af824a8a4254c3ba3b92d
   - enabled: 1

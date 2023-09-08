@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 2
   countable: 1
   buyPrice: 1500
-  SellPrice: 1000
-  description: 'Bone Test
-
-'
+  sellPrice: 2000
+  craftable: 0
+  sellable: 0
+  description: Seed Description

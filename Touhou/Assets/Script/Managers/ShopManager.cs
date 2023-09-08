@@ -59,6 +59,8 @@ public class ShopManager : MonoBehaviour
     private long finalPrice;
     public TextMeshProUGUI totalText;
     public GameObject warningPanel;
+    public GameObject affection5Panel;
+    public GameObject affection10Panel;
 
     private static ShopManager instance;
     public static ShopManager Instance
@@ -101,6 +103,21 @@ public class ShopManager : MonoBehaviour
         shopPanel.SetActive(true);
         npcInfo = npcScript;
         isShopMode = true;
+        if(npcInfo.npcData.affection < 5)
+        {
+            affection5Panel.SetActive(true);
+            affection10Panel.SetActive(true);
+        }
+        else if(5 <= npcInfo.npcData.affection && npcInfo.npcData.affection < 10)
+        {
+            affection5Panel.SetActive(false);
+            affection10Panel.SetActive(true);
+        }
+        else if(10 <= npcInfo.npcData.affection)
+        {
+            affection5Panel.SetActive(false);
+            affection10Panel.SetActive(false);
+        }
 
         // playerDisplay.EnterShopMode();
         shopNpcDisplay.EnterShopMode(npcInfo.inventoryObject);

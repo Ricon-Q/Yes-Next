@@ -53,7 +53,8 @@ public class ShopNpcDisplay : MonoBehaviour
             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
 
-            AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
+            AddEvent(obj, EventTriggerType.PointerClick, delegate(BaseEventData data) { OnClick(obj, data); });
             
             itemDisplayed.Add(obj, inventory.Container.Items[i]);
         }
@@ -95,6 +96,14 @@ public class ShopNpcDisplay : MonoBehaviour
         }
     }
 
+    // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
+    // {
+    //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
+    //     var eventTrigger = new EventTrigger.Entry();
+    //     eventTrigger.eventID = type;
+    //     eventTrigger.callback.AddListener(action);
+    //     trigger.triggers.Add(eventTrigger);
+    // }
     private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -103,6 +112,7 @@ public class ShopNpcDisplay : MonoBehaviour
         eventTrigger.callback.AddListener(action);
         trigger.triggers.Add(eventTrigger);
     }
+
 
     public void OnClick(GameObject obj)
     {
@@ -118,6 +128,41 @@ public class ShopNpcDisplay : MonoBehaviour
 
             buyDisplay.AddItem(itemToAdd);
             totalBuyPrice += itemToAdd.BuyPrice;
+        }
+    }
+
+    public void OnClick(GameObject obj, BaseEventData data)
+    {
+        PointerEventData pointerData = data as PointerEventData;
+
+        if(itemDisplayed[obj].ID != -1)
+        {
+            Item clickedItem = itemDisplayed[obj].item;
+            ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
+            Item itemToAdd = new Item(itemObjectToAdd);
+
+            if (pointerData.button == PointerEventData.InputButton.Left)
+            {
+                // Left click action
+                buyDisplay.AddItem(itemToAdd);
+                totalBuyPrice += itemToAdd.BuyPrice;
+            }
+            else if (pointerData.button == PointerEventData.InputButton.Right)
+            {
+                // Right click action
+                Debug.Log("right Click");
+                
+                if(itemDisplayed[obj].item.Countable == true)
+                {                   
+                    buyDisplay.AddItem(itemToAdd, 10);
+                    totalBuyPrice += itemToAdd.BuyPrice * 10;
+                }
+                else
+                {
+                    buyDisplay.AddItem(itemToAdd);
+                    totalBuyPrice += itemToAdd.BuyPrice;
+                }
+            }
         }
     }
 
