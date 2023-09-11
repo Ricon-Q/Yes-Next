@@ -19,90 +19,332 @@ MonoBehaviour:
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0
     - ID: -1
       item:
         Name: 
+        type: 0
         Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+  test:
+    Items:
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
+        Countable: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        type: 0
+        Id: 0
+        BuyPrice: 0
+        SellPrice: 0
+        Sellable: 0
+        Craftable: 0
         Countable: 0
       amount: 0

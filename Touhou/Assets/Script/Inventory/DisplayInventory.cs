@@ -29,6 +29,9 @@ public class DisplayInventory : MonoBehaviour
     public TextMeshProUGUI descriptionText; 
     // public GameObject highlight;
 
+    public bool filterCategory = false;
+    public ItemType type;
+
 
     Dictionary<GameObject, InventorySlot> itemDisplayed = 
         new Dictionary<GameObject, InventorySlot>(); // 게임 오브젝트 - 인벤토리 슬롯 딕셔너리
@@ -55,8 +58,23 @@ public class DisplayInventory : MonoBehaviour
                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = 
                     inventory.database.GetItem[_slot.Value.item.Id].uiDisplay;
                 // 아이템 이미지 투명도 설정
-                _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
-                    new Color(1, 1, 1, 1);
+                if(filterCategory)
+                {
+                    if(_slot.Value.item.type == this.type)
+                    {
+                        _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
+                            new Color(1, 1, 1, 1f);
+                    }
+                    else{
+                        _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
+                            new Color(1, 1, 1, .3f);
+                    }
+                }
+                else
+                {
+                    _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
+                        new Color(1, 1, 1, 1);
+                }
                 //아이템 개수 설정 (1개 일시 "", n개 일시 "n"으로 표시)
                 _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = 
                     _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
@@ -189,7 +207,6 @@ public class DisplayInventory : MonoBehaviour
             Debug.Log("Right click action");
         }
     }
-
     public void OpenInfoPanel()
     {
         itemInfoPanel.SetActive(true);
@@ -199,6 +216,16 @@ public class DisplayInventory : MonoBehaviour
     {
         itemInfoPanel.SetActive(false);
         isInfoPanelOpen = false;
+    }
+    public void ChangeCategoryType(ItemType type)
+    {
+        if(type == ItemType.Default)
+        {
+            filterCategory = false;
+            return;
+        }
+        filterCategory = true;
+        this.type = type;
     }
 }
 

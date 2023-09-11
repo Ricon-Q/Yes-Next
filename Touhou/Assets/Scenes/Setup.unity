@@ -4045,6 +4045,8 @@ MonoBehaviour:
   itemImage: {fileID: 621403911}
   itemName: {fileID: 828840442}
   descriptionText: {fileID: 1652384655}
+  filterCategory: 0
+  type: 0
 --- !u!1 &461189830
 GameObject:
   m_ObjectHideFlags: 0

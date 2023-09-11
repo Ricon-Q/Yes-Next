@@ -9,17 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4f632e2a1689444c942f5f2c0473f8c, type: 3}
-  m_Name: Tool
+  m_Script: {fileID: 11500000, guid: d269b3b2423d15c4692ebccfb4ab6306, type: 3}
+  m_Name: Defalut
   m_EditorClassIdentifier: 
   Id: 0
-  uiDisplay: {fileID: -2086164487, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
-  type: 4
-  countable: 0
+  uiDisplay: {fileID: 532238433, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
+  type: 0
+  countable: 1
   buyPrice: 1000
   sellPrice: 900
   craftable: 0
   sellable: 0
-  description: 'Tool Des
-
-'
+  description: Defalut Des

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public enum ItemType
 {
+    Default,
+    Food,
+    Ingredient,
+    Medicine,
     Tool,
-    Crop,
-    Default
+    Cloth,
+    Farm
 }
 public abstract class ItemObject : ScriptableObject
 {

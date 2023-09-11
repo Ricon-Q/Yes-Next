@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Food Object", menuName = "InventoryTest/Items/Food")]
-public class CropObject : ItemObject
+public class FoodObject : ItemObject
 {
-    public int restoreHealthValue;
     private void Awake()
     {
         countable = true;
-        type = ItemType.Crop;    
+        type = ItemType.Default;
     }
 }

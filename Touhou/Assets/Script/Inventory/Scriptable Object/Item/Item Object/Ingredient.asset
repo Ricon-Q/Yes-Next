@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d269b3b2423d15c4692ebccfb4ab6306, type: 3}
-  m_Name: Seed
+  m_Script: {fileID: 11500000, guid: a66cd522b7e5ba043a354a8d61357f3f, type: 3}
+  m_Name: Ingredient
   m_EditorClassIdentifier: 
-  Id: 2
-  uiDisplay: {fileID: 888369087, guid: bd6ac75a54ca19f4db86b62aa5500eb7, type: 3}
+  Id: 0
+  uiDisplay: {fileID: -1124944015, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
   type: 2
   countable: 1
-  buyPrice: 1500
-  sellPrice: 2000
+  buyPrice: 1000
+  sellPrice: 900
   craftable: 0
   sellable: 0
-  description: Seed Description
+  description: Ingredient Des
