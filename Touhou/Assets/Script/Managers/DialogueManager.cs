@@ -159,7 +159,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void EnterShopMode()
     {
-        ShopManager.Instance.EnterShopMode(npcScript);
+        // ShopManager.Instance.EnterShopMode(npcScript);
         ExitDialogueMode();
     }
     public void AddAffection()

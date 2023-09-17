@@ -1,60 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
-{
-    private static InventoryManager instance;
-    public static InventoryManager Instance
-    {
-        get
-        {
-            if(instance == null)
-            {
-                return null;
-            }
-            return instance;
-        }
-    }
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            // DontDestroyOnLoad(this.gameObject);
-        }    
-        else { Destroy(this.gameObject); }
-    }
+// public class InventoryManager : MonoBehaviour
+// {
+//     private static InventoryManager instance;
+//     public static InventoryManager Instance
+//     {
+//         get
+//         {
+//             if(instance == null)
+//             {
+//                 return null;
+//             }
+//             return instance;
+//         }
+//     }
+//     private void Awake()
+//     {
+//         if(instance == null)
+//         {
+//             instance = this;
+//             // DontDestroyOnLoad(this.gameObject);
+//         }    
+//         else { Destroy(this.gameObject); }
+//     }
 
-    private void Start()
-    {
-        SetupInventory();   
-    }
+//     private void Start()
+//     {
+//         SetupInventory();   
+//     }
 
-    private void Update()
-    {
-        // Tab : 인벤토리 토글
-        if (InputManager.Instance.GetToggleInventoryPressed())
-        {
-            Debug.Log("ToogleInv");
-            ToggleInventory();
-        }
+//     private void Update()
+//     {
+//         // Tab : 인벤토리 토글
+//         if (InputManager.Instance.GetToggleInventoryPressed())
+//         {
+//             Debug.Log("ToogleInv");
+//             ToggleInventory();
+//         }
 
-    }
+//     }
 
-    // Inventory
-    public GameObject InventoryCanvas;
-    public bool isInventoryOpen = false;
+//     // Inventory
+//     public GameObject InventoryCanvas;
+//     public bool isInventoryOpen = false;
     
-    private void SetupInventory()
-    {
-        InventoryCanvas.SetActive(false);
-    }
+//     private void SetupInventory()
+//     {
+//         InventoryCanvas.SetActive(false);
+//     }
 
-    public void ToggleInventory()
-    {
-        isInventoryOpen = !isInventoryOpen;
-        InventoryCanvas.SetActive(isInventoryOpen);
-    }
-}
+//     public void ToggleInventory()
+//     {
+//         isInventoryOpen = !isInventoryOpen;
+//         InventoryCanvas.SetActive(isInventoryOpen);
+//     }
+// }
 

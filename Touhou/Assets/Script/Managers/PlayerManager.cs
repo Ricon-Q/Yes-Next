@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
     GameObject ScanObject;
 
     private Vector3 playerPosition;
-    public InventoryObject inventory;
+    // public InventoryObject inventory;
     
     private void Awake()
     {
@@ -53,12 +53,12 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
         // //Inventory Save Load
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            inventory.Save();
+            // inventory.Save();
             Debug.Log("Saved");
         }    
         if(Input.GetKeyDown(KeyCode.A))
         {
-            inventory.Load();
+            // inventory.Load();
             
             Debug.Log("Loaded");
         }
@@ -74,9 +74,9 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
 
     private void FixedUpdate()
     {   
-        if(DialogueManager.Instance.dialogueIsPlaying 
-            || InventoryManager.Instance.isInventoryOpen 
-            || ShopManager.Instance.isShopMode)
+        if(DialogueManager.Instance.dialogueIsPlaying )
+            // || InventoryManager.Instance.isInventoryOpen 
+            // || ShopManager.Instance.isShopMode)
         {
             return;
         }
@@ -181,13 +181,4 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
         this.playerData.maxHunger += value;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        var item = other.GetComponent<GroundItem>();
-        if(item)
-        {
-            inventory.AddItem(new Item(item.item), 1);
-            Destroy(other.gameObject);
-        }
-    }
 }
