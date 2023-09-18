@@ -6,7 +6,7 @@ using UnityEngine.Events;
 [System.Serializable]
 public class InventoryHolder : MonoBehaviour
 {
-    [SerializeField] private int inventorySize;
+    // [SerializeField] private int inventorySize;
     [SerializeField] protected InventorySystem primaryInventorySystem;
 
     public InventorySystem PrimaryInventorySystem => primaryInventorySystem;
@@ -15,7 +15,7 @@ public class InventoryHolder : MonoBehaviour
 
     protected virtual void Awake()
     {
-        primaryInventorySystem = new InventorySystem(inventorySize);
+        // primaryInventorySystem = new InventorySystem(PrimaryInventorySystem.InventorySize);
     }
 
 }

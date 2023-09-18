@@ -1,25 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
+[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 [System.Serializable]
-public class InventorySystem
+public class InventorySystem : ScriptableObject
 {
+    public string savePath;
     [SerializeField] private List<InventorySlot> inventorySlots;
     public List<InventorySlot> InventorySlots => inventorySlots;
     public int InventorySize => InventorySlots.Count;
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
-    public InventorySystem(int size)
-    {
-        inventorySlots = new List<InventorySlot>(size);
-        for (int i = 0; i < size; i++)
-        {
-            inventorySlots.Add(new InventorySlot());
-        }
-    }
 
     public bool AddToInventory(InventoryItemData itemToAdd, int amountToAdd)
     {
@@ -57,5 +52,33 @@ public class InventorySystem
     {
         freeSlot = InventorySlots.FirstOrDefault(i => i.ItemData == null);
         return freeSlot == null ? false : true;
+    }
+
+    [ContextMenu("Save Inventory")]
+    public void Save()
+    {
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    [ContextMenu("Load Inventory")]
+    public void Load()
+    {
+        if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+            file.Close();
+        }
+    }
+
+    [ContextMenu("Clear Inventory")]
+    public void Clear()
+    {
+        inventorySlots = new List<InventorySlot>(InventorySize);
     }
 }

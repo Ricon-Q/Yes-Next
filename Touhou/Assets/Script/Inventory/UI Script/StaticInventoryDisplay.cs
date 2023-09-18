@@ -5,7 +5,7 @@ using UnityEngine;
 public class StaticInventoryDisplay : InventoryDisplay
 {
     [SerializeField] private InventoryHolder inventoryHolder;
-    [SerializeField] private InventorySlot_UI[] slots;
+    public InventorySlot_UI[] slots;
 
     protected override void Start()
     {
@@ -33,6 +33,14 @@ public class StaticInventoryDisplay : InventoryDisplay
         {
             slotDictionary.Add(slots[i], inventorySystem.InventorySlots[i]);
             slots[i].Init(inventorySystem.InventorySlots[i]);
+        }
+    }
+
+    public void UpdateSlot()
+    {
+        foreach (var itemSlot in slots)
+        {
+            itemSlot.UpdateUISlot();
         }
     }
 }

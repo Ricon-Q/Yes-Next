@@ -83,4 +83,17 @@ public class InventorySlot
         splitStack = new InventorySlot(itemData, halfStack);
         return true;
     }
+
+    public bool PickUpOneStack(out InventorySlot oneStack)
+    {
+        if(stackSize <= 1)
+        {
+            oneStack = null;
+            return false;
+        }
+
+        RemoveFromStack(1);
+        oneStack = new InventorySlot(itemData, 1);
+        return true;
+    }
 }

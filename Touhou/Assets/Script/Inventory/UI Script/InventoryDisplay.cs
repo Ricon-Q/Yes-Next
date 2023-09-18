@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public abstract class InventoryDisplay : MonoBehaviour
 {
     [SerializeField] MouseItemData mouseInventoryItem;
-    protected InventorySystem inventorySystem;
+    [SerializeField] protected InventorySystem inventorySystem;
     protected Dictionary<InventorySlot_UI, InventorySlot> slotDictionary;
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlot> SlotDictionary => slotDictionary;
@@ -17,9 +17,10 @@ public abstract class InventoryDisplay : MonoBehaviour
     {
 
     }
-
     public abstract void AssignSlot(InventorySystem invToDisplay);
-
+    
+    // public abstract void UpdateSlot();
+    // public abstract void CreateSlot(InventorySystem invToDisplay);
     protected virtual void UpdateSlot(InventorySlot updatedSlot)
     {
         foreach (var slot in SlotDictionary)
@@ -33,8 +34,9 @@ public abstract class InventoryDisplay : MonoBehaviour
 
     public void SlotClicked(InventorySlot_UI clickedUISlot)
     {
-        
+        Debug.Log("SlotClicked");
         bool isShiftPressd = Keyboard.current.leftShiftKey.isPressed;
+        bool isCtrlPressed = Keyboard.current.leftCtrlKey.isPressed;
 
         // Clicked slot has an item - mouse doesn't have an item - pick up that item.
         if(clickedUISlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.AssignedInventorySlot.ItemData == null)
@@ -43,6 +45,14 @@ public abstract class InventoryDisplay : MonoBehaviour
             if(isShiftPressd && clickedUISlot.AssignedInventorySlot.SplitStack(out InventorySlot halfStackSlot))
             {
                 mouseInventoryItem.UpdateMouseSlot(halfStackSlot);
+                clickedUISlot.UpdateUISlot();
+
+                return;
+            }
+            else if(isCtrlPressed && clickedUISlot.AssignedInventorySlot.PickUpOneStack(out InventorySlot oneStack))
+            {
+                Debug.Log("Ctrl Pressed");
+                mouseInventoryItem.UpdateMouseSlot(oneStack);
                 clickedUISlot.UpdateUISlot();
 
                 return;
@@ -77,6 +87,7 @@ public abstract class InventoryDisplay : MonoBehaviour
 
                 mouseInventoryItem.ClearSlot();
             }
+
             else if(isSameItem && 
                 !clickedUISlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize, out int leftInStack))
             {
@@ -99,7 +110,6 @@ public abstract class InventoryDisplay : MonoBehaviour
                 SwapSlots(clickedUISlot);
             }
         }
-        
     }
 
     private void SwapSlots(InventorySlot_UI clickedUISlot)

@@ -59,7 +59,6 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
         if(Input.GetKeyDown(KeyCode.A))
         {
             // inventory.Load();
-            
             Debug.Log("Loaded");
         }
 
