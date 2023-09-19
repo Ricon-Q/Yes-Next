@@ -57,7 +57,7 @@ public class ShopManager : MonoBehaviour
 
     private long total;
     private long finalPrice;
-    public TextMeshProUGUI totalText;
+    public TextMeshProUGUI totalPriceText;
     public GameObject warningPanel;
     public GameObject affection5Panel;
     public GameObject affection10Panel;
@@ -141,7 +141,8 @@ public class ShopManager : MonoBehaviour
     public void calculateTotal()
     {
         total = shopPlayerDisplay.totalSellPrice - shopNpcDisplay.totalBuyPrice;
-        totalText.text = total.ToString("n0");
+        if(total > 0) { totalPriceText.text = "+" + total.ToString("n0"); }
+        else { totalPriceText.text = total.ToString("n0"); }
     }
 
     public void ResetShop()

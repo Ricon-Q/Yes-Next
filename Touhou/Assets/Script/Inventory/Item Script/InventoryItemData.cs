@@ -11,4 +11,8 @@ public class InventoryItemData : ScriptableObject
     public string Description;
     public Sprite Icon;
     public int MaxStackSize;
+    
+    public bool Shopable;
+    public long SellPrice;
+    public long BuyPrice;
 }

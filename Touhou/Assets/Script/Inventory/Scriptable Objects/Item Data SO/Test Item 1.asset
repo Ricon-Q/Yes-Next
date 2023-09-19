@@ -17,3 +17,6 @@ MonoBehaviour:
   Description: test
   Icon: {fileID: 532238433, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
   MaxStackSize: 5
+  Shopable: 1
+  SellPrice: 1000
+  BuyPrice: 1500

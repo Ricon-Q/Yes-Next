@@ -2,203 +2,91 @@
 // using System.Collections.Generic;
 // using UnityEngine;
 // using UnityEngine.UI;
-// using TMPro;
+using TMPro;
 // using UnityEngine.EventSystems;
 // using UnityEngine.Events;
 // using System;
 
-// public class ShopPlayerDisplay : MonoBehaviour
-// {
-//     public int X_START;
-//     public int Y_START;
-//     public int X_SPACE_BETWEEN_ITEM;
-//     public int Y_SPACE_BETWEEN_ITEM;
-//     public int NUMBER_OF_COLUMN;
-//     public InventoryObject inventory;
-//     Dictionary<GameObject, InventorySlot> itemDisplayed = 
-//         new Dictionary<GameObject, InventorySlot>();
-//     public GameObject inventoryPrefab;
-//     public SellDisplay sellDisplay;
-//     public TextMeshProUGUI priceText;
-//     public TextMeshProUGUI moneyText;
-//     public TextMeshProUGUI totalPriceText;
-//     private PlayerManager playerManager;
-//     public long totalSellPrice;
-//     // public MouseItem mouseItem = new MouseItem();
+// 상점 모드에서 플레이어의 인벤토리에 해당한다.
+
+public class ShopPlayerDisplay : DynamicInventoryDisplay
+{
+
+    // 우측 Slot에 해당하는 인벤토리, 상점모드에 들어갈때 플레이어의 인벤토리를 불러온다.
+    // 해당 스크립트에서는 InventoryDisplay 스크립트의 InventorySystem inventorySystem이다.
+
+    // 중앙 하단의 InventorySystem
+    public SellDisplay sellDisplay;
+
+    // 중앙 가격 text
+    public TextMeshProUGUI sellPriceText;
+    // 현재 소지금 text
+    public TextMeshProUGUI currentMoneyText;
+    // Total 가격 text
+    public TextMeshProUGUI totalPriceText;
+    private PlayerManager playerManager;
+    public long totalSellPrice;
     
-//     private void Start() 
-//     {
-//         playerManager = PlayerManager.Instance;
-//         CreateSlots();
-//     }
-//     private void Update()
-//     {
-//         DisplaySlot();
-//         moneyText.text = playerManager.playerData.money.ToString("n0");
-//         priceText.text = totalSellPrice.ToString("n0");
-//         totalPriceText.text = "+" + totalSellPrice.ToString("n0");
-//     }
+    protected override void Start() 
+    {
+        playerManager = PlayerManager.Instance;
+        // CreateInventorySlot();
+    }
+    private void Update()
+    {
+        // DisplaySlot();
+    }
 
-//     public void EnterShopMode()
-//     {
-//         inventory.Save();
-//         totalSellPrice = 0;
-//     }
+    public void EnterShopMode()
+    {
+        inventorySystem.Save();
+        totalSellPrice = 0;
+        UpdatePriceText();
+    }
 
-//     public void ExitShopMode()
-//     {
-//         // Reset();
-//         inventory.Load();
-//     }
+    public void ExitShopMode()
+    {
+        // Reset();
+        inventorySystem.Save();
+        RefreshDynamicInventory(this.inventorySystem);
+    }
 
-//     public void ConfirmDeal()
-//     {
-//         totalSellPrice = 0;
-//         inventory.Save();
-//     }
+    public void ConfirmDeal()
+    {
+        totalSellPrice = 0;
+        inventorySystem.Save();
+        UpdatePriceText();
+        this.RefreshDynamicInventory(this.inventorySystem);
+    }
 
-//     public void CreateSlots()
-//     {
-//         // 슬롯 생성, 이벤트 트리거 생성
-//         itemDisplayed = new Dictionary<GameObject, InventorySlot>();
-//         for (int i = 0; i < inventory.Container.Items.Length; i++)
-//         {
-//             var obj = Instantiate(inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-//             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+    public override void SlotClicked(InventorySlot_UI clickedUISlot)
+    {
+        // Slot이 빈칸이 아니고, Slot의 아이템이 Shopable일 경우 실행
+        if(clickedUISlot.AssignedInventorySlot.ItemData && clickedUISlot.AssignedInventorySlot.ItemData.Shopable)
+        {
+            totalSellPrice += clickedUISlot.AssignedInventorySlot.ItemData.SellPrice;
+            UpdatePriceText();
 
-//             // AddEvent(obj, EventTriggerType.PointerClick, delegate { OnClick(obj); });
-//             AddEvent(obj, EventTriggerType.PointerClick, delegate(BaseEventData data) { OnClick(obj, data); });
+            sellDisplay.InventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.ItemData, 1);
+            clickedUISlot.AssignedInventorySlot.RemoveFromStack(1);
+            this.RefreshDynamicInventory(this.inventorySystem);
+            sellDisplay.RefreshDynamicInventory(sellDisplay.InventorySystem);
+        }   
+    }
 
-//             itemDisplayed.Add(obj, inventory.Container.Items[i]);
-//         }
-//     }
-//     public Vector3 GetPosition(int i)
-//     {
-//         // 슬롯 위치 계산
-//         return new Vector3
-//         (
-//             X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)),
-//             Y_START + (-Y_SPACE_BETWEEN_ITEM * (i/NUMBER_OF_COLUMN)), 
-//             0f
-//         );
-//     }
+    public void UpdatePriceText()
+    {
+        currentMoneyText.text = playerManager.playerData.money.ToString("n0");
+        sellPriceText.text = totalSellPrice.ToString("n0");
+        totalPriceText.text = "+" + totalSellPrice.ToString("n0");
+    }
 
-//     public void DisplaySlot()
-//     {
-//         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemDisplayed)
-//         {
-//             if (_slot.Value.ID >= 0)
-//             {
-//                 // 아이템 이미지 스프라이트 설정
-//                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = 
-//                     inventory.database.GetItem[_slot.Value.item.Id].uiDisplay;
-//                 // 아이템 이미지 투명도 설정
-//                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
-//                     new Color(1, 1, 1, 1);
-//                 //아이템 개수 설정 (1개 일시 "", n개 일시 "n"으로 표시)
-//                 _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = 
-//                     _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
-//             }
-//             else
-//             {
-//                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
-//                 _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().color = 
-//                     new Color(1, 1, 1, 0);
-//                 _slot.Key.GetComponentInChildren<TextMeshProUGUI>().text = "";
-//             }
-//         }
-//     }
-
-//     // private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
-//     // {
-//     //     EventTrigger trigger = obj.GetComponent<EventTrigger>();
-//     //     var eventTrigger = new EventTrigger.Entry();
-//     //     eventTrigger.eventID = type;
-//     //     eventTrigger.callback.AddListener(action);
-//     //     trigger.triggers.Add(eventTrigger);
-//     // }
-
-//     private void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
-//     {
-//         EventTrigger trigger = obj.GetComponent<EventTrigger>();
-//         var eventTrigger = new EventTrigger.Entry();
-//         eventTrigger.eventID = type;
-//         eventTrigger.callback.AddListener(action);
-//         trigger.triggers.Add(eventTrigger);
-//     }
-
-
-//     // public void OnClick(GameObject obj)
-//     // {
-//     //     if(itemDisplayed[obj].ID != -1)
-//     //     {
-//     //         Item clickedItem = itemDisplayed[obj].item;
-
-//     //         // Retrieve the ItemObject from the ItemDatabaseObject using the clicked item's Id
-//     //         ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
-
-//     //         // Create a new Item object here using the constructor which takes an ItemObject
-//     //         Item itemToAdd = new Item(itemObjectToAdd);
-
-//     //         sellDisplay.AddItem(itemToAdd);
-//     //         inventory.RemoveItem(itemDisplayed[obj].item, 1);
-//     //         totalSellPrice += itemToAdd.SellPrice;
-//     //     }
-//     // }
-
-//     public void OnClick(GameObject obj, BaseEventData data)
-//     {
-//         PointerEventData pointerData = data as PointerEventData;
-
-//         if(itemDisplayed[obj].ID != -1)
-//         {
-//             Item clickedItem = itemDisplayed[obj].item;
-//             ItemObject itemObjectToAdd = inventory.database.GetItem[clickedItem.Id];
-//             Item itemToAdd = new Item(itemObjectToAdd);
-
-//             if (pointerData.button == PointerEventData.InputButton.Left)
-//             {
-//                 // Left click action
-//                 sellDisplay.AddItem(itemToAdd);
-//                 inventory.RemoveItem(itemDisplayed[obj].item, 1);
-//                 totalSellPrice += itemToAdd.SellPrice;
-//                 // Debug.Log(itemToAdd.SellPrice);
-//             }
-//             else if (pointerData.button == PointerEventData.InputButton.Right)
-//             {
-//                 // Right click action
-//                 // Add your right click action here
-//                 Debug.Log("right Click");
-//                 if(itemDisplayed[obj].item.Countable == true)
-//                 {
-//                     if(itemDisplayed[obj].amount >= 10)
-//                     {
-//                         sellDisplay.AddItem(itemToAdd, 10);
-//                         inventory.RemoveItem(itemDisplayed[obj].item, 10);
-//                         totalSellPrice += itemToAdd.SellPrice * 10;
-//                     }
-//                     else
-//                     {
-//                         sellDisplay.AddItem(itemToAdd, itemDisplayed[obj].amount);
-//                         totalSellPrice += itemToAdd.SellPrice * itemDisplayed[obj].amount;
-//                         inventory.RemoveItem(itemDisplayed[obj].item, itemDisplayed[obj].amount);
-//                     }
-//                 }
-//                 else
-//                 {
-//                     sellDisplay.AddItem(itemToAdd);
-//                     inventory.RemoveItem(itemDisplayed[obj].item, 1);
-//                     totalSellPrice += itemToAdd.SellPrice;
-//                 }
-                
-//             }
-//         }
-//     }
-
-//     public void Reset()
-//     {
-//         Debug.Log("Shop Player Display Reset");
-//         totalSellPrice = 0;
-//         inventory.Load();
-//     }
-// }
+    public void Reset()
+    {
+        // Debug.Log("Shop Player Display Reset");
+        totalSellPrice = 0;
+        inventorySystem.Load();
+        RefreshDynamicInventory(this.inventorySystem);
+        UpdatePriceText();
+    }
+}

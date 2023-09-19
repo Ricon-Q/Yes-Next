@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: inventoryObject
       value: 
       objectReference: {fileID: 11400000, guid: c00c497e9fef80e4abe0a7237118076e, type: 2}
+    - target: {fileID: 153194840317283274, guid: 3b86c6eba3e5ad44eb3ceefe38ad1ac6, type: 3}
+      propertyPath: inventorySystem
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b84de8b61f6b6e45a28d6cfadbc2c0a, type: 2}
     - target: {fileID: 1055541287397113195, guid: 3b86c6eba3e5ad44eb3ceefe38ad1ac6, type: 3}
       propertyPath: inkJSON
       value: 
@@ -595,6 +599,10 @@ PrefabInstance:
       propertyPath: inventoryObject
       value: 
       objectReference: {fileID: 11400000, guid: 339262010d61df34fb9c932a6aa50335, type: 2}
+    - target: {fileID: 153194840317283274, guid: 3b86c6eba3e5ad44eb3ceefe38ad1ac6, type: 3}
+      propertyPath: inventorySystem
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b84de8b61f6b6e45a28d6cfadbc2c0a, type: 2}
     - target: {fileID: 1055541287397113195, guid: 3b86c6eba3e5ad44eb3ceefe38ad1ac6, type: 3}
       propertyPath: inkJSON
       value: 

@@ -67,7 +67,10 @@ public class DynamicInventoryDisplay : InventoryDisplay
 
     private void OnDisable()
     {
-        
         if(inventorySystem != null) { inventorySystem.OnInventorySlotChanged -= UpdateSlot; }    
+    }
+    private void OnEnable()
+    {
+        RefreshDynamicInventory(this.inventorySystem);
     }
 }

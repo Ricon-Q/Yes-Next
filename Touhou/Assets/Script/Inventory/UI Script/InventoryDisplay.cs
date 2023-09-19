@@ -32,9 +32,9 @@ public abstract class InventoryDisplay : MonoBehaviour
         }
     }
 
-    public void SlotClicked(InventorySlot_UI clickedUISlot)
+    public virtual void SlotClicked(InventorySlot_UI clickedUISlot)
     {
-        Debug.Log("SlotClicked");
+        // Debug.Log("SlotClicked");
         bool isShiftPressd = Keyboard.current.leftShiftKey.isPressed;
         bool isCtrlPressed = Keyboard.current.leftCtrlKey.isPressed;
 

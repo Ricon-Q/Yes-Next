@@ -43,7 +43,7 @@ public class PlayerData
         this.currentFatigue = 100;   
         this.maxHunger = 100;        
         this.currentHunger = 100;    
-        this.money = 0;
+        this.money = 50000;
     }
 }
 
