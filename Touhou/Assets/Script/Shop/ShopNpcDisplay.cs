@@ -1,10 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
 
 // 상인의 인벤토리이다. 캔버스 상으로 좌측에 해당
 public class ShopNpcDisplay : DynamicInventoryDisplay
@@ -20,13 +14,11 @@ public class ShopNpcDisplay : DynamicInventoryDisplay
 
     // 중앙 상단 구매 물건의 총합
     public TextMeshProUGUI priceText;
+
     // 거래 진행시 팝업 창에 나오는 구매 가격의 총합
     public TextMeshProUGUI totalBuyPriceText;
     public long totalBuyPrice;
-    
 
-    // public ShopMiddleDisplay 
-    
     protected override void Start()
     {
         this.inventorySystem = emptyInventorySystem;
@@ -39,18 +31,7 @@ public class ShopNpcDisplay : DynamicInventoryDisplay
         this.inventorySystem = inventorySystem;
         RefreshDynamicInventory(this.inventorySystem);
         UpdatePriceText();
-        // CreateInventorySlot();
     }
-    public void ExitShopMode()
-    {
-        // inventory.Clear();
-    }
-
-    private void Update()
-    {
-        // DisplaySlot();
-    }
-
     public override void SlotClicked(InventorySlot_UI clickedUISlot)
     {
         if(clickedUISlot.AssignedInventorySlot.ItemData) 
@@ -62,19 +43,16 @@ public class ShopNpcDisplay : DynamicInventoryDisplay
             UpdatePriceText();
         }
     }
-
     public void UpdatePriceText()
     {
         priceText.text = totalBuyPrice.ToString("n0");
         totalBuyPriceText.text = "-" + totalBuyPrice.ToString("n0");
     }
-
     public void Reset()
     {
         totalBuyPrice = 0;
         UpdatePriceText();
     }
-
     public void ConfirmDeal()
     {
         totalBuyPrice = 0;

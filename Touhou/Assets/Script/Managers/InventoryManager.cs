@@ -21,7 +21,6 @@ public class InventoryManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            // DontDestroyOnLoad(this.gameObject);
         }    
         else { Destroy(this.gameObject); }
     }
@@ -34,12 +33,11 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         // Tab : 인벤토리 토글
-        if (InputManager.Instance.GetToggleInventoryPressed())
+        if (InputManager.Instance.GetToggleInventoryPressed() )
         {
             Debug.Log("ToogleInv");
             ToggleInventory();
         }
-
     }
 
     // Inventory

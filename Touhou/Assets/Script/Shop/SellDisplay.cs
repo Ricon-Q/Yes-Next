@@ -1,11 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
-using TMPro;
-using UnityEngine.UI;
-
 // 플레이어가 상인에게 판매하는 물건 Display, 중앙 하단에 해당
 public class SellDisplay : DynamicInventoryDisplay
 {
@@ -18,29 +10,14 @@ public class SellDisplay : DynamicInventoryDisplay
     protected override void Start()
     {
         inventorySystem.Save();
-        // CreateInventorySlot();
     }
-
-    private void Update() 
-    {
-        // Debug.Log("Update");
-        // DisplaySlot();
-    }
-    public void EnterShopMode()
-    {
-    }
-
     public void ExitShopMode()
     {
         inventorySystem.Load();
         RefreshDynamicInventory(this.inventorySystem);
     }
-
-
     public void Reset()
     {
-        // Reset 함수가 호출되면 해당 인벤토리만 로드하도록 수정합니다.
-        // Debug.Log(gameObject.name + " : Reset | inventory name : " + inventory.name);
         inventorySystem.Load();
         RefreshDynamicInventory(this.inventorySystem);
         shopPlayerDisplay.UpdatePriceText();

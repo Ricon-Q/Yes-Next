@@ -1,17 +1,8 @@
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.UI;
 using TMPro;
-// using UnityEngine.EventSystems;
-// using UnityEngine.Events;
-// using System;
 
 // 상점 모드에서 플레이어의 인벤토리에 해당한다.
-
 public class ShopPlayerDisplay : DynamicInventoryDisplay
 {
-
     // 우측 Slot에 해당하는 인벤토리, 상점모드에 들어갈때 플레이어의 인벤토리를 불러온다.
     // 해당 스크립트에서는 InventoryDisplay 스크립트의 InventorySystem inventorySystem이다.
 
@@ -30,13 +21,7 @@ public class ShopPlayerDisplay : DynamicInventoryDisplay
     protected override void Start() 
     {
         playerManager = PlayerManager.Instance;
-        // CreateInventorySlot();
     }
-    private void Update()
-    {
-        // DisplaySlot();
-    }
-
     public void EnterShopMode()
     {
         inventorySystem.Save();
@@ -83,7 +68,6 @@ public class ShopPlayerDisplay : DynamicInventoryDisplay
 
     public void Reset()
     {
-        // Debug.Log("Shop Player Display Reset");
         totalSellPrice = 0;
         inventorySystem.Load();
         RefreshDynamicInventory(this.inventorySystem);
