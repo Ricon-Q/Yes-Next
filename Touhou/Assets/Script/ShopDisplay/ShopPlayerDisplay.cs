@@ -32,7 +32,7 @@ public class ShopPlayerDisplay : DynamicInventoryDisplay
     public void ExitShopMode()
     {
         // Reset();
-        inventorySystem.Save();
+        inventorySystem.Load();
         RefreshDynamicInventory(this.inventorySystem);
     }
 
