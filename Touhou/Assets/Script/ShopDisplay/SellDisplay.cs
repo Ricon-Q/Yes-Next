@@ -36,6 +36,11 @@ public class SellDisplay : DynamicInventoryDisplay
         }
     }
 
+    private void OnApplicationQuit() 
+    {
+        inventorySystem.Clear();
+    }
+
     public void ConfirmDeal()
     {
         Reset();

@@ -16,10 +16,25 @@ public class PlayerInventoryHolder : InventoryHolder
     
     public static UnityAction<InventorySystem> OnPlayerBackpackDisplayRequested;
 
+    private static PlayerInventoryHolder instance;
+
+    public static PlayerInventoryHolder Instance
+    {
+        get
+        {
+            if(instance == null)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+
     protected override void Awake()
     {
         base.Awake();
-        // secondaryInventorySystem = new InventorySystem(SecondaryInventorySystem.InventorySize);
+        if(instance == null) { instance = this; }
+        else { Destroy(this.gameObject); }
     }
     void Update()
     {

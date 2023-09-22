@@ -79,6 +79,11 @@ public class InventorySystem : ScriptableObject
     [ContextMenu("Clear Inventory")]
     public void Clear()
     {
-        inventorySlots = new List<InventorySlot>(InventorySize);
+        int tmp = InventorySize;
+        inventorySlots = new List<InventorySlot>(tmp);
+        for (int i = 0; i < tmp; i++)
+        {
+            inventorySlots.Add(new InventorySlot());
+        }
     }
 }

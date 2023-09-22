@@ -10,13 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: Test Item 2
+  m_Name: Farm Item
   m_EditorClassIdentifier: 
   ID: 0
-  DisplayName: Test Item 2
-  Description: test item 2
-  Icon: {fileID: -540964480, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
-  MaxStackSize: 1
-  Shopable: 0
+  ItemType: 6
+  DisplayName: Farm Item
+  Description: 'Farm Item
+
+    Max Stack Size :3
+
+    Shopable : T
+
+    Sell Price
+    : 500
+
+    Buy Price : 600'
+  Icon: {fileID: -727536034, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
+  MaxStackSize: 3
+  Shopable: 1
   SellPrice: 500
-  BuyPrice: 1000
+  BuyPrice: 600

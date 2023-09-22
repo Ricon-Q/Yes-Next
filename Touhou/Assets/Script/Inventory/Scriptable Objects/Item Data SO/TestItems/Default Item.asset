@@ -10,13 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: Test Item 1
+  m_Name: Default Item
   m_EditorClassIdentifier: 
   ID: 0
-  DisplayName: Test Item 1
-  Description: test
+  ItemType: 0
+  DisplayName: Default Item
+  Description: 'Default Item
+
+    Max Stack Size : 5
+
+    Shopable : T
+
+    Sell
+    Price : 500
+
+    Buy Price : 600'
   Icon: {fileID: 532238433, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
   MaxStackSize: 5
   Shopable: 1
-  SellPrice: 1000
-  BuyPrice: 1500
+  SellPrice: 500
+  BuyPrice: 600

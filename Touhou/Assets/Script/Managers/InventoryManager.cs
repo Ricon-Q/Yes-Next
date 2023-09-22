@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
     // Inventory
     public GameObject InventoryCanvas;
     public bool isInventoryOpen = false;
-    
+    public DynamicInventoryDisplay invToDisplay;
     private void SetupInventory()
     {
         InventoryCanvas.SetActive(false);
@@ -53,6 +53,8 @@ public class InventoryManager : MonoBehaviour
     {
         isInventoryOpen = !isInventoryOpen;
         InventoryCanvas.SetActive(isInventoryOpen);
+        invToDisplay.isInfoOpen = false;
+        invToDisplay.infoPanel.SetActive(false);
     }
 }
 

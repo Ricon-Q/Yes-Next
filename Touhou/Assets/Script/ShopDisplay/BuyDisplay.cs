@@ -37,6 +37,11 @@ public class BuyDisplay : DynamicInventoryDisplay
         RefreshDynamicInventory(this.inventorySystem);
     }
 
+    private void OnApplicationQuit() 
+    {
+        inventorySystem.Clear();
+    }
+
     public void ConfirmDeal()
     {
         foreach (var itemData in inventorySystem.InventorySlots)

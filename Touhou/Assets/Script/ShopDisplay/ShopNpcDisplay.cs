@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 
 // 상인의 인벤토리이다. 캔버스 상으로 좌측에 해당
@@ -31,6 +32,21 @@ public class ShopNpcDisplay : DynamicInventoryDisplay
         this.inventorySystem = inventorySystem;
         RefreshDynamicInventory(this.inventorySystem);
         UpdatePriceText();
+    }
+
+    public override void CreateInventorySlot()
+    {
+        slotDictionary = new Dictionary<InventorySlot_UI, InventorySlot>();
+
+        if(inventorySystem == null) return;
+
+        for (int i = 0; i < inventorySystem.InventorySize; i++)
+        {
+            var uiSlot = Instantiate(slotPrefab, transform);
+            slotDictionary.Add(uiSlot, inventorySystem.InventorySlots[i]);
+            uiSlot.Init(inventorySystem.InventorySlots[i]);
+            uiSlot.UpdateUISlot();
+        }
     }
     public override void SlotClicked(InventorySlot_UI clickedUISlot)
     {

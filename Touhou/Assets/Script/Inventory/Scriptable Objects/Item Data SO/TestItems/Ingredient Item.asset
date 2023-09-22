@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: Ingredient Item
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 2
+  DisplayName: Ingredient Item
+  Description: 'Ingredient Item
+
+    Max Stack Size : 10
+
+    Shopable : T
+
+    Sell
+    Price : 800
+
+    Buy Price : 1000'
+  Icon: {fileID: -1124944015, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
+  MaxStackSize: 10
+  Shopable: 1
+  SellPrice: 800
+  BuyPrice: 1000

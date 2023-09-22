@@ -84,21 +84,21 @@ public class ShopManager : MonoBehaviour
         shopPanel.SetActive(true);
         npcInfo = npcScript;
         isShopMode = true;
-        if(npcInfo.npcData.affection < 5)
-        {
-            affection5Panel.SetActive(true);
-            affection10Panel.SetActive(true);
-        }
-        else if(5 <= npcInfo.npcData.affection && npcInfo.npcData.affection < 10)
-        {
-            affection5Panel.SetActive(false);
-            affection10Panel.SetActive(true);
-        }
-        else if(10 <= npcInfo.npcData.affection)
-        {
-            affection5Panel.SetActive(false);
-            affection10Panel.SetActive(false);
-        }
+        // if(npcInfo.npcData.affection < 5)
+        // {
+        //     affection5Panel.SetActive(true);
+        //     affection10Panel.SetActive(true);
+        // }
+        // else if(5 <= npcInfo.npcData.affection && npcInfo.npcData.affection < 10)
+        // {
+        //     affection5Panel.SetActive(false);
+        //     affection10Panel.SetActive(true);
+        // }
+        // else if(10 <= npcInfo.npcData.affection)
+        // {
+        //     affection5Panel.SetActive(false);
+        //     affection10Panel.SetActive(false);
+        // }
 
         shopNpcDisplay.EnterShopMode(npcInfo.inventorySystem);
         shopPlayerDisplay.EnterShopMode();

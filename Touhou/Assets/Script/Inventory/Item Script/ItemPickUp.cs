@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(SphereCollider))]
 public class ItemPickUp : MonoBehaviour
 {
     public float PickUpRadius = 1f;
     public InventoryItemData ItemData;
-    private BoxCollider myCollider;
+    private SphereCollider myCollider;
 
     private void Awake() 
     {
-        myCollider = GetComponent<BoxCollider>();
+        myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
     }
 

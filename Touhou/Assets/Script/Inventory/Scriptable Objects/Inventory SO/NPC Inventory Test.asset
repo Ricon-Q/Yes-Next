@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /InventorySave/NpcTest.save
   inventorySlots:
-  - itemData: {fileID: 11400000, guid: ddd192afa70dc6e4d8c32f5c0c66aa6e, type: 2}
+  - itemData: {fileID: 11400000, guid: f352f3b7b388bff4dadce4bddc2f47b4, type: 2}
     stackSize: 1
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
+  - itemData: {fileID: 11400000, guid: 493c248d86228fa4b91e0d8427a4f89c, type: 2}
     stackSize: 1
-  - itemData: {fileID: 0}
-    stackSize: 0
-  - itemData: {fileID: 0}
-    stackSize: 0
-  - itemData: {fileID: 0}
-    stackSize: 0
-  - itemData: {fileID: 0}
-    stackSize: 0
-  - itemData: {fileID: 0}
-    stackSize: 0
+  - itemData: {fileID: 11400000, guid: 3a91ed356c2870f4db859d2e6d80ccd7, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: 38b3cbf686fc9794490c16b2903dfc2e, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: d655815ca836f384f878eea9db2258b5, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: d55906364541e4247933363552b8f9fc, type: 2}
+    stackSize: 1
+  - itemData: {fileID: 11400000, guid: 2766b1cc8f462244d9930c16b2b96c20, type: 2}
+    stackSize: 1
   - itemData: {fileID: 0}
     stackSize: 0
   - itemData: {fileID: 0}

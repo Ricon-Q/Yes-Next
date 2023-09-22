@@ -14,63 +14,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /InventorySave/PlayerBackpack.save
   inventorySlots:
-  - itemData: {fileID: 11400000, guid: ddd192afa70dc6e4d8c32f5c0c66aa6e, type: 2}
-    stackSize: 5
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
-    stackSize: 1
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
-    stackSize: 1
-  - itemData: {fileID: 11400000, guid: ddd192afa70dc6e4d8c32f5c0c66aa6e, type: 2}
-    stackSize: 5
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
-    stackSize: 1
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
-    stackSize: 1
-  - itemData: {fileID: 11400000, guid: ddd192afa70dc6e4d8c32f5c0c66aa6e, type: 2}
-    stackSize: 1
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
-  - itemData: {fileID: 11400000, guid: 307d2dd98205aad42a2f474e33a7d8cc, type: 2}
-    stackSize: 1
-  - itemData: {fileID: 11400000, guid: ddd192afa70dc6e4d8c32f5c0c66aa6e, type: 2}
-    stackSize: 4
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
   - itemData: {fileID: 0}
-    stackSize: -1
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0

@@ -19,18 +19,18 @@ MonoBehaviour:
   - itemData: {fileID: 0}
     stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
   - itemData: {fileID: 0}
-    stackSize: 0
+    stackSize: -1
