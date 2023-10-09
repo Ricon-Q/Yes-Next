@@ -15,6 +15,8 @@ public class InventorySlot_UI : MonoBehaviour, IPointerClickHandler
     public ItemType type = default;
     public UnityEvent onRightClick;
 
+    public bool isCraftResultSlot = false;
+
     private Button button;
 
     public InventorySlot AssignedInventorySlot => assignedInventorySlot;
@@ -117,6 +119,7 @@ public class InventorySlot_UI : MonoBehaviour, IPointerClickHandler
             // Debug.Log("UI Left, info true");
             InventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, false); 
         }
+        // if (ParentDisplay) SlotClicked(this);
         ParentDisplay?.SlotClicked(this);
     }
     public void UpdateNamePrice()

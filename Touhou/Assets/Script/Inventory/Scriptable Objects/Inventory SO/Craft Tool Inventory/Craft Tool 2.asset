@@ -9,9 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d66326a25db5e46b6a48b0cbecfb3e, type: 3}
-  m_Name: TestRecipeBook
+  m_Script: {fileID: 11500000, guid: a596df4bb60a68344807d268f15c5ba0, type: 3}
+  m_Name: Craft Tool 2
   m_EditorClassIdentifier: 
-  recipeBookName: test
-  recipes:
-  - {fileID: 11400000, guid: c169da7cc8e20fc48a5ab90a257e0fbc, type: 2}
+  savePath: /InventorySave/Craft1.save
+  inventorySlots:
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0

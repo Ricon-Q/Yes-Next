@@ -883,6 +883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 11400000, guid: 506537a03c8a60047bd0cea5cc2590c5, type: 2}
+  backpackInventorySystem: {fileID: 0}
+  medicalInventorySystem: {fileID: 0}
   slotPrefab: {fileID: 2471942828267800118, guid: 8246943b446f30e4daadbd647f49ef6f, type: 3}
   itemType: 0
   infoPanel: {fileID: 0}
@@ -4908,6 +4910,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 11400000, guid: 506537a03c8a60047bd0cea5cc2590c5, type: 2}
+  backpackInventorySystem: {fileID: 11400000, guid: 506537a03c8a60047bd0cea5cc2590c5, type: 2}
+  medicalInventorySystem: {fileID: 11400000, guid: 0244635bf8f53f14dbb3214b2e36d49a, type: 2}
   slotPrefab: {fileID: 2471942828267800118, guid: 8246943b446f30e4daadbd647f49ef6f, type: 3}
   itemType: 0
   infoPanel: {fileID: 5841947074469160545}
@@ -5009,6 +5013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 11400000, guid: e3c5f9f64e2ae4a40b02d9992be6979a, type: 2}
+  backpackInventorySystem: {fileID: 0}
+  medicalInventorySystem: {fileID: 0}
   slotPrefab: {fileID: 2471942828267800118, guid: 8246943b446f30e4daadbd647f49ef6f, type: 3}
   itemType: 0
   infoPanel: {fileID: 0}
@@ -6959,6 +6965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 0}
+  backpackInventorySystem: {fileID: 0}
+  medicalInventorySystem: {fileID: 0}
   slotPrefab: {fileID: 2471942828267800118, guid: f2e34734bf1934e4f8bea7edfa06b04f, type: 3}
   itemType: 0
   infoPanel: {fileID: 0}
@@ -9247,7 +9255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -90}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 820}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1056507617
@@ -12116,7 +12124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 90}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 70}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1428783379
@@ -15658,6 +15666,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 11400000, guid: 3acc1646005e65e44b6a84889d10dd71, type: 2}
+  backpackInventorySystem: {fileID: 0}
+  medicalInventorySystem: {fileID: 0}
   slotPrefab: {fileID: 2471942828267800118, guid: 8246943b446f30e4daadbd647f49ef6f, type: 3}
   itemType: 0
   infoPanel: {fileID: 0}
@@ -21021,7 +21031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -75}
+  m_AnchoredPosition: {x: 100, y: 0}
   m_SizeDelta: {x: 350, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &7297568027395563597
@@ -21039,6 +21049,7 @@ GameObject:
   - component: {fileID: 2843492034700940664}
   - component: {fileID: 6187672773807502108}
   - component: {fileID: 9173219812288574345}
+  - component: {fileID: 9173219812288574346}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -21599,6 +21610,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseInventoryItem: {fileID: 1661264738}
   inventorySystem: {fileID: 11400000, guid: 0244635bf8f53f14dbb3214b2e36d49a, type: 2}
+  backpackInventorySystem: {fileID: 0}
+  medicalInventorySystem: {fileID: 0}
   inventoryHolder: {fileID: 9173219812288574345}
   slots:
   - {fileID: 147207877659807440}
@@ -21697,6 +21710,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   primaryInventorySystem: {fileID: 11400000, guid: 0244635bf8f53f14dbb3214b2e36d49a, type: 2}
-  secondaryInventorySystem: {fileID: 11400000, guid: 506537a03c8a60047bd0cea5cc2590c5, type: 2}
+  backpackInventorySystem: {fileID: 11400000, guid: 506537a03c8a60047bd0cea5cc2590c5, type: 2}
+  medicalInventorySystem: {fileID: 11400000, guid: 0244635bf8f53f14dbb3214b2e36d49a, type: 2}
   hotBarDisplay: {fileID: 8965352380158381998}
   backpackDisplay: {fileID: 458975698}
+--- !u!114 &9173219812288574346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7297568027395563597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bbe94fa28921b4ea6b003e6db3f2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraOffSceneList:
+  - Pharmaceutical
+  cameraObject: {fileID: 3305073518198972624}

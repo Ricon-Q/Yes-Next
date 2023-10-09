@@ -9,9 +9,16 @@ public abstract class InventoryDisplay : MonoBehaviour
 {
     [SerializeField] MouseItemData mouseInventoryItem;
     [SerializeField] protected InventorySystem inventorySystem;
+    [SerializeField] protected InventorySystem backpackInventorySystem;
+    [SerializeField] protected InventorySystem medicalInventorySystem;
     protected Dictionary<InventorySlot_UI, InventorySlot> slotDictionary;
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlot> SlotDictionary => slotDictionary;
+    public InventorySystem BackpackInventorySystem => backpackInventorySystem;
+    public InventorySystem MedicalInventorySystem => medicalInventorySystem;
+
+    public delegate void SlotClickedAction();
+    public static event SlotClickedAction onSlotClicked;
 
     protected virtual void Start()
     {
@@ -41,6 +48,10 @@ public abstract class InventoryDisplay : MonoBehaviour
         // Debug.Log("SlotClicked");
         bool isShiftPressd = Keyboard.current.leftShiftKey.isPressed;
         bool isCtrlPressed = Keyboard.current.leftCtrlKey.isPressed;
+
+        // 제작용 슬롯 확인
+        if(clickedUISlot.isCraftResultSlot && clickedUISlot.AssignedInventorySlot.ItemData == null)
+            return;
 
         // Clicked slot has an item - mouse doesn't have an item - pick up that item.
         if(clickedUISlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.AssignedInventorySlot.ItemData == null)
@@ -114,6 +125,7 @@ public abstract class InventoryDisplay : MonoBehaviour
                 SwapSlots(clickedUISlot);
             }
         }
+        onSlotClicked?.Invoke();
     }
 
     private void SwapSlots(InventorySlot_UI clickedUISlot)

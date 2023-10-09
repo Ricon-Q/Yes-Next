@@ -12,4 +12,6 @@ public class ItemRecipe : ScriptableObject
     public int subItemDataAmount;
     public InventoryItemData resultItemData = null;
     public int resultItemDataAmount;
+    [TextArea(4, 4)]
+    public string Description;
 }

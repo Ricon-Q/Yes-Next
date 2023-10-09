@@ -7,9 +7,11 @@ using UnityEngine.InputSystem;
 public class PlayerInventoryHolder : InventoryHolder
 {
     // [SerializeField] protected int secondaryInventorySize;
-    [SerializeField] protected InventorySystem secondaryInventorySystem;
+    [SerializeField] protected InventorySystem backpackInventorySystem;
+    public InventorySystem BackpackInventorySystem => backpackInventorySystem;
 
-    public InventorySystem SecondaryInventorySystem => secondaryInventorySystem;
+    [SerializeField] protected InventorySystem medicalInventorySystem;
+    public InventorySystem MedicalInventorySystem => medicalInventorySystem;
 
     public StaticInventoryDisplay hotBarDisplay;
     public DynamicInventoryDisplay backpackDisplay;
@@ -38,29 +40,32 @@ public class PlayerInventoryHolder : InventoryHolder
     }
     void Update()
     {
-        if(Keyboard.current.bKey.wasPressedThisFrame) OnPlayerBackpackDisplayRequested?.Invoke(SecondaryInventorySystem);
+        if(Keyboard.current.bKey.wasPressedThisFrame) OnPlayerBackpackDisplayRequested?.Invoke(BackpackInventorySystem);
 
         if(Keyboard.current.sKey.wasPressedThisFrame) 
         {
-            PrimaryInventorySystem.Save();
-            SecondaryInventorySystem.Save();
+            MedicalInventorySystem.Save();
+            BackpackInventorySystem.Save();
         }
         if(Keyboard.current.lKey.wasPressedThisFrame) 
         {
-            PrimaryInventorySystem.Load();
+            MedicalInventorySystem.Load();
             hotBarDisplay.UpdateSlot();
-            SecondaryInventorySystem.Load();
-            backpackDisplay.RefreshDynamicInventory(SecondaryInventorySystem);
+            BackpackInventorySystem.Load();
+            backpackDisplay.RefreshDynamicInventory(BackpackInventorySystem);
         }
     }
 
     public bool AddToInventory(InventoryItemData data, int amount)
     {
-        if(primaryInventorySystem.AddToInventory(data, amount)) 
+        if(data.ItemType == ItemType.Ingredient || data.ItemType == ItemType.Medicine)
         {
-            return true;
+            if(medicalInventorySystem.AddToInventory(data, amount)) 
+            {
+                return true;
+            }
         }
-        else if(secondaryInventorySystem.AddToInventory(data, amount))
+        else if(BackpackInventorySystem.AddToInventory(data, amount))
         {
             return true;
         }

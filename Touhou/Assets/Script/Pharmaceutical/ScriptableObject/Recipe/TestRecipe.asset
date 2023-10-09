@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5933eff2b7df10344ac36d71cf693335, type: 3}
+  m_Script: {fileID: 11500000, guid: c40ba4e0bc8384e41877d21077933e0c, type: 3}
   m_Name: TestRecipe
   m_EditorClassIdentifier: 
-  mainItemData: {fileID: 11400000, guid: 493c248d86228fa4b91e0d8427a4f89c, type: 2}
-  mainItemDataAmount: 2
+  mainItemData: {fileID: 11400000, guid: d55906364541e4247933363552b8f9fc, type: 2}
+  mainItemDataAmount: 1
   subItemData: {fileID: 11400000, guid: d655815ca836f384f878eea9db2258b5, type: 2}
-  subItemDataAmount: 1
-  resultItemData: {fileID: 11400000, guid: 2766b1cc8f462244d9930c16b2b96c20, type: 2}
+  subItemDataAmount: 2
+  resultItemData: {fileID: 11400000, guid: d55906364541e4247933363552b8f9fc, type: 2}
   resultItemDataAmount: 2
+  Description: 

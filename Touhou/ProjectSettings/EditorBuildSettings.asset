@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Village/Village_School.unity
     guid: db12864fa4346534a90e6e5d8b798d88
   - enabled: 1
+    path: Assets/Scenes/Pharmaceutical.unity
+    guid: 5a2dddcfa35c3cd4bb085614858797fd
+  - enabled: 1
     path: Assets/Scenes/Village/Village_Shop.unity
     guid: f2c6f29fd77757446b88b4cc35ead609
   - enabled: 1

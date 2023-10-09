@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a596df4bb60a68344807d268f15c5ba0, type: 3}
-  m_Name: Player Hotbar Inventory
+  m_Name: Craft Tool 1
   m_EditorClassIdentifier: 
-  savePath: /InventorySave/PlayerHotbar.save
-  inventorySlots: []
+  savePath: /InventorySave/Craft1.save
+  inventorySlots:
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0

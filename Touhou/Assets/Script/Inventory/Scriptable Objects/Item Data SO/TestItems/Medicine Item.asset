@@ -25,7 +25,7 @@ MonoBehaviour:
     Price : 500
 
     Buy Price : 600'
-  Icon: {fileID: 532238433, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
+  Icon: {fileID: -1655416996, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
   MaxStackSize: 10
   Shopable: 1
   SellPrice: 500
