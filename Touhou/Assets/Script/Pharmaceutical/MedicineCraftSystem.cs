@@ -15,9 +15,15 @@ public class MedicineCraftSystem : MonoBehaviour
     public InventoryItemData resultItemData;
     public int resultItemDataAmount;
 
+    public bool IsItemDataNull()
+    {
+        if(mainItemData || subItemData || resultItemData) return false;
+        else return true;
+    }
+
     public void CraftMedicine() // 재료를 슬롯에다가 넣고 craft버튼을 눌렀을때 실행되는 함수
     {        
-        Debug.Log("Call Craft Medicine func");
+        // Debug.Log("Call Craft Medicine func");
         if(CanCraft() == false) return;
         else
         {
@@ -46,7 +52,7 @@ public class MedicineCraftSystem : MonoBehaviour
     public bool CanCraft() // 슬롯에 채워진 아이템의 정보와 레시피의 정보가 같은지 체크
     {
         // 제작 결과창에서 아직 아이템을 옮기지 않았을 경우
-        Debug.Log("Call CanCraft func");
+        // Debug.Log("Call CanCraft func");
         // if(resultItemData != null) 
         // {
         //     Debug.Log("resultItemData != null");
@@ -62,12 +68,12 @@ public class MedicineCraftSystem : MonoBehaviour
                 {
                     foundRecipe = recipe;
                     
-                    Debug.Log("Recipe Found");
+                    // Debug.Log("Recipe Found");
                     return true;
                 }
             }
         }
-        Debug.Log("Recipe Not Found");
+        // Debug.Log("Recipe Not Found");
         return false;
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public abstract class InventoryDisplay : MonoBehaviour
 {
-    [SerializeField] MouseItemData mouseInventoryItem;
+    [SerializeField] protected MouseItemData mouseInventoryItem;
     [SerializeField] protected InventorySystem inventorySystem;
     [SerializeField] protected InventorySystem backpackInventorySystem;
     [SerializeField] protected InventorySystem medicalInventorySystem;

@@ -33,7 +33,7 @@ public class MouseItemData : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObject())
             {
-                ClearSlot();
+                // ClearSlot();
             }
         }
     }

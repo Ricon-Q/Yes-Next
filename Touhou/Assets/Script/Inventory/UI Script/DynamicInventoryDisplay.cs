@@ -52,6 +52,8 @@ public class DynamicInventoryDisplay : InventoryDisplay
     }
     public virtual void ChangeCategory(string type)
     {
+        if(mouseInventoryItem.AssignedInventorySlot.ItemData != null) return;
+
         itemType = (ItemType) Enum.Parse(typeof(ItemType), type);
         if(itemType == ItemType.Ingredient || itemType == ItemType.Medicine)
         {
