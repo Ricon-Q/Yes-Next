@@ -26,8 +26,88 @@ MonoBehaviour:
     stackSize: 1
   - itemData: {fileID: 11400000, guid: 2766b1cc8f462244d9930c16b2b96c20, type: 2}
     stackSize: 1
-  - itemData: {fileID: 11400000, guid: f352f3b7b388bff4dadce4bddc2f47b4, type: 2}
-    stackSize: 1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
+  - itemData: {fileID: 0}
+    stackSize: 0
   - itemData: {fileID: 0}
     stackSize: 0
   - itemData: {fileID: 0}

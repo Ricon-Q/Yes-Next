@@ -36,6 +36,9 @@ public class InventoryManager : MonoBehaviour
         if (InputManager.Instance.GetToggleInventoryPressed() )
         {
             Debug.Log("ToogleInv");
+            
+            if(ShopManager.Instance.isShopMode) return;
+            
             ToggleInventory();
         }
     }

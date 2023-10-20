@@ -14,6 +14,126 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePath: /InventorySave/PlayerMedical.save
   inventorySlots:
+  - itemData: {fileID: 11400000, guid: d655815ca836f384f878eea9db2258b5, type: 2}
+    stackSize: 4
+  - itemData: {fileID: 11400000, guid: d55906364541e4247933363552b8f9fc, type: 2}
+    stackSize: 4
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
+  - itemData: {fileID: 0}
+    stackSize: -1
   - itemData: {fileID: 0}
     stackSize: -1
   - itemData: {fileID: 0}

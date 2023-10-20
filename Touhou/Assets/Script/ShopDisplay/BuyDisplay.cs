@@ -51,6 +51,7 @@ public class BuyDisplay : DynamicInventoryDisplay
                 playerInventory.AddToInventory(itemData.ItemData, itemData.StackSize);
             }
         }
+        playerInventory.Save();
         Reset();
     }
 }
