@@ -34,6 +34,7 @@ public class PlayerData
     public float maxHunger;        // 최대 만복도
     public float currentHunger;    // 현재 만복도
     public long money;
+    public long hospitalLevel;
 
     public PlayerData()
     {
@@ -44,6 +45,7 @@ public class PlayerData
         this.maxHunger = 100;        
         this.currentHunger = 100;    
         this.money = 50000;
+        this.hospitalLevel = 1;
     }
 }
 

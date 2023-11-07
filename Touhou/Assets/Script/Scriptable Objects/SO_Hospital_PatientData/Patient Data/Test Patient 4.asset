@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d762f28b04e0bc449457b271346ad0a, type: 3}
-  m_Name: New Disease_Data
+  m_Script: {fileID: 11500000, guid: ba36bc6b8b883454f9390cf2e30e2d1d, type: 3}
+  m_Name: Test Patient 4
   m_EditorClassIdentifier: 
-  diseaseName: 
-  isAdmission: 0
-  correctMedicine: {fileID: 0}
-  severity: 0
-  reputation: 0
-  income: 0
-  dialogueText: {fileID: 0}
+  patientName: TP 4
+  standingCG: []
+  diseaseData: {fileID: 11400000, guid: f03ece0123d1a1f4d864a4c038ada383, type: 2}
