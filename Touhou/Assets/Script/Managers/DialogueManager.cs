@@ -5,6 +5,7 @@ using Ink.Runtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -37,11 +38,16 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue UI")]
     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueText;
+    private TextMeshProUGUI Original_DialogueText;
+    public GameObject continueStoryButton;
+    private GameObject Original_ContinueStoryButton;
 
     [Header("Choices UI")]
-    [SerializeField] private GameObject[] choices;
+    public GameObject[] choices;
+    private GameObject[] Original_Choices;
     private TextMeshProUGUI[] choicesText;
+    private TextMeshProUGUI[] Original_ChoicesText;
     private Dictionary<string, System.Action> choiceActions = new Dictionary<string, System.Action>();
 
     [SerializeField] private NPC npcScript;
@@ -56,6 +62,17 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
+        continueStoryButton.GetComponent<Button>().onClick.AddListener(OnContinueStoryButtonClicked);
+        
+        SetupChoiceText();
+        BackupVariables();
+        SetupChoiceAction();
+
+        // 디버그용 코드
+    }
+
+    private void SetupChoiceText()
+    {
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach(GameObject choice in choices)
@@ -63,12 +80,28 @@ public class DialogueManager : MonoBehaviour
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
             index++;
         }
+    }
 
+    private void BackupVariables()
+    {
+        Original_DialogueText = dialogueText;
+        Original_Choices = choices;
+        Original_ChoicesText = choicesText;
+        Original_ContinueStoryButton = continueStoryButton;
+    }
+    private void RollbackVariables()
+    {
+        dialogueText = Original_DialogueText;
+        choices = Original_Choices;
+        choicesText = Original_ChoicesText;
+        continueStoryButton = Original_ContinueStoryButton;
+    }
+
+    private void SetupChoiceAction()
+    {
         choiceActions["Exit"] = ExitDialogueMode;
         choiceActions["Shop"] = EnterShopMode;
         choiceActions["Affection +2"] = AddAffection;
-
-        // 디버그용 코드
     }
 
     private void Update()
@@ -100,12 +133,37 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
     }
+
+    public void HospitalChangePatienData(PatientData patientData)
+    {
+        Debug.Log("HospitalChangePatienData Called");
+        currentStory = new Story(patientData.diseaseData.dialogueText.text);
+        continueStoryButton.GetComponent<Button>().onClick.AddListener(OnContinueStoryButtonClicked);
+        dialogueIsPlaying = true;
+        
+        ContinueStory();
+    }
+    public void EnterHospitalMode()
+    {
+        SetupChoiceText();
+    }
+
+    public void ExitHospitalMode()
+    {
+        RollbackVariables();
+    }
+
+    private void OnContinueStoryButtonClicked()
+    {
+        ContinueStory();
+    }
+
     private void ContinueStory()
     {
         if(currentStory.canContinue)
         {
             dialogueText.text = currentStory.Continue();
-
+            Debug.Log(dialogueText.text);
             DisplayChoices();
         }
         else
@@ -157,6 +215,7 @@ public class DialogueManager : MonoBehaviour
 
         currentStory.ChooseChoiceIndex(choiceIndex);
     }
+
     public void EnterShopMode()
     {
         ShopManager.Instance.EnterShopMode(npcScript);

@@ -13,19 +13,22 @@ using UnityEngine;
 /*/
 public class HospitalMain : MonoBehaviour
 {
-  public long hospitalLevel;
-  public PatientDataBase patientDataBase;
-  public Queue<PatientData> PatientQueue;
+  public long hospitalLevel;  // PlayerManger에서 가져오는 병원 평판 레벨
+  public PatientDataBase patientDataBase; // 환자 큐를 생성할때 환자 정보를 뽑아올 데이터 베이스
+  public Queue<PatientData> PatientQueue; // 환자 큐
+  public PatientObject patientObject; // 환자 큐에서 차례대로 정보를 PatientObject로 넘겨 환자 스크립트 실행
 
    // Start함수에서 평판 정보를 PlayerManager에서 가져온다. 이후 GeneratePatientQueue() 호출
   private void Start() 
   {
     // hospitalLevel = PlayerManager.Instance.playerData.hospitalLevel;
     hospitalLevel = 1;
+
     long patientCount = (long)UnityEngine.Random.Range(hospitalLevel * 5 - 3, hospitalLevel * 5);
 
     PatientQueue = new Queue<PatientData>();
     GeneratePatientQueue(patientCount);
+    StartHospitalMode();
   }
 
     // 환자의 정보를 큐 형태로 작성, 
@@ -39,5 +42,10 @@ public class HospitalMain : MonoBehaviour
         PatientQueue.Enqueue(patientDataBase.Items[randomPatientID]);
       }
     }
+  }
+
+  private void StartHospitalMode()
+  {
+    patientObject.GeneratePatientData(PatientQueue.Dequeue());
   }
 }

@@ -18,4 +18,4 @@ MonoBehaviour:
   severity: 1
   reputation: 10
   income: 100
-  dialogueText: {fileID: 0}
+  dialogueText: {fileID: 4900000, guid: 2e7740abb47d6544db504e4343c360b5, type: 3}
