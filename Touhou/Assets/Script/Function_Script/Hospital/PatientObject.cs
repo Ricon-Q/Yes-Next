@@ -47,6 +47,11 @@ public class PatientObject : MonoBehaviour
         DialogueManager.Instance.continueStoryButton = this.continueStoryButton;
     }
 
+    public void ChoiceButton(int index)
+    {
+        DialogueManager.Instance.MakeChoice(index);
+    }
+
     private void PatientMoveAnimation(bool isEnterAnimation)
     {
         if(isEnterAnimation)

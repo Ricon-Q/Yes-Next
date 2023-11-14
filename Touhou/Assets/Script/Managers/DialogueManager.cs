@@ -78,6 +78,7 @@ public class DialogueManager : MonoBehaviour
         foreach(GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+        
             index++;
         }
     }
@@ -102,6 +103,7 @@ public class DialogueManager : MonoBehaviour
         choiceActions["Exit"] = ExitDialogueMode;
         choiceActions["Shop"] = EnterShopMode;
         choiceActions["Affection +2"] = AddAffection;
+        choiceActions["GiveUp"] = GiveUpPatient;
     }
 
     private void Update()
@@ -184,9 +186,12 @@ public class DialogueManager : MonoBehaviour
         foreach(Choice choice in currentChoices)
         {
             choices[index].gameObject.SetActive(true);
+            // choices[index].GetComponent<Button>().onClick.AddListener(() => MakeChoice(index));
             choicesText[index].text = choice.text;
             index++;
         }
+        if(index != 0) continueStoryButton.SetActive(false);
+        else continueStoryButton.SetActive(true);
 
         for (int i = index; i < choices.Length; i++)
         {
@@ -203,17 +208,19 @@ public class DialogueManager : MonoBehaviour
     }
     public void MakeChoice(int choiceIndex) 
     {
+        Debug.Log(choiceIndex);
         Choice choice = currentStory.currentChoices[choiceIndex];
         string choiceText = choice.text;
-        // Debug.Log(choiceText);
+        Debug.Log(choiceText);
 
-         // 선택지에 해당하는 함수 실행
+        //  선택지에 해당하는 함수 실행
         if (choiceActions.ContainsKey(choiceText))
         {
             choiceActions[choiceText].Invoke();
         }
 
         currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStory();
     }
 
     public void EnterShopMode()
@@ -225,5 +232,10 @@ public class DialogueManager : MonoBehaviour
     {
         npcScript.npcData.affection += 2;
         currentStory.variablesState["npcAffection"] = npcScript.npcData.affection;
+    }
+
+    public void GiveUpPatient()
+    {
+        Debug.Log("GiveUpPatient");
     }
 }
