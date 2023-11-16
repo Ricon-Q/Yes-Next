@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5af348f9e31eb814e9dc6b82f4c2ea53
+guid: 80b32f010263c0d4f8853d3e70ec4b1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -214,6 +214,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Up_Frame
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 412
+        width: 71
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32afc124ae0090f478f54cdb58265d67
+      internalID: -1034441485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Seam
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 409
+        width: 28
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 3, y: 1, z: 3, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b19409e6df4cab48b51bc439fcb2f96
+      internalID: 1864125138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -225,11 +267,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      UI_Down_Frame: 46384886
       UI_Frame: -1374021786
       UI_Frame_001: 875125412
       UI_Portrait_Frame: 1101683627
+      UI_Seam: 1864125138
       UI_Slider_Frame: -554653703
       UI_Slider_Handle: -774740589
+      UI_Up_Frame: -1034441485
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10358,7 +10358,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI books & more_488
+      name: UI_Coin
       rect:
         serializedVersion: 2
         x: 672
@@ -19720,7 +19720,6 @@ TextureImporter:
       UI books & more_485: 1622906956
       UI books & more_486: -1773509265
       UI books & more_487: -580705039
-      UI books & more_488: -1402844028
       UI books & more_489: -737058729
       UI books & more_49: -1005835143
       UI books & more_490: 1888869051
@@ -20199,6 +20198,7 @@ TextureImporter:
       UI_Arrow_Left_Up: 275241936
       UI_Arrow_Right_Down: 1990102107
       UI_Arrow_Right_Up: -865150284
+      UI_Coin: -1402844028
       UI_DarkBrown_Panel: -1948855850
       UI_GreenCheck: -1614240962
       UI_GreenCheck_Pressed: -1914932510

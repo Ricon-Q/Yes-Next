@@ -38,8 +38,9 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] private PatientDataBase patientDataBase; // 환자 데이터 베이스
     private Queue<PatientData> patientQueue; // 환자 큐
 
-    [Header("Hospital Panel")]
+    [Header("Panel")]
     [SerializeField] private GameObject hospitalPanel;
+    [SerializeField] private GameObject patientPanel;
     
     [Header("Patient Dialogue UI")]
     [SerializeField] private GameObject patientDialoguePanel;
