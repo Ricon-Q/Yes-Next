@@ -19,7 +19,7 @@ public class HospitalManager : MonoBehaviour
             {
                 return null;
             }
-            return null;
+            return instance;
         }
     }
     private void Awake()
@@ -60,10 +60,25 @@ public class HospitalManager : MonoBehaviour
         isHospitalMode = false;
         hospitalPanel.SetActive(false);
         patientDialoguePanel.SetActive(false);
+        SetupChoiceText();
     }
 
-    private void StartHospitalMode()
+    private void SetupChoiceText()
     {
+        choicesText = new TextMeshProUGUI[choices.Length];
+        int index = 0;
+        foreach(GameObject choice in choices)
+        {
+            choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
+        
+            index++;
+        }
+    }
+
+    public void StartHospitalMode()
+    {
+        Debug.Log("Start Hospital Mode Called");
+
         // 병원 레벨 정보 가져오기 및 환자 수 설정
         long hospitalLevel = PlayerManager.Instance.playerData.hospitalLevel;
         long patientCount = (long)UnityEngine.Random.Range(hospitalLevel * 5 - 3, hospitalLevel * 5);
@@ -119,7 +134,7 @@ public class HospitalManager : MonoBehaviour
         Debug.Log("End Diagnosis");
     }
 
-    private void ContinueStory()
+    public void ContinueStory()
     {
         if(patientStory.canContinue)
         {
@@ -128,6 +143,10 @@ public class HospitalManager : MonoBehaviour
             if(patientStory.currentChoices.Count > 0)
             {
                 DisplayChoices();
+            }
+            else
+            {
+                HideChoices();
             }
         }
         else
@@ -138,7 +157,8 @@ public class HospitalManager : MonoBehaviour
 
     private void DisplayChoices()
     {
-        Debug.Log("Display Choices");
+        continueStoryButton.SetActive(false);
+
         List<Choice> currentChoices = patientStory.currentChoices;
         if(currentChoices.Count > choices.Length)
         {
@@ -159,6 +179,16 @@ public class HospitalManager : MonoBehaviour
         }
 
         StartCoroutine(SelectFirstChoice());
+    }
+
+    private void HideChoices()
+    {
+        
+        continueStoryButton.SetActive(true);
+        for(int i = 0; i < choices.Length; i++)
+        {
+            choices[i].gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator SelectFirstChoice()

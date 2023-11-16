@@ -23,6 +23,8 @@
 ->DONE
 
 ===Decision===
+어떻게 하시겠습니까?
     +[처방하기] -> Prescribe
     +[질문하기] -> Ask
     +[진료포기] -> GiveUp
+    
