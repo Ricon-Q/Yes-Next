@@ -4,6 +4,8 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 // Hospital Phase 싱글톤
@@ -53,14 +55,21 @@ public class HospitalManager : MonoBehaviour
     [SerializeField] private Dictionary<string, System.Action> choiceActions = 
                         new Dictionary<string, System.Action>();
 
+    [Header("Hospital Inventory Display")]
+    [SerializeField] private GameObject hospitalInventoryDisplayObject;
+    [SerializeField] private HospitalInventoryDisplay hospitalInventoryDisplay;
+
     private Story patientStory;
 
     private void Start()
     {
         isHospitalMode = false;
         hospitalPanel.SetActive(false);
+        patientPanel.SetActive(false);
         patientDialoguePanel.SetActive(false);
         SetupChoiceText();
+        ToggleHospitalInventoryDisplay(false);
+        SetupChoiceAction();
     }
 
     private void SetupChoiceText()
@@ -73,6 +82,13 @@ public class HospitalManager : MonoBehaviour
         
             index++;
         }
+    }
+    private void SetupChoiceAction()
+    {
+        Debug.Log("SetupChoiceAction");
+        choiceActions["처방하기"] = Prescribe;
+        choiceActions["질문하기"] = Ask;
+        choiceActions["진료포기"] = GiveUp;
     }
 
     public void StartHospitalMode()
@@ -125,6 +141,7 @@ public class HospitalManager : MonoBehaviour
     private void Diagnosis(PatientData patientData)
     {
         patientStory = new Story(patientData.diseaseData.dialogueText.text);
+        patientPanel.SetActive(true);
         patientDialoguePanel.SetActive(true);
 
         ContinueStory();
@@ -132,6 +149,9 @@ public class HospitalManager : MonoBehaviour
     private void EndDiagnosis()
     {
         Debug.Log("End Diagnosis");
+        patientPanel.SetActive(true);
+        patientDialoguePanel.SetActive(true);
+        StartPatientPhase();
     }
 
     public void ContinueStory()
@@ -202,6 +222,7 @@ public class HospitalManager : MonoBehaviour
     {
         Choice choice = patientStory.currentChoices[choiceIndex];
         string choiceText = choice.text;
+        Debug.Log(choiceText);
 
         //  선택지에 해당하는 함수 실행
         if (choiceActions.ContainsKey(choiceText))
@@ -217,6 +238,42 @@ public class HospitalManager : MonoBehaviour
     {
         Debug.Log("환자 페이즈 종료");
         isHospitalMode = false;
+        
+        patientPanel.SetActive(false);
         patientDialoguePanel.SetActive(false);
+        hospitalPanel.SetActive(false);
+        SceneManager.LoadScene("Debug_Main");
     }
+
+    public void Prescribe()
+    {   
+        ToggleHospitalInventoryDisplay(true);
+        Debug.Log("Prescribe");
+        hospitalInventoryDisplay.Display();
+    }
+
+    public void Ask()
+    {
+        Debug.Log("Ask");
+    }
+
+    public void GiveUp()
+    {
+        Debug.Log("GiveUp");
+    }
+
+    private void ToggleHospitalInventoryDisplay(bool active)
+    {
+        if(active == true)
+        {
+            hospitalInventoryDisplay.isDisplayOpen = true;
+            hospitalInventoryDisplayObject.SetActive(true);
+        }
+
+        else
+        {
+            hospitalInventoryDisplayObject.SetActive(false);
+            hospitalInventoryDisplay.isDisplayOpen = false;
+        }
+    } 
 }

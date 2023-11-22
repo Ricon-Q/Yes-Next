@@ -54,6 +54,23 @@ public class InventorySystem : ScriptableObject
         return freeSlot == null ? false : true;
     }
 
+    public int GetItemCount(InventoryItemData itemToFind)
+    {
+        int itemCount = 0;
+
+        // Check if the item exists in the inventory
+        if (ContainItem(itemToFind, out List<InventorySlot> invSlot))
+        {
+            // If it does, sum up the amount in each slot
+            foreach (var slot in invSlot)
+            {
+                itemCount += slot.StackSize;
+            }
+        }
+
+        return itemCount;
+    }
+
     [ContextMenu("Save Inventory")]
     public void Save()
     {

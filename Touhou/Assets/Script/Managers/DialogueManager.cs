@@ -48,7 +48,8 @@ public class DialogueManager : MonoBehaviour
     private GameObject[] Original_Choices;
     private TextMeshProUGUI[] choicesText;
     private TextMeshProUGUI[] Original_ChoicesText;
-    private Dictionary<string, System.Action> choiceActions = new Dictionary<string, System.Action>();
+    private Dictionary<string, System.Action> choiceActions = 
+            new Dictionary<string, System.Action>();
 
     [SerializeField] private NPC npcScript;
 
@@ -225,6 +226,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterShopMode()
     {
+        Debug.Log("EnterShopMode");
         ShopManager.Instance.EnterShopMode(npcScript);
         ExitDialogueMode();
     }
