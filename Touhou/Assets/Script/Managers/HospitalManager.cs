@@ -39,6 +39,7 @@ public class HospitalManager : MonoBehaviour
     [Header("Patient DataBase")]
     [SerializeField] private PatientDataBase patientDataBase; // 환자 데이터 베이스
     private Queue<PatientData> patientQueue; // 환자 큐
+    private PatientData currentPatientData;
 
     [Header("Panel")]
     [SerializeField] private GameObject hospitalPanel;
@@ -89,6 +90,7 @@ public class HospitalManager : MonoBehaviour
         choiceActions["처방하기"] = Prescribe;
         choiceActions["질문하기"] = Ask;
         choiceActions["진료포기"] = GiveUp;
+        choiceActions["취소"] = Cancle;
     }
 
     public void StartHospitalMode()
@@ -129,7 +131,8 @@ public class HospitalManager : MonoBehaviour
         if(patientQueue.Count > 0)
         {
             // 환자 큐에 정보가 남아있다면, patientData를 진료 함수로 넘겨서 실행
-            Diagnosis(patientQueue.Dequeue());
+            currentPatientData = patientQueue.Dequeue();
+            Diagnosis();
         }
         else
         {
@@ -138,9 +141,9 @@ public class HospitalManager : MonoBehaviour
         }
     }
 
-    private void Diagnosis(PatientData patientData)
+    private void Diagnosis()
     {
-        patientStory = new Story(patientData.diseaseData.dialogueText.text);
+        patientStory = new Story(currentPatientData.diseaseData.dialogueText.text);
         patientPanel.SetActive(true);
         patientDialoguePanel.SetActive(true);
 
@@ -261,6 +264,12 @@ public class HospitalManager : MonoBehaviour
     {
         Debug.Log("GiveUp");
     }
+    
+    public void Cancle()
+    {
+        if(hospitalInventoryDisplay.isDisplayOpen == true)
+            ToggleHospitalInventoryDisplay(false);
+    }
 
     private void ToggleHospitalInventoryDisplay(bool active)
     {
@@ -276,4 +285,21 @@ public class HospitalManager : MonoBehaviour
             hospitalInventoryDisplay.isDisplayOpen = false;
         }
     } 
+
+    public void GiveMedicine(InventoryItemData itemData)
+    {
+        ToggleHospitalInventoryDisplay(false);
+        if(itemData == currentPatientData.diseaseData.correctMedicine)
+        {
+            Debug.Log("Correct Medicine");
+            patientStory.ChoosePathString("Correct");
+            ContinueStory();
+        }
+        else
+        {
+            Debug.Log("Incorrect Medicine");
+            patientStory.ChoosePathString("Incorrect");
+            ContinueStory();
+        }
+    }
 }

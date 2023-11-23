@@ -16,6 +16,7 @@
 
 ===Ask===
 혹시 기침을 자주 하시나요?
+종종 그런거 같아요
 -> Decision
 
 ===GiveUp===
@@ -28,3 +29,11 @@
     +[질문하기] -> Ask
     +[진료포기] -> GiveUp
     
+    
+===Correct===
+Correct
+->DONE
+
+===Incorrect===
+Incorrect
+->DONE

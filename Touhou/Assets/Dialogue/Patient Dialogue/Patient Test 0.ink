@@ -29,3 +29,11 @@
     +[질문하기] -> Ask
     +[진료포기] -> GiveUp
     
+    
+===Correct===
+Correct
+->DONE
+
+===Incorrect===
+Incorrect
+->DONE

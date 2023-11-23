@@ -34,6 +34,6 @@ public class MedicineSlot_UI : MonoBehaviour
 
     public void buttonClicked()
     {
-        Debug.Log("Clicked");
+        HospitalManager.Instance.GiveMedicine(this.itemData);
     }
 }
