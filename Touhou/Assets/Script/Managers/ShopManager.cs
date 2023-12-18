@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
+// using System;
+// using System.Collections;
+// using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
+// using Unity.VisualScripting;
 using UnityEngine;
 
 // 상점을 담당하는 싱글톤 스크립트
