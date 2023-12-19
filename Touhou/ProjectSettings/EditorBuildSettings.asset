@@ -6,49 +6,55 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Eientei/Eientei.unity
+    path: Assets/Scenes/Main Menu.unity
+    guid: 89f8bd31a002d6b498f353e8a572459a
+  - enabled: 1
+    path: Assets/Scenes/Intro Scene.unity
+    guid: ca930da24431179459a1886eff991f87
+  - enabled: 0
+    path: Assets/Scenes/Pre/Eientei/Eientei.unity
     guid: 04899d906481cb44c8f0518fa94f09b9
-  - enabled: 1
-    path: Assets/Scenes/Eientei/Eientei_Garden.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Eientei/Eientei_Garden.unity
     guid: 4e529a9f806e5ef4c9f951bbb1f49864
-  - enabled: 1
-    path: Assets/Scenes/Eientei/Eientei_Room.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Eientei/Eientei_Room.unity
     guid: 543a5ac3261e8bd4ab3f25a2d76b1204
-  - enabled: 1
-    path: Assets/Scenes/Kourindou/Kourindou.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Kourindou/Kourindou.unity
     guid: c52f66240a727c14c8959e3f69669562
-  - enabled: 1
-    path: Assets/Scenes/Debug/Debug_Item.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Debug/Debug_Item.unity
     guid: 2c63ef9e368c230469f0a053bebb9df9
-  - enabled: 1
-    path: Assets/Scenes/Debug/Debug_Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Debug/Debug_Main.unity
     guid: f251b9a4353dc0743a7bd418386e3d04
-  - enabled: 1
-    path: Assets/Scenes/Debug/Debug_NPC.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Debug/Debug_NPC.unity
     guid: 1aa9e0052c98c3044973f9a6cbf39b76
-  - enabled: 1
-    path: Assets/Scenes/Kourindou/Kourindou_Shop.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Kourindou/Kourindou_Shop.unity
     guid: e3a9ac09d18af824a8a4254c3ba3b92d
-  - enabled: 1
-    path: Assets/Scenes/Village/Village_Bookstore.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Village/Village_Bookstore.unity
     guid: 2d8183da7d66ce5499847c97ef832182
-  - enabled: 1
-    path: Assets/Scenes/Hospital_Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Hospital_Main.unity
     guid: 0ee4c38fd7bb7fe48b76f39c466a7ab7
-  - enabled: 1
-    path: Assets/Scenes/Village/Village_Main.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Village/Village_Main.unity
     guid: 9c94550df59c4d2428fe321fc46f63fc
-  - enabled: 1
-    path: Assets/Scenes/Village/Village_School.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Village/Village_School.unity
     guid: db12864fa4346534a90e6e5d8b798d88
-  - enabled: 1
-    path: Assets/Scenes/Pharmaceutical.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Pharmaceutical.unity
     guid: 5a2dddcfa35c3cd4bb085614858797fd
-  - enabled: 1
-    path: Assets/Scenes/Village/Village_Shop.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Village/Village_Shop.unity
     guid: f2c6f29fd77757446b88b4cc35ead609
-  - enabled: 1
-    path: Assets/Scenes/Setup.unity
+  - enabled: 0
+    path: Assets/Scenes/Pre/Setup.unity
     guid: 4a2a51d9ce50238419b17dfa06834abc
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2d0cce6ba75a95a4ab56b3193a10cf07, type: 2}

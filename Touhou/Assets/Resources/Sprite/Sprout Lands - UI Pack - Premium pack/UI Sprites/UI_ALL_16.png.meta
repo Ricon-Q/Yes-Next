@@ -244,7 +244,7 @@ TextureImporter:
         width: 28
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 1, z: 3, w: 1}
       outline: []
       physicsShape: []
@@ -252,6 +252,195 @@ TextureImporter:
       bones: []
       spriteID: 1b19409e6df4cab48b51bc439fcb2f96
       internalID: 1864125138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse Cursor
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 433
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bf70e23a2d242f4c82b28e12899df4c
+      internalID: 1492015797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Right
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 534
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48462cf1a8c2dff42b5d0fea4c878c85
+      internalID: 1991230016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Right_Pressed
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 534
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a7eb233410c3ae4b8ee8fea8fc5d388
+      internalID: -2108589458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Left
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 534
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ca2222c1e6025439c35d86521aed71
+      internalID: 2015647422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Left_Pressed
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 534
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 4, z: 4, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bddeca0dbcadbd94e88fab97603fec3c
+      internalID: -522472892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Home
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 404
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3416ec8a0fe05ec488a91db600ce5158
+      internalID: -1407683257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Home_Pressed
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 404
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cd80c4959e9f5499615509299bf8a1
+      internalID: 1448891730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Play
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 531
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b28d37539969c04880accb81f0bc992
+      internalID: -945336810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Play_Pressed
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 531
+        width: 90
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1722983dd44c83a49a8035e21d329a90
+      internalID: 1229074196
       vertices: []
       indices: 
       edges: []
@@ -267,6 +456,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Button_Home: -1407683257
+      Button_Home_Pressed: 1448891730
+      Button_Left: 2015647422
+      Button_Left_Pressed: -522472892
+      Button_Play: -945336810
+      Button_Play_Pressed: 1229074196
+      Button_Right: 1991230016
+      Button_Right_Pressed: -2108589458
+      Mouse Cursor: 1492015797
       UI_Down_Frame: 46384886
       UI_Frame: -1374021786
       UI_Frame_001: 875125412
