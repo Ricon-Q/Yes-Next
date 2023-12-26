@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 89f8bd31a002d6b498f353e8a572459a
   - enabled: 1
-    path: Assets/Scenes/Intro Scene.unity
+    path: Assets/Scenes/Intro/Intro Scene.unity
     guid: ca930da24431179459a1886eff991f87
   - enabled: 0
     path: Assets/Scenes/Pre/Eientei/Eientei.unity

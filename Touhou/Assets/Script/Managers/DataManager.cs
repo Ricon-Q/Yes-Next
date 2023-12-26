@@ -52,8 +52,10 @@ public class DataManager : MonoBehaviour
 
     public void NewGame(int saveIndex)
     {
+        FadeInOutManager.Instance.FadeIn();
         currentSaveIndex = saveIndex;
         SceneManager.LoadScene("Intro Scene");
+        FadeInOutManager.Instance.FadeOut();
     }
 
     public void SaveSlot()
@@ -82,7 +84,10 @@ public class DataManager : MonoBehaviour
             loadData = ES3.Load<SaveData>("SaveData", path);
             // ES3.Load<SaveData>(path, out loadData);
             Debug.Log(loadData.LastSceneName);
+            
+            FadeInOutManager.Instance.FadeIn();
             SceneManager.LoadScene(loadData.LastSceneName);
+            FadeInOutManager.Instance.FadeOut();
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         else
