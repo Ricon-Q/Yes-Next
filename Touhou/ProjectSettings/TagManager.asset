@@ -48,3 +48,21 @@ TagManager:
   - name: UI
     uniqueID: 3276510741
     locked: 0
+  - name: Ground
+    uniqueID: 1322299331
+    locked: 0
+  - name: Grass
+    uniqueID: 4141591403
+    locked: 0
+  - name: Dirt
+    uniqueID: 3621517707
+    locked: 0
+  - name: Flower
+    uniqueID: 2949038725
+    locked: 0
+  - name: Tree
+    uniqueID: 2898049241
+    locked: 0
+  - name: Moveable Object
+    uniqueID: 2277404811
+    locked: 0
