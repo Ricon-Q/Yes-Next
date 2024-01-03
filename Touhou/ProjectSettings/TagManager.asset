@@ -45,24 +45,42 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 3276510741
-    locked: 0
   - name: Ground
     uniqueID: 1322299331
     locked: 0
   - name: Grass
     uniqueID: 4141591403
     locked: 0
-  - name: Dirt
+  - name: Road
     uniqueID: 3621517707
+    locked: 0
+  - name: Road_2
+    uniqueID: 1735530445
     locked: 0
   - name: Flower
     uniqueID: 2949038725
     locked: 0
+  - name: Fence
+    uniqueID: 606682151
+    locked: 0
+  - name: Lights.001
+    uniqueID: 4036990673
+    locked: 0
   - name: Tree
     uniqueID: 2898049241
     locked: 0
+  - name: Objects.back
+    uniqueID: 547334791
+    locked: 0
+  - name: Building
+    uniqueID: 2063395367
+    locked: 0
+  - name: Objects
+    uniqueID: 1386955587
+    locked: 0
   - name: Moveable Object
     uniqueID: 2277404811
+    locked: 0
+  - name: UI
+    uniqueID: 3276510741
     locked: 0

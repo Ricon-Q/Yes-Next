@@ -34,4 +34,10 @@ public class GenderSelection : MonoBehaviour
         femaleButton.interactable = false;
         mainPortrait.sprite = femalePortrait;
     }
+
+    public void ChangeScene()
+    {
+        FadeInOutManager.Instance.ChangeScene("Intro Cutscene");
+    }
 }
+
