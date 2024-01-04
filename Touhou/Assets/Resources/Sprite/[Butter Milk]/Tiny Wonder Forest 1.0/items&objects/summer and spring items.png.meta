@@ -520,7 +520,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -11, y: -13.5}
+        - {x: -11, y: -20.5}
+        - {x: -11, y: -23.5}
+        - {x: 14, y: -23.5}
+        - {x: 14, y: -18.5}
+        - {x: 14, y: -13.5}
       tessellationDetail: 0
       bones: []
       spriteID: 777a08330e11e644ba6a11a04b2c1dad
@@ -688,7 +694,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -16, y: 8}
+        - {x: -16, y: -6}
+        - {x: -15, y: -8}
+        - {x: 11, y: -8}
+        - {x: 15, y: -4}
+        - {x: 14, y: 8}
       tessellationDetail: 0
       bones: []
       spriteID: 3c9e62ed29669704daf509a9f19ddfd4
@@ -764,7 +776,7 @@ TextureImporter:
       name: summer and spring items_86
       rect:
         serializedVersion: 2
-        x: 60
+        x: 59
         y: 65
         width: 36
         height: 47
@@ -772,7 +784,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -11, y: -13.5}
+        - {x: -11, y: -20.5}
+        - {x: -11, y: -23.5}
+        - {x: 14, y: -23.5}
+        - {x: 14, y: -18.5}
+        - {x: 14, y: -13.5}
       tessellationDetail: 0
       bones: []
       spriteID: 5f7f55ef5c5bf9947bafe0ab7f6aa6ee
@@ -793,7 +811,13 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -11, y: -13.5}
+        - {x: -11, y: -20.5}
+        - {x: -11, y: -23.5}
+        - {x: 14, y: -23.5}
+        - {x: 14, y: -18.5}
+        - {x: 14, y: -13.5}
       tessellationDetail: 0
       bones: []
       spriteID: 41bf0c764f39f284eaa750cea7f9ab26
