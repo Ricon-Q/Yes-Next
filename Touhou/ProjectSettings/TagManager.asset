@@ -72,7 +72,7 @@ TagManager:
   - name: Objects.back
     uniqueID: 547334791
     locked: 0
-  - name: Building
+  - name: Collision
     uniqueID: 2063395367
     locked: 0
   - name: Objects
