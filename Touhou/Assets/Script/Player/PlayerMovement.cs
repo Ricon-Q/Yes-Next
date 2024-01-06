@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
-    public Animator animator;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator animator;
 
     private Vector2 movementDirection;
     private Vector2 lastMovementDirection;
@@ -24,12 +24,15 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() 
     {
         // Movement
-        Move();
+        HandleMove();
     }
 
-    private void Move()
+    private void HandleMove()
     {
-        rb.velocity = new Vector2(movementDirection.x * moveSpeed, movementDirection.y * moveSpeed);
+        movementDirection = InputManager.Instance.GetMoveDirection();
+        Debug.Log(movementDirection);
+        rb.velocity = movementDirection * moveSpeed;
+        // rb.velocity = new Vector2(movementDirection.x * moveSpeed, movementDirection.y * moveSpeed);
     }
     
     private void ProcessInputs()
@@ -37,12 +40,12 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
 
-        if((moveX == 0 && moveY == 0) && movementDirection.x != 0 || movementDirection.y != 0)
+        if((moveX == 0 && moveX == 0) && movementDirection.x != 0 || movementDirection.y != 0)
         {
             lastMovementDirection = movementDirection;
         }
 
-        movementDirection = new Vector2(moveX, moveY).normalized;
+        // movementDirection = new Vector2(moveX, moveY).normalized;
     }
 
 
