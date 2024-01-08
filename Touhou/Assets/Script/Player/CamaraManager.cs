@@ -32,6 +32,12 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+//===========================================================//
+    public void IsActive()
+    {
+        Debug.Log("Camera Manager Is " + gameObject.activeSelf);
+    }
+
     private Vector3 cameraPosition = new Vector3(0, 0, -10);
     [SerializeField] private float cameraMoveSpeed;
 
@@ -53,6 +59,13 @@ public class CameraManager : MonoBehaviour
     {
         UpdateCameraPosition();
     }
+
+    public void ChangeCameraBorder(Vector2 center, Vector2 mapSize)
+    {   
+        this.center = center;
+        this.mapSize = mapSize;
+    }   
+    
 
     private void UpdateCameraPosition()
     {

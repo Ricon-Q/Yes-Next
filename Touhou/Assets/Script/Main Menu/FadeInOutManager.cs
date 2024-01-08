@@ -44,7 +44,7 @@ public class FadeInOutManager : MonoBehaviour
 
     public IEnumerator _ChangeScene(string sceneName)
     {
-        Debug.Log("Changing to Scene: " + sceneName);
+        // Debug.Log("Changing to Scene: " + sceneName);
         FadeOut();
         yield return new WaitForSeconds(2);
         
@@ -62,13 +62,13 @@ public class FadeInOutManager : MonoBehaviour
 
     public void FadeIn()
     {
-        Debug.Log("In");
+        // Debug.Log("In");
         fadeInOutAnimation.DOPlayById("In");
     }
 
     public void FadeOut()
     {
-        Debug.Log("Out");
+        // Debug.Log("Out");
         fadeInOutCanvas.SetActive(true);
         fadeInOutAnimation.DOPlayById("Out");
     }

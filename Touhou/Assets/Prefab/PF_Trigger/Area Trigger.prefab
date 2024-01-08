@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5663378411335675090}
   - component: {fileID: 4205704242592791343}
-  - component: {fileID: 1038366331287672254}
+  - component: {fileID: 860863977330594084}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2594822505536736486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 2, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4278831630972652373}
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1038366331287672254
+--- !u!114 &860863977330594084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPosition: {x: 0, y: 0, z: 0}
   areaDatabase: {fileID: 11400000, guid: db5317698b162a74a8ec2368b65af525, type: 2}
-  areaToMove: Home
+  areaToMove: 
   visualCue: {fileID: 3509451539795597353}
 --- !u!1 &3509451539795597353
 GameObject:
@@ -164,8 +164,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1018456555
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0054dcbac2f60d74ab520d76561225fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4278831630972652373}
   m_Layer: 0
-  m_Name: DoorTrigger
+  m_Name: Area Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ Transform:
   - {fileID: 5663378411335675090}
   - {fileID: 3097779169190214111}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6823207509118125210
 GameObject:
@@ -283,8 +283,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1633973139
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 1600284458, guid: e2405875019f4414185d919715afeb9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

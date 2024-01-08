@@ -25,22 +25,30 @@ public class InventoryManager : MonoBehaviour
         else { Destroy(this.gameObject); }
     }
 
+//===============================================================//
+
     private void Start()
     {
         SetupInventory();   
     }
 
+    
+    public void IsActive()
+    {
+        Debug.Log("Inventory Manager Is " + gameObject.activeSelf);
+    }
+
     private void Update()
     {
         // Tab : 인벤토리 토글
-        if (InputManager.Instance.GetToggleInventoryPressed() )
-        {
-            Debug.Log("ToogleInv");
+        // if (InputManager.Instance.GetToggleInventoryPressed() )
+        // {
+        //     Debug.Log("ToogleInv");
             
-            if(ShopManager.Instance.isShopMode) return;
+        //     if(ShopManager.Instance.isShopMode) return;
             
-            ToggleInventory();
-        }
+        //     ToggleInventory();
+        // }
     }
 
     // Inventory
@@ -60,4 +68,3 @@ public class InventoryManager : MonoBehaviour
         invToDisplay.infoPanel.SetActive(false);
     }
 }
-

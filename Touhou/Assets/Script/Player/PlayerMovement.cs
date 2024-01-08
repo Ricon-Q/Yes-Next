@@ -29,10 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMove()
     {
-        movementDirection = InputManager.Instance.GetMoveDirection();
-        Debug.Log(movementDirection);
-        rb.velocity = movementDirection * moveSpeed;
-        // rb.velocity = new Vector2(movementDirection.x * moveSpeed, movementDirection.y * moveSpeed);
+        if(PlayerInputManager.Instance.GetInputMode())
+        { 
+            movementDirection = InputManager.Instance.GetMoveDirection();
+            // Debug.Log(movementDirection);
+            rb.velocity = movementDirection * moveSpeed;
+        }
     }
     
     private void ProcessInputs()

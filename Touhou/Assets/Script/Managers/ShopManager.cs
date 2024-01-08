@@ -73,6 +73,11 @@ public class ShopManager : MonoBehaviour
         isShopMode = false;
     }
 
+    public void IsActive()
+    {
+        Debug.Log("Shop Manager Is " + gameObject.activeSelf);
+    }
+
     private void Update()
     {
         calculateTotal();

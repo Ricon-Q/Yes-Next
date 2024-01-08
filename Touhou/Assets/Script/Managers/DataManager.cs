@@ -34,8 +34,13 @@ public class DataManager : MonoBehaviour
         }
     }
     
-    string myKey = "myKey";
-    int myValue;
+    public void IsActive()
+    {
+        Debug.Log("Data Manager Is " + gameObject.activeSelf);
+    }
+    
+    // string myKey = "myKey";
+    // int myValue;
     string path;
 
     public int currentSaveIndex = -1;
@@ -45,15 +50,15 @@ public class DataManager : MonoBehaviour
     [System.Serializable]
     public class SaveData
     {
-        public int SaveIndex;
         public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
-        public Vector3 PlayerPosition; // 플레이어의 위치
+        public Vector3 playerPosition; // 플레이어의 위치
+        public PlayerData playerData;
     }
 
-    public void NewGame(int saveIndex)
+    public void StartGame(int saveIndex)
     {
         currentSaveIndex = saveIndex;
-        FadeInOutManager.Instance.ChangeScene("Intro Scene");
+        SceneManager.LoadScene("Game Setup");
     }
 
     public void SaveSlot()
@@ -62,9 +67,9 @@ public class DataManager : MonoBehaviour
         
         SaveData saveData = new SaveData();
 
-        saveData.SaveIndex = currentSaveIndex;
         saveData.LastSceneName = SceneManager.GetActiveScene().name;
-        // saveData.PlayerPosition = PlayerManager.Instance.transform.position;
+        saveData.playerPosition = _PlayerManager.Instance.transform.position;
+        saveData.playerData = _PlayerManager.Instance.playerData;
 
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("SaveData", saveData, path);
@@ -78,16 +83,33 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
         if(ES3.FileExists(path))
         {
-            SaveData loadData = new SaveData();
-            loadData = ES3.Load<SaveData>("SaveData", path);
-            // ES3.Load<SaveData>(path, out loadData);
-            Debug.Log(loadData.LastSceneName);
-            
-            SceneManager.LoadScene(loadData.LastSceneName);
+            SaveData loadData = ES3.Load<SaveData>("SaveData", path);
+            // loadData = ES3.Load<SaveData>("SaveData", path);
+
+            _PlayerManager.Instance.transform.position = loadData.playerPosition;            
+            _PlayerManager.Instance.playerData = loadData.playerData;
+
+            FadeInOutManager.Instance.ChangeScene(loadData.LastSceneName);
         }
             // Debug.Log(loadIndex + " Load from : " + path);
+        // else
+            // Debug.Log("No such path");            
+    }
+
+    public bool CheckSaveSlot()
+    {
+        path = "Saves/SaveSlot" + currentSaveIndex + ".es3";
+        if(ES3.FileExists(path))
+        {
+            Debug.Log("File Exists");
+            return true;
+        }
         else
-            Debug.Log("No such path");            
+        {   
+            Debug.Log("File Does Not Exists");
+            return false;
+        }
+
     }
 
     public void DeleteSave(int deleteIndex)
