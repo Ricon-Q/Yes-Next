@@ -40,6 +40,8 @@ public class PlayerInputManager : MonoBehaviour
     public void Input()
     {
         if(inputMode == false) return;
+
+
         else
         {
             if (InputManager.Instance.GetToggleInventoryPressed())

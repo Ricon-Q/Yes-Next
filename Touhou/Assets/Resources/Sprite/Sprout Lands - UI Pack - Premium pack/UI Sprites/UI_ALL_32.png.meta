@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -286,7 +286,7 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
@@ -294,6 +294,27 @@ TextureImporter:
       bones: []
       spriteID: 61cdf4f98e81a1c4db83c70af0e396cd
       internalID: 2074348392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_1
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 807
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 9, z: 8, w: 9}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 464a0a7627a4a4c41a15df946a2f11de
+      internalID: -1539522203
       vertices: []
       indices: 
       edges: []
@@ -311,6 +332,7 @@ TextureImporter:
     nameFileIdTable:
       Dialogue: 802265397
       UI_ALL_32_0: 2074348392
+      UI_ALL_32_1: -1539522203
       UI_Down_Frame: 46384886
       UI_Frame: -1374021786
       UI_Frame_001: 875125412

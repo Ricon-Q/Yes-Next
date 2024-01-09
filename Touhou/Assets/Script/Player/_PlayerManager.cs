@@ -63,21 +63,29 @@ public class _PlayerManager : MonoBehaviour
 
 public class PlayerData
 {
+    public string name;
+    // public Sprite playerPortrait;
+    public bool isMale;
+    public int hospitalLevel;    
+    public long money;
+
     public float maxHealth;        // 최대 체력
     public float currentHealth;    // 현재 체력
     public float maxFatigue;       // 최대 피로도
     public float currentFatigue;   // 현재 피로도
-    public long money;
-    public int hospitalLevel;
 
     public PlayerData()
     {
+        name = "Rin";
+        isMale = true;
+        // playerPortrait = null;
+        hospitalLevel = 0;
+        money = 50000;
+
         maxHealth = 100;
         currentHealth = 100;    
         maxFatigue = 100;       
-        currentFatigue = 100;   
-        money = 50000;
-        hospitalLevel = 0;
+        currentFatigue = 100;
     }
 
     // // =========SetFunc=========

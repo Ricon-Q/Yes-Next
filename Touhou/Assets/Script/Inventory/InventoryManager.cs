@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -51,14 +51,34 @@ public class InventoryManager : MonoBehaviour
         // }
     }
 
-    // Inventory
+    [Header("Inventory")]
     public GameObject InventoryCanvas;
     public bool isInventoryOpen = false;
     public DynamicInventoryDisplay invToDisplay;
+
+    [Header("Info")]
+    public Image characterPortrait;
+    public TextMeshProUGUI characterName;
+    [Header("Portrait Sprite")]
+    public Sprite maleSprite;
+    public Sprite femaleSprite;
+
+    public void UpdateCharacterInfo()
+    {
+        if(_PlayerManager.Instance.playerData.isMale)
+            characterPortrait.sprite = maleSprite;
+        else
+            characterPortrait.sprite = femaleSprite;
+        characterName.text =_PlayerManager.Instance.playerData.name; 
+        // characterPortrait.sprite = _PlayerManager.Instance.playerData.playerPortrait;
+    }
+
     private void SetupInventory()
     {
         InventoryCanvas.SetActive(false);
     }
+
+    //
 
     public void ToggleInventory()
     {

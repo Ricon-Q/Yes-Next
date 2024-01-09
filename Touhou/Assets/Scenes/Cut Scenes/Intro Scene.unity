@@ -1382,6 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bf4da913a569841842c8316cbb2a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameInput: {fileID: 1186645304}
   mainPortrait: {fileID: 1945717774}
   malePortrait: {fileID: 21300000, guid: d4bfbb98a316c3b48afe6ba98a86862a, type: 3}
   femalePortrait: {fileID: 21300000, guid: 0a9b92fe1eb1bdb47b763dcf45e89718, type: 3}
@@ -2297,7 +2298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 661451181}
         m_TargetAssemblyTypeName: GenderSelection, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: Submit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3002,7 +3003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u200B"
+  m_text: "Rin\u200B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ec236a363275cc4cac8f3169fe17f7e, type: 2}
   m_sharedMaterial: {fileID: 3152817980713668757, guid: 0ec236a363275cc4cac8f3169fe17f7e, type: 2}

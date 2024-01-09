@@ -940,7 +940,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "[pic=1]\uD760.. \uBB50, \uB2F9\uC7A5 \uC218\uC785\uC740 \uC904\uC5B4\uB4E4\uACA0\uC9C0\uB9CC,
           \uB9C8\uC744\uC5D0\uB3C4 \uBCD1\uC6D0\uC740 \uD544\uC694\uD558\uACE0, \uB098\uC57C
-          \uBB50 \uC5B4\uB5BB\uAC8C\uB4E0 \uB418\uACA0\uC9C0."
+          \uBB50 \uC5B4\uB5BB\uAC8C\uB4E0 \uB418\uACA0\uC9C0.[END]"
         type: 0
         typeString: 
       - title: Sequence
@@ -954,13 +954,7 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 9
-        destinationConversationID: 2
-        destinationDialogueID: 12
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
       userScript: 
       onExecute:
@@ -1054,69 +1048,10 @@ MonoBehaviour:
       - title: Dialogue Text
         value: "\uC544, \uBB3C\uB860 \uB098\uB3C4 \uADF8\uB807\uACE0, \uB9C8\uC744\uC0AC\uB78C\uB4E4\uB3C4
           \uBAA8\uB450 \uD658\uC601\uD560\uAC70\uC57C. \uC678\uC9C4\uACF3\uC774\uB77C\uB3C4
-          \uBCD1\uC6D0 \uD544\uC694\uD558\uB2C8\uAE4C."
+          \uBCD1\uC6D0 \uD544\uC694\uD558\uB2C8\uAE4C.[END]"
         type: 0
         typeString: 
       - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 2
-        originDialogueID: 11
-        destinationConversationID: 2
-        destinationDialogueID: 12
-        isConnector: 0
-        priority: 2
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 122.243576
-        y: 782.2472
-        width: 160
-        height: 30
-    - id: 12
-      fields:
-      - title: Title
-        value: 
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 3
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: LoadLevel(Town_Center);
-        type: 0
-        typeString: 
-      - title: Response Menu Sequence
         value: 
         type: 0
         typeString: 
@@ -1135,8 +1070,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 281.81445
-        y: 892.82666
+        x: 126.19095
+        y: 784.8788
         width: 160
         height: 30
     entryGroups: []

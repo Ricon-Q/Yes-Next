@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class FadeInOutManager : MonoBehaviour
 {
@@ -42,7 +42,7 @@ public class FadeInOutManager : MonoBehaviour
         fadeInOutCanvas.SetActive(false);    
     }
 
-    public IEnumerator _ChangeScene(string sceneName)
+    public IEnumerator IEnum_ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3))
     {
         // Debug.Log("Changing to Scene: " + sceneName);
         FadeOut();
@@ -50,14 +50,15 @@ public class FadeInOutManager : MonoBehaviour
         
         // 비동기적으로 씬을 로드합니다.
         yield return SceneManager.LoadSceneAsync(sceneName);
+        _PlayerManager.Instance.transform.position = spawnPoint;
         
         // 로드가 완료된 후에 페이드 아웃을 시작합니다.
         FadeIn();
     }
 
-    public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3))
     {
-        StartCoroutine(_ChangeScene(sceneName));
+        StartCoroutine(IEnum_ChangeScene(sceneName, spawnPoint));
     }
 
     public void FadeIn()
@@ -77,3 +78,5 @@ public class FadeInOutManager : MonoBehaviour
     //     fadeInOutAnimation.DO
     // }
 }
+
+

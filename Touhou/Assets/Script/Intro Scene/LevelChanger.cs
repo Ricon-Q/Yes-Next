@@ -5,24 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
-
-    public Animator animator;
-    public string SceneToLoad;
-
-    // Update is called once per frame
-    void Update()
+    public void LevelChange()
     {
-        
-    }
-
-    public void FadeToLevel(string sceneName)
-    {
-        SceneToLoad = sceneName;
-        animator.SetTrigger("FadeOut");
-    }
-
-    public void OnFadeComplete()
-    {
-        SceneManager.LoadScene(SceneToLoad);
-    }
+        FadeInOutManager.Instance.ChangeScene("Town_Center", new Vector3(5, 0, 0));
+    }   
 }

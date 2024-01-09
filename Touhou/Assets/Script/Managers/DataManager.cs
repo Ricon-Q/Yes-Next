@@ -34,6 +34,8 @@ public class DataManager : MonoBehaviour
         }
     }
     
+    // =========================================================//
+
     public void IsActive()
     {
         Debug.Log("Data Manager Is " + gameObject.activeSelf);
@@ -42,10 +44,10 @@ public class DataManager : MonoBehaviour
     // string myKey = "myKey";
     // int myValue;
     string path;
-
+    
     public int currentSaveIndex = -1;
 
-    public MainMenu mainMenu;
+    // public MainMenu mainMenu;
 
     [System.Serializable]
     public class SaveData
@@ -54,6 +56,8 @@ public class DataManager : MonoBehaviour
         public Vector3 playerPosition; // 플레이어의 위치
         public PlayerData playerData;
     }
+
+    public SaveData loadData;
 
     public void StartGame(int saveIndex)
     {
@@ -83,13 +87,11 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
         if(ES3.FileExists(path))
         {
-            SaveData loadData = ES3.Load<SaveData>("SaveData", path);
+            loadData = ES3.Load<SaveData>("SaveData", path);
             // loadData = ES3.Load<SaveData>("SaveData", path);
 
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
             _PlayerManager.Instance.playerData = loadData.playerData;
-
-            FadeInOutManager.Instance.ChangeScene(loadData.LastSceneName);
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         // else
@@ -121,3 +123,4 @@ public class DataManager : MonoBehaviour
             Debug.Log("No such path");
     }
 }
+

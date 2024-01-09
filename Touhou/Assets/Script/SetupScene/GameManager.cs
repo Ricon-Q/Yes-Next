@@ -98,8 +98,11 @@ public class GameManager : MonoBehaviour
             // 저장 데이터가 있을 경우
                 // 게임 데이터 불러오기 
                 // 씬 불러오기
-            _PlayerManager.Instance.TogglePlayer(false);
+            
             DataManager.Instance.LoadSlot(DataManager.Instance.currentSaveIndex);
+            _PlayerManager.Instance.TogglePlayer(false);
+            InventoryManager.Instance.UpdateCharacterInfo();
+            FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName);
         }
         else
         {

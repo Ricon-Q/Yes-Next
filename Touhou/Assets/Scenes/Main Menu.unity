@@ -4672,7 +4672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSaveIndex: -1
-  mainMenu: {fileID: 1788035873}
 --- !u!1 &1788035867
 GameObject:
   m_ObjectHideFlags: 0
