@@ -60,10 +60,10 @@ public class DoorTrigger : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(targetSceneName))
         {   
-            PlayerManager.Instance.SetPlayerPosition(DoorWayPosition);
-            PlayerManager.Instance.AddCurrentFatigue(-1);
-            PlayerManager.Instance.AddCurrentHunger(-1);
-            TimeManager.Instance.increaseMinute(5);
+            _PlayerManager.Instance.transform.position = DoorWayPosition;
+            // PlayerManager.Instance.AddCurrentFatigue(-1);
+            // PlayerManager.Instance.AddCurrentHunger(-1);
+            // TimeManager.Instance.increaseMinute(5);
             UnityEngine.SceneManagement.SceneManager.LoadScene(targetSceneName);
         }
         else

@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour, IDataPersistence
 {
 
     public float speed;     // 이동 속도
-    public PlayerData playerData;
+    public _PlayerData playerData;
 
     private static PlayerManager instance;
 

@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public PlayerData playerData;
+    public _PlayerData playerData;
     public TimeData timeData;
     public List<CropData> cropDatas;
     public List<NpcData> npcDatas;
@@ -16,7 +16,7 @@ public class GameData
     // 데이터에 로드할 것이 없을때 아래 값들을 가져온다
     public GameData()
     {
-        this.playerData = new PlayerData();
+        this.playerData = new _PlayerData();
         this.timeData = new TimeData();
         // this.cropDatas = new SerializableDictionary<string, List<CropData>>();
         this.cropDatas = new List<CropData>();
@@ -25,7 +25,7 @@ public class GameData
 }
 
 [System.Serializable]
-public class PlayerData
+public class _PlayerData
 {
     public float maxHealth;        // 최대 체력
     public float currentHealth;    // 현재 체력
@@ -36,7 +36,7 @@ public class PlayerData
     public long money;
     public long hospitalLevel;
 
-    public PlayerData()
+    public _PlayerData()
     {
         this.maxHealth = 100;
         this.currentHealth = 100;    

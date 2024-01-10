@@ -25,7 +25,6 @@ public class InputManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            // DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -43,6 +42,11 @@ public class InputManager : MonoBehaviour
             }
             return instance;
         }
+    }
+    
+    public void IsActive()
+    {
+        Debug.Log("Input Manager Is " + gameObject.activeSelf);
     }
 
 

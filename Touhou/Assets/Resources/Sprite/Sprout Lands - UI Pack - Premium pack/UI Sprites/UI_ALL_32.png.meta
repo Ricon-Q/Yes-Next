@@ -244,7 +244,7 @@ TextureImporter:
         width: 28
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 1, z: 3, w: 1}
       outline: []
       physicsShape: []
@@ -252,6 +252,48 @@ TextureImporter:
       bones: []
       spriteID: 1b19409e6df4cab48b51bc439fcb2f96
       internalID: 1864125138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dialogue
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 121
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 18, z: 8, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e034e9c4b5aef45b4ee3b2b33c9e23
+      internalID: 802265397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_0
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 763
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61cdf4f98e81a1c4db83c70af0e396cd
+      internalID: 2074348392
       vertices: []
       indices: 
       edges: []
@@ -267,6 +309,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Dialogue: 802265397
+      UI_ALL_32_0: 2074348392
       UI_Down_Frame: 46384886
       UI_Frame: -1374021786
       UI_Frame_001: 875125412
