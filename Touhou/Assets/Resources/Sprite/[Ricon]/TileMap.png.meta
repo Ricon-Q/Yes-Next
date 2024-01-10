@@ -328,7 +328,7 @@ TextureImporter:
         width: 96
         height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -336,6 +336,27 @@ TextureImporter:
       bones: []
       spriteID: 5db95b8e53fbb544aa47c856f85651f6
       internalID: -451188183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileMap_11
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 112
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6d40d7f6872244b88a2bfb6c4244b5
+      internalID: 1429809184
       vertices: []
       indices: 
       edges: []
@@ -354,6 +375,7 @@ TextureImporter:
       TileMap_0: -1612687370
       TileMap_1: -1664762959
       TileMap_10: -451188183
+      TileMap_11: 1429809184
       TileMap_2: 1901358813
       TileMap_3: 976141337
       TileMap_4: 1695944849

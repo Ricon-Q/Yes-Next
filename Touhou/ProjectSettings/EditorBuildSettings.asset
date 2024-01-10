@@ -6,16 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Main Game/Main Menu.unity
     guid: 89f8bd31a002d6b498f353e8a572459a
   - enabled: 1
     path: Assets/Scenes/Main Game/Game Setup.unity
     guid: 7db8bc95e048f254b82bb09e851a4370
   - enabled: 1
-    path: Assets/Scenes/Cut Scenes/Intro Scene.unity
+    path: Assets/Scenes/Main Game/Cut Scenes/Intro Scene.unity
     guid: ca930da24431179459a1886eff991f87
   - enabled: 1
-    path: Assets/Scenes/Cut Scenes/Intro Cutscene.unity
+    path: Assets/Scenes/Main Game/Cut Scenes/Intro Cutscene.unity
     guid: 307b92488739e6144b08c6770816b300
   - enabled: 1
     path: Assets/Scenes/Main Game/Town_Center.unity

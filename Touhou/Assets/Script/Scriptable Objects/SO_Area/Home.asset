@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de853db7466352848b01326c4bb4f7ee, type: 3}
   m_Name: Home
   m_EditorClassIdentifier: 
-  areaName: 
-  cameraCenter: {x: 0, y: 0}
-  mapSize: {x: 0, y: 0}
+  areaName: Home
+  cameraCenter: {x: -65, y: -23}
+  mapSize: {x: 20, y: 12}
