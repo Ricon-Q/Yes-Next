@@ -41,13 +41,15 @@ public class CameraManager : MonoBehaviour
     private Vector3 cameraPosition = new Vector3(0, 0, -10);
     [SerializeField] private float cameraMoveSpeed;
 
-
-    [SerializeField]
-    private Vector2 center;
-    [SerializeField]
-    private Vector2 mapSize;
+    public string currentArea;
+    public AreaDatabase areaDatabase;
+    [SerializeField] private Vector2 center;
+    [SerializeField] private Vector2 mapSize;
     private float height;
     private float width; 
+
+    public GameObject cameraObject;
+
     void Start()
     {
         height = Camera.main.orthographicSize;
@@ -60,10 +62,10 @@ public class CameraManager : MonoBehaviour
         UpdateCameraPosition();
     }
 
-    public void ChangeCameraBorder(Vector2 center, Vector2 mapSize)
+    public void ChangeCameraBorder(string areaName)
     {   
-        this.center = center;
-        this.mapSize = mapSize;
+        this.center = areaDatabase.findArea(areaName).cameraCenter;
+        this.mapSize = areaDatabase.findArea(areaName).mapSize;
     }   
     
 
@@ -88,5 +90,10 @@ public class CameraManager : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(center, mapSize * 2);
+    }
+
+    public void TogglePlayerCamera(bool active)
+    {
+        cameraObject.SetActive(active);
     }
 }

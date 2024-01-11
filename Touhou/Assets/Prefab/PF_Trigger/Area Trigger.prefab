@@ -93,6 +93,7 @@ MonoBehaviour:
   playerPosition: {x: 0, y: 0, z: 0}
   areaDatabase: {fileID: 11400000, guid: db5317698b162a74a8ec2368b65af525, type: 2}
   areaToMove: 
+  durationOfMinute: 5
   visualCue: {fileID: 3509451539795597353}
 --- !u!1 &3509451539795597353
 GameObject:
@@ -164,8 +165,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1018456555
-  m_SortingLayer: 4
+  m_SortingLayerID: 2063395367
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0054dcbac2f60d74ab520d76561225fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -210,7 +211,7 @@ Transform:
   - {fileID: 5663378411335675090}
   - {fileID: 3097779169190214111}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6823207509118125210
 GameObject:
@@ -283,8 +284,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1633973139
-  m_SortingLayer: 3
+  m_SortingLayerID: 2063395367
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1600284458, guid: e2405875019f4414185d919715afeb9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -34,6 +34,8 @@ public class FadeInOutManager : MonoBehaviour
         }
     }
 
+    // ========================================================= //
+
     public GameObject fadeInOutCanvas;
     public DOTweenAnimation fadeInOutAnimation;
     
@@ -46,11 +48,12 @@ public class FadeInOutManager : MonoBehaviour
     {
         // Debug.Log("Changing to Scene: " + sceneName);
         FadeOut();
-        yield return new WaitForSeconds(2);
+        _PlayerManager.Instance.transform.position = spawnPoint;
+        yield return new WaitForSeconds(0.3f);
         
         // 비동기적으로 씬을 로드합니다.
         yield return SceneManager.LoadSceneAsync(sceneName);
-        _PlayerManager.Instance.transform.position = spawnPoint;
+        // CameraManager.Instance.ChangeCameraBorder(_PlayerManager.Instance.playerData.currentArea);
         
         // 로드가 완료된 후에 페이드 아웃을 시작합니다.
         FadeIn();

@@ -55,6 +55,7 @@ public class DataManager : MonoBehaviour
         public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
         public Vector3 playerPosition; // 플레이어의 위치
         public PlayerData playerData;
+        public _TimeData timeData;
     }
 
     public SaveData loadData;
@@ -74,6 +75,7 @@ public class DataManager : MonoBehaviour
         saveData.LastSceneName = SceneManager.GetActiveScene().name;
         saveData.playerPosition = _PlayerManager.Instance.transform.position;
         saveData.playerData = _PlayerManager.Instance.playerData;
+        saveData.timeData = _TimeManager.Instance.timeData;
 
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("SaveData", saveData, path);
@@ -92,6 +94,8 @@ public class DataManager : MonoBehaviour
 
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
             _PlayerManager.Instance.playerData = loadData.playerData;
+            _TimeManager.Instance.timeData = loadData.timeData;
+            CameraManager.Instance.ChangeCameraBorder(loadData.playerData.currentArea);
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         // else

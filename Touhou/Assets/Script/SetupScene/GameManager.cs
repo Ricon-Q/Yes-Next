@@ -96,21 +96,39 @@ public class GameManager : MonoBehaviour
         if(DataManager.Instance.CheckSaveSlot())
         {            
             // 저장 데이터가 있을 경우
-                // 게임 데이터 불러오기 
-                // 씬 불러오기
-            
+
+            // 게임 데이터 불러오기 
             DataManager.Instance.LoadSlot(DataManager.Instance.currentSaveIndex);
-            _PlayerManager.Instance.TogglePlayer(false);
+            
+            // 불러온 데이터 적용
+            _PlayerManager.Instance.TogglePlayer(true);
+
+            // Area 설정
+            CameraManager.Instance.currentArea = _PlayerManager.Instance.playerData.currentArea;
+            // 인벤토리 정보창 업데이트
             InventoryManager.Instance.UpdateCharacterInfo();
-            FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName);
+
+            // 플레이어 Input모드 변경
+            PlayerInputManager.Instance.SetInputMode(true);
+
+            // 씬 불러오기
+            FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName, DataManager.Instance.loadData.playerPosition);
         }
         else
         {
             // 저장 데이터가 없을 경우
-                // Player 비활성화 (컷신을 위해서)
-                // 인트로 씬으로 이동
-            // playerObject.SetActive(false);
+            
+            // Player 비활성화 (컷신을 위해서)
             _PlayerManager.Instance.TogglePlayer(false);
+            // Player Camera 비활성화 (컷신을 위해서)
+            CameraManager.Instance.TogglePlayerCamera(false);
+
+
+            // UI 비활성화 (컷신을 위해서)
+            UiManager.Instance.ToggleUiCanvas();
+            
+
+            // 인트로 씬으로 이동
             FadeInOutManager.Instance.ChangeScene("Intro Scene");
         }
         

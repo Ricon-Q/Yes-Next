@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
+    public AreaData townArea;
     public void LevelChange()
     {
-        FadeInOutManager.Instance.ChangeScene("Town_Center", new Vector3(5, 0, 0));
+        CameraManager.Instance.TogglePlayerCamera(true);
+
+        _PlayerManager.Instance.playerData.currentArea = townArea.areaName;
+        FadeInOutManager.Instance.ChangeScene("Town", new Vector3(5, 0, 0));
+        UiManager.Instance.ToggleUiCanvas();
     }   
 }

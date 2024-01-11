@@ -34,6 +34,7 @@ public class _PlayerManager : MonoBehaviour
     //====================================================//
     [Header("Player Object")]
     [SerializeField] private GameObject playerObject; 
+    // [SerializeField] private AreaData defaultArea;
     
     public PlayerData playerData;
     private void Start() 
@@ -63,6 +64,7 @@ public class _PlayerManager : MonoBehaviour
 
 public class PlayerData
 {
+    public string currentArea;
     public string name;
     // public Sprite playerPortrait;
     public bool isMale;
@@ -76,6 +78,7 @@ public class PlayerData
 
     public PlayerData()
     {
+        currentArea = "defaultArea";
         name = "Rin";
         isMale = true;
         // playerPortrait = null;
