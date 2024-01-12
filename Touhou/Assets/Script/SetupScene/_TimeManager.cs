@@ -40,6 +40,21 @@ public class _TimeManager : MonoBehaviour
         timeData = new _TimeData();    
     }
 
+    public void SetTargetTime(int targetHour)
+    {
+         if (timeData.hour >= targetHour)
+        {
+            // If yes, set the target hour for the next day
+            SetTimeData(timeData.year, timeData.month, timeData.day + 1, targetHour, 0);
+        }
+        else
+        {
+            // If not, set the target hour for the current day
+            SetTimeData(timeData.year, timeData.month, timeData.day, targetHour, 0);
+        }
+    }
+
+
     public void increaseMinute(int minute)
     {
         timeData.minute += minute;
@@ -85,6 +100,15 @@ public class _TimeManager : MonoBehaviour
     public void increaseYear(int year)
     {
         timeData.year += year;
+    }
+
+    private void SetTimeData(int year, int month, int day, int hour, int minute)
+    {
+        timeData.year = year;
+        timeData.month = month;
+        timeData.day = day;
+        timeData.hour = hour;
+        timeData.minute = minute;
     }
 }
 

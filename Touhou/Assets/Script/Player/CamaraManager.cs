@@ -41,7 +41,7 @@ public class CameraManager : MonoBehaviour
     private Vector3 cameraPosition = new Vector3(0, 0, -10);
     [SerializeField] private float cameraMoveSpeed;
 
-    public string currentArea;
+    // public string currentArea;
     public AreaDatabase areaDatabase;
     [SerializeField] private Vector2 center;
     [SerializeField] private Vector2 mapSize;

@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour
             _PlayerManager.Instance.TogglePlayer(true);
 
             // Area 설정
-            CameraManager.Instance.currentArea = _PlayerManager.Instance.playerData.currentArea;
+            CameraManager.Instance.ChangeCameraBorder(_PlayerManager.Instance.playerData.currentArea);
+            
             // 인벤토리 정보창 업데이트
             InventoryManager.Instance.UpdateCharacterInfo();
 
@@ -117,19 +118,17 @@ public class GameManager : MonoBehaviour
         else
         {
             // 저장 데이터가 없을 경우
-            
-            // Player 비활성화 (컷신을 위해서)
-            _PlayerManager.Instance.TogglePlayer(false);
-            // Player Camera 비활성화 (컷신을 위해서)
-            CameraManager.Instance.TogglePlayerCamera(false);
-
-
-            // UI 비활성화 (컷신을 위해서)
-            UiManager.Instance.ToggleUiCanvas();
-            
 
             // 인트로 씬으로 이동
             FadeInOutManager.Instance.ChangeScene("Intro Scene");
+            
+            // Player 비활성화 (컷신을 위해서)
+            _PlayerManager.Instance.TogglePlayer(false);
+            // UI 비활성화 (컷신을 위해서)
+            UiManager.Instance.ToggleUiCanvas();
+            
+            // Player Camera 비활성화 (컷신을 위해서)
+            CameraManager.Instance.TogglePlayerCamera(false);
         }
         
         yield return null;

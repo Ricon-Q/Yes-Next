@@ -95,7 +95,6 @@ public class DataManager : MonoBehaviour
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
             _PlayerManager.Instance.playerData = loadData.playerData;
             _TimeManager.Instance.timeData = loadData.timeData;
-            CameraManager.Instance.ChangeCameraBorder(loadData.playerData.currentArea);
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         // else

@@ -46,8 +46,16 @@ public class UiManager : MonoBehaviour
     private void Update() 
     {
         MonthToSeason();
-        yearMonthDayText.text = _TimeManager.Instance.timeData.year + "년차 " + season + _TimeManager.Instance.timeData.day + "일";
-        timeText.text = _TimeManager.Instance.timeData.hour + ":" + _TimeManager.Instance.timeData.minute;
+        // yearMonthDayText.text = _TimeManager.Instance.timeData.year + "년차 " + season + _TimeManager.Instance.timeData.day + "일";
+        // timeText.text = _TimeManager.Instance.timeData.hour + ":" + _TimeManager.Instance.timeData.minute;
+         // Year, Season, and Day
+        string formattedDay = _TimeManager.Instance.timeData.day < 10 ? "0" + _TimeManager.Instance.timeData.day.ToString() : _TimeManager.Instance.timeData.day.ToString();
+        yearMonthDayText.text = $"{_TimeManager.Instance.timeData.year}년차 {season} {formattedDay}일";
+
+        // Hour and Minute
+        string formattedHour = _TimeManager.Instance.timeData.hour < 10 ? "0" + _TimeManager.Instance.timeData.hour.ToString() : _TimeManager.Instance.timeData.hour.ToString();
+        string formattedMinute = _TimeManager.Instance.timeData.minute < 10 ? "0" + _TimeManager.Instance.timeData.minute.ToString() : _TimeManager.Instance.timeData.minute.ToString();
+        timeText.text = $"{formattedHour}:{formattedMinute}";
     }   
 
     public void MonthToSeason()

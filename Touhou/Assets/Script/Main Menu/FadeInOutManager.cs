@@ -47,9 +47,9 @@ public class FadeInOutManager : MonoBehaviour
     public IEnumerator IEnum_ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3))
     {
         // Debug.Log("Changing to Scene: " + sceneName);
-        FadeOut();
+        FadeOutZero();
         _PlayerManager.Instance.transform.position = spawnPoint;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(1f);
         
         // 비동기적으로 씬을 로드합니다.
         yield return SceneManager.LoadSceneAsync(sceneName);
@@ -64,17 +64,39 @@ public class FadeInOutManager : MonoBehaviour
         StartCoroutine(IEnum_ChangeScene(sceneName, spawnPoint));
     }
 
+    public void FadeInOut(int time)
+    {
+        StartCoroutine(IEnum_FadeInOut(time));
+    }
+
+    public IEnumerator IEnum_FadeInOut(int time)
+    {
+        FadeOut();
+        yield return new WaitForSeconds(time);
+        FadeIn();
+    }
+
     public void FadeIn()
     {
         // Debug.Log("In");
         fadeInOutAnimation.DOPlayById("In");
+        
+        PlayerInputManager.Instance.SetInputMode(true);
     }
 
     public void FadeOut()
     {
-        // Debug.Log("Out");
+        Debug.Log("Out");
+        PlayerInputManager.Instance.SetInputMode(false);
         fadeInOutCanvas.SetActive(true);
         fadeInOutAnimation.DOPlayById("Out");
+    }
+
+    public void FadeOutZero()
+    {
+        // Debug.Log("Out");
+        fadeInOutCanvas.SetActive(true);
+        fadeInOutAnimation.DOPlayById("OutZero");
     }
     // public void ChangeDuration(float timeToFade)
     // {

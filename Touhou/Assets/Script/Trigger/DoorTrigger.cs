@@ -76,7 +76,6 @@ public class DoorTrigger : MonoBehaviour
             // AreaData targetArea = areaDatabase.findArea(areaName);
 
             // Camera Setting
-            cameraManager.currentArea = targetArea.areaName;
             cameraManager.ChangeCameraBorder(targetArea.areaName);
             cameraManager.transform.position = DoorWayPosition;
         }

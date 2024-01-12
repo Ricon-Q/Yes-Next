@@ -62,7 +62,6 @@ public class MoveAreaTrigger : MonoBehaviour
         _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
         // AreaData targetArea = areaDatabase.findArea(areaName);
 
-        cameraManager.currentArea = targetArea.areaName;
         cameraManager.ChangeCameraBorder(targetArea.areaName);
         cameraManager.transform.position = playerPosition;
 
