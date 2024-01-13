@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator ManagerCheck()
     {
-        InventoryManager.Instance.IsActive();
+        // InventoryManager.Instance.IsActive();
         InputManager.Instance.IsActive();
         ShopManager.Instance.IsActive();
         DataManager.Instance.IsActive();
@@ -107,11 +107,12 @@ public class GameManager : MonoBehaviour
             CameraManager.Instance.ChangeCameraBorder(_PlayerManager.Instance.playerData.currentArea);
             
             // 인벤토리 정보창 업데이트
-            InventoryManager.Instance.UpdateCharacterInfo();
+            // InventoryManager.Instance.UpdateCharacterInfo();
 
             // 플레이어 Input모드 변경
             PlayerInputManager.Instance.SetInputMode(true);
-
+            DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
+        
             // 씬 불러오기
             FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName, DataManager.Instance.loadData.playerPosition);
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
   m_Name: Test Potion 3
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 3
   ItemType: 3
   DisplayName: Test Potion 3
   Description: 

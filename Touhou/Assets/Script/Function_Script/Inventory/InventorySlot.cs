@@ -4,18 +4,19 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
+[ES3Serializable]
 [System.Serializable]
 public class InventorySlot
 {
-    [SerializeField] private InventoryItemData itemData;
+    [SerializeField] public InventoryItemData ItemData;
     [SerializeField] private int stackSize;
 
-    public InventoryItemData ItemData => itemData;
+    // public InventoryItemData ItemData => itemData;
     public int StackSize => stackSize;
 
     public InventorySlot(InventoryItemData source, int amount)
     {
-        itemData = source;
+        ItemData = source;
         stackSize = amount;
     }
 
@@ -26,16 +27,16 @@ public class InventorySlot
 
     public void ClearSlot()
     {
-        itemData = null;
+        ItemData = null;
         stackSize = -1;
     }
 
     public void AssignItem(InventorySlot invSlot)
     {
-        if(itemData == invSlot.ItemData) AddToStack(invSlot.stackSize);
+        if(ItemData == invSlot.ItemData) AddToStack(invSlot.stackSize);
         else
         {
-            itemData = invSlot.itemData;
+            ItemData = invSlot.ItemData;
             stackSize = 0;
             AddToStack(invSlot.stackSize);
         }
@@ -43,7 +44,7 @@ public class InventorySlot
 
     public void UpdateInventorySlot(InventoryItemData data, int amount)
     {
-        itemData = data;
+        ItemData = data;
         stackSize = amount;
     }
 
@@ -55,7 +56,7 @@ public class InventorySlot
 
     public bool RoomLeftInStack(int amountToAdd)
     {
-        if(stackSize + amountToAdd <= itemData.MaxStackSize) { return true; }
+        if(stackSize + amountToAdd <= ItemData.MaxStackSize) { return true; }
         else { return false; }
     }
 
@@ -84,7 +85,7 @@ public class InventorySlot
         int halfStack = Mathf.RoundToInt(stackSize / 2);
         RemoveFromStack(halfStack);
         
-        splitStack = new InventorySlot(itemData, halfStack);
+        splitStack = new InventorySlot(ItemData, halfStack);
         return true;
     }
 
@@ -97,7 +98,7 @@ public class InventorySlot
         }
 
         RemoveFromStack(1);
-        oneStack = new InventorySlot(itemData, 1);
+        oneStack = new InventorySlot(ItemData, 1);
         return true;
     }
 }

@@ -58,7 +58,12 @@ public class _PlayerManager : MonoBehaviour
         {
             DataManager.Instance.SaveSlot();
             Debug.Log("Saved");
-        }    
+        }   
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
+            Debug.Log("Saved");
+        }  
     }
 }
 

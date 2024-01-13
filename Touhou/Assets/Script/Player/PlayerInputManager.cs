@@ -50,7 +50,7 @@ public class PlayerInputManager : MonoBehaviour
                 
                 if(ShopManager.Instance.isShopMode) return;
                 
-                InventoryManager.Instance.ToggleInventory();
+                PlayerInventoryManager.Instance.ToggleInventory();
             }
         }
     }

@@ -3,6 +3,8 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+using ES3Types;
+
 
 public class FadeInOutManager : MonoBehaviour
 {
@@ -41,6 +43,7 @@ public class FadeInOutManager : MonoBehaviour
     
     private void Start() 
     {
+        // ES3Type.AddType(typeof(InventoryItemData), ES3UserType_InventoryItemData.Instance);
         fadeInOutCanvas.SetActive(false);    
     }
 

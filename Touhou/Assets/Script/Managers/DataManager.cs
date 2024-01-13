@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ES3PlayMaker;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ES3Types;
 
 public class DataManager : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class DataManager : MonoBehaviour
         }
     }
     
+    private void Start() 
+    {
+    }
     // =========================================================//
 
     public void IsActive()
@@ -50,7 +54,7 @@ public class DataManager : MonoBehaviour
     // public MainMenu mainMenu;
 
     [System.Serializable]
-    public class SaveData
+    public class PlayerSaveData
     {
         public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
         public Vector3 playerPosition; // 플레이어의 위치
@@ -58,7 +62,14 @@ public class DataManager : MonoBehaviour
         public _TimeData timeData;
     }
 
-    public SaveData loadData;
+    public class PlayerInventoryData
+    {
+        public int playerInventoryLevel;
+        public List<_InventorySlot> playerInventory;
+        // public Inventory playerInventory;
+    }
+
+    public PlayerSaveData loadData;
 
     public void StartGame(int saveIndex)
     {
@@ -70,7 +81,7 @@ public class DataManager : MonoBehaviour
     {
         // currentSaveIndex = saveIndex;
         
-        SaveData saveData = new SaveData();
+        PlayerSaveData saveData = new PlayerSaveData();
 
         saveData.LastSceneName = SceneManager.GetActiveScene().name;
         saveData.playerPosition = _PlayerManager.Instance.transform.position;
@@ -78,9 +89,24 @@ public class DataManager : MonoBehaviour
         saveData.timeData = _TimeManager.Instance.timeData;
 
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
-        ES3.Save("SaveData", saveData, path);
+        ES3.Save("PlayerSaveData", saveData, path);
+
+        SaveInventory();
         
         // Debug.Log(saveIndex + " Save to : " + path);
+    }
+
+    public void SaveInventory()
+    {
+        PlayerInventoryData saveInventory = new PlayerInventoryData();
+        // saveInventory.playerInventoryLevel = PlayerInventoryManager.Instance.playerInventory.inventoryLevel;
+        saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory.InventorySlots;
+
+        // saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory;
+
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("PlayerInventoryData", saveInventory, path);
+
     }
 
     public void LoadSlot(int loadIndex)
@@ -89,7 +115,7 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
         if(ES3.FileExists(path))
         {
-            loadData = ES3.Load<SaveData>("SaveData", path);
+            loadData = ES3.Load<PlayerSaveData>("PlayerSaveData", path);
             // loadData = ES3.Load<SaveData>("SaveData", path);
 
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
@@ -99,6 +125,18 @@ public class DataManager : MonoBehaviour
             // Debug.Log(loadIndex + " Load from : " + path);
         // else
             // Debug.Log("No such path");            
+    }
+
+    public void LoadInventory(int loadIndex)
+    {
+        PlayerInventoryData loadInventoryData;
+        currentSaveIndex = loadIndex;
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        if(ES3.FileExists(path))
+        {
+            loadInventoryData = ES3.Load<PlayerInventoryData>("PlayerInventoryData", path);
+            PlayerInventoryManager.Instance.playerInventory.InventorySlots = loadInventoryData.playerInventory;
+        }
     }
 
     public bool CheckSaveSlot()

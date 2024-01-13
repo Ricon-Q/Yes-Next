@@ -5,13 +5,14 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 
+[ES3Serializable]
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 [System.Serializable]
 public class InventorySystem : ScriptableObject
 {
     public string savePath;
-    [SerializeField] private List<InventorySlot> inventorySlots;
-    public List<InventorySlot> InventorySlots => inventorySlots;
+    [SerializeField] public List<InventorySlot> InventorySlots;
+    // public List<InventorySlot> InventorySlots => inventorySlots;
     public int InventorySize => InventorySlots.Count;
 
     public UnityAction<InventorySlot> OnInventorySlotChanged;
@@ -74,33 +75,33 @@ public class InventorySystem : ScriptableObject
     [ContextMenu("Save Inventory")]
     public void Save()
     {
-        string saveData = JsonUtility.ToJson(this, true);
-        BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
-        bf.Serialize(file, saveData);
-        file.Close();
+        // string saveData = JsonUtility.ToJson(this, true);
+        // BinaryFormatter bf = new BinaryFormatter();
+        // FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        // bf.Serialize(file, saveData);
+        // file.Close();
     }
 
     [ContextMenu("Load Inventory")]
     public void Load()
     {
-        if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
-            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
-            file.Close();
-        }
+        // if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        // {
+        //     BinaryFormatter bf = new BinaryFormatter();
+        //     FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+        //     JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+        //     file.Close();
+        // }
     }
 
     [ContextMenu("Clear Inventory")]
     public void Clear()
     {
         int tmp = InventorySize;
-        inventorySlots = new List<InventorySlot>(tmp);
+        InventorySlots = new List<InventorySlot>(tmp);
         for (int i = 0; i < tmp; i++)
         {
-            inventorySlots.Add(new InventorySlot());
+            InventorySlots.Add(new InventorySlot());
         }
     }
 }

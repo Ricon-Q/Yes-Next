@@ -14,6 +14,8 @@ public enum ItemType
 }
 
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item/Item Data")]
+
+[ES3Serializable]
 public class InventoryItemData : ScriptableObject 
 {
     public int ID;
