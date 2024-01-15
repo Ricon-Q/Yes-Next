@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -24,7 +26,6 @@ public class UiManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -46,9 +47,7 @@ public class UiManager : MonoBehaviour
     private void Update() 
     {
         MonthToSeason();
-        // yearMonthDayText.text = _TimeManager.Instance.timeData.year + "년차 " + season + _TimeManager.Instance.timeData.day + "일";
-        // timeText.text = _TimeManager.Instance.timeData.hour + ":" + _TimeManager.Instance.timeData.minute;
-         // Year, Season, and Day
+        // Year, Season, and Day
         string formattedDay = _TimeManager.Instance.timeData.day < 10 ? "0" + _TimeManager.Instance.timeData.day.ToString() : _TimeManager.Instance.timeData.day.ToString();
         yearMonthDayText.text = $"{_TimeManager.Instance.timeData.year}년차 {season} {formattedDay}일";
 
@@ -92,5 +91,24 @@ public class UiManager : MonoBehaviour
             isUiCanvasOn = true;
         }
 
+    }
+
+    [Header("Time Frame")]
+    [SerializeField] private DOTweenAnimation dOTweenAnimation;
+    public GameObject buttonIn;
+    public GameObject buttonOut;
+
+    public void TimeFrameIn()
+    {
+        buttonIn.SetActive(false);
+        buttonOut.SetActive(true);
+        dOTweenAnimation.DOPlayForward();
+    }
+    
+    public void TimeFrameOut()
+    {
+        buttonIn.SetActive(true);
+        buttonOut.SetActive(false);
+        dOTweenAnimation.DOPlayBackwards();
     }
 }

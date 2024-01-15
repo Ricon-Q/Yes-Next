@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2712676788739421237}
   - component: {fileID: 7077324469490190801}
   - component: {fileID: 2010815944786322983}
-  - component: {fileID: 2471942828267800118}
+  - component: {fileID: 8400499247479569658}
   m_Layer: 5
   m_Name: Shop InventorySlot_UI
   m_TagString: Untagged
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2471942828267800118
+--- !u!114 &8400499247479569658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -345,13 +345,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3900014537212476353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484dc030c5ae41e438abd4d4e4dda9b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 706bd20699cfcf243939c193430f05ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 5364548656136107752}
   itemCount: {fileID: 9187713326743057007}
   assignedInventorySlot:
-    itemData: {fileID: 0}
+    itemId: -1
     stackSize: -1
   itemName: {fileID: 111700712157578339}
   itemPrice: {fileID: 4338244343569140614}

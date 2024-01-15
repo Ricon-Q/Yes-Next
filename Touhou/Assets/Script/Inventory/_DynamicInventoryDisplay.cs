@@ -41,11 +41,11 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
 
         if(inventorySystem == null) return;
 
-        for (int i = 0; i < inventorySystem.InventorySize; i++)
+        for (int i = 0; i < inventorySystem.inventorySize; i++)
         {
             var uiSlot = Instantiate(slotPrefab, transform);
-            slotDictionary.Add(uiSlot, inventorySystem.InventorySlots[i]);
-            uiSlot.Init(inventorySystem.InventorySlots[i]);
+            slotDictionary.Add(uiSlot, inventorySystem.inventorySlots[i]);
+            uiSlot.Init(inventorySystem.inventorySlots[i]);
             uiSlot.UpdateUISlot();
         }
     }
@@ -77,11 +77,11 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
 
         if(invToDisplay == null) return;
 
-        for (int i = 0; i < invToDisplay.InventorySize; i++)
+        for (int i = 0; i < invToDisplay.inventorySize; i++)
         {
             var uiSlot = Instantiate(slotPrefab, transform);
-            slotDictionary.Add(uiSlot, invToDisplay.InventorySlots[i]);
-            uiSlot.Init(invToDisplay.InventorySlots[i]);
+            slotDictionary.Add(uiSlot, invToDisplay.inventorySlots[i]);
+            uiSlot.Init(invToDisplay.inventorySlots[i]);
             uiSlot.UpdateUISlot();
         }
     }

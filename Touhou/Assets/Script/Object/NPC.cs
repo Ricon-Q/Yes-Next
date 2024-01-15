@@ -6,7 +6,7 @@ public class NPC : MonoBehaviour
     // public string name;
     public bool isShopable;
     public Sprite portrait;
-    public InventorySystem inventorySystem;
+    public _InventorySystem inventorySystem;
     public NpcData npcData;
     
     private void Awake()

@@ -65,6 +65,7 @@ public class ShopManager : MonoBehaviour
         else { Destroy(this.gameObject); }
     }
 
+//  ==================================== //
     private void Start() 
     {
         confirmPanel.SetActive(false);
@@ -104,7 +105,7 @@ public class ShopManager : MonoBehaviour
         //     affection10Panel.SetActive(false);
         // }
 
-        shopNpcDisplay.EnterShopMode(npcInfo.inventorySystem);
+        // shopNpcDisplay.EnterShopMode(npcInfo.inventorySystem);
         shopPlayerDisplay.EnterShopMode();
         
     }

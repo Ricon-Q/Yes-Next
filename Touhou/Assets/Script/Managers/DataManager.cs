@@ -100,13 +100,12 @@ public class DataManager : MonoBehaviour
     {
         PlayerInventoryData saveInventory = new PlayerInventoryData();
         // saveInventory.playerInventoryLevel = PlayerInventoryManager.Instance.playerInventory.inventoryLevel;
-        saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory.InventorySlots;
+        saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory.inventorySlots;
 
         // saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory;
 
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("PlayerInventoryData", saveInventory, path);
-
     }
 
     public void LoadSlot(int loadIndex)
@@ -135,7 +134,7 @@ public class DataManager : MonoBehaviour
         if(ES3.FileExists(path))
         {
             loadInventoryData = ES3.Load<PlayerInventoryData>("PlayerInventoryData", path);
-            PlayerInventoryManager.Instance.playerInventory.InventorySlots = loadInventoryData.playerInventory;
+            PlayerInventoryManager.Instance.playerInventory.inventorySlots = loadInventoryData.playerInventory;
         }
     }
 

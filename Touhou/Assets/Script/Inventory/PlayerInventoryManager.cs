@@ -67,18 +67,41 @@ public class _InventorySystem
     // 인벤토리 레벨
     public int inventoryLevel;
     // 레벨당 인벤토리
-    [SerializeField]public List<_InventorySlot> InventorySlots;
+    [SerializeField]public List<_InventorySlot> inventorySlots;
 
     // 인벤토리 수
-    public int InventorySize = 36;
+    public int inventorySize = 36;
 
     public _InventorySystem()
     {
+        // inventorySize = inventorySlots.Count;
         inventoryLevel = 0;
-        InventorySlots = new List<_InventorySlot>(InventorySize);
-        for (int i = 0; i < InventorySize; i++)
+        inventorySlots = new List<_InventorySlot>(inventorySize);
+        for (int i = 0; i < inventorySize; i++)
         {
-            InventorySlots.Add(new _InventorySlot());
+            inventorySlots.Add(new _InventorySlot());
+        }
+    }
+
+    public _InventorySystem(int inventorySize)
+    {
+        // inventorySize = inventorySlots.Count;
+        this.inventorySize = inventorySize;
+        inventoryLevel = 0;
+        inventorySlots = new List<_InventorySlot>(inventorySize);
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventorySlots.Add(new _InventorySlot());
+        }
+    }
+    public _InventorySystem(List<InventoryItemData> inventory, int inventorySize) //NPC용 생성자
+    {
+        this.inventorySize = inventorySize;
+        inventoryLevel = 5;
+        inventorySlots = new List<_InventorySlot>(inventorySize);
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventorySlots.Add(new _InventorySlot(inventory[i].ID, 1));
         }
     }
 
@@ -109,15 +132,40 @@ public class _InventorySystem
 
     public bool ContainItem(int itemIdToAdd, out List<_InventorySlot> invSlot)
     {
-        invSlot = InventorySlots.Where(item => item.itemId == itemIdToAdd).ToList();
+        invSlot = inventorySlots.Where(item => item.itemId == itemIdToAdd).ToList();
         // Debug.Log(invSlot.Count);
         return invSlot.Count > 0;
     }
 
     public bool HasFreeSlot(out _InventorySlot freeSlot)
     {
-        freeSlot = InventorySlots.FirstOrDefault(i => i.itemId == -1);
+        freeSlot = inventorySlots.FirstOrDefault(i => i.itemId == -1);
         return freeSlot == null ? false : true;
+    }
+
+    public void SaveInventory()
+    {
+        DataManager.Instance.SaveInventory();
+    }
+
+    public void LoadInventory()
+    {
+        DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
+    }
+
+    public void ClearInventory()
+    {
+        // for (int i = 0; i < inventorySize; i++)
+        // {
+        //     inventorySlots[i] = new _InventorySlot();
+        // }
+        inventorySlots.Clear();
+        inventoryLevel = 0;
+        inventorySlots = new List<_InventorySlot>(inventorySize);
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventorySlots.Add(new _InventorySlot());
+        }
     }
 
     // public int GetItemCount(InventoryItemData itemToFind)
