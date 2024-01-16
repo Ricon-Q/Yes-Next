@@ -70,12 +70,12 @@ public class _PlayerManager : MonoBehaviour
 public class PlayerData
 {
     public string currentArea;
-    public string name;
+    public string firstName;
+    public string lastName;
     // public Sprite playerPortrait;
     public bool isMale;
     public int hospitalLevel;    
     public long money;
-
     public float maxHealth;        // 최대 체력
     public float currentHealth;    // 현재 체력
     public float maxFatigue;       // 최대 피로도
@@ -84,7 +84,8 @@ public class PlayerData
     public PlayerData()
     {
         currentArea = "defaultArea";
-        name = "Rin";
+        firstName = "Rin";
+        lastName = "";
         isMale = true;
         // playerPortrait = null;
         hospitalLevel = 0;

@@ -70,7 +70,7 @@ public class InventoryManager : MonoBehaviour
             characterPortrait.sprite = maleSprite;
         else
             characterPortrait.sprite = femaleSprite;
-        characterName.text =_PlayerManager.Instance.playerData.name; 
+        characterName.text =_PlayerManager.Instance.playerData.lastName; 
         // characterPortrait.sprite = _PlayerManager.Instance.playerData.playerPortrait;
     }
 

@@ -46,7 +46,7 @@ public class GenderSelection : MonoBehaviour
     public void Submit()
     {
         _PlayerManager.Instance.playerData.isMale = isMale;
-        _PlayerManager.Instance.playerData.name = nameInput.text;
+        _PlayerManager.Instance.playerData.lastName = nameInput.text;
         // _PlayerManager.Instance.playerData.playerPortrait = mainPortrait.sprite;
         // InventoryManager.Instance.UpdateCharacterInfo();
         FadeInOutManager.Instance.ChangeScene("Intro Cutscene");

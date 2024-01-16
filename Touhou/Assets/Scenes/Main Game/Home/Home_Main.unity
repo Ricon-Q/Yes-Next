@@ -3503,6 +3503,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2328267496774754254, guid: a16fcf5223a10c94fbf9166818f2e9a3, type: 3}
+      propertyPath: conversation
+      value: "\uD734\uC2DD, \uC800\uC7A5 - \uCE68\uB300"
+      objectReference: {fileID: 0}
     - target: {fileID: 6658906443597362983, guid: a16fcf5223a10c94fbf9166818f2e9a3, type: 3}
       propertyPath: m_Name
       value: Bed

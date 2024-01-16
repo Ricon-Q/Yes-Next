@@ -53,21 +53,21 @@ public class DataManager : MonoBehaviour
 
     // public MainMenu mainMenu;
 
-    [System.Serializable]
-    public class PlayerSaveData
-    {
-        public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
-        public Vector3 playerPosition; // 플레이어의 위치
-        public PlayerData playerData;
-        public _TimeData timeData;
-    }
+    // [System.Serializable]
+    // public class PlayerSaveData
+    // {
+    //     public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
+    //     public Vector3 playerPosition; // 플레이어의 위치
+    //     public PlayerData playerData;
+    //     public _TimeData timeData;
+    // }
 
-    public class PlayerInventoryData
-    {
-        public int playerInventoryLevel;
-        public List<_InventorySlot> playerInventory;
-        // public Inventory playerInventory;
-    }
+    // public class PlayerInventoryData
+    // {
+    //     public int playerInventoryLevel;
+    //     public List<_InventorySlot> playerInventory;
+    //     // public Inventory playerInventory;
+    // }
 
     public PlayerSaveData loadData;
 
@@ -126,6 +126,18 @@ public class DataManager : MonoBehaviour
             // Debug.Log("No such path");            
     }
 
+    public PlayerSaveData LoadInfo(int loadIndex)
+    {
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        PlayerSaveData result;
+        if(ES3.FileExists(path))
+        {
+            result = ES3.Load<PlayerSaveData>("PlayerSaveData", path);
+            return result;
+        }
+        return null;
+    }
+
     public void LoadInventory(int loadIndex)
     {
         PlayerInventoryData loadInventoryData;
@@ -163,4 +175,20 @@ public class DataManager : MonoBehaviour
             Debug.Log("No such path");
     }
 }
+
+[System.Serializable]
+    public class PlayerSaveData
+    {
+        public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
+        public Vector3 playerPosition; // 플레이어의 위치
+        public PlayerData playerData;
+        public _TimeData timeData;
+    }
+
+    public class PlayerInventoryData
+    {
+        public int playerInventoryLevel;
+        public List<_InventorySlot> playerInventory;
+        // public Inventory playerInventory;
+    }
 

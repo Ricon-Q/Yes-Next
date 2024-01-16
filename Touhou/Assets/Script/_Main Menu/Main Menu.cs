@@ -43,6 +43,7 @@ public class MainMenu : MonoBehaviour
             if(ES3.FileExists(path))
             {
                 saveLoadUIs[i].EnableContinue();
+                saveLoadUIs[i].InfoPanelOn(i);
             }
             else
                 saveLoadUIs[i].DisableContinue();
