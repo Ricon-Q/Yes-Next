@@ -1,4 +1,7 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*/ 
     Door Trigger
@@ -69,19 +72,49 @@ public class DoorTrigger : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(targetSceneName))
         {   
-            FadeInOutManager.Instance.ChangeScene(targetSceneName, DoorWayPosition);
-             _TimeManager.Instance.increaseMinute(durationOfMinute);
-            // cameraManager.ChangeCameraBorder(cameraCenter, mapSize);
-            _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
-            // AreaData targetArea = areaDatabase.findArea(areaName);
+            // FadeInOutManager.Instance.ChangeScene(targetSceneName, DoorWayPosition);
+            //  _TimeManager.Instance.increaseMinute(durationOfMinute);
+            // // cameraManager.ChangeCameraBorder(cameraCenter, mapSize);
+            // _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
+            // // AreaData targetArea = areaDatabase.findArea(areaName);
 
-            // Camera Setting
-            cameraManager.ChangeCameraBorder(targetArea.areaName);
-            cameraManager.transform.position = DoorWayPosition;
+            // // Camera Setting
+            // cameraManager.ChangeCameraBorder(targetArea.areaName);
+            // cameraManager.transform.position = DoorWayPosition;
+
+            StartCoroutine(IEnum_Interact());
         }
         else
         {
             Debug.LogWarning("No target scene name specified for the door.");
         }
+    }
+
+    // FadeOut - Scene Change - Player Position Change - Camera Position 변경 - time 변환 - Fade In
+
+    public IEnumerator IEnum_Interact()
+    {
+        FadeInOutManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1);
+
+        StartCoroutine(MoveScene());
+
+        // yield return new WaitForEndOfFrame();
+        FadeInOutManager.Instance.FadeIn();
+    }
+
+    public IEnumerator MoveScene()
+    {
+        SceneManager.LoadScene(targetSceneName);
+        _PlayerManager.Instance.transform.position = DoorWayPosition;
+        
+        _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
+        cameraManager.ChangeCameraBorder(targetArea.areaName);
+        cameraManager.transform.position = DoorWayPosition;
+
+        _TimeManager.Instance.increaseMinute(durationOfMinute);
+
+        yield return null;
     }
 }

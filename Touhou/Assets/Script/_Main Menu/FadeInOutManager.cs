@@ -85,6 +85,8 @@ public class FadeInOutManager : MonoBehaviour
         fadeInOutAnimation.DOPlayById("In");
         
         PlayerInputManager.Instance.SetInputMode(true);
+
+        return;
     }
 
     public void FadeOut()
@@ -93,6 +95,8 @@ public class FadeInOutManager : MonoBehaviour
         PlayerInputManager.Instance.SetInputMode(false);
         fadeInOutCanvas.SetActive(true);
         fadeInOutAnimation.DOPlayById("Out");
+
+        return;
     }
 
     public void FadeOutZero()

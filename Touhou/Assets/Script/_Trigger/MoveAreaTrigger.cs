@@ -32,7 +32,7 @@ public class MoveAreaTrigger : MonoBehaviour
             if(InputManager.Instance.GetInteractPressed())
             {
                 // MoveArea(areaToMove);
-                MoveArea();
+                StartCoroutine(IEnum_Interact());
             }
         }
         else
@@ -55,15 +55,41 @@ public class MoveAreaTrigger : MonoBehaviour
             playerInRange = false;
         }
     }
-    public void MoveArea()
+    // public void MoveArea()
+    // {
+    //     _TimeManager.Instance.increaseMinute(durationOfMinute);
+    //     _PlayerManager.Instance.transform.position = playerPosition;
+    //     _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
+    //     // AreaData targetArea = areaDatabase.findArea(areaName);
+
+    //     cameraManager.ChangeCameraBorder(targetArea.areaName);
+    //     cameraManager.transform.position = playerPosition;
+
+    // }
+
+    // FadeOut - Player Position Change - Camera Position 변경 - time 변환 - Fade In
+
+    public IEnumerator IEnum_Interact()
     {
-        _TimeManager.Instance.increaseMinute(durationOfMinute);
+        FadeInOutManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1);
+
+        StartCoroutine(MoveArea());
+        
+        FadeInOutManager.Instance.FadeIn();
+    }
+
+    public IEnumerator MoveArea()
+    {
         _PlayerManager.Instance.transform.position = playerPosition;
         _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
-        // AreaData targetArea = areaDatabase.findArea(areaName);
-
+        
         cameraManager.ChangeCameraBorder(targetArea.areaName);
         cameraManager.transform.position = playerPosition;
 
+        _TimeManager.Instance.increaseMinute(durationOfMinute);
+
+        yield return null;
     }
 }
