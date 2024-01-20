@@ -8,4 +8,8 @@ public class PotionRecipebook : MonoBehaviour
     {
         
     }
+    public void ExitToolMode()
+    {
+        _CraftManager.Instance.object_PotionRecipebook.SetActive(false);
+    }
 }

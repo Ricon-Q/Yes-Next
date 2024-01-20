@@ -8,4 +8,8 @@ public class PotionPot : MonoBehaviour
     {
         
     }
+    public void ExitToolMode()
+    {
+        _CraftManager.Instance.object_PotionPot.SetActive(false);
+    }
 }

@@ -78,8 +78,8 @@ public class PlayerData
     public long money;
     public float maxHealth;        // 최대 체력
     public float currentHealth;    // 현재 체력
-    public float maxFatigue;       // 최대 피로도
-    public float currentFatigue;   // 현재 피로도
+    public float maxStamina;       // 최대 피로도
+    public float currentStamina;   // 현재 피로도
 
     public PlayerData()
     {
@@ -93,8 +93,8 @@ public class PlayerData
 
         maxHealth = 100;
         currentHealth = 100;    
-        maxFatigue = 100;       
-        currentFatigue = 100;
+        maxStamina = 100;       
+        currentStamina = 100;
     }
 
     // // =========SetFunc=========
@@ -108,11 +108,11 @@ public class PlayerData
     // }
     // public void SetMaxFatigue(float value)
     // {
-    //     maxFatigue = value;
+    //     maxStamina = value;
     // }
     // public void SetCurrentFatigue(float value)
     // {
-    //     currentFatigue = value;
+    //     currentStamina = value;
     // }
     // public void SetHospitalLevel(int value)
     // {
@@ -130,11 +130,11 @@ public class PlayerData
     // }
     // public void AddMaxFatigue(float value)
     // {
-    //     maxFatigue += value;
+    //     maxStamina += value;
     // }
     // public void AddCurrentFatigue(float value)
     // {
-    //     currentFatigue += value;
+    //     currentStamina += value;
     // }
     // public void AddMoney(long value)
     // {
@@ -156,11 +156,11 @@ public class PlayerData
     // }
     // public float GetMaxFatigue()
     // {
-    //     return maxFatigue;
+    //     return maxStamina;
     // }
     // public float GetCurrentFatigue()
     // {
-    //     return currentFatigue;
+    //     return currentStamina;
     // }
     // public float GetMoney()
     // {

@@ -39,7 +39,7 @@ public class PlayerInventoryManager : MonoBehaviour
     public GameObject InventoryCanvas;
     public _InventorySystem playerInventory;
     public bool isInventoryOpen = false;
-    public _DynamicInventoryDisplay invToDisplay;
+    public PlayerInventoryDisplay invToDisplay;
 
     [Header("ItemDataBase")]
     public ItemDatabaseObject itemDataBase;
@@ -58,7 +58,7 @@ public class PlayerInventoryManager : MonoBehaviour
         invToDisplay.isInfoOpen = false;
         invToDisplay.infoPanel.SetActive(false);
     }
-    
+
 }
 
 [System.Serializable]
@@ -70,14 +70,14 @@ public class _InventorySystem
     [SerializeField]public List<_InventorySlot> inventorySlots;
 
     // 인벤토리 수
-    public int inventorySize = 36;
+    public int inventorySize = 12;
 
     public _InventorySystem()
     {
         // inventorySize = inventorySlots.Count;
-        inventoryLevel = 0;
+        inventoryLevel = 1;
         inventorySlots = new List<_InventorySlot>(inventorySize);
-        for (int i = 0; i < inventorySize; i++)
+        for (int i = 0; i < inventorySize*inventoryLevel; i++)
         {
             inventorySlots.Add(new _InventorySlot());
         }
@@ -87,13 +87,25 @@ public class _InventorySystem
     {
         // inventorySize = inventorySlots.Count;
         this.inventorySize = inventorySize;
-        inventoryLevel = 0;
+        inventoryLevel = 1;
         inventorySlots = new List<_InventorySlot>(inventorySize);
         for (int i = 0; i < inventorySize; i++)
         {
             inventorySlots.Add(new _InventorySlot());
         }
     }
+
+    public void InventoryLevelUp()
+    {
+        inventoryLevel += 1;
+        inventorySize += 12;
+
+        while (inventorySlots.Count < inventorySize)
+        {
+            inventorySlots.Add(new _InventorySlot());
+        }
+    }
+
     public _InventorySystem(List<InventoryItemData> inventory, int inventorySize) //NPC용 생성자
     {
         this.inventorySize = inventorySize;

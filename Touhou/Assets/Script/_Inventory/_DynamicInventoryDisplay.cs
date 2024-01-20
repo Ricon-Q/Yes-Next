@@ -49,28 +49,28 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
             uiSlot.UpdateUISlot();
         }
     }
-    public virtual void ChangeCategory(string type)
-    {
-        if(mouseInventoryItem.AssignedInventorySlot.itemId != -1) return;
+    // public virtual void ChangeCategory(string type)
+    // {
+    //     if(mouseInventoryItem.AssignedInventorySlot.itemId != -1) return;
 
-        itemType = (ItemType) Enum.Parse(typeof(ItemType), type);
-        if(itemType == ItemType.Ingredient || itemType == ItemType.Medicine)
-        {
-            // inventorySystem = medicalInventorySystem;
-            // CreateInventorySlot();
-            // RefreshDynamicInventory(inventorySystem);
-        }
-        else
-        {
-            // inventorySystem = backpackInventorySystem;
-            CreateInventorySlot();
-            RefreshDynamicInventory(inventorySystem);
-        }
-        foreach (var item in slotDictionary.Keys)
-        {
-            item.UpdateCategorySlot(item.AssignedInventorySlot, itemType);
-        }
-    }
+    //     itemType = (ItemType) Enum.Parse(typeof(ItemType), type);
+    //     if(itemType == ItemType.Ingredient || itemType == ItemType.Medicine)
+    //     {
+    //         // inventorySystem = medicalInventorySystem;
+    //         // CreateInventorySlot();
+    //         // RefreshDynamicInventory(inventorySystem);
+    //     }
+    //     else
+    //     {
+    //         // inventorySystem = backpackInventorySystem;
+    //         CreateInventorySlot();
+    //         RefreshDynamicInventory(inventorySystem);
+    //     }
+    //     foreach (var item in slotDictionary.Keys)
+    //     {
+    //         item.UpdateCategorySlot(item.AssignedInventorySlot, itemType);
+    //     }
+    // }
     public override void AssignSlot(_InventorySystem invToDisplay)
     {
         slotDictionary = new Dictionary<_InventorySlot_UI, _InventorySlot>();

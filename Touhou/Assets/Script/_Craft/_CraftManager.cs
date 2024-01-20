@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class _CraftManager : MonoBehaviour
@@ -34,10 +33,20 @@ public class _CraftManager : MonoBehaviour
     // ============================================ //
 
     [Header("Potion Making Tools")]
-    [SerializeField] private GameObject craftModeCanvas;
-    [SerializeField] private GameObject craftToolCanvas;
+    public GameObject craftModeCanvas;
+    public GameObject craftToolCanvas;
 
     private void Start()
+    {
+        ExitCraftMode();
+    }
+
+    public void EnterCraftMode()
+    {
+        craftModeCanvas.SetActive(true);
+    }
+
+    public void ExitCraftMode()
     {
         craftModeCanvas.SetActive(false);
         craftToolCanvas.SetActive(false);
@@ -48,29 +57,29 @@ public class _CraftManager : MonoBehaviour
         object_HerbPocket.SetActive(false);
         object_PotionSynthesizer.SetActive(false);
         object_PotionRecipebook.SetActive(false);
-    }
 
-    public void EnterCraftMode()
-    {
-        craftModeCanvas.SetActive(true);
+        warningPanel.SetActive(false);
     }
 
     [Header("Potion Making Tool Panel")]
-    [SerializeField] public MortarAndPestle mortarAndPestle;
-    [SerializeField] public PotionPot potionPot;
-    [SerializeField] public PotionStand potionStand;
-    [SerializeField] public HerbPocket herbPocket;
-    [SerializeField] public PotionSynthesizer potionSynthesizer;
-    [SerializeField] public PotionRecipebook potionRecipebook;
+    public MortarAndPestle mortarAndPestle;
+    public PotionPot potionPot;
+    public PotionStand potionStand;
+    public HerbPocket herbPocket;
+    public PotionSynthesizer potionSynthesizer;
+    public PotionRecipebook potionRecipebook;
 
     [Header("Potion Making Tool GameObject")]
-    [SerializeField] public GameObject object_MortarAndPestle;
-    [SerializeField] public GameObject object_PotionPot;
-    [SerializeField] public GameObject object_PotionStand;
-    [SerializeField] public GameObject object_HerbPocket;
-    [SerializeField] public GameObject object_PotionSynthesizer;
-    [SerializeField] public GameObject object_PotionRecipebook;
+    public GameObject object_MortarAndPestle;
+    public GameObject object_PotionPot;
+    public GameObject object_PotionStand;
+    public GameObject object_HerbPocket;
+    public GameObject object_PotionSynthesizer;
+    public GameObject object_PotionRecipebook;
     
+    [Header("Warning Panel")]
+    [SerializeField] private GameObject warningPanel;
+    [SerializeField] private TextMeshProUGUI warningText; 
 
     public void EnterToolMode(int toolIndex)
     {
@@ -98,5 +107,44 @@ public class _CraftManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void ExitToolMode(int toolIndex)
+    {
+        craftToolCanvas.SetActive(true);
+        switch(toolIndex)
+        {
+            case 0:
+                mortarAndPestle.ExitToolMode();
+                break;
+            case 1:
+                potionPot.ExitToolMode();
+                break;
+            case 2:
+                potionStand.ExitToolMode();
+                break;
+            case 3:
+                herbPocket.ExitToolMode();
+                break;
+            case 4:
+                potionSynthesizer.ExitToolMode();
+                break;
+            case 5:
+                potionRecipebook.ExitToolMode();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnWarningPanel(string warningText)
+    {
+        warningPanel.SetActive(true);
+        this.warningText.text = warningText.ToString(); 
+    }
+
+    public void OffWarningPanel()
+    {
+        warningPanel.SetActive(false);
     }
 }

@@ -5,8 +5,13 @@ using UnityEngine;
 
 public class MortarAndPestle : MonoBehaviour
 {
-    internal void EnterCraftMode()
+    public void EnterCraftMode()
     {
+    }
+
+    public void ExitToolMode()
+    {
+        _CraftManager.Instance.object_MortarAndPestle.SetActive(false);
     }
 
     // Start is called before the first frame update

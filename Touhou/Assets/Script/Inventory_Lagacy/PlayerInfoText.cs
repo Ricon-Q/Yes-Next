@@ -13,7 +13,7 @@ public class PlayerInfoText : MonoBehaviour
     {
         currHealth.text = _PlayerManager.Instance.playerData.currentHealth.ToString();
         maxHealth.text = _PlayerManager.Instance.playerData.maxHealth.ToString();
-        currFatigue.text = _PlayerManager.Instance.playerData.currentFatigue.ToString();
-        maxFatigue.text = _PlayerManager.Instance.playerData.maxFatigue.ToString();
+        currFatigue.text = _PlayerManager.Instance.playerData.currentStamina.ToString();
+        maxFatigue.text = _PlayerManager.Instance.playerData.maxStamina.ToString();
     }
 }

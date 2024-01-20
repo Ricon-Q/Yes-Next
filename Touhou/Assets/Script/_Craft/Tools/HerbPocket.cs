@@ -10,4 +10,8 @@ public class HerbPocket : _DynamicInventoryDisplay
         this.inventorySystem = PlayerInventoryManager.Instance.playerInventory;    
         RefreshDynamicInventory(this.inventorySystem);
     }
+    public void ExitToolMode()
+    {
+        _CraftManager.Instance.object_HerbPocket.SetActive(false);
+    }
 }

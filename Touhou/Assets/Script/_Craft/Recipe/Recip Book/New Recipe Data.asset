@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: TestRecipe
   description: 
+  useStamina: 10
+  useTimeMinute: 10
   inputItemDatas:
   - {fileID: 11400000, guid: 10f6d58eb524a56428d0f0d045f98897, type: 2}
   - {fileID: 11400000, guid: c64cb204a4fc9854ba98d557221262e6, type: 2}

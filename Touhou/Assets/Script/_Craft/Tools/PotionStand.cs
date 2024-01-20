@@ -8,4 +8,8 @@ public class PotionStand : MonoBehaviour
     {
         
     }
+    public void ExitToolMode()
+    {
+        _CraftManager.Instance.object_PotionStand.SetActive(false);
+    }
 }

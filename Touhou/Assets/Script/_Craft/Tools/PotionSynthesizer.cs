@@ -1,4 +1,7 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PotionSynthesizer : _DynamicInventoryDisplay
 {
@@ -7,6 +10,10 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
     [Header("Potion Synthesizer")]
     [SerializeField] private RecipeDatabase recipeDatabase;
+    [SerializeField] private GameObject visualStaminaTime;
+    [SerializeField] private TextMeshProUGUI visualStaminaTimeText;
+    // [TextArea(10,5)]
+    // [SerializeField] private string warningText;
 
     // Input칸 2개와 Output칸 3개 필요, Output칸에는 아이템을 넣을 수 없음
     // Inventory System[0]이 Main Potion
@@ -15,11 +22,51 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
     public void EnterCraftMode() 
     {
+        OffVisualStaminaTime();
         _CraftManager.Instance.object_PotionSynthesizer.SetActive(true);
         _CraftManager.Instance.herbPocket.EnterCraftMode();
     }
+    public void ExitToolMode()
+    {
+        // 슬롯의 1, 2, 3번 칸에 아이템이 남아있다면 아이템들을 플레이어 인벤토리로 옮긴 후 종료
+        foreach (var item in inventorySystem.inventorySlots)
+        {
+            if(item.itemId != -1)
+            {
+                PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
+                item.ClearSlot();
+            }
+        }
+
+        // 슬롯 칸 새로고침
+        RefreshDynamicInventory(this.inventorySystem);
+
+        _CraftManager.Instance.object_PotionSynthesizer.SetActive(false);
+        _CraftManager.Instance.herbPocket.ExitToolMode();
+        _CraftManager.Instance.craftToolCanvas.SetActive(false);
+    }
 
     public void SynthesizePotion()
+    {
+        // 3번 슬롯이 할당되어있을때 - 3번 슬롯 아이템을 인벤토리로 이동
+        if(inventorySystem.inventorySlots[2].itemId == -1)
+        {
+            PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);
+        }
+
+        RecipeData foundedRecipe = CheckRecipe();
+
+        if(foundedRecipe != null)
+        {   
+            SuccessCraft(foundedRecipe);
+            return;
+        }   
+
+        // 적합한 레시피를 찾지 못하면 FailCraft();
+        else FailCraft();
+    }
+
+    public RecipeData CheckRecipe()
     {
         foreach (var item in recipeDatabase.recipeData)
         {
@@ -31,12 +78,31 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
                 )
             
             {
-                SuccessCraft(item);
-                return;
+                return item;
             }
         }
-        // 조합을 실패했을때 Input 아이템 사라지고 실패 Output 출력
-        FailCraft();
+        return null;
+    }
+
+    public void OnVisualStaminaTime()
+    {
+        RecipeData foundedRecipe = CheckRecipe();
+        if(foundedRecipe != null)
+        {   
+            visualStaminaTime.SetActive(true);
+            visualStaminaTimeText.text = string.Format("Stamina : {0}\nTime : {1}", foundedRecipe.useStamina, foundedRecipe.useTimeMinute);
+            return;
+        }
+        else
+        {   
+            visualStaminaTime.SetActive(true);
+            visualStaminaTimeText.text = "Stamina : ??\nTime : ??";
+            return;
+        }
+    }
+    public void OffVisualStaminaTime()
+    {
+        visualStaminaTime.SetActive(false);
     }
 
     public void SuccessCraft(RecipeData recipe)
@@ -48,10 +114,47 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         inventorySystem.inventorySlots[1].RemoveFromStack(recipe.requireInputStackSize[1]);
 
         RefreshDynamicInventory(inventorySystem);
+
+        _PlayerManager.Instance.playerData.currentStamina -= recipe.useStamina;
+        _TimeManager.Instance.increaseMinute(recipe.useTimeMinute);
     }
 
     public void FailCraft()
     {
         Debug.Log("Fail");
+
+        // 1번 슬롯 2번 슬롯 모두 비어있을때 - 시간, 피로도 소모 X
+        if(
+            inventorySystem.inventorySlots[0].itemId == -1 &&
+            inventorySystem.inventorySlots[1].itemId == -1
+            )
+        {
+            return;
+        }
+        // 1번, 2번 슬롯중 하나만 비어져있을때 - 시간, 피로도 소모 X, 기존 포션 삭제 X
+        if(
+            (inventorySystem.inventorySlots[0].itemId != -1 &&
+            inventorySystem.inventorySlots[1].itemId == -1) ||
+            (inventorySystem.inventorySlots[0].itemId == -1 &&
+            inventorySystem.inventorySlots[1].itemId != -1)
+            )
+        {
+            return;
+        }
+        // 1번, 2번 슬롯 모두 할당되어있을때 - 시간, 피로도 소모 O, 기존 포션 삭제 O
+        if(
+            inventorySystem.inventorySlots[0].itemId != -1 &&
+            inventorySystem.inventorySlots[1].itemId != -1
+            )
+        {
+            _PlayerManager.Instance.playerData.currentStamina -= 5;
+            _TimeManager.Instance.increaseMinute(5);
+
+            inventorySystem.inventorySlots[0].ClearSlot();
+            inventorySystem.inventorySlots[1].ClearSlot();
+            RefreshDynamicInventory(this.inventorySystem);
+
+            return;
+        }
     }
 }

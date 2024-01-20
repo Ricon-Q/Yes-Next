@@ -11,6 +11,10 @@ public class RecipeData : ScriptableObject
     [TextArea(10, 10)]
     public string description;
 
+    [Header("Stamina, Time")]
+    public int useStamina;
+    public int useTimeMinute;
+
     [Header("Input")]
     // public int input; // 레시피에서 Input되는 아이템 종류의 갯수
     public InventoryItemData[] inputItemDatas; // input되는 아이템목록
