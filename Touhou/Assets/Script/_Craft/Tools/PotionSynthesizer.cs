@@ -49,9 +49,12 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
     public void SynthesizePotion()
     {
         // 3번 슬롯이 할당되어있을때 - 3번 슬롯 아이템을 인벤토리로 이동
-        if(inventorySystem.inventorySlots[2].itemId == -1)
+        if(inventorySystem.inventorySlots[2].itemId != -1)
         {
-            PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);
+            PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);   
+            inventorySystem.inventorySlots[2].ClearSlot();
+            _CraftManager.Instance.herbPocket.RefreshDynamicInventory(_CraftManager.Instance.herbPocket.inventorySystem);
+            RefreshDynamicInventory(inventorySystem);
         }
 
         RecipeData foundedRecipe = CheckRecipe();

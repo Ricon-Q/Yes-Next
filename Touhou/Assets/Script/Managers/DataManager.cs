@@ -146,6 +146,8 @@ public class DataManager : MonoBehaviour
         if(ES3.FileExists(path))
         {
             loadInventoryData = ES3.Load<PlayerInventoryData>("PlayerInventoryData", path);
+            PlayerInventoryManager.Instance.playerInventoryLevel = loadInventoryData.playerInventoryLevel;
+            PlayerInventoryManager.Instance.GeneratePlayerInventory();
             PlayerInventoryManager.Instance.playerInventory.inventorySlots = loadInventoryData.playerInventory;
         }
     }
@@ -177,18 +179,18 @@ public class DataManager : MonoBehaviour
 }
 
 [System.Serializable]
-    public class PlayerSaveData
-    {
-        public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
-        public Vector3 playerPosition; // 플레이어의 위치
-        public PlayerData playerData;
-        public _TimeData timeData;
-    }
+public class PlayerSaveData
+{
+    public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
+    public Vector3 playerPosition; // 플레이어의 위치
+    public PlayerData playerData;
+    public _TimeData timeData;
+}
 
-    public class PlayerInventoryData
-    {
-        public int playerInventoryLevel;
-        public List<_InventorySlot> playerInventory;
-        // public Inventory playerInventory;
-    }
+public class PlayerInventoryData
+{
+    public int playerInventoryLevel;
+    public List<_InventorySlot> playerInventory;
+    // public Inventory playerInventory;
+}
 

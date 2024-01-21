@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e6b0d16f2b296445a501638611396d3, type: 3}
-  m_Name: Potion Synthesizer
+  m_Name: _Potion Synthesizer Recipe Book
   m_EditorClassIdentifier: 
   recipeData:
   - {fileID: 11400000, guid: 5f0b89d1eb35a324ea2f445cc9a4e2da, type: 2}

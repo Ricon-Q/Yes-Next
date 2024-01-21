@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
     {
         if(DataManager.Instance.CheckSaveSlot())
         {            
-            // 저장 데이터가 있을 경우
+            // 저장 데이터가 있을 경우 // 
 
             // 게임 데이터 불러오기 
             DataManager.Instance.LoadSlot(DataManager.Instance.currentSaveIndex);

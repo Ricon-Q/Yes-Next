@@ -40,14 +40,20 @@ public class PlayerInventoryManager : MonoBehaviour
     public _InventorySystem playerInventory;
     public bool isInventoryOpen = false;
     public PlayerInventoryDisplay invToDisplay;
+    public int playerInventoryLevel;
 
     [Header("ItemDataBase")]
     public ItemDatabaseObject itemDataBase;
 
     private void Start() 
     {
-        playerInventory = new _InventorySystem();
+        // playerInventory = new _InventorySystem(playerInventoryLevel * 12);
         InventoryCanvas.SetActive(false);
+    }
+
+    public void GeneratePlayerInventory()
+    {
+        playerInventory = new _InventorySystem(playerInventoryLevel * 12);
         invToDisplay.inventorySystem = playerInventory;
     }
     
@@ -70,7 +76,7 @@ public class _InventorySystem
     [SerializeField]public List<_InventorySlot> inventorySlots;
 
     // 인벤토리 수
-    public int inventorySize = 12;
+    public int inventorySize;
 
     public _InventorySystem()
     {
@@ -82,6 +88,17 @@ public class _InventorySystem
             inventorySlots.Add(new _InventorySlot());
         }
     }
+
+    // public _InventorySystem(int inventoryLevel)
+    // {
+    //     this.inventorySize = 12;
+    //     this.inventoryLevel = inventoryLevel;
+    //     inventorySlots = new List<_InventorySlot>(12 * inventoryLevel);
+    //     for (int i = 0; i < 12 * inventoryLevel; i++)
+    //     {
+    //         inventorySlots.Add(new _InventorySlot());
+    //     }
+    // }
 
     public _InventorySystem(int inventorySize)
     {
@@ -95,12 +112,12 @@ public class _InventorySystem
         }
     }
 
-    public void InventoryLevelUp()
+    public void InventoryLevelUp(int inventorySize)
     {
         inventoryLevel += 1;
-        inventorySize += 12;
+        this.inventorySize += inventorySize;
 
-        while (inventorySlots.Count < inventorySize)
+        while (inventorySlots.Count < this.inventorySize)
         {
             inventorySlots.Add(new _InventorySlot());
         }
