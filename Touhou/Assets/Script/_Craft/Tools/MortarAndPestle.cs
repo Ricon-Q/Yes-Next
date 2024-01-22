@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 
+// 약초 카테고리만 이용 가능
+// 한 종류의 약초를 갈아서 약초 가루로 변경 가능
+
 public class MortarAndPestle : _DynamicInventoryDisplay
 {
     [Header("Mortar and Pestle")]

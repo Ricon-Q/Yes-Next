@@ -1,13 +1,12 @@
-using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+
+// 포션 카테고리만 이용 가능
+// 두 포션을 합쳐서 하나의 포션으로 변환
+// 포션의 순서가 중요함
 
 public class PotionSynthesizer : _DynamicInventoryDisplay
 {
-    // 두 포션을 합쳐서 하나의 포션으로 변환
-    // 포션의 순서가 중요함
-
     [Header("Potion Synthesizer")]
     [SerializeField] private RecipeDatabase recipeDatabase;
     [SerializeField] private GameObject visualStaminaTime;
@@ -15,7 +14,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
     // [TextArea(10,5)]
     // [SerializeField] private string warningText;
 
-    // Input칸 2개와 Output칸 3개 필요, Output칸에는 아이템을 넣을 수 없음
+    // Input칸 2개와 Output칸 1개 필요, Output칸에는 아이템을 넣을 수 없음
     // Inventory System[0]이 Main Potion
     // Inventory System[1]이 Sub Potion
     // Inventory System[2]이 Result
@@ -25,10 +24,11 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         OffVisualStaminaTime();
         _CraftManager.Instance.object_PotionSynthesizer.SetActive(true);
         _CraftManager.Instance.herbPocket.EnterCraftMode();
+        // _CraftManager.Instance.potionStand.EnterCraftMode();
     }
     public void ExitToolMode()
     {
-        // 슬롯의 1, 2, 3번 칸에 아이템이 남아있다면 아이템들을 플레이어 인벤토리로 옮긴 후 종료
+        // 슬롯의 [0~2] 칸에 아이템이 남아있다면 아이템들을 플레이어 인벤토리로 옮긴 후 종료
         foreach (var item in inventorySystem.inventorySlots)
         {
             if(item.itemId != -1)
@@ -48,7 +48,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
     public void SynthesizePotion()
     {
-        // 3번 슬롯이 할당되어있을때 - 3번 슬롯 아이템을 인벤토리로 이동
+        // [2] 슬롯이 할당되어있을때 - [2] 슬롯 아이템을 인벤토리로 이동
         if(inventorySystem.inventorySlots[2].itemId != -1)
         {
             PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);   
@@ -126,7 +126,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
     {
         Debug.Log("Fail");
 
-        // 1번 슬롯 2번 슬롯 모두 비어있을때 - 시간, 피로도 소모 X
+        // [0] 슬롯 [1] 슬롯 모두 비어있을때 - 시간, 피로도 소모 X
         if(
             inventorySystem.inventorySlots[0].itemId == -1 &&
             inventorySystem.inventorySlots[1].itemId == -1
@@ -134,7 +134,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         {
             return;
         }
-        // 1번, 2번 슬롯중 하나만 비어져있을때 - 시간, 피로도 소모 X, 기존 포션 삭제 X
+        // [0], [1] 슬롯중 하나만 비어져있을때 - 시간, 피로도 소모 X, 기존 포션 삭제 X
         if(
             (inventorySystem.inventorySlots[0].itemId != -1 &&
             inventorySystem.inventorySlots[1].itemId == -1) ||
@@ -144,7 +144,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         {
             return;
         }
-        // 1번, 2번 슬롯 모두 할당되어있을때 - 시간, 피로도 소모 O, 기존 포션 삭제 O
+        // [0], [1] 슬롯 모두 할당되어있을때 - 시간, 피로도 소모 O, 기존 포션 삭제 O
         if(
             inventorySystem.inventorySlots[0].itemId != -1 &&
             inventorySystem.inventorySlots[1].itemId != -1
