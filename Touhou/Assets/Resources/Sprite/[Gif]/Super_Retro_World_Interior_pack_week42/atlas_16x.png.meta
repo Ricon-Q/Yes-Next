@@ -3229,7 +3229,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: 3c1005be29e2bcc48a4702b075645daf
@@ -3250,7 +3257,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: 9ce18aa357446bd4b9c89a470af8917d
@@ -4363,7 +4377,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: cfb959c89f4155347b0bdbaf4a953e60
@@ -4384,7 +4405,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: 2568c39a2a103734b985844002f15d3f
@@ -5329,7 +5357,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: 6b8d002b03243df40b1870e57ba3f48c
@@ -5350,7 +5385,14 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -3.3127441, y: -8.948093}
+        - {x: -4.4028015, y: -9.531017}
+        - {x: -2.9312134, y: -15.945496}
+        - {x: -2.7843018, y: -15.945496}
+        - {x: 2.7298584, y: -15.78199}
+        - {x: 2.9857483, y: -13.710873}
+        - {x: 3.585266, y: -8.948093}
       tessellationDetail: 0
       bones: []
       spriteID: 9b7645b9c8a19dc4cb3e0fa43c7d5f1d
@@ -6993,6 +7035,48 @@ TextureImporter:
       bones: []
       spriteID: b2ebbeb9d584c6c4b8c50eed231fd724
       internalID: 1289879830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_16x_70
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c2da29082448d4d870a8e73e10f246
+      internalID: 531779926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: atlas_16x_72
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357eceeb2836eee4b86c96ebd253ad0c
+      internalID: -1917819113
       vertices: []
       indices: 
       edges: []
