@@ -52,7 +52,21 @@ public class _BuyDisplay : _DynamicInventoryDisplay
         {   
             if(itemSlot.itemId != -1)
             {
-                PlayerInventoryManager.Instance.playerInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                switch(PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].ItemType)
+                {
+                    case ItemType.Herb:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        break;
+                    case ItemType.Seed:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        break;
+                    case ItemType.Potion:
+                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        break;
+                    default:
+                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);            
+                        break;
+                }
             }
         }
         // playerInventory.SaveInventory();

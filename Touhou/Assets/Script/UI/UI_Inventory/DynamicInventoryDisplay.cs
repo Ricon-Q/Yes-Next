@@ -55,7 +55,7 @@ public class DynamicInventoryDisplay : InventoryDisplay
         if(mouseInventoryItem.AssignedInventorySlot.ItemData != null) return;
 
         itemType = (ItemType) Enum.Parse(typeof(ItemType), type);
-        if(itemType == ItemType.Ingredient || itemType == ItemType.Medicine)
+        if(itemType == ItemType.Herb || itemType == ItemType.Herb)
         {
             inventorySystem = medicalInventorySystem;
             CreateInventorySlot();

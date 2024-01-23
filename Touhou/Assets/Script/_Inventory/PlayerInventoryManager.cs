@@ -37,10 +37,22 @@ public class PlayerInventoryManager : MonoBehaviour
 
     [Header("Inventory")]
     public GameObject InventoryCanvas;
-    public _InventorySystem playerInventory;
     public bool isInventoryOpen = false;
-    public PlayerInventoryDisplay invToDisplay;
-    public int playerInventoryLevel;
+
+    [Header("Main Inventory")]
+    public int playerInventoryLevel = 1;
+    public _InventorySystem playerInventory;
+    public PlayerInventoryDisplay playerInvToDisplay;
+    public GameObject playerInventoryObject;
+
+
+    [Header("Herb Inventory")]
+    public int herbInventoryLevel = 1;
+    public _InventorySystem herbInventory;
+
+    [Header("Potion Invenytory")]
+    public int potionInventoryLevel = 1;
+    public _InventorySystem potionInventory;
 
     [Header("ItemDataBase")]
     public ItemDatabaseObject itemDataBase;
@@ -49,22 +61,75 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         // playerInventory = new _InventorySystem(playerInventoryLevel * 12);
         InventoryCanvas.SetActive(false);
+        playerInventoryObject.SetActive(false);
     }
 
     public void GeneratePlayerInventory()
     {
         playerInventory = new _InventorySystem(playerInventoryLevel * 12);
-        invToDisplay.inventorySystem = playerInventory;
+        
+        switch (herbInventoryLevel)
+        {
+            case 1:
+                herbInventory = new _InventorySystem(5);
+                break;
+            case 2:
+                herbInventory = new _InventorySystem(10);
+                break;
+            case 3:
+                herbInventory = new _InventorySystem(20);
+                break;
+            default:
+                break;
+        }
+
+        switch (potionInventoryLevel)
+        {
+            case 1:
+                potionInventory = new _InventorySystem(5);
+                break;
+            case 2:
+                potionInventory = new _InventorySystem(10);
+                break;
+            case 3:
+                potionInventory = new _InventorySystem(20);
+                break;
+            default:
+                break;
+        }
+        playerInvToDisplay.inventorySystem = playerInventory;
     }
     
     public void ToggleInventory()
     {
         isInventoryOpen = !isInventoryOpen;
         InventoryCanvas.SetActive(isInventoryOpen);
-        invToDisplay.isInfoOpen = false;
-        invToDisplay.infoPanel.SetActive(false);
-    }
 
+        playerInvToDisplay.isInfoOpen = false;
+        playerInvToDisplay.infoPanel.SetActive(false);
+
+        playerInventoryObject.SetActive(isInventoryOpen);
+    }
+    public void ChangeInventory(int index)
+    {
+        switch(index)
+        {
+             case 0:
+                playerInvToDisplay.inventorySystem = playerInventory;
+                playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                break;
+            case 1:
+                playerInvToDisplay.inventorySystem = herbInventory;
+                playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                break;
+            case 2:
+                playerInvToDisplay.inventorySystem = potionInventory;
+                playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 [System.Serializable]
@@ -184,10 +249,6 @@ public class _InventorySystem
 
     public void ClearInventory()
     {
-        // for (int i = 0; i < inventorySize; i++)
-        // {
-        //     inventorySlots[i] = new _InventorySlot();
-        // }
         inventorySlots.Clear();
         inventoryLevel = 0;
         inventorySlots = new List<_InventorySlot>(inventorySize);
@@ -197,22 +258,6 @@ public class _InventorySystem
         }
     }
 
-    // public int GetItemCount(InventoryItemData itemToFind)
-    // {
-    //     int itemCount = 0;
-
-    //     // Check if the item exists in the inventory
-    //     if (ContainItem(itemToFind, out List<InventorySlot> invSlot))
-    //     {
-    //         // If it does, sum up the amount in each slot
-    //         foreach (var slot in invSlot)
-    //         {
-    //             itemCount += slot.StackSize;
-    //         }
-    //     }
-
-    //     return itemCount;
-    // }
 }
 
 

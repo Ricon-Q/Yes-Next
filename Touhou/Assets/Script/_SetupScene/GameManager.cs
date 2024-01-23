@@ -122,6 +122,9 @@ public class GameManager : MonoBehaviour
 
             // 인트로 씬으로 이동
             FadeInOutManager.Instance.ChangeScene("Intro Scene");
+
+            // 인벤토리 설정
+            PlayerInventoryManager.Instance.GeneratePlayerInventory();
             
             // Player 비활성화 (컷신을 위해서)
             _PlayerManager.Instance.TogglePlayer(false);

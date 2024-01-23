@@ -58,7 +58,7 @@ public class PlayerInventoryHolder : InventoryHolder
 
     public bool AddToInventory(InventoryItemData data, int amount)
     {
-        if(data.ItemType == ItemType.Ingredient || data.ItemType == ItemType.Medicine)
+        if(data.ItemType == ItemType.Herb || data.ItemType == ItemType.Herb)
         {
             if(medicalInventorySystem.AddToInventory(data, amount)) 
             {

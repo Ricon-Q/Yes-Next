@@ -99,8 +99,14 @@ public class DataManager : MonoBehaviour
     public void SaveInventory()
     {
         PlayerInventoryData saveInventory = new PlayerInventoryData();
-        // saveInventory.playerInventoryLevel = PlayerInventoryManager.Instance.playerInventory.inventoryLevel;
+        saveInventory.playerInventoryLevel = PlayerInventoryManager.Instance.playerInventoryLevel;
         saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory.inventorySlots;
+
+        saveInventory.herbInventoryLevel = PlayerInventoryManager.Instance.herbInventoryLevel;
+        saveInventory.herbInventory = PlayerInventoryManager.Instance.herbInventory.inventorySlots;
+        
+        saveInventory.potionInventoryLevel = PlayerInventoryManager.Instance.potionInventoryLevel;
+        saveInventory.potionInventory = PlayerInventoryManager.Instance.potionInventory.inventorySlots;
 
         // saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory;
 
@@ -147,8 +153,14 @@ public class DataManager : MonoBehaviour
         {
             loadInventoryData = ES3.Load<PlayerInventoryData>("PlayerInventoryData", path);
             PlayerInventoryManager.Instance.playerInventoryLevel = loadInventoryData.playerInventoryLevel;
+            PlayerInventoryManager.Instance.herbInventoryLevel = loadInventoryData.herbInventoryLevel;
+            PlayerInventoryManager.Instance.potionInventoryLevel = loadInventoryData.potionInventoryLevel;
+            
             PlayerInventoryManager.Instance.GeneratePlayerInventory();
+            
             PlayerInventoryManager.Instance.playerInventory.inventorySlots = loadInventoryData.playerInventory;
+            PlayerInventoryManager.Instance.herbInventory.inventorySlots = loadInventoryData.herbInventory;
+            PlayerInventoryManager.Instance.potionInventory.inventorySlots = loadInventoryData.potionInventory;
         }
     }
 
@@ -190,7 +202,11 @@ public class PlayerSaveData
 public class PlayerInventoryData
 {
     public int playerInventoryLevel;
+    public int herbInventoryLevel;
+    public int potionInventoryLevel;
     public List<_InventorySlot> playerInventory;
+    public List<_InventorySlot> herbInventory;
+    public List<_InventorySlot> potionInventory;
     // public Inventory playerInventory;
 }
 

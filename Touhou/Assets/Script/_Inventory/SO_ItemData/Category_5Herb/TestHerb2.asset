@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: Test Potion 2
+  m_Name: TestHerb2
   m_EditorClassIdentifier: 
-  ID: 2
-  ItemType: 3
-  DisplayName: Test Potion 2
+  ID: 0
+  ItemType: 4
+  DisplayName: TestHerb2
   Description: 
-  Icon: {fileID: 21300000, guid: a0d01b055827b014d82a68349ad3159b, type: 3}
-  MaxStackSize: 50
+  Icon: {fileID: 21300000, guid: a8ba9c13d0ed96c48bf50d864722c205, type: 3}
+  MaxStackSize: 10
   Shopable: 1
   SellPrice: 100
-  BuyPrice: 150
+  BuyPrice: 0

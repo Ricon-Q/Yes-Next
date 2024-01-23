@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: WateringCan
+  m_Name: Test Potion 0
   m_EditorClassIdentifier: 
   ID: 0
-  ItemType: 4
-  DisplayName: "\uBB3C\uBFCC\uB9AC\uAC1C"
-  Description: "\uD3C9\uBC94\uD55C \uBB3C\uBFCC\uB9AC\uAC1C."
-  Icon: {fileID: 21300000, guid: 524a3e90db5f3524fbc6ab23ccfdc46f, type: 3}
-  MaxStackSize: 1
-  Shopable: 0
-  SellPrice: 0
-  BuyPrice: 2000
+  ItemType: 5
+  DisplayName: Test Potion 0
+  Description: 
+  Icon: {fileID: 21300000, guid: 8db57774a0a5b7742bae764ab966c588, type: 3}
+  MaxStackSize: 50
+  Shopable: 1
+  SellPrice: 100
+  BuyPrice: 150

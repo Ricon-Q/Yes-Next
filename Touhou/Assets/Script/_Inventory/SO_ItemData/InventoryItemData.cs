@@ -6,11 +6,12 @@ public enum ItemType
 {
     Default,
     Food,
-    Ingredient,
-    Medicine,
     Tool,
-    Cloth,
-    Farm
+    Seed,
+    Herb,
+    Potion,
+    Placeable,
+    KeyItem
 }
 
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item/Item Data")]

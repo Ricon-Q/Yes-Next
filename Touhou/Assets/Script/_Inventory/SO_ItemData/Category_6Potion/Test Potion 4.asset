@@ -10,23 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: Default Item
+  m_Name: Test Potion 4
   m_EditorClassIdentifier: 
-  ID: 0
-  ItemType: 0
-  DisplayName: Default Item
-  Description: 'Default Item
-
-    Max Stack Size : 5
-
-    Shopable : T
-
-    Sell
-    Price : 500
-
-    Buy Price : 600'
-  Icon: {fileID: 532238433, guid: 876690a0a067e97438ab50c0c7abfd1f, type: 3}
-  MaxStackSize: 5
+  ID: 4
+  ItemType: 5
+  DisplayName: Test Potion 4
+  Description: 
+  Icon: {fileID: 21300000, guid: 47e2df155b9309248a1ad0b1a632e415, type: 3}
+  MaxStackSize: 50
   Shopable: 1
-  SellPrice: 500
-  BuyPrice: 600
+  SellPrice: 100
+  BuyPrice: 150

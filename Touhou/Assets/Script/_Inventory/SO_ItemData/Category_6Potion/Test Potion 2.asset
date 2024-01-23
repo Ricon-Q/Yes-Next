@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: FishingRod
+  m_Name: Test Potion 2
   m_EditorClassIdentifier: 
-  ID: 0
-  ItemType: 4
-  DisplayName: "\uB09A\uC2EF\uB300"
-  Description: "\uB09A\uC558\uB2E4! \uC6D4\uCC99\uC774\uB2E4!"
-  Icon: {fileID: 21300000, guid: 7ad240427642d7348a68ca2db71eca69, type: 3}
-  MaxStackSize: 1
-  Shopable: 0
-  SellPrice: 0
-  BuyPrice: 2000
+  ID: 2
+  ItemType: 5
+  DisplayName: Test Potion 2
+  Description: 
+  Icon: {fileID: 21300000, guid: a0d01b055827b014d82a68349ad3159b, type: 3}
+  MaxStackSize: 50
+  Shopable: 1
+  SellPrice: 100
+  BuyPrice: 150

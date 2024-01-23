@@ -118,7 +118,7 @@ public class _InventorySlot_UI : MonoBehaviour
         if(PlayerInventoryManager.Instance.isInventoryOpen) 
         { 
             // Debug.Log("UI Left, info true");
-            PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, false); 
+            // PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, false); 
         }
         // if (ParentDisplay) SlotClicked(this);
         ParentDisplay?.SlotClicked(this);
@@ -139,7 +139,7 @@ public class _InventorySlot_UI : MonoBehaviour
         {
             if(PlayerInventoryManager.Instance.isInventoryOpen) 
             { 
-                PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, true); 
+                // PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, true); 
             }
         }
     }

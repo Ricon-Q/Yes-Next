@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -38,6 +39,7 @@ public class _ShopManager : MonoBehaviour
     [SerializeField] private _SellDisplay sellDisplay;  // 중앙 하단 패널
     [SerializeField] private _ShopNpcDisplay shopNpcDisplay;    // 좌측 NPC 패널
     [SerializeField] private _ShopPlayerDisplay shopPlayerDisplay;  // 우측 Player 패널
+    
     [SerializeField] private GameObject confirmPanel;
 
     [Header("NPC inventory")]
@@ -123,6 +125,27 @@ public class _ShopManager : MonoBehaviour
         {   
             warningPanel.SetActive(true);
             Debug.Log("Fail Deal");
+        }
+    }
+
+    public void ChangeInventory(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.playerInventory;
+                shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                break;
+            case 1:
+                shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.herbInventory;
+                shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                break;
+            case 2:
+                shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.potionInventory;
+                shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                break;
+            default:
+                break;
         }
     }
 }

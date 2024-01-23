@@ -38,9 +38,28 @@ public class _SellDisplay : _DynamicInventoryDisplay
     {
         for (int i = 0; i < inventorySystem.inventorySize; i++)
         {
+            // if(inventorySystem.inventorySlots[i].itemId != -1)
+            // {
+            //     PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
+            //     shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+            // }
             if(inventorySystem.inventorySlots[i].itemId != -1)
             {
-                PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
+                switch(PlayerInventoryManager.Instance.itemDataBase.Items[inventorySystem.inventorySlots[i].itemId].ItemType)
+                {
+                    case ItemType.Herb:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
+                        break;
+                    case ItemType.Seed:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
+                        break;
+                    case ItemType.Potion:
+                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
+                        break;
+                    default:
+                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);            
+                        break;
+                }
                 shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
             }            
         }
