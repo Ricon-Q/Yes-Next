@@ -646,7 +646,7 @@ namespace HutongGames.PlayMakerEditor
             var rect = GUILayoutUtility.GetLastRect();
             EditorGUIUtility.AddCursorRect(rect, MouseCursor.Link);
 
-            if (Event.current.type == EventType.MouseDown && rect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown && rect.Contains(UnityEngine.Event.current.mousePosition))
             {
                 func(userData);
                 GUIUtility.ExitGUI();
@@ -660,7 +660,7 @@ namespace HutongGames.PlayMakerEditor
             GUI.Box(backButtonRect, backButton, GUIStyle.none);
             EditorGUIUtility.AddCursorRect(backButtonRect, MouseCursor.Link);
 
-            if (Event.current.type == EventType.MouseDown && backButtonRect.Contains(Event.current.mousePosition))
+            if (UnityEngine.Event.current.type == EventType.MouseDown && backButtonRect.Contains(UnityEngine.Event.current.mousePosition))
             {
                 GotoPage(toPage);
                 GUIUtility.ExitGUI();

@@ -88,7 +88,7 @@ namespace HutongGames.PlayMakerEditor
 
             GUILayout.EndVertical();
 
-            if (!heightHasBeenSet && Event.current.type == EventType.Repaint)
+            if (!heightHasBeenSet && UnityEngine.Event.current.type == EventType.Repaint)
             {
                 SetWindowHeightToFitContents();
             }

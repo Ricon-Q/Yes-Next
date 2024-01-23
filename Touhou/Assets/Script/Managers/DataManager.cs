@@ -91,6 +91,10 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("PlayerSaveData", saveData, path);
 
+        EventData _eventData = new EventData();
+        _eventData._eventDictionary = EventManager.Instance._eventDictionary;
+        ES3.Save("EventData", _eventData, path);
+
         SaveInventory();
         
         // Debug.Log(saveIndex + " Save to : " + path);
@@ -126,6 +130,9 @@ public class DataManager : MonoBehaviour
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
             _PlayerManager.Instance.playerData = loadData.playerData;
             _TimeManager.Instance.timeData = loadData.timeData;
+
+            EventData _loadEventData = ES3.Load<EventData>("EventData", path);
+            EventManager.Instance._eventDictionary = _loadEventData._eventDictionary;
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         // else
@@ -210,3 +217,7 @@ public class PlayerInventoryData
     // public Inventory playerInventory;
 }
 
+public class EventData
+{
+    public Dictionary<int, Event> _eventDictionary;
+}

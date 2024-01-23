@@ -82,7 +82,7 @@ namespace HutongGames.PlayMakerEditor
 
             GUILayout.EndVertical();
 
-            if (Event.current.type == EventType.Repaint)
+            if (UnityEngine.Event.current.type == EventType.Repaint)
             {
                 if (inspectorWindow == null)
                     inspectorWindow = EditorHacks.GetUnityInspectorWindow();
