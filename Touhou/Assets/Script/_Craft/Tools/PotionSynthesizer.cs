@@ -23,7 +23,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
     {
         OffVisualStaminaTime();
         _CraftManager.Instance.object_PotionSynthesizer.SetActive(true);
-        _CraftManager.Instance.herbPocket.EnterCraftMode();
+        _CraftManager.Instance.potionStand.EnterCraftMode();
         // _CraftManager.Instance.potionStand.EnterCraftMode();
     }
     public void ExitToolMode()
@@ -33,7 +33,23 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         {
             if(item.itemId != -1)
             {
-                PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
+                // PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
+                // item.ClearSlot();
+                switch(PlayerInventoryManager.Instance.itemDataBase.Items[item.itemId].ItemType)
+                {
+                    case ItemType.Herb:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    case ItemType.Seed:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    case ItemType.Potion:
+                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    default:
+                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);            
+                        break;
+                }
                 item.ClearSlot();
             }
         }
@@ -42,7 +58,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         RefreshDynamicInventory(this.inventorySystem);
 
         _CraftManager.Instance.object_PotionSynthesizer.SetActive(false);
-        _CraftManager.Instance.herbPocket.ExitToolMode();
+        _CraftManager.Instance.potionStand.ExitToolMode();
         _CraftManager.Instance.craftToolCanvas.SetActive(false);
     }
 
@@ -51,9 +67,9 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         // [2] 슬롯이 할당되어있을때 - [2] 슬롯 아이템을 인벤토리로 이동
         if(inventorySystem.inventorySlots[2].itemId != -1)
         {
-            PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);   
+            PlayerInventoryManager.Instance.potionInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);   
             inventorySystem.inventorySlots[2].ClearSlot();
-            _CraftManager.Instance.herbPocket.RefreshDynamicInventory(_CraftManager.Instance.herbPocket.inventorySystem);
+            _CraftManager.Instance.potionPot.RefreshDynamicInventory(_CraftManager.Instance.potionStand.inventorySystem);
             RefreshDynamicInventory(inventorySystem);
         }
 

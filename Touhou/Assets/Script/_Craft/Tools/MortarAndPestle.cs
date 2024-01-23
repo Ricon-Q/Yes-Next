@@ -29,7 +29,23 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         {
             if(item.itemId != -1)
             {
-                PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
+                // PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
+                // item.ClearSlot();
+                switch(PlayerInventoryManager.Instance.itemDataBase.Items[item.itemId].ItemType)
+                {
+                    case ItemType.Herb:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    case ItemType.Seed:
+                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    case ItemType.Potion:
+                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
+                        break;
+                    default:
+                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);            
+                        break;
+                }
                 item.ClearSlot();
             }
         }
@@ -66,7 +82,7 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         // [1] 슬롯이 할당되어있을때 - [1]번 슬롯 아이템을 인벤토리로 이동
         if(inventorySystem.inventorySlots[1].itemId != -1)
         {
-            PlayerInventoryManager.Instance.playerInventory.AddToInventory(inventorySystem.inventorySlots[1].itemId, inventorySystem.inventorySlots[1].stackSize);
+            PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[1].itemId, inventorySystem.inventorySlots[1].stackSize);
             inventorySystem.inventorySlots[1].ClearSlot();
             _CraftManager.Instance.herbPocket.RefreshDynamicInventory(_CraftManager.Instance.herbPocket.inventorySystem);
             RefreshDynamicInventory(inventorySystem);
