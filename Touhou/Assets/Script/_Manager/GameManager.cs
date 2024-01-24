@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake() 
     {
+        itemDatabaseObject.UpdateItemDatabase();
         if(instance == null)
         {
             instance = this;
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
     /*/
 
     // [SerializeField] private GameObject playerObject;
+    [SerializeField] private ItemDatabaseObject itemDatabaseObject;
 
     private void Start()
     {
@@ -114,7 +116,11 @@ public class GameManager : MonoBehaviour
 
             // 플레이어 Input모드 변경
             PlayerInputManager.Instance.SetInputMode(true);
+            
+            // 인벤토리 불러오기 및 핫바 새로고침
             DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
+            UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+    
         
             // 씬 불러오기
             FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName, DataManager.Instance.loadData.playerPosition);

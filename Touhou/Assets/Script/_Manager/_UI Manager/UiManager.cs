@@ -44,6 +44,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     private string season = "";
 
+    [Header("Hot Bar Display")]
+    public InventoryHotBarDisplay inventoryHotBarDisplay;
+
     private void Update() 
     {
         MonthToSeason();

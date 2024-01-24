@@ -18,4 +18,13 @@ public class PlayerInventoryDisplay : _DynamicInventoryDisplay
             uiSlot.UpdateUISlot();
         }
     }
+    override public void RefreshDynamicInventory(_InventorySystem invToDisplay)
+    {
+        ClearSlots();
+        inventorySystem = invToDisplay;
+        if(inventorySystem != null) { inventorySystem.OnInventorySlotChanged += UpdateSlot; }
+        AssignSlot(invToDisplay);
+
+        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+    }
 }

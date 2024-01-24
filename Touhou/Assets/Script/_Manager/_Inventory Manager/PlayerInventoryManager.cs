@@ -98,6 +98,8 @@ public class PlayerInventoryManager : MonoBehaviour
                 break;
         }
         playerInvToDisplay.inventorySystem = playerInventory;
+        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+    
     }
     
     public void ToggleInventory()
@@ -109,6 +111,8 @@ public class PlayerInventoryManager : MonoBehaviour
         playerInvToDisplay.infoPanel.SetActive(false);
 
         playerInventoryObject.SetActive(isInventoryOpen);
+        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+    
     }
     public void ChangeInventory(int index)
     {
