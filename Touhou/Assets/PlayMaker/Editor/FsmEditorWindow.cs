@@ -216,42 +216,42 @@ namespace HutongGames.PlayMakerEditor
             switch (eventType)
             {
                 case EventType.ValidateCommand:
-                    switch (Event.current.commandName)
+                    switch (UnityEngine.Event.current.commandName)
                     {
                         case "Cut":
                         case "Copy":
                         case "Paste":
                         case "SelectAll":
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
                     }
 
                     break;
 
                 case EventType.ExecuteCommand:
-                    switch (Event.current.commandName)
+                    switch (UnityEngine.Event.current.commandName)
                     {
                         // NOTE: OSX 2018.3 needs Event.current.Use();
                         // otherwise e.g., it pastes twice #1814
 
                         case "Cut":
                             FsmEditor.Cut();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "Copy":
                             FsmEditor.Copy();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "Paste":
                             FsmEditor.Paste();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "SelectAll":
                             FsmEditor.SelectAll();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "OpenWelcomeWindow":
@@ -308,12 +308,12 @@ namespace HutongGames.PlayMakerEditor
 
                         case "AddFsmComponent":
                             PlayMakerMainMenu.AddFsmToSelected();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "ChangeLanguage":
                             ResetWindowTitles();
-                            Event.current.Use();
+                            UnityEngine.Event.current.Use();
                             break;
 
                         case "OpenFsmControlsWindow":

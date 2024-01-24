@@ -320,6 +320,10 @@ namespace PixelCrushers.DialogueSystem
             environment.SetNameValue(functionName, Language.Lua.LuaNil.Nil);
         }
 
+        public static void UnregisterFunction(Action<string, Vector3> changeScene)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5663378411335675090}
   - component: {fileID: 4205704242592791343}
-  - component: {fileID: 1038366331287672254}
+  - component: {fileID: 1089726068638575529}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1038366331287672254
+--- !u!114 &1089726068638575529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,12 +87,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2594822505536736486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6321df8f40b38d54a88eec438fa169aa, type: 3}
+  m_Script: {fileID: 11500000, guid: e45d5ff6d8fd22e4db22a6bac789dbd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPosition: {x: 0, y: 0, z: 0}
-  areaDatabase: {fileID: 11400000, guid: db5317698b162a74a8ec2368b65af525, type: 2}
-  areaToMove: Home
+  targetSceneName: 
+  DoorWayPosition: {x: 0, y: 0, z: 0}
+  durationOfMinute: 5
   visualCue: {fileID: 3509451539795597353}
 --- !u!1 &3509451539795597353
 GameObject:
@@ -164,8 +164,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2063395367
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0054dcbac2f60d74ab520d76561225fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -283,8 +283,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2063395367
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1600284458, guid: e2405875019f4414185d919715afeb9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

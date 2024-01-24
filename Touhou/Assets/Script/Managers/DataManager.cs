@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ES3PlayMaker;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ES3Types;
 
 public class DataManager : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class DataManager : MonoBehaviour
         }
     }
     
+    private void Start() 
+    {
+    }
+    // =========================================================//
+
     public void IsActive()
     {
         Debug.Log("Data Manager Is " + gameObject.activeSelf);
@@ -42,18 +48,28 @@ public class DataManager : MonoBehaviour
     // string myKey = "myKey";
     // int myValue;
     string path;
-
+    
     public int currentSaveIndex = -1;
 
-    public MainMenu mainMenu;
+    // public MainMenu mainMenu;
 
-    [System.Serializable]
-    public class SaveData
-    {
-        public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
-        public Vector3 playerPosition; // 플레이어의 위치
-        public PlayerData playerData;
-    }
+    // [System.Serializable]
+    // public class PlayerSaveData
+    // {
+    //     public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
+    //     public Vector3 playerPosition; // 플레이어의 위치
+    //     public PlayerData playerData;
+    //     public _TimeData timeData;
+    // }
+
+    // public class PlayerInventoryData
+    // {
+    //     public int playerInventoryLevel;
+    //     public List<_InventorySlot> playerInventory;
+    //     // public Inventory playerInventory;
+    // }
+
+    public PlayerSaveData loadData;
 
     public void StartGame(int saveIndex)
     {
@@ -65,16 +81,41 @@ public class DataManager : MonoBehaviour
     {
         // currentSaveIndex = saveIndex;
         
-        SaveData saveData = new SaveData();
+        PlayerSaveData saveData = new PlayerSaveData();
 
         saveData.LastSceneName = SceneManager.GetActiveScene().name;
         saveData.playerPosition = _PlayerManager.Instance.transform.position;
         saveData.playerData = _PlayerManager.Instance.playerData;
+        saveData.timeData = _TimeManager.Instance.timeData;
 
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
-        ES3.Save("SaveData", saveData, path);
+        ES3.Save("PlayerSaveData", saveData, path);
+
+        EventData _eventData = new EventData();
+        _eventData._eventDictionary = EventManager.Instance._eventDictionary;
+        ES3.Save("EventData", _eventData, path);
+
+        SaveInventory();
         
         // Debug.Log(saveIndex + " Save to : " + path);
+    }
+
+    public void SaveInventory()
+    {
+        PlayerInventoryData saveInventory = new PlayerInventoryData();
+        saveInventory.playerInventoryLevel = PlayerInventoryManager.Instance.playerInventoryLevel;
+        saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory.inventorySlots;
+
+        saveInventory.herbInventoryLevel = PlayerInventoryManager.Instance.herbInventoryLevel;
+        saveInventory.herbInventory = PlayerInventoryManager.Instance.herbInventory.inventorySlots;
+        
+        saveInventory.potionInventoryLevel = PlayerInventoryManager.Instance.potionInventoryLevel;
+        saveInventory.potionInventory = PlayerInventoryManager.Instance.potionInventory.inventorySlots;
+
+        // saveInventory.playerInventory = PlayerInventoryManager.Instance.playerInventory;
+
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("PlayerInventoryData", saveInventory, path);
     }
 
     public void LoadSlot(int loadIndex)
@@ -83,17 +124,51 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
         if(ES3.FileExists(path))
         {
-            SaveData loadData = ES3.Load<SaveData>("SaveData", path);
+            loadData = ES3.Load<PlayerSaveData>("PlayerSaveData", path);
             // loadData = ES3.Load<SaveData>("SaveData", path);
 
             _PlayerManager.Instance.transform.position = loadData.playerPosition;            
             _PlayerManager.Instance.playerData = loadData.playerData;
+            _TimeManager.Instance.timeData = loadData.timeData;
 
-            FadeInOutManager.Instance.ChangeScene(loadData.LastSceneName);
+            EventData _loadEventData = ES3.Load<EventData>("EventData", path);
+            EventManager.Instance._eventDictionary = _loadEventData._eventDictionary;
         }
             // Debug.Log(loadIndex + " Load from : " + path);
         // else
             // Debug.Log("No such path");            
+    }
+
+    public PlayerSaveData LoadInfo(int loadIndex)
+    {
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        PlayerSaveData result;
+        if(ES3.FileExists(path))
+        {
+            result = ES3.Load<PlayerSaveData>("PlayerSaveData", path);
+            return result;
+        }
+        return null;
+    }
+
+    public void LoadInventory(int loadIndex)
+    {
+        PlayerInventoryData loadInventoryData;
+        currentSaveIndex = loadIndex;
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        if(ES3.FileExists(path))
+        {
+            loadInventoryData = ES3.Load<PlayerInventoryData>("PlayerInventoryData", path);
+            PlayerInventoryManager.Instance.playerInventoryLevel = loadInventoryData.playerInventoryLevel;
+            PlayerInventoryManager.Instance.herbInventoryLevel = loadInventoryData.herbInventoryLevel;
+            PlayerInventoryManager.Instance.potionInventoryLevel = loadInventoryData.potionInventoryLevel;
+            
+            PlayerInventoryManager.Instance.GeneratePlayerInventory();
+            
+            PlayerInventoryManager.Instance.playerInventory.inventorySlots = loadInventoryData.playerInventory;
+            PlayerInventoryManager.Instance.herbInventory.inventorySlots = loadInventoryData.herbInventory;
+            PlayerInventoryManager.Instance.potionInventory.inventorySlots = loadInventoryData.potionInventory;
+        }
     }
 
     public bool CheckSaveSlot()
@@ -120,4 +195,29 @@ public class DataManager : MonoBehaviour
         else
             Debug.Log("No such path");
     }
+}
+
+[System.Serializable]
+public class PlayerSaveData
+{
+    public string LastSceneName; // 저장했을때의 위치해 있던 씬 이름
+    public Vector3 playerPosition; // 플레이어의 위치
+    public PlayerData playerData;
+    public _TimeData timeData;
+}
+
+public class PlayerInventoryData
+{
+    public int playerInventoryLevel;
+    public int herbInventoryLevel;
+    public int potionInventoryLevel;
+    public List<_InventorySlot> playerInventory;
+    public List<_InventorySlot> herbInventory;
+    public List<_InventorySlot> potionInventory;
+    // public Inventory playerInventory;
+}
+
+public class EventData
+{
+    public Dictionary<int, Event> _eventDictionary;
 }

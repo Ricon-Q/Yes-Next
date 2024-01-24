@@ -6,19 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Main Game/Main Menu.unity
     guid: 89f8bd31a002d6b498f353e8a572459a
   - enabled: 1
     path: Assets/Scenes/Main Game/Game Setup.unity
     guid: 7db8bc95e048f254b82bb09e851a4370
   - enabled: 1
-    path: Assets/Scenes/Cut Scenes/Intro Scene.unity
+    path: Assets/Scenes/Main Game/Cut Scenes/Intro Scene.unity
     guid: ca930da24431179459a1886eff991f87
   - enabled: 1
-    path: Assets/Scenes/Cut Scenes/Intro Cutscene.unity
+    path: Assets/Scenes/Main Game/Cut Scenes/Intro Cutscene.unity
     guid: 307b92488739e6144b08c6770816b300
   - enabled: 1
-    path: Assets/Scenes/Main Game/Town_Center.unity
+    path: Assets/Scenes/Main Game/Town.unity
     guid: 97631f05237b59f46bc46d4b7a95f9eb
+  - enabled: 1
+    path: Assets/Scenes/Main Game/Home/Home_Main.unity
+    guid: a30fdaaba10fb294ebd8095606dd7507
+  - enabled: 1
+    path: Assets/Scenes/Main Game/Inn.unity
+    guid: 79a94a0dc32c753438817b842ee25970
+  - enabled: 1
+    path: Assets/Scenes/Main Game/Hospital.unity
+    guid: ff03d61641f924c4fac7632d4500c49a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2d0cce6ba75a95a4ab56b3193a10cf07, type: 2}

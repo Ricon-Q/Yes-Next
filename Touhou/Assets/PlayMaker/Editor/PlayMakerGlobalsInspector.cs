@@ -125,7 +125,7 @@ namespace HutongGames.PlayMakerEditor
                     PlayMakerFSM.BroadcastEvent(eventName);
                 }
 
-                if (Event.current.type == EventType.Repaint)
+                if (UnityEngine.Event.current.type == EventType.Repaint)
                 {
                     GUIStyle.none.Draw(sendIcon, FsmEditorStyles.BroadcastIcon);
                 }
