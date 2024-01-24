@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     {
         InventoryManager.Instance.IsActive();
         InputManager.Instance.IsActive();
-        ShopManager.Instance.IsActive();
+      // ShopManager.Instance.IsActive();
         DataManager.Instance.IsActive();
         // EventSystemManager.Instance.IsActive();
         CameraManager.Instance.IsActive();
