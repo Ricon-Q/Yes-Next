@@ -29,7 +29,7 @@ public class _InventoryManager : MonoBehaviour
 
     [Header("Inventory")]
     [SerializeField] private GameObject InventoryCanvas;
-    private bool isInventoryOpen = false;
+    public bool isInventoryOpen = false;
 
     private void Start() 
     {

@@ -36,17 +36,17 @@ public class Interaction_Bed : InteractionDialogue
                 break;
             case 12:
                 FadeInOutManager.Instance.FadeInOut(FadeInOutTime);
-                _TimeManager.Instance.SetTargetTime(12);
+                _TimeManager.Instance.SetTargetTimeHour(12);
                 DataManager.Instance.SaveSlot();
                 break;
             case 18:
                 FadeInOutManager.Instance.FadeInOut(FadeInOutTime);
-                _TimeManager.Instance.SetTargetTime(18);
+                _TimeManager.Instance.SetTargetTimeHour(18);
                 DataManager.Instance.SaveSlot();
                 break;
             case 24:
                 FadeInOutManager.Instance.FadeInOut(FadeInOutTime);
-                _TimeManager.Instance.SetTargetTime(6);
+                _TimeManager.Instance.SetTargetTimeHour(6);
                 DataManager.Instance.SaveSlot();
                 break;
             default:

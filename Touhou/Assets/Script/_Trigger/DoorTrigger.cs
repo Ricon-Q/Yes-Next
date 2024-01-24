@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -72,16 +71,6 @@ public class DoorTrigger : MonoBehaviour
     {
         if (!string.IsNullOrEmpty(targetSceneName))
         {   
-            // FadeInOutManager.Instance.ChangeScene(targetSceneName, DoorWayPosition);
-            //  _TimeManager.Instance.increaseMinute(durationOfMinute);
-            // // cameraManager.ChangeCameraBorder(cameraCenter, mapSize);
-            // _PlayerManager.Instance.playerData.currentArea = targetArea.areaName;
-            // // AreaData targetArea = areaDatabase.findArea(areaName);
-
-            // // Camera Setting
-            // cameraManager.ChangeCameraBorder(targetArea.areaName);
-            // cameraManager.transform.position = DoorWayPosition;
-
             StartCoroutine(IEnum_Interact());
         }
         else

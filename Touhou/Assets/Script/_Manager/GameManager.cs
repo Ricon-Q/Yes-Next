@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    // ======================================================= //
 
     /*/
     Managers
@@ -138,9 +141,38 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
 
-    // private IEnumerator GameReady()
-    // {
-    //     Debug.Log("Ready");
-    //     yield return null;
-    // }
+    public void DisableAllManager()
+    {
+        // 실행중인 모든 매니저 종료(ShopManager, CraftManager, Inventory)
+        _ShopManager.Instance.ExitShopMode();
+        _CraftManager.Instance.ExitCraftMode();
+        if(PlayerInventoryManager.Instance.isInventoryOpen)
+            PlayerInventoryManager.Instance.ToggleInventory();
+    }
+
+    public void MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition)
+    {
+        StartCoroutine(IEnum_MoveWithFade(_sceneName, _playerPosition, _areaName, _cameraPosition));
+    }
+
+    public IEnumerator IEnum_MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition)
+    {
+        FadeInOutManager.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(_sceneName);
+        _PlayerManager.Instance.transform.position = _playerPosition;
+        
+        _PlayerManager.Instance.playerData.currentArea = _areaName;
+        CameraManager.Instance.ChangeCameraBorder(_areaName);
+        CameraManager.Instance.transform.position = _cameraPosition;
+
+        _TimeManager.Instance.SetTargetTimeHour(6);
+
+        yield return null;
+
+        // yield return new WaitForEndOfFrame();
+        FadeInOutManager.Instance.FadeIn();
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class _PlayerManager : MonoBehaviour
 {
@@ -106,11 +107,11 @@ public class PlayerData
     // {
     //     currentHealth = value;
     // }
-    // public void SetMaxFatigue(float value)
+    // public void SetMaxStamina(float value)
     // {
     //     maxStamina = value;
     // }
-    // public void SetCurrentFatigue(float value)
+    // public void SetCurrentStamina(float value)
     // {
     //     currentStamina = value;
     // }
@@ -119,31 +120,37 @@ public class PlayerData
     //     hospitalLevel = value;
     // }
 
-    // // =========AddFunc=========
-    // public void AddMaxHealth(float value)
-    // {
-    //     maxHealth += value;
-    // }
-    // public void AddCurrentHealth(float value)
-    // {
-    //     currentHealth += value;
-    // }
-    // public void AddMaxFatigue(float value)
-    // {
-    //     maxStamina += value;
-    // }
-    // public void AddCurrentFatigue(float value)
-    // {
-    //     currentStamina += value;
-    // }
-    // public void AddMoney(long value)
-    // {
-    //     money += value;
-    // }
-    // public void AddHospitalLevel(int value)
-    // {
-    //     hospitalLevel += value;
-    // }
+    // =========ModifyFunc=========
+    public void ModifyHealth(float value)
+    {
+        maxHealth += value;
+    }
+    public void ModifyCurrentHealth(float value)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + value, -1, maxHealth);
+    }
+    public void ModifyMaxStamina(float value)
+    {
+        maxStamina += value;
+    }
+    public void ModifyCurrentStamina(float value)
+    {
+        currentStamina = Mathf.Clamp(currentStamina + value, -1, maxStamina);
+        if( currentStamina < 0 && 
+            ( 0<= _TimeManager.Instance.timeData.hour && _TimeManager.Instance.timeData.hour < 6) && 
+            SceneManager.GetActiveScene().name != "Home")
+        {
+            EventManager.Instance._eventDictionary[0].TriggerOn();
+        }
+    }
+    public void ModifyMoney(long value)
+    {
+        money += value;
+    }
+    public void ModifyHospitalLevel(int value)
+    {
+        hospitalLevel += value;
+    }
 
     // // =========GetFunc=========
     // public float GetMaxHealth()
@@ -154,11 +161,11 @@ public class PlayerData
     // {
     //     return currentHealth;
     // }
-    // public float GetMaxFatigue()
+    // public float GetMaxStamina()
     // {
     //     return maxStamina;
     // }
-    // public float GetCurrentFatigue()
+    // public float GetCurrentStamina()
     // {
     //     return currentStamina;
     // }

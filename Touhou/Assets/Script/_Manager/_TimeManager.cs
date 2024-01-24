@@ -39,7 +39,7 @@ public class _TimeManager : MonoBehaviour
         timeData = new _TimeData();    
     }
 
-    public void SetTargetTime(int targetHour)
+    public void SetTargetTimeHour(int targetHour)
     {
          if (timeData.hour >= targetHour)
         {

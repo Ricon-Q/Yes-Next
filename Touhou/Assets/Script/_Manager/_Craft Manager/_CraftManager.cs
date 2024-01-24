@@ -51,6 +51,11 @@ public class _CraftManager : MonoBehaviour
         craftModeCanvas.SetActive(false);
         craftToolCanvas.SetActive(false);
 
+        for (int i = 0; i < 6; i++)
+        {
+            ExitToolMode(i);
+        }
+
         object_MortarAndPestle.SetActive(false);
         object_PotionPot.SetActive(false);
         object_PotionStand.SetActive(false);
@@ -111,7 +116,7 @@ public class _CraftManager : MonoBehaviour
 
     public void ExitToolMode(int toolIndex)
     {
-        craftToolCanvas.SetActive(true);
+        craftToolCanvas.SetActive(false);
         switch(toolIndex)
         {
             case 0:

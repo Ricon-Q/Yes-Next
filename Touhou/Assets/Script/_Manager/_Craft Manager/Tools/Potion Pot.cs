@@ -113,7 +113,7 @@ public class PotionPot : _DynamicInventoryDisplay
 
         RefreshDynamicInventory(inventorySystem);
 
-        _PlayerManager.Instance.playerData.currentStamina -= recipe.useStamina;
+        _PlayerManager.Instance.playerData.ModifyCurrentStamina(-recipe.useStamina);
         _TimeManager.Instance.increaseMinute(recipe.useTimeMinute);
     }
 

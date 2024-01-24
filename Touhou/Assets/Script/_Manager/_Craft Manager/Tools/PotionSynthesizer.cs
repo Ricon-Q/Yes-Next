@@ -69,7 +69,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
         {
             PlayerInventoryManager.Instance.potionInventory.AddToInventory(inventorySystem.inventorySlots[2].itemId, inventorySystem.inventorySlots[2].stackSize);   
             inventorySystem.inventorySlots[2].ClearSlot();
-            _CraftManager.Instance.potionPot.RefreshDynamicInventory(_CraftManager.Instance.potionStand.inventorySystem);
+            _CraftManager.Instance.potionStand.RefreshDynamicInventory(_CraftManager.Instance.potionStand.inventorySystem);
             RefreshDynamicInventory(inventorySystem);
         }
 
@@ -134,7 +134,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
         RefreshDynamicInventory(inventorySystem);
 
-        _PlayerManager.Instance.playerData.currentStamina -= recipe.useStamina;
+        _PlayerManager.Instance.playerData.ModifyCurrentStamina(-recipe.useStamina);
         _TimeManager.Instance.increaseMinute(recipe.useTimeMinute);
     }
 
