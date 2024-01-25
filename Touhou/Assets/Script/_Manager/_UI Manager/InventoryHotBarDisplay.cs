@@ -9,11 +9,11 @@ public class InventoryHotBarDisplay : MonoBehaviour
     private int _hotBarLine = 0;
     public _InventorySystem _inventorySystem;
 
-    [SerializeField] protected Dictionary<_InventorySlot_UI, _InventorySlot> slotDictionary;
+    [SerializeField] protected Dictionary<HotBarInventorySlot_Ui, _InventorySlot> slotDictionary;
     // public _InventorySystem InventorySystem => inventorySystem;
-    public Dictionary<_InventorySlot_UI, _InventorySlot> SlotDictionary => slotDictionary;
+    public Dictionary<HotBarInventorySlot_Ui, _InventorySlot> SlotDictionary => slotDictionary;
 
-    [SerializeField] private _InventorySlot_UI slotPrefab;
+    [SerializeField] private HotBarInventorySlot_Ui slotPrefab;
 
     private void Start() 
     {
@@ -30,7 +30,7 @@ public class InventoryHotBarDisplay : MonoBehaviour
 
     public void CreateInventorySlot()
     {
-        slotDictionary = new Dictionary<_InventorySlot_UI, _InventorySlot>();
+        slotDictionary = new Dictionary<HotBarInventorySlot_Ui, _InventorySlot>();
 
         if(_inventorySystem == null) return;
 
@@ -40,6 +40,7 @@ public class InventoryHotBarDisplay : MonoBehaviour
             slotDictionary.Add(uiSlot, _inventorySystem.inventorySlots[i]);
             uiSlot.Init(_inventorySystem.inventorySlots[i]);
             uiSlot.UpdateUISlot();
+            // _hotBarSelected._hotBarItems.Add(uiSlot.gameObject);
         }
     }
 
@@ -55,7 +56,7 @@ public class InventoryHotBarDisplay : MonoBehaviour
 
     public void AssignSlot(_InventorySystem invToDisplay)
     {
-        slotDictionary = new Dictionary<_InventorySlot_UI, _InventorySlot>();
+        slotDictionary = new Dictionary<HotBarInventorySlot_Ui, _InventorySlot>();
 
         if(invToDisplay == null) return;
 

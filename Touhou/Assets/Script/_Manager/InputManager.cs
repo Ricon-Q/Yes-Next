@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool toggleInventoryPressed = false;
+    private Vector2 _mouseScroll = Vector2.zero;
     // private bool onLeftClick = false;
 
     private static InputManager instance;
@@ -112,6 +113,20 @@ public class InputManager : MonoBehaviour
         } 
     }
 
+    // Mouse
+
+    public void MouseScroll(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            _mouseScroll = context.ReadValue<Vector2>();
+        }
+        else if(context.canceled)
+        {
+            _mouseScroll = context.ReadValue<Vector2>();
+        }
+    }
+
     // Get
     public Vector2 GetMoveDirection() 
     {
@@ -153,6 +168,11 @@ public class InputManager : MonoBehaviour
     public void RegisterSubmitPressed() 
     {
         submitPressed = false;
+    }
+
+    public Vector2 GetMouseScroll()
+    {
+        return _mouseScroll;
     }
 
 }
