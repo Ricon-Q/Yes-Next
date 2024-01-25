@@ -42,6 +42,11 @@ public class HotBarSelected : MonoBehaviour
             int _hotbarIndex = PlayerInventoryManager.Instance.playerInventory.inventorySlots[_hotBarSelected].itemId;
             if(_hotbarIndex != -1)
             {
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = Camera.main.nearClipPlane; // Set the z value to the camera's near clip plane
+                Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+                worldMousePosition.z = 0;
+                // Debug.Log(worldMousePosition);
                 PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact();
             }
         }

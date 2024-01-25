@@ -34,4 +34,9 @@ public class InventoryItemData : ScriptableObject
     public virtual void Interact()
     {
     }
+
+    public virtual void Interact(Vector3 mousePosition)
+    {
+    }
+    
 }

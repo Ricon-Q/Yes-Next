@@ -7,7 +7,7 @@ public class _PlaceableItemData : InventoryItemData
 {
     [SerializeField] private GameObject _placeObject;
 
-    public override void Interact()
+    public override void Interact(Vector3 mousePosition)
     {
         Debug.Log("Interact Placeable Item Data : " + DisplayName);
     }

@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Movement
         HandleMove();
-        DrawScanRay();
     }
 
     private void HandleMove()
@@ -59,27 +58,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Speed", movementDirection.sqrMagnitude);
         animator.SetFloat("LastMoveHorizontal", lastMovementDirection.x);
         animator.SetFloat("LastMoveVertical", lastMovementDirection.y);
-    }
-
-    private void DrawScanRay()
-    {
-        //Ray
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Camera.main.nearClipPlane; // Set the z value to the camera's near clip plane
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
-
-        Vector3 rayDirection = (worldMousePosition - transform.position).normalized;
-        Debug.DrawRay(transform.position, rayDirection * 1f, new Color(0, 1, 0));
-        // RaycastHit2D rayHit = Physics2D.Raycast(rb.position, dirVec, 0.7f, LayerMask.GetMask("Interactable"));
-
-        // if(rayHit.collider != null)
-        // {
-        //     ScanObject = rayHit.collider.gameObject;
-        // }
-        // else
-        // {
-        //     ScanObject = null;
-        // }
     }
 
 }
