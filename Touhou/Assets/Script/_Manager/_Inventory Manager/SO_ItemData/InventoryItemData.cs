@@ -30,4 +30,9 @@ public class InventoryItemData : ScriptableObject
     public bool Shopable;
     public long SellPrice;
     public long BuyPrice;
+
+    public void Interact()
+    {
+        Debug.Log("Interact : " + DisplayName);
+    }
 }

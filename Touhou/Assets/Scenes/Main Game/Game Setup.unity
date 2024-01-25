@@ -18197,6 +18197,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 746f4be6-392b-49e0-b9a7-c99404d83ac6
     m_ActionName: Player/ToggleInventory[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7677858149249807413}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: HotBarInteractButtonPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c3aeca7a-1681-4053-a3b7-2cae148a2408
+    m_ActionName: Player/Hotbar Interact[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

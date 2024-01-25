@@ -142,7 +142,7 @@ public class _InventorySystem
     // 인벤토리 레벨
     public int inventoryLevel;
     // 레벨당 인벤토리
-    [SerializeField]public List<_InventorySlot> inventorySlots;
+    public List<_InventorySlot> inventorySlots;
 
     // 인벤토리 수
     public int inventorySize;
