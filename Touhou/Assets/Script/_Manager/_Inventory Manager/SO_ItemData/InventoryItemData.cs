@@ -31,8 +31,7 @@ public class InventoryItemData : ScriptableObject
     public long SellPrice;
     public long BuyPrice;
 
-    public void Interact()
+    public virtual void Interact()
     {
-        Debug.Log("Interact : " + DisplayName);
     }
 }

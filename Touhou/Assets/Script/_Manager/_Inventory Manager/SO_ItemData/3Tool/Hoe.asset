@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: WateringCan
+  m_Script: {fileID: 11500000, guid: 0da4d0d954455a940b3949b7360bfa77, type: 3}
+  m_Name: Hoe
   m_EditorClassIdentifier: 
-  ID: 10
+  ID: 0
   ItemType: 2
-  DisplayName: "\uBB3C\uBFCC\uB9AC\uAC1C"
-  Description: "\uD3C9\uBC94\uD55C \uBB3C\uBFCC\uB9AC\uAC1C."
-  Icon: {fileID: 21300000, guid: 524a3e90db5f3524fbc6ab23ccfdc46f, type: 3}
+  DisplayName: "\uAD2D\uC774"
+  Description: "\uBC2D\uC744 \uAC08\uAE30 \uC704\uD55C \uAD2D\uC774. "
+  Icon: {fileID: 21300000, guid: 4b2c726184969da4dbb771cf4362ccee, type: 3}
   MaxStackSize: 1
   Shopable: 0
   SellPrice: 0
-  BuyPrice: 2000
+  BuyPrice: 1000
