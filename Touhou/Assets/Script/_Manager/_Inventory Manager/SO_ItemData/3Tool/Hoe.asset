@@ -17,6 +17,7 @@ MonoBehaviour:
   DisplayName: "\uAD2D\uC774"
   Description: "\uBC2D\uC744 \uAC08\uAE30 \uC704\uD55C \uAD2D\uC774. "
   Icon: {fileID: 21300000, guid: 4b2c726184969da4dbb771cf4362ccee, type: 3}
+  _previewSprite: {fileID: 21300000, guid: 4b2c726184969da4dbb771cf4362ccee, type: 3}
   MaxStackSize: 1
   Shopable: 0
   SellPrice: 0

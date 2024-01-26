@@ -17,6 +17,7 @@ MonoBehaviour:
   DisplayName: "\uBB3C\uBFCC\uB9AC\uAC1C"
   Description: "\uD3C9\uBC94\uD55C \uBB3C\uBFCC\uB9AC\uAC1C."
   Icon: {fileID: 21300000, guid: 524a3e90db5f3524fbc6ab23ccfdc46f, type: 3}
+  _previewSprite: {fileID: 21300000, guid: 524a3e90db5f3524fbc6ab23ccfdc46f, type: 3}
   MaxStackSize: 1
   Shopable: 0
   SellPrice: 0

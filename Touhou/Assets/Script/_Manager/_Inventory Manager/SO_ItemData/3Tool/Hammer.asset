@@ -18,6 +18,7 @@ MonoBehaviour:
   Description: "\uBB35\uC9C1\uD55C \uB9DD\uCE58, \uC190\uAC00\uB77D\uC744 \uCC27\uC9C0
     \uC54A\uAC8C \uC870\uC2EC\uD558\uC790."
   Icon: {fileID: 21300000, guid: f658ff822d80120498029f4c28a0619e, type: 3}
+  _previewSprite: {fileID: 21300000, guid: f658ff822d80120498029f4c28a0619e, type: 3}
   MaxStackSize: 1
   Shopable: 0
   SellPrice: 0

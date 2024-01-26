@@ -25,6 +25,7 @@ public class InventoryItemData : ScriptableObject
     [TextArea(4, 4)]
     public string Description;
     public Sprite Icon;
+    public Sprite _previewSprite;
     public int MaxStackSize;
     
     public bool Shopable;
@@ -35,8 +36,15 @@ public class InventoryItemData : ScriptableObject
     {
     }
 
-    public virtual void Interact(Vector3 mousePosition)
+    public virtual void Interact(Vector3 _mousePosition)
     {
+
     }
     
+    // Placeable Item Data 전용
+    public virtual void Replaceable()
+    {
+
+    }
+
 }

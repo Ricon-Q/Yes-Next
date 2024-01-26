@@ -17,6 +17,7 @@ MonoBehaviour:
   DisplayName: Test Potion 4
   Description: 
   Icon: {fileID: 21300000, guid: 47e2df155b9309248a1ad0b1a632e415, type: 3}
+  _previewSprite: {fileID: 21300000, guid: 47e2df155b9309248a1ad0b1a632e415, type: 3}
   MaxStackSize: 50
   Shopable: 1
   SellPrice: 100

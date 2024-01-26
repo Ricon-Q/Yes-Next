@@ -17,6 +17,7 @@ MonoBehaviour:
   DisplayName: TestHerb3
   Description: 
   Icon: {fileID: 21300000, guid: cce5be97d0609d944bd132aaf7c24a37, type: 3}
+  _previewSprite: {fileID: 21300000, guid: cce5be97d0609d944bd132aaf7c24a37, type: 3}
   MaxStackSize: 10
   Shopable: 1
   SellPrice: 100

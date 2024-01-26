@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9f87be97220bc4f8ffb632d4007a9c, type: 3}
   m_Name: TestPlaceable
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 16
   ItemType: 6
-  DisplayName: 
+  DisplayName: testplaceable
   Description: 
-  Icon: {fileID: 21300000, guid: bda32e848221b9c439cf3d1981b76fea, type: 3}
-  MaxStackSize: 0
+  Icon: {fileID: -284878973, guid: 2ed0b5413cf134f4cb761d4f9b70cfab, type: 3}
+  _previewSprite: {fileID: -284878973, guid: 2ed0b5413cf134f4cb761d4f9b70cfab, type: 3}
+  MaxStackSize: 1
   Shopable: 0
   SellPrice: 0
   BuyPrice: 0
-  _placeObject: {fileID: 0}
+  _placeObject: {fileID: 2343311952837747430, guid: 245e7898ee54f304b8e8961de0983f2e, type: 3}
