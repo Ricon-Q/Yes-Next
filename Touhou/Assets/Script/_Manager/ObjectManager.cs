@@ -40,6 +40,7 @@ public class PlaceableObject
     public string _spawnScene;
     public int _placeableItemDataId;
     public Vector3 _position;
+    
 
     public PlaceableObject(string _spawnScene, int _placeableItemDataId, Vector3 _position)
     {

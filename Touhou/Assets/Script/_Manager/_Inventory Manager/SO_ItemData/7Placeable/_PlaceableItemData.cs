@@ -17,4 +17,5 @@ public class _PlaceableItemData : InventoryItemData
     {
         base.Replaceable();
     }
+
 }
