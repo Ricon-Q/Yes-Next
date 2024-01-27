@@ -38,7 +38,7 @@ public class UiMouseObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        Debug.Log(collider.gameObject.name);
+        // Debug.Log(collider.gameObject.name);
         DisablePreview();
     }
 

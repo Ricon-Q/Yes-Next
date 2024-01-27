@@ -83,6 +83,7 @@ public class DataManager : MonoBehaviour
         
         PlayerSaveData saveData = new PlayerSaveData();
 
+        // SaveData 저장
         saveData.LastSceneName = SceneManager.GetActiveScene().name;
         saveData.playerPosition = _PlayerManager.Instance.transform.position;
         saveData.playerData = _PlayerManager.Instance.playerData;
@@ -91,11 +92,16 @@ public class DataManager : MonoBehaviour
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("PlayerSaveData", saveData, path);
 
+        // EventData 저장
         EventData _eventData = new EventData();
         _eventData._eventDictionary = EventManager.Instance._eventDictionary;
         ES3.Save("EventData", _eventData, path);
 
+        // 인벤토리 저장
         SaveInventory();
+
+        // 오브젝트 저장
+        SaveObjectData();
         
         // Debug.Log(saveIndex + " Save to : " + path);
     }
@@ -118,6 +124,15 @@ public class DataManager : MonoBehaviour
         ES3.Save("PlayerInventoryData", saveInventory, path);
     }
 
+    public void SaveObjectData()
+    {
+        ObjectSaveData _objectSaveData = new ObjectSaveData();
+        _objectSaveData._placeableObjects = ObjectManager.Instance._placeableObjects;
+
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("ObjectSaveData", _objectSaveData, path);
+    }
+
     public void LoadSlot(int loadIndex)
     {
         currentSaveIndex = loadIndex;
@@ -131,12 +146,20 @@ public class DataManager : MonoBehaviour
             _PlayerManager.Instance.playerData = loadData.playerData;
             _TimeManager.Instance.timeData = loadData.timeData;
 
+            // EventData 불러오기
             EventData _loadEventData = ES3.Load<EventData>("EventData", path);
             EventManager.Instance._eventDictionary = _loadEventData._eventDictionary;
-        }
-            // Debug.Log(loadIndex + " Load from : " + path);
-        // else
-            // Debug.Log("No such path");            
+
+            // 오브젝트 불러오기
+            LoadObjectData(loadIndex);
+        }            
+    }
+
+    public void LoadObjectData(int loadIndex)
+    {
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        ObjectSaveData _loadObjectSaveData = ES3.Load<ObjectSaveData>("ObjectSaveData", path);
+        ObjectManager.Instance._placeableObjects = _loadObjectSaveData._placeableObjects;
     }
 
     public PlayerSaveData LoadInfo(int loadIndex)
@@ -220,4 +243,9 @@ public class PlayerInventoryData
 public class EventData
 {
     public Dictionary<int, Event> _eventDictionary;
+}
+
+public class ObjectSaveData
+{
+    public List<PlaceableObject> _placeableObjects;
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HotBarSelected : MonoBehaviour
 {
@@ -27,14 +28,13 @@ public class HotBarSelected : MonoBehaviour
             {
                 _hotBarSelected = value;
                 MoveImage();
-                // Call function a whenever _hotBarSelected changes
-                // a();
             }
         }
     }
 
     public void ChangeHotBar()
     {
+        // 마우스 스크롤을 이용해서 핫바 이동
         if(InputManager.Instance.GetMouseScroll().y > 0)
         {
             SelectedIndex = Mathf.Clamp(_hotBarSelected + 1, 0, 11);
@@ -43,19 +43,24 @@ public class HotBarSelected : MonoBehaviour
         {
             SelectedIndex = Mathf.Clamp(_hotBarSelected - 1, 0, 11);
         }
-        // If there's no change in _hotBarSelected, MoveImage and a() will still be called
     }
     public void MoveImage()
     {
+        // 마우스 스크롤로 인해 핫바가 이동하면 그에 맞춰서 선택 이미지 이동
         _image.anchoredPosition  = new Vector3(SelectedIndex * 100, 0, 0); 
         ChagnePreview();
     }
 
     public void ChagnePreview()
     {
+        // 선택된 단축키 아이템이 null이 아니라면 (설치형 아이템이라면) 아이템을 UiMouseObject에 Allocate
         int _hotbarIndex = PlayerInventoryManager.Instance.playerInventory.inventorySlots[SelectedIndex].itemId;
         
-        if(_hotbarIndex == -1) return;
+        if(_hotbarIndex == -1) 
+        {
+            _uiMouseObject.DeallocateSprite(); 
+            return;
+        }
 
         // Placeable이라면 PreviewSprite 표시
         if(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType == ItemType.Placeable)
@@ -69,12 +74,11 @@ public class HotBarSelected : MonoBehaviour
 
     public void HandleInteract()
     {
-        
+        // 마우스 위치 설정, uiMouseObject의 프리뷰를 Grid에 Snap
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
         worldMousePosition.z = 0;
-        // worldMousePosition.z = 0;
 
         _uiMouseObject.transform.position = RoundVector3(worldMousePosition);
 
@@ -91,7 +95,10 @@ public class HotBarSelected : MonoBehaviour
                 {
                     case ItemType.Placeable:
                         if(_uiMouseObject._canPlace == true)
+                        {
                             PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position);
+                            ObjectManager.Instance._placeableObjects.Add(new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position));
+                        }
                         break;
                     case ItemType.Default:
                         break;
