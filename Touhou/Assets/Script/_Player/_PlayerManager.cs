@@ -120,20 +120,20 @@ public class PlayerData
     //     hospitalLevel = value;
     // }
 
-    // =========ModifyFunc=========
-    public void ModifyHealth(float value)
+    // =========AddFunc=========
+    public void AddHealth(float value)
     {
         maxHealth += value;
     }
-    public void ModifyCurrentHealth(float value)
+    public void AddCurrentHealth(float value)
     {
         currentHealth = Mathf.Clamp(currentHealth + value, -1, maxHealth);
     }
-    public void ModifyMaxStamina(float value)
+    public void AddMaxStamina(float value)
     {
         maxStamina += value;
     }
-    public void ModifyCurrentStamina(float value)
+    public void AddCurrentStamina(float value)
     {
         currentStamina = Mathf.Clamp(currentStamina + value, -1, maxStamina);
         if( currentStamina < 0 && 
@@ -143,11 +143,11 @@ public class PlayerData
             EventManager.Instance._eventDictionary[0].TriggerOn();
         }
     }
-    public void ModifyMoney(long value)
+    public void AddMoney(long value)
     {
         money += value;
     }
-    public void ModifyHospitalLevel(int value)
+    public void AddHospitalLevel(int value)
     {
         hospitalLevel += value;
     }

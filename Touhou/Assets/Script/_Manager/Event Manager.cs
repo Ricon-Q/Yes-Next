@@ -81,7 +81,7 @@ public class InnEvent : Event
         // 플레이어 Inn Floor2로 이동
         GameManager.Instance.MoveWithFade("Inn", new Vector3(-4, 28, 0), "InnFloor2", new Vector3(-4, 28, 0));
         // 플레이어 피로도 41 회복
-        _PlayerManager.Instance.playerData.ModifyCurrentStamina(41);
+        _PlayerManager.Instance.playerData.AddCurrentStamina(41);
         // 트리거 활성화
         _isEventTriggered = true;
         // 게임 저장
