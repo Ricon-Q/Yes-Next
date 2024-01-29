@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class InventoryHotBarDisplay : MonoBehaviour
 {
-    private int _hotBarLine = 0;
     public _InventorySystem _inventorySystem;
 
     [SerializeField] protected Dictionary<HotBarInventorySlot_Ui, _InventorySlot> slotDictionary;
