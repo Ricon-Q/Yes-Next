@@ -16,4 +16,14 @@ public class QuestDataBase : ScriptableObject
 
         return null;
     }
+
+    [ContextMenu("Update QuestData")]
+    public void UpdateQuestData()
+    {
+        for (int i = 0; i < _questDatas.Count; i++)
+        {
+            if (_questDatas[i] != null)
+                _questDatas[i]._questId = i;
+        }
+    }
 }

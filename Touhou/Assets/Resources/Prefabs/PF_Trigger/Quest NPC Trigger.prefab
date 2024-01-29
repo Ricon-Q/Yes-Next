@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798168487349396574}
   - component: {fileID: 198926756305714926}
-  - component: {fileID: 7578125418707538473}
-  - component: {fileID: 3915697692105990655}
+  - component: {fileID: 4320633374902516813}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -79,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7578125418707538473
+--- !u!114 &4320633374902516813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,100 +87,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 43235580891555199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4310575cdb680744a8d42ba92d6d1fa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcInventory: {fileID: 11400000, guid: 876cbf3d751001f4aa4e71b387768855, type: 2}
-  inventorySystem:
-    inventoryLevel: 0
-    inventorySlots:
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    - itemId: -1
-      stackSize: -1
-    inventorySize: 36
---- !u!114 &3915697692105990655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 43235580891555199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df445dd522393f44b4e068388396abe, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fe4d44a0cceddd408df4884901c8162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 5625902514585756901}
-  npcInventoryHolder: {fileID: 7578125418707538473}
 --- !u!1 &5625902514585756901
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +249,7 @@ SpriteRenderer:
   m_SortingLayerID: 2063395367
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2075254520, guid: 44a80e0667544754e8fca96d9e76f285, type: 3}
+  m_Sprite: {fileID: -294138740, guid: f1b7b9082d9ba634484a0067ba3ce6ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -406,7 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442165409052316879}
   m_Layer: 0
-  m_Name: NPC Trigger
+  m_Name: Quest NPC Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
