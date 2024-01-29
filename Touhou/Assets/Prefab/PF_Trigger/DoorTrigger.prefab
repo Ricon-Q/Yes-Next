@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: 
+  targetArea: {fileID: 0}
   DoorWayPosition: {x: 0, y: 0, z: 0}
   durationOfMinute: 5
   visualCue: {fileID: 3509451539795597353}
@@ -286,12 +287,12 @@ SpriteRenderer:
   m_SortingLayerID: 2063395367
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1600284458, guid: e2405875019f4414185d919715afeb9e, type: 3}
+  m_Sprite: {fileID: 31981013, guid: f1b7b9082d9ba634484a0067ba3ce6ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.84, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -334,7 +335,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 3.84, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
