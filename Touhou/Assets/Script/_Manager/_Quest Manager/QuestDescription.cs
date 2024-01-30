@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -23,10 +21,10 @@ public class QuestDescription : MonoBehaviour
         this.gameObject.SetActive(false);    
     }
 
-    public void AllocateQuestData(QuestData questData)
+    public void AllocateQuestData(int questId)
     {
         this.gameObject.SetActive(true);
-        _questData = questData;
+        _questData = QuestManager.Instance._questDataBase.FindQuestData(questId);
         
         _questName.text = _questData._questName;
         _questDescription.text = _questData._questDescription;
@@ -46,7 +44,10 @@ public class QuestDescription : MonoBehaviour
 
     public void AcceptQuest()
     {
-        QuestManager.Instance.AddQuestToList(_questData._questId);
-        this.gameObject.SetActive(false);
+        if(!QuestManager.Instance._playerQuestDictionary.ContainsKey(_questData._questId))
+        {
+            QuestManager.Instance.AddQuestToList(_questData._questId);
+        }
+        else PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("이미 추가된 퀘스트입니다.");
     }
 }

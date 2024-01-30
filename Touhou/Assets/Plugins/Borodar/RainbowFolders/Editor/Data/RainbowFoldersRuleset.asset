@@ -425,7 +425,7 @@ MonoBehaviour:
     Key: Assets/Script/_Trigger
     Ordinal: 34
     Priority: 0
-    IconType: 10
+    IconType: 50
     SmallIcon: {fileID: 0}
     LargeIcon: {fileID: 0}
     IsIconRecursive: 0

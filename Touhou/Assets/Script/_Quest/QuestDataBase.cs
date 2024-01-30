@@ -26,4 +26,14 @@ public class QuestDataBase : ScriptableObject
                 _questDatas[i]._questId = i;
         }
     }
+
+    public List<int> ReturnAsInt()
+    {
+        List<int> _return = new List<int>(_questDatas.Count);
+        for (int i = 0; i < _questDatas.Count; i++)
+        {
+            _return[i] = _questDatas[i]._questId;
+        }
+        return _return;
+    }
 }

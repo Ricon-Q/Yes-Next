@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     // [SerializeField] private GameObject playerObject;
     [SerializeField] private ItemDatabaseObject itemDatabaseObject;
 
-    private void Start()
+     private void Start()
     {
         StartCoroutine(IEnum_ManagerCheck());
     }
@@ -68,21 +68,9 @@ public class GameManager : MonoBehaviour
     IEnumerator IEnum_ManagerCheck()
     {
         yield return StartCoroutine(ManagerCheck());
-
+        
         StartCoroutine(IEnum_DataLoad());
     }
-
-    IEnumerator IEnum_DataLoad()
-    {
-        yield return StartCoroutine(DataLoad());
-        // StartCoroutine(IEnum_GameReady());
-    }
-
-    // IEnumerator IEnum_GameReady()
-    // {
-    //     yield return StartCoroutine(GameReady());
-    // }
-
     private IEnumerator ManagerCheck()
     {
         // InventoryManager.Instance.IsActive();
@@ -94,6 +82,11 @@ public class GameManager : MonoBehaviour
         _PlayerManager.Instance.IsActive();
 
         yield return null;
+    }
+    IEnumerator IEnum_DataLoad()
+    {
+        yield return StartCoroutine(DataLoad());
+        // StartCoroutine(IEnum_GameReady());
     }
 
     private IEnumerator DataLoad()
@@ -121,7 +114,9 @@ public class GameManager : MonoBehaviour
             DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
             UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
     
-        
+            // 퀘스트 게시판 불러오기 Trigger
+            QuestManager.Instance._guildQuestDisplay._haveLoadData = true;
+
             // 씬 불러오기
             FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName, DataManager.Instance.loadData.playerPosition);
         }
@@ -142,6 +137,8 @@ public class GameManager : MonoBehaviour
             
             // Player Camera 비활성화 (컷신을 위해서)
             CameraManager.Instance.TogglePlayerCamera(false);
+
+            StartNewDay();
         }
         
         yield return null;
@@ -156,12 +153,12 @@ public class GameManager : MonoBehaviour
             PlayerInventoryManager.Instance.ToggleInventory();
     }
 
-    public void MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition)
+    public void MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition, int _targetHour)
     {
-        StartCoroutine(IEnum_MoveWithFade(_sceneName, _playerPosition, _areaName, _cameraPosition));
+        StartCoroutine(IEnum_MoveWithFade(_sceneName, _playerPosition, _areaName, _cameraPosition, _targetHour));
     }
 
-    public IEnumerator IEnum_MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition)
+    public IEnumerator IEnum_MoveWithFade(string _sceneName, Vector3 _playerPosition, string _areaName, Vector3 _cameraPosition, int _targetHour)
     {
         FadeInOutManager.Instance.FadeOut();
 
@@ -174,11 +171,22 @@ public class GameManager : MonoBehaviour
         CameraManager.Instance.ChangeCameraBorder(_areaName);
         CameraManager.Instance.transform.position = _cameraPosition;
 
-        _TimeManager.Instance.SetTargetTimeHour(6);
+        _TimeManager.Instance.SetTargetTimeHour(_targetHour);
 
         yield return null;
 
         // yield return new WaitForEndOfFrame();
         FadeInOutManager.Instance.FadeIn();
+    }
+
+    public void StartNewDay()
+    {
+        // 하루가 지날때 해당 함수 호출, 침대에서 취침하거나 기절하여 하루가 지날때 호출
+
+        // Day가 7의 배수라면 퀘스트 새로고침
+        if(_TimeManager.Instance.timeData.day % 7 == 1)
+        {
+            QuestManager.Instance._guildQuestDisplay._isQeustRefresh = true;
+        }
     }
 }

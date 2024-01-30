@@ -102,6 +102,12 @@ public class DataManager : MonoBehaviour
 
         // 오브젝트 저장
         SaveObjectData();
+
+        // 퀘스트 데이터 저장
+        SaveQuestData();
+
+        // 길드 퀘스트 데이터 저장
+        SaveGuildQuestData();
         
         // Debug.Log(saveIndex + " Save to : " + path);
     }
@@ -133,6 +139,28 @@ public class DataManager : MonoBehaviour
         ES3.Save("ObjectSaveData", _objectSaveData, path);
     }
 
+    public void SaveQuestData()
+    {
+        QuestSaveData _questSaveData = new QuestSaveData();
+        _questSaveData._questDatas = QuestManager.Instance._playerQuestDictionary;
+
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("QuestSaveData", _questSaveData, path);
+    }
+
+    public void SaveGuildQuestData()
+    {
+        GuildQuestData _guildQuestData = new GuildQuestData();
+        _guildQuestData._questDatas = QuestManager.Instance._guildQuestDisplay._questDatas;
+
+        
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("GuildQuestData", _guildQuestData, path);
+    }
+
+    // ========================================================================== //
+    // ========================================================================== //
+
     public void LoadSlot(int loadIndex)
     {
         currentSaveIndex = loadIndex;
@@ -152,6 +180,9 @@ public class DataManager : MonoBehaviour
 
             // 오브젝트 불러오기
             LoadObjectData(loadIndex);
+
+            // QuestData불러오기
+            LoadQuestData(loadIndex);
         }            
     }
 
@@ -193,6 +224,38 @@ public class DataManager : MonoBehaviour
             PlayerInventoryManager.Instance.potionInventory.inventorySlots = loadInventoryData.potionInventory;
         }
     }
+
+    public void LoadQuestData(int loadIndex)
+    {
+        QuestSaveData _loadQuestData;
+        currentSaveIndex = loadIndex;
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        if(ES3.FileExists(path))
+        {
+            _loadQuestData = ES3.Load<QuestSaveData>("QuestSaveData", path);
+            
+            QuestManager.Instance._playerQuestDictionary = _loadQuestData._questDatas;
+        }
+    }
+
+    public void LoadGuildQuestData(int loadIndex)
+    {
+        GuildQuestData _loadGuildQuestData;
+        currentSaveIndex = loadIndex;
+
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        if(ES3.FileExists(path))
+        {
+            _loadGuildQuestData = ES3.Load<GuildQuestData>("GuildQuestData", path);
+            
+            if(_loadGuildQuestData._questDatas.Count != 0)
+                QuestManager.Instance._guildQuestDisplay._questDatas = _loadGuildQuestData._questDatas;
+        }
+    }
+
+    // ========================================================================== //
+    // ========================================================================== //
+
 
     public bool CheckSaveSlot()
     {
@@ -248,4 +311,13 @@ public class EventData
 public class ObjectSaveData
 {
     public List<PlaceableObject> _placeableObjects;
+}
+
+public class QuestSaveData
+{
+    public Dictionary<int, _TimeData> _questDatas;
+}
+public class GuildQuestData
+{
+    public List<int> _questDatas;
 }

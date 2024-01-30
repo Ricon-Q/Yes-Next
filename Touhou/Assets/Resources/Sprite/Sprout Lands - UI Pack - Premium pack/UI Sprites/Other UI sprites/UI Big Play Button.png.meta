@@ -571,6 +571,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 352
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce29038a10d12448b2e0b85f6a79ef8
+      internalID: 1934931928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acad443e1ac69104bbdc0ff7d06b793e
+      internalID: 938342273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -604,6 +646,8 @@ TextureImporter:
       Button_Quit_Pressed: -1478990818
       UI Big Play Button_0: -1285458010
       UI Big Play Button_1: 799253990
+      UI Big Play Button_2: 1934931928
+      UI Big Play Button_3: 938342273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

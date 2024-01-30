@@ -131,14 +131,14 @@ public class QuestManager : MonoBehaviour
         RemoveQuest(_questIndex);
     }
 
-    public List<QuestData> GetRandomQuests(int count)
+    public List<int> GetRandomQuests(int count)
     {
-        List<QuestData> randomQuests = new List<QuestData>();
+        List<int> randomQuests = new List<int>();
 
         // 요청된 퀘스트 수가 실제 퀘스트 수보다 크면 전체 목록 반환
         if (count >= _questDataBase._questDatas.Count)
         {
-            return new List<QuestData>(_questDataBase._questDatas);
+            return new List<int>(_questDataBase.ReturnAsInt());
         }
 
         List<QuestData> copyOfQuests = new List<QuestData>(_questDataBase._questDatas);
@@ -154,7 +154,7 @@ public class QuestManager : MonoBehaviour
             int randomIndex = Random.Range(0, copyOfQuests.Count);
 
             if(_playerQuestDictionary.ContainsKey(randomIndex)) continue;
-            randomQuests.Add(copyOfQuests[randomIndex]);
+            randomQuests.Add(randomIndex);
             copyOfQuests.RemoveAt(randomIndex);
             i++;
         }

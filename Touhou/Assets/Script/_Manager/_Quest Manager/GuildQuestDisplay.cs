@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class GuildQuestDisplay : MonoBehaviour
 {
-    public List<QuestData> _questDatas;
+    public List<int> _questDatas;
     public QuestDescription _questDescription;
+    public bool _isQeustRefresh;
+    public bool _haveLoadData;
 
     private void Start() 
     {
-        ExitGuildQuestList();  
+        _questDatas = new List<int>();
+        ExitGuildQuestList();
     }
 
     public void RefreshGuildQuestList()
     {
-        _questDatas = new List<QuestData>(QuestManager.Instance.GetRandomQuests(5));
+        _questDatas = new List<int>(QuestManager.Instance.GetRandomQuests(5));
     }
 
     public void OpenQuestDescription(int index)
@@ -25,9 +28,23 @@ public class GuildQuestDisplay : MonoBehaviour
     public void EnterGuildQuestList()
     {
         this.gameObject.SetActive(true);
-        // 현재는 길드 퀘스트가 활성화 될 때마다 길드 퀘스트 리스트 새로고침.
-        // 추후 주기적으로 길드 퀘스트 새로고침 되도록 수정
-        RefreshGuildQuestList();
+
+        // 게임 불러오기를 했다면 저장했던 길드 퀘스트 불러오기
+        if(_haveLoadData)
+        {
+            DataManager.Instance.LoadGuildQuestData(DataManager.Instance.currentSaveIndex);
+            _haveLoadData = false;
+            return;
+        }
+        // Gamemanager에서 isQeustRefresh true로 설정했다면 새로고침
+        if(_isQeustRefresh)
+        {   
+            RefreshGuildQuestList();
+            _isQeustRefresh = false;
+            return;
+        }
+        if(_questDatas.Count == 0) 
+            RefreshGuildQuestList();
     }
 
     public void ExitGuildQuestList()
