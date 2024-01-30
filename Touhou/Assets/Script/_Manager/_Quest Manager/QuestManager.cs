@@ -52,6 +52,8 @@ public class QuestManager : MonoBehaviour
     {
         _guildQuestDisplay.ExitGuildQuestList();
         _questDataBase.UpdateQuestData();
+
+        _questMenuObject.SetActive(false);
     }
 
     public void EnterGuildQuestList()
@@ -160,5 +162,46 @@ public class QuestManager : MonoBehaviour
         }
 
         return randomQuests;
+    }
+
+
+    // ================================================ //
+    // ================================================ //
+    
+    [Header("Quest Menu - Inventory Display")]
+    public QuestMenuPlayerInventoryDisplay _inventoryDisplay;
+    public GameObject _questMenuObject;
+
+    public void EnterQuestMenu()
+    {
+        _questMenuObject.SetActive(true);
+        _inventoryDisplay.EnterQuestMenu();
+    }
+
+    public void ExitQuestMenu()
+    {
+        _inventoryDisplay.ExitQuestMenu();
+        _questMenuObject.SetActive(false);
+    }
+
+    public void ChangeInventory(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                _inventoryDisplay.inventorySystem = PlayerInventoryManager.Instance.playerInventory;
+                _inventoryDisplay.RefreshDynamicInventory(_inventoryDisplay.inventorySystem);
+                break;
+            case 1:
+                _inventoryDisplay.inventorySystem = PlayerInventoryManager.Instance.herbInventory;
+                _inventoryDisplay.RefreshDynamicInventory(_inventoryDisplay.inventorySystem);
+                break;
+            case 2:
+                _inventoryDisplay.inventorySystem = PlayerInventoryManager.Instance.potionInventory;
+                _inventoryDisplay.RefreshDynamicInventory(_inventoryDisplay.inventorySystem);
+                break;
+            default:
+                break;
+        }
     }
 }
