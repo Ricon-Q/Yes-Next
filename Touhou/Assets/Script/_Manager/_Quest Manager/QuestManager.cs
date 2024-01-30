@@ -170,12 +170,14 @@ public class QuestManager : MonoBehaviour
     
     [Header("Quest Menu - Inventory Display")]
     public QuestMenuPlayerInventoryDisplay _inventoryDisplay;
+    public QuestMenuQuestList _questMenuQuestList;
     public GameObject _questMenuObject;
 
     public void EnterQuestMenu()
     {
         _questMenuObject.SetActive(true);
         _inventoryDisplay.EnterQuestMenu();
+        _questMenuQuestList.EnterQuestMenu();
     }
 
     public void ExitQuestMenu()
