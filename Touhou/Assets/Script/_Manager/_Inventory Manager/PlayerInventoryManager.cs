@@ -134,6 +134,25 @@ public class PlayerInventoryManager : MonoBehaviour
                 break;
         }
     }
+
+    public void AddToInventory(int itemIdToAdd, int amountToAdd)
+    {
+        switch (itemDataBase.Items[itemIdToAdd].ItemType)
+        {
+            case ItemType.Seed:
+                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Herb:
+                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Potion:
+                potionInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Default:
+                playerInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+        }
+    }
 }
 
 [System.Serializable]

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2233385798031225545}
   - component: {fileID: 7267781623192745328}
   m_Layer: 5
-  m_Name: Button
+  m_Name: QuestListButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -1374021786, guid: 5af348f9e31eb814e9dc6b82f4c2ea53, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
