@@ -38,10 +38,8 @@ public class HospitalManager : MonoBehaviour
 
     [Header("Hospital Script")]
     public InfoUiDisplay _infoUiDisplay;
-
-    [Header("Dialogue Database")]
-    public DialogueDatabase _mainDialogueDatabase;
-    public DialogueDatabase _hospitalDialogueDatabase;
+    public DialoguePanel _dialoguePanel;
+    
     private void Start()
     {
         ExitHospitalMode();
@@ -50,13 +48,16 @@ public class HospitalManager : MonoBehaviour
     public void EnterHospitalMode()
     {
         _hospitalCanvas.SetActive(true);
-        _infoUiDisplay.EnterHospitalMode();
         
+        _infoUiDisplay.EnterHospitalMode();
+        _dialoguePanel.EnterHospitalMode();
     }
 
     public void ExitHospitalMode()
     {
         _infoUiDisplay.ExitHospitalMode();
+        _dialoguePanel.ExitHospitalMode();
+
         _hospitalCanvas.SetActive(false);
     }
 }
