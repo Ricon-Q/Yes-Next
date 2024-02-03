@@ -24,6 +24,7 @@ public class InventoryItemData : ScriptableObject
     public string DisplayName;
     [TextArea(4, 4)]
     public string Description;
+    public string tag;
     public Sprite Icon;
     public Sprite _previewSprite;
     public int MaxStackSize;

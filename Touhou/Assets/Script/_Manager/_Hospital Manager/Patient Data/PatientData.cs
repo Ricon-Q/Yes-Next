@@ -14,7 +14,7 @@ public class PatientData : ScriptableObject
 
     [Header("Disase")]
     // 질병 종류
-    
+    public string _disaseName;
     // 포션 데이터
     public InventoryItemData _potionItemData;
 }

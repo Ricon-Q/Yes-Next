@@ -39,6 +39,7 @@ public class HospitalManager : MonoBehaviour
     [Header("Hospital Script")]
     public InfoUiDisplay _infoUiDisplay;
     public DialoguePanel _dialoguePanel;
+    public DiagnosisPanel _diagnosisPanel;
     
     private void Start()
     {

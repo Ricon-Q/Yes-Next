@@ -14,8 +14,11 @@ public class DialoguePanel : MonoBehaviour
     public DialogueSystemController _dialogueSystemController;
     public StandardDialogueUI _hospitalDialogueUi;
     public StandardDialogueUI _mainDialogueUi;
+
+    private int _patientIndex;
     public void EnterHospitalMode()
     {
+        _patientIndex = 0;
         _dialogueSystemController.standardDialogueUI = _hospitalDialogueUi;
         _patientDatas = new List<PatientData>(_patientDatabase.GetRandomPatientData());
         TestFunc();
@@ -24,6 +27,18 @@ public class DialoguePanel : MonoBehaviour
     public void ExitHospitalMode()
     {
         _dialogueSystemController.standardDialogueUI = _mainDialogueUi;
+    }
+
+    public void GetNextPatient()
+    {
+        if(_patientIndex > _patientDatas.Count)
+        {
+            HospitalManager.Instance._diagnosisPanel.AllocatePatientData(_patientDatas[_patientIndex]);
+            _dialogueSystemController.StartConversation(_patientDatas[_patientIndex]._conversationTitle);
+            _patientIndex++;
+        }
+        else
+            return;
     }
 
 
