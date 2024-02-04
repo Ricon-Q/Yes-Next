@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _patientDatas:
   - {fileID: 11400000, guid: 79c99e2b39c506949ba7f15f6c41ad3d, type: 2}
+  - {fileID: 11400000, guid: b0a7e60f12e13824daa861df3f185036, type: 2}
+  - {fileID: 11400000, guid: bc2552f7e2b08e24fb5c5e90b33a4f24, type: 2}
+  - {fileID: 11400000, guid: d0904b1c2d9c1e04cb5d0badfa77234a, type: 2}

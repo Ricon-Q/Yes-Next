@@ -27,7 +27,7 @@ public class DiagnosisPanel : MonoBehaviour
 
     public void SubmitDiagnosis()
     {
-        
+        HospitalManager.Instance._dialoguePanel.EndConversation();
     }
 }
 
