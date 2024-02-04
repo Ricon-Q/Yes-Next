@@ -137,10 +137,10 @@ TextureImporter:
         x: 59
         y: 811
         width: 26
-        height: 26
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
+      border: {x: 4, y: 6, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -307,7 +307,7 @@ TextureImporter:
         width: 32
         height: 35
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 8, y: 9, z: 8, w: 9}
       outline: []
       physicsShape: []
@@ -315,6 +315,69 @@ TextureImporter:
       bones: []
       spriteID: 464a0a7627a4a4c41a15df946a2f11de
       internalID: -1539522203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_2
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 903
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 11, z: 10, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e660323d501ad76409b039f40c905f93
+      internalID: -1529499781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_3
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 809
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 6, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd41b7f85807f2b45a69319b449e0ab4
+      internalID: 1139169615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_4
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 827
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 20, y: 20, z: 20, w: 19}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c93c924f447643344a4b6b56d05cb591
+      internalID: 1619209777
       vertices: []
       indices: 
       edges: []
@@ -333,6 +396,9 @@ TextureImporter:
       Dialogue: 802265397
       UI_ALL_32_0: 2074348392
       UI_ALL_32_1: -1539522203
+      UI_ALL_32_2: -1529499781
+      UI_ALL_32_3: 1139169615
+      UI_ALL_32_4: 1619209777
       UI_Down_Frame: 46384886
       UI_Frame: -1374021786
       UI_Frame_001: 875125412

@@ -79,9 +79,11 @@ public class InnEvent : Event
         // 실행중인 모든 매니저 종료 (Craft, Shop)
         GameManager.Instance.DisableAllManager();
         // 플레이어 Inn Floor2로 이동
-        GameManager.Instance.MoveWithFade("Inn", new Vector3(-4, 28, 0), "InnFloor2", new Vector3(-4, 28, 0));
+        GameManager.Instance.MoveWithFade("Inn", new Vector3(-4, 28, 0), "InnFloor2", new Vector3(-4, 28, 0), 6);
+        // 하루가 지났으므로 StartNewDay 호출
+        GameManager.Instance.StartNewDay();
         // 플레이어 피로도 41 회복
-        _PlayerManager.Instance.playerData.ModifyCurrentStamina(41);
+        _PlayerManager.Instance.playerData.AddCurrentStamina(41);
         // 트리거 활성화
         _isEventTriggered = true;
         // 게임 저장

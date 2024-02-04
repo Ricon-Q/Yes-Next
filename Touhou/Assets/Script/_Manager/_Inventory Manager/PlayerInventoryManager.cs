@@ -134,6 +134,25 @@ public class PlayerInventoryManager : MonoBehaviour
                 break;
         }
     }
+
+    public void AddToInventory(int itemIdToAdd, int amountToAdd)
+    {
+        switch (itemDataBase.Items[itemIdToAdd].ItemType)
+        {
+            case ItemType.Seed:
+                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Herb:
+                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Potion:
+                potionInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+            case ItemType.Default:
+                playerInventory.AddToInventory(itemIdToAdd, amountToAdd);
+                break;
+        }
+    }
 }
 
 [System.Serializable]
@@ -142,7 +161,7 @@ public class _InventorySystem
     // 인벤토리 레벨
     public int inventoryLevel;
     // 레벨당 인벤토리
-    [SerializeField]public List<_InventorySlot> inventorySlots;
+    public List<_InventorySlot> inventorySlots;
 
     // 인벤토리 수
     public int inventorySize;

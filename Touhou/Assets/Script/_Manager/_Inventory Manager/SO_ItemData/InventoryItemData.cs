@@ -24,10 +24,28 @@ public class InventoryItemData : ScriptableObject
     public string DisplayName;
     [TextArea(4, 4)]
     public string Description;
+    public string tag;
     public Sprite Icon;
+    public Sprite _previewSprite;
     public int MaxStackSize;
     
     public bool Shopable;
     public long SellPrice;
     public long BuyPrice;
+
+    public virtual void Interact()
+    {
+    }
+
+    public virtual void Interact(Vector3 _mousePosition)
+    {
+
+    }
+    
+    // Placeable Item Data 전용
+    public virtual void Replaceable()
+    {
+
+    }
+
 }

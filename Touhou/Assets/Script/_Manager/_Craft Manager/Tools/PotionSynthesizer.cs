@@ -134,7 +134,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
         RefreshDynamicInventory(inventorySystem);
 
-        _PlayerManager.Instance.playerData.ModifyCurrentStamina(-recipe.useStamina);
+        _PlayerManager.Instance.playerData.AddCurrentStamina(-recipe.useStamina);
         _TimeManager.Instance.increaseMinute(recipe.useTimeMinute);
     }
 

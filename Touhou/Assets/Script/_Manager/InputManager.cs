@@ -16,6 +16,8 @@ public class InputManager : MonoBehaviour
     private bool interactPressed = false;
     private bool submitPressed = false;
     private bool toggleInventoryPressed = false;
+    private bool _hotBarInteractPressed = false;
+    private Vector2 _mouseScroll = Vector2.zero;
     // private bool onLeftClick = false;
 
     private static InputManager instance;
@@ -88,6 +90,18 @@ public class InputManager : MonoBehaviour
         } 
     }
 
+    public void HotBarInteractButtonPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _hotBarInteractPressed = true;
+        }
+        else if (context.canceled)
+        {
+            _hotBarInteractPressed = false;
+        } 
+    }
+
     public void ToggleInventoryPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -110,6 +124,20 @@ public class InputManager : MonoBehaviour
         {
             submitPressed = false;
         } 
+    }
+
+    // Mouse
+
+    public void MouseScroll(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            _mouseScroll = context.ReadValue<Vector2>();
+        }
+        else if(context.canceled)
+        {
+            _mouseScroll = context.ReadValue<Vector2>();
+        }
     }
 
     // Get
@@ -136,6 +164,13 @@ public class InputManager : MonoBehaviour
         return result;
     }
 
+    public bool GetHotBarInteractPressed()
+    {
+        bool result = _hotBarInteractPressed;
+        _hotBarInteractPressed = false;
+        return result;
+    }
+
     public bool GetToggleInventoryPressed()
     {
         bool result = toggleInventoryPressed;
@@ -153,6 +188,11 @@ public class InputManager : MonoBehaviour
     public void RegisterSubmitPressed() 
     {
         submitPressed = false;
+    }
+
+    public Vector2 GetMouseScroll()
+    {
+        return _mouseScroll;
     }
 
 }

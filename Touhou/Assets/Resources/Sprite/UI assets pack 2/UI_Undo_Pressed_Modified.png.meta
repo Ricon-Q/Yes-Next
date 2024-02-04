@@ -181,7 +181,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,6 +189,27 @@ TextureImporter:
       bones: []
       spriteID: e406a4669d9316a428a1b4f1bfc392de
       internalID: -1341405802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Undo_Pressed_Modified_2
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 339
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 28, z: 13, w: 28}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9303f18ba25af344db5c7ac2dc51a1b9
+      internalID: 1706753003
       vertices: []
       indices: 
       edges: []
@@ -208,6 +229,7 @@ TextureImporter:
       UI_Panel: -1227684991
       UI_Undo_Pressed_Modified_0: -608480810
       UI_Undo_Pressed_Modified_1: -1341405802
+      UI_Undo_Pressed_Modified_2: 1706753003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -46,6 +46,7 @@ public class UiManager : MonoBehaviour
 
     [Header("Hot Bar Display")]
     public InventoryHotBarDisplay inventoryHotBarDisplay;
+    public HotBarSelected _hotBarSelected;
 
     private void Update() 
     {

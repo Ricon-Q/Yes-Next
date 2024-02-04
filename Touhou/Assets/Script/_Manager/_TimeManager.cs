@@ -124,7 +124,7 @@ public class _TimeData
         this.year = 1;
         this.month = 1;
         this.day = 1;
-        this.hour = 0;
+        this.hour = 6;
         this.minute = 0;
     }
 }

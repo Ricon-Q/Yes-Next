@@ -86,6 +86,7 @@ public class _ShopManager : MonoBehaviour
 
         shopPanel.SetActive(false);
         isShopMode = false;
+        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(UiManager.Instance.inventoryHotBarDisplay._inventorySystem);
     }
 
 
