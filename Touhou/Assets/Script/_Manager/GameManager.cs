@@ -189,4 +189,14 @@ public class GameManager : MonoBehaviour
             QuestManager.Instance._guildQuestDisplay._isQeustRefresh = true;
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void BackToTitle()
+    {
+        
+    }
 }
