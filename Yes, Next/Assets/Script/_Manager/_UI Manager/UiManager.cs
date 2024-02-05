@@ -94,7 +94,12 @@ public class UiManager : MonoBehaviour
             uiCanvas.SetActive(true);
             isUiCanvasOn = true;
         }
+    }
 
+    public void ToggleUiCanvas(bool value)
+    {
+        uiCanvas.SetActive(value);
+        isUiCanvasOn = value;
     }
 
     [Header("Time Frame")]

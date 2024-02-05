@@ -622,7 +622,7 @@ TextureImporter:
         width: 96
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -643,7 +643,7 @@ TextureImporter:
         width: 96
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -651,6 +651,48 @@ TextureImporter:
       bones: []
       spriteID: e656b4bd49ac133499cb561817f7eda2
       internalID: 977401942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0d3394c3ab6e34bb3d2a927f1bb6ca
+      internalID: 1435327102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Big Play Button_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 96
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71031015deefba24c84067355a30bea4
+      internalID: -1271053377
       vertices: []
       indices: 
       edges: []
@@ -692,6 +734,8 @@ TextureImporter:
       UI Big Play Button_3: 938342273
       UI Big Play Button_4: -578541147
       UI Big Play Button_5: 977401942
+      UI Big Play Button_6: 1435327102
+      UI Big Play Button_7: -1271053377
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

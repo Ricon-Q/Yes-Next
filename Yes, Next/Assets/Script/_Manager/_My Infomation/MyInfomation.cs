@@ -45,7 +45,7 @@ public class MyInfomation : MonoBehaviour
     [SerializeField] private Button _guideBookButton;
     [SerializeField] private Button _hospitalInfoButton;
     [SerializeField] private Button _optionButton;
-    private bool isMyInfoOpen;
+    public bool isMyInfoOpen;
 
     [Header("Button Text Frame")]
     [SerializeField] private GameObject _inventoryTextFrame;
@@ -60,6 +60,7 @@ public class MyInfomation : MonoBehaviour
 
     public void OffMainPanel()
     {
+        UiManager.Instance.ToggleUiCanvas(true);
         OffAllPanel();
         _mainPanel.SetActive(false);
         isMyInfoOpen = false;
@@ -92,6 +93,8 @@ public class MyInfomation : MonoBehaviour
         isMyInfoOpen = true;
 
         UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+        
+        UiManager.Instance.ToggleUiCanvas(false);
     }
     public void ToggleGuideBook()
     {
@@ -103,6 +106,8 @@ public class MyInfomation : MonoBehaviour
         _guideBookPanel.SetActive(true);
 
         isMyInfoOpen = true;
+
+        UiManager.Instance.ToggleUiCanvas(false);
     }
 
     public void ToggleHospitalInfo()
@@ -115,6 +120,8 @@ public class MyInfomation : MonoBehaviour
         _hospitalInfoPanel.SetActive(true);
 
         isMyInfoOpen = true;
+
+        UiManager.Instance.ToggleUiCanvas(false);
     }
 
     public void ToggleOption()
@@ -127,12 +134,14 @@ public class MyInfomation : MonoBehaviour
         _optionPanel.SetActive(true);
 
         isMyInfoOpen = true;
+        
+        UiManager.Instance.ToggleUiCanvas(false);
     }
 
     public void MyInfoEscape()
     {
-        if(isMyInfoOpen && _optionButton.interactable == false) OffMainPanel();
-        else if(!isMyInfoOpen || (isMyInfoOpen && _optionButton.interactable == true))  ToggleOption();
+        if(isMyInfoOpen) OffMainPanel();
+        else if(!isMyInfoOpen)  ToggleOption();
     }
 
     // 버튼에 마우스 올려둘시 텍스트 출력

@@ -59,16 +59,21 @@ public class PlayerInputManager : MonoBehaviour
 
     public void InputMyInfomation()
     {
-        if (InputManager.Instance.GetToggleInventoryPressed())
-            MyInfomation.Instance.ToggleInventory();
-        else if(InputManager.Instance.GetToggleGuideBookPressed())
-            MyInfomation.Instance.ToggleGuideBook();
-        else if(InputManager.Instance.GetToggleHospitalInfoPressed())
-            MyInfomation.Instance.ToggleHospitalInfo();
-        else if(InputManager.Instance.GetToggleOptionPressed())
-            MyInfomation.Instance.ToggleOption();
-        else if(InputManager.Instance.GetEscapePressed())
-            MyInfomation.Instance.MyInfoEscape();
-
+        if(!MyInfomation.Instance.isMyInfoOpen)
+        {
+            if (InputManager.Instance.GetToggleInventoryPressed())
+                MyInfomation.Instance.ToggleInventory();
+            else if(InputManager.Instance.GetToggleGuideBookPressed())
+                MyInfomation.Instance.ToggleGuideBook();
+            else if(InputManager.Instance.GetToggleHospitalInfoPressed())
+                MyInfomation.Instance.ToggleHospitalInfo();
+            else if(InputManager.Instance.GetToggleOptionPressed())
+                MyInfomation.Instance.ToggleOption();
+            else if(InputManager.Instance.GetEscapePressed())
+                MyInfomation.Instance.MyInfoEscape();
+        }
+        else
+            if (InputManager.Instance.GetToggleInventoryPressed() || InputManager.Instance.GetEscapePressed())
+                MyInfomation.Instance.OffMainPanel();
     }
 }
