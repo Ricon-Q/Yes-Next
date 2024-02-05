@@ -44,14 +44,7 @@ public class PlayerInputManager : MonoBehaviour
 
         else
         {
-            if (InputManager.Instance.GetToggleInventoryPressed())
-            {
-                Debug.Log("ToogleInv");
-                
-                // if(ShopManager.Instance.isShopMode) return;
-                
-                PlayerInventoryManager.Instance.ToggleInventory();
-            }
+            InputMyInfomation();
         }
     }
 
@@ -62,5 +55,20 @@ public class PlayerInputManager : MonoBehaviour
     public bool GetInputMode()
     {
         return inputMode;
+    }
+
+    public void InputMyInfomation()
+    {
+        if (InputManager.Instance.GetToggleInventoryPressed())
+            MyInfomation.Instance.ToggleInventory();
+        else if(InputManager.Instance.GetToggleGuideBookPressed())
+            MyInfomation.Instance.ToggleGuideBook();
+        else if(InputManager.Instance.GetToggleHospitalInfoPressed())
+            MyInfomation.Instance.ToggleHospitalInfo();
+        else if(InputManager.Instance.GetToggleOptionPressed())
+            MyInfomation.Instance.ToggleOption();
+        else if(InputManager.Instance.GetEscapePressed())
+            MyInfomation.Instance.MyInfoEscape();
+
     }
 }

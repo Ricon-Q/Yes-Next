@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInventoryDisplay : _DynamicInventoryDisplay
@@ -26,5 +27,24 @@ public class PlayerInventoryDisplay : _DynamicInventoryDisplay
         AssignSlot(invToDisplay);
 
         UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+    }
+
+    public void SlotRightClicked(_InventorySlot assignedSlot)
+    {
+        _itemDescription.UpdateDescription(assignedSlot);
+    }
+
+    [Header("Item Description")]
+    [SerializeField] private ItemDescription _itemDescription;
+    [Header("Money Panel")]
+    [SerializeField] private TextMeshProUGUI _moneyText;
+
+    public void UpdateMoneyText()
+    {
+        _moneyText.text = _PlayerManager.Instance.playerData.money.ToString("n0");
+    }
+    private void Update() 
+    {
+        UpdateMoneyText();
     }
 }

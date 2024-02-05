@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class _InventorySlot_UI : MonoBehaviour
+public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image itemSprite;
     [SerializeField] private TextMeshProUGUI itemCount;
@@ -137,10 +137,13 @@ public class _InventorySlot_UI : MonoBehaviour
     {
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if(PlayerInventoryManager.Instance.isInventoryOpen) 
-            { 
-                // PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, true); 
-            }
+            // if(PlayerInventoryManager.Instance.isInventoryOpen) 
+            // { 
+            //     // PlayerInventoryManager.Instance.invToDisplay.ToggleInfo(AssignedInventorySlot, true); 
+            //     PlayerInventoryManager.Instance.playerInvToDisplay.SlotRightClicked(AssignedInventorySlot);
+            // }
+            PlayerInventoryManager.Instance.playerInvToDisplay.SlotRightClicked(AssignedInventorySlot);
+            
         }
     }
 }

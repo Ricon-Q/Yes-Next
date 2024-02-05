@@ -5,7 +5,10 @@ using UnityEngine.InputSystem;
 
 public abstract class _InventoryDisplay : MonoBehaviour
 {
+    [Header("Mouse Item Data")]
     [SerializeField] protected _MouseItemData mouseInventoryItem;
+
+    [Header("Inventory System")]
     [SerializeField] public _InventorySystem inventorySystem;
     [SerializeField] protected Dictionary<_InventorySlot_UI, _InventorySlot> slotDictionary;
     // public _InventorySystem InventorySystem => inventorySystem;
@@ -118,6 +121,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
                 SwapSlots(clickedUISlot);
             }
         }
+
         onSlotClicked?.Invoke();
     }
 

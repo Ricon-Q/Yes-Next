@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerInventoryManager : MonoBehaviour
 {
@@ -57,6 +58,12 @@ public class PlayerInventoryManager : MonoBehaviour
     [Header("ItemDataBase")]
     public ItemDatabaseObject itemDataBase;
 
+    [Header("Category Button")]
+    [SerializeField] private Button _mainInventoryButton;
+    [SerializeField] private Button _herbInventoryButton;
+    [SerializeField] private Button _potionInventoryButton;
+
+
     private void Start() 
     {
         // playerInventory = new _InventorySystem(playerInventoryLevel * 12);
@@ -102,13 +109,13 @@ public class PlayerInventoryManager : MonoBehaviour
     
     }
     
+    // 불필요 함수
     public void ToggleInventory()
     {
         isInventoryOpen = !isInventoryOpen;
         InventoryCanvas.SetActive(isInventoryOpen);
 
-        playerInvToDisplay.isInfoOpen = false;
-        playerInvToDisplay.infoPanel.SetActive(false);
+        // playerInvToDisplay.isInfoOpen = false;
 
         playerInventoryObject.SetActive(isInventoryOpen);
         UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
@@ -116,23 +123,33 @@ public class PlayerInventoryManager : MonoBehaviour
     }
     public void ChangeInventory(int index)
     {
+        EnableAllButton();
         switch(index)
         {
              case 0:
                 playerInvToDisplay.inventorySystem = playerInventory;
                 playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                _mainInventoryButton.interactable = false;
                 break;
             case 1:
                 playerInvToDisplay.inventorySystem = herbInventory;
                 playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                _herbInventoryButton.interactable = false;
                 break;
             case 2:
                 playerInvToDisplay.inventorySystem = potionInventory;
                 playerInvToDisplay.RefreshDynamicInventory(playerInvToDisplay.inventorySystem);
+                _potionInventoryButton.interactable = false;
                 break;
             default:
                 break;
         }
+    }
+    private void EnableAllButton()
+    {
+        _mainInventoryButton.interactable = true;
+        _herbInventoryButton.interactable = true;
+        _potionInventoryButton.interactable = true;
     }
 
     public void AddToInventory(int itemIdToAdd, int amountToAdd)

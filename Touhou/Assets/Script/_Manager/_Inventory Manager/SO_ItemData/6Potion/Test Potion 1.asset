@@ -15,7 +15,8 @@ MonoBehaviour:
   ID: 1
   ItemType: 5
   DisplayName: Test Potion 1
-  Description: 
+  Description: "\uD14C\uC2A4\uD2B8\uC6A9 \uD3EC"
+  tag: 
   Icon: {fileID: 21300000, guid: ba2354ff11643db42af012733f8b531d, type: 3}
   _previewSprite: {fileID: 21300000, guid: ba2354ff11643db42af012733f8b531d, type: 3}
   MaxStackSize: 50

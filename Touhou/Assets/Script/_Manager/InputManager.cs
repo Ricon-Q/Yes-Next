@@ -15,7 +15,16 @@ public class InputManager : MonoBehaviour
     private bool jumpPressed = false;
     private bool interactPressed = false;
     private bool submitPressed = false;
+
+    // My Infomation
     private bool toggleInventoryPressed = false;
+    private bool toggleGuideBookPressed = false;
+
+    private bool toggleHospitalInfoPressed = false;
+    private bool toggleOptionPressed = false;
+    private bool _escapePressed = false;
+
+    // Hotbar
     private bool _hotBarInteractPressed = false;
     private Vector2 _mouseScroll = Vector2.zero;
     // private bool onLeftClick = false;
@@ -102,6 +111,21 @@ public class InputManager : MonoBehaviour
         } 
     }
 
+    public void EscapePressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _escapePressed = true;
+        }
+        else if (context.canceled)
+        {
+            _escapePressed = false;
+        } 
+    }
+
+
+    // ========================= My Infomation ========================= //
+
     public void ToggleInventoryPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -111,6 +135,39 @@ public class InputManager : MonoBehaviour
         else if (context.canceled)
         {
             toggleInventoryPressed = false;
+        } 
+    }
+    public void ToggleGuideBookPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            toggleGuideBookPressed = true;
+        }
+        else if (context.canceled)
+        {
+            toggleGuideBookPressed = false;
+        } 
+    }
+    public void ToggleHospitalInfoPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            toggleHospitalInfoPressed = true;
+        }
+        else if (context.canceled)
+        {
+            toggleHospitalInfoPressed = false;
+        } 
+    }
+    public void ToggleOptionPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            toggleOptionPressed = true;
+        }
+        else if (context.canceled)
+        {
+            toggleOptionPressed = false;
         } 
     }
 
@@ -171,12 +228,40 @@ public class InputManager : MonoBehaviour
         return result;
     }
 
+    public bool GetEscapePressed()
+    {
+        bool result = _escapePressed;
+        _escapePressed = false;
+        return result;
+    }
+
+    // ================== My Infomation  =================//
     public bool GetToggleInventoryPressed()
     {
         bool result = toggleInventoryPressed;
         toggleInventoryPressed = false;
         return result;
     }
+    public bool GetToggleGuideBookPressed()
+    {
+        bool result = toggleGuideBookPressed;
+        toggleGuideBookPressed = false;
+        return result;
+    }
+    public bool GetToggleHospitalInfoPressed()
+    {
+        bool result = toggleHospitalInfoPressed;
+        toggleHospitalInfoPressed = false;
+        return result;
+    }
+    public bool GetToggleOptionPressed()
+    {
+        bool result = toggleOptionPressed;
+        toggleOptionPressed = false;
+        return result;
+    }
+
+    // =================================================== //
 
     public bool GetSubmitPressed() 
     {
