@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,9 @@ public class HotBarSelected : MonoBehaviour
     [SerializeField] private int _hotBarSelected = 0;
     [SerializeField] private RectTransform _image;
     [SerializeField] private UiMouseObject _uiMouseObject;
+
+    [Header("Slot X Position")]
+    [SerializeField] private List<float> _slotXPositions;
 
     private void Start() 
     {
@@ -45,7 +49,7 @@ public class HotBarSelected : MonoBehaviour
     public void MoveImage()
     {
         // 마우스 스크롤로 인해 핫바가 이동하면 그에 맞춰서 선택 이미지 이동
-        _image.anchoredPosition  = new Vector3(SelectedIndex * 100, 0, 0); 
+        _image.anchoredPosition  = new Vector3(_slotXPositions[_hotBarSelected], -6, 0); 
         ChagnePreview();
     }
 
