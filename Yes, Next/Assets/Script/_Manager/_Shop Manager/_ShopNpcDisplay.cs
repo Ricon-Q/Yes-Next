@@ -51,11 +51,14 @@ public class _ShopNpcDisplay : _DynamicInventoryDisplay
     {
         if(clickedUISlot.AssignedInventorySlot.itemId != -1) 
         { 
-            buyDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1);
-            buyDisplay.RefreshDynamicInventory(buyDisplay.inventorySystem);
-            
-            totalBuyPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].BuyPrice;
-            UpdatePriceText();
+            if(buyDisplay.inventorySystem.HasFreeSlot(out _InventorySlot freeSlot))
+            {
+                buyDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1);
+                buyDisplay.RefreshDynamicInventory(buyDisplay.inventorySystem);
+                
+                totalBuyPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].BuyPrice;
+                UpdatePriceText();
+            }
         }
     }
     public void UpdatePriceText()
@@ -68,9 +71,9 @@ public class _ShopNpcDisplay : _DynamicInventoryDisplay
         totalBuyPrice = 0;
         UpdatePriceText();
     }
-    public void ConfirmDeal()
+    public void ConfirmDeal(long remindPrice)
     {
-        totalBuyPrice = 0;
+        totalBuyPrice = remindPrice;
         UpdatePriceText();
     }
 }

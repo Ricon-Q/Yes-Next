@@ -146,4 +146,13 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
             
         }
     }
+    
+    public void UpdateItemPanel()
+    {
+        _ShopManager.Instance.UpdateItemPanel(assignedInventorySlot.itemId);
+    }
+    public void DisableItemPanel()
+    {
+        _ShopManager.Instance.UpdateItemPanel(-1);
+    }
 }

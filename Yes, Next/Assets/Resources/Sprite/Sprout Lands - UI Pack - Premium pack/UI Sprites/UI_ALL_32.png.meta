@@ -739,6 +739,153 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_22
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 308
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145a748227943cc40a715c2777b1e037
+      internalID: -1078984320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_23
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 308
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3ec45eda63a7745a67c8ee1a0d7933
+      internalID: -22126076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_24
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 276
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b9b370b724f3d243bed2ca547f95abc
+      internalID: -1670918092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_25
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 276
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ed3f5b5439697409b164c5666fbbcb
+      internalID: -1331369235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_26
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 308
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a750d585bf7c99459a51e84ff9eb2fa
+      internalID: -817360670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_27
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 308
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19a6123e0f72d843b671a80b6f4048d
+      internalID: -2072552844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_32_28
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 811
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 4, y: 4, z: 4, w: 4}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0e60d7cfcc01845ab5354701c82d42
+      internalID: 1555983595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -766,6 +913,13 @@ TextureImporter:
       UI_ALL_32_2: -1529499781
       UI_ALL_32_20: -810990998
       UI_ALL_32_21: -846956228
+      UI_ALL_32_22: -1078984320
+      UI_ALL_32_23: -22126076
+      UI_ALL_32_24: -1670918092
+      UI_ALL_32_25: -1331369235
+      UI_ALL_32_26: -817360670
+      UI_ALL_32_27: -2072552844
+      UI_ALL_32_28: 1555983595
       UI_ALL_32_3: 1139169615
       UI_ALL_32_4: 1619209777
       UI_ALL_32_5: -214858232

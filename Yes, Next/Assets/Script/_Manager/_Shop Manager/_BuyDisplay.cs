@@ -9,7 +9,7 @@ public class _BuyDisplay : _DynamicInventoryDisplay
 
     protected override void Start()
     {
-        inventorySystem = new _InventorySystem(10);
+        inventorySystem = new _InventorySystem(8);
         CreateInventorySlot();
         
         RefreshDynamicInventory(this.inventorySystem);
@@ -46,8 +46,9 @@ public class _BuyDisplay : _DynamicInventoryDisplay
         // inventorySystem.Clear();
     }
 
-    public void ConfirmDeal()
+    public long ConfirmDeal(out long price)
     {
+        price = 0;
         foreach (var itemSlot in inventorySystem.inventorySlots)
         {   
             if(itemSlot.itemId != -1)
@@ -55,21 +56,50 @@ public class _BuyDisplay : _DynamicInventoryDisplay
                 switch(PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].ItemType)
                 {
                     case ItemType.Herb:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        if(PlayerInventoryManager.Instance.herbInventory.HasFreeSlot(out _InventorySlot freeSlot0))
+                        {
+                            PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize); 
+                            price += PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].BuyPrice * itemSlot.stackSize;
+                            itemSlot.ClearSlot();
+                        }
+                        else
+                            Debug.Log("No Free Slot");
                         break;
                     case ItemType.Seed:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        if(PlayerInventoryManager.Instance.herbInventory.HasFreeSlot(out _InventorySlot freeSlot01))
+                        {
+                            PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                            price += PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].BuyPrice * itemSlot.stackSize;
+                            itemSlot.ClearSlot();
+                        }
+                        else
+                            Debug.Log("No Free Slot");
                         break;
                     case ItemType.Potion:
-                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                        if(PlayerInventoryManager.Instance.potionInventory.HasFreeSlot(out _InventorySlot freeSlot02))
+                        {
+                            PlayerInventoryManager.Instance.potionInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                            price += PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].BuyPrice * itemSlot.stackSize;
+                            itemSlot.ClearSlot();
+                        }
+                        else
+                            Debug.Log("No Free Slot");
                         break;
                     default:
-                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);            
+                        if(PlayerInventoryManager.Instance.playerInventory.HasFreeSlot(out _InventorySlot freeSlot03))
+                        {
+                            PlayerInventoryManager.Instance.playerInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
+                            price += PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].BuyPrice * itemSlot.stackSize;
+                            itemSlot.ClearSlot();
+                        }        
+                        else
+                            Debug.Log("No Free Slot");
                         break;
                 }
             }
         }
         // playerInventory.SaveInventory();
-        Reset();
+        RefreshDynamicInventory(this.inventorySystem);
+        return price;
     }
 }

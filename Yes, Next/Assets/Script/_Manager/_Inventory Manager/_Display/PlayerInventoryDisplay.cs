@@ -47,4 +47,9 @@ public class PlayerInventoryDisplay : _DynamicInventoryDisplay
     {
         UpdateMoneyText();
     }
+
+    private void OnEnable()
+    {
+        
+    }
 }

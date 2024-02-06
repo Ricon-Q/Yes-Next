@@ -9,7 +9,7 @@ public class _SellDisplay : _DynamicInventoryDisplay
 
     protected override void Start()
     {
-        inventorySystem = new _InventorySystem(10);
+        inventorySystem = new _InventorySystem(8);
         CreateInventorySlot();
         RefreshDynamicInventory(this.inventorySystem);
         // inventorySystem = new _InventorySystem(10);

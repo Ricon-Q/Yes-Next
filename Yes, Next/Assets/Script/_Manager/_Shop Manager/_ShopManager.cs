@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class _ShopManager : MonoBehaviour
 {
@@ -55,6 +56,11 @@ public class _ShopManager : MonoBehaviour
     // [SerializeField] private GameObject affection5Panel;
     // [SerializeField] private GameObject affection10Panel;
 
+    [Header("Shop Mode - Item Panel")]
+    [SerializeField] private Image _itemImage;
+    [SerializeField] private TextMeshProUGUI _itemName;
+    [SerializeField] private TextMeshProUGUI _itemDes;
+
     private void Start()
     {
         confirmPanel.SetActive(false);
@@ -70,6 +76,7 @@ public class _ShopManager : MonoBehaviour
 
     public void EnterShopMode(npcInventoryHolder npcInventoryHolder)
     {
+        UiManager.Instance.ToggleUiCanvas(false);
         shopPanel.SetActive(true);
         this.npcInventoryHolder = npcInventoryHolder;
         isShopMode = true;
@@ -80,6 +87,8 @@ public class _ShopManager : MonoBehaviour
 
     public void ExitShopMode()
     {
+        
+        UiManager.Instance.ToggleUiCanvas(true);
         shopPlayerDisplay.ExitShopMode();
         buyDisplay.ExitShopMode();
         sellDisplay.ExitShopMode();
@@ -110,14 +119,15 @@ public class _ShopManager : MonoBehaviour
 
     public void ConfirmDeal()
     {
-        finalPrice = totalPrice + _PlayerManager.Instance.playerData.money;
+        // finalPrice = totalPrice + _PlayerManager.Instance.playerData.money;
+        long price;
         if(finalPrice >= 0)
         {
-            _PlayerManager.Instance.playerData.money = finalPrice;
+            buyDisplay.ConfirmDeal(out price);
+            _PlayerManager.Instance.playerData.money += shopPlayerDisplay.totalSellPrice - price;
             
-            shopNpcDisplay.ConfirmDeal();
+            shopNpcDisplay.ConfirmDeal(shopNpcDisplay.totalBuyPrice-price);
             sellDisplay.ConfirmDeal();
-            buyDisplay.ConfirmDeal();
             shopPlayerDisplay.ConfirmDeal();
 
             Debug.Log("Success Deal");
@@ -147,6 +157,24 @@ public class _ShopManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void UpdateItemPanel(int itemId)
+    {
+        if(itemId == -1)
+        {
+            _itemImage.color = Color.clear;
+            _itemName.text = "";
+            _itemDes.text = "";
+        }
+        else
+        {
+            InventoryItemData tmp = PlayerInventoryManager.Instance.itemDataBase.Items[itemId];
+            _itemImage.sprite = tmp.Icon;
+            _itemImage.color = Color.white;
+            _itemName.text = tmp.DisplayName;
+            _itemDes.text = tmp.Description;
         }
     }
 }
