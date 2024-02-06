@@ -10,13 +10,6 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
 {
     [Header("Slot Prefab")]
     [SerializeField] protected _InventorySlot_UI slotPrefab;
-    // public ItemType itemType;
-
-    // public GameObject infoPanel;
-    // [SerializeField] private _InventorySlot infoSlot;
-    // public bool isInfoOpen;
-    // [SerializeField] private TextMeshProUGUI nameText;
-    // [SerializeField] private TextMeshProUGUI descriptionText;
     protected override void Start()
     {
         base.Start();
@@ -25,7 +18,6 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
     protected override void Awake()
     {
         CreateInventorySlot();
-        // if(infoPanel) infoPanel.SetActive(false);
     }
 
     public virtual void RefreshDynamicInventory(_InventorySystem invToDisplay)
@@ -83,52 +75,4 @@ public class _DynamicInventoryDisplay : _InventoryDisplay
     {
         RefreshDynamicInventory(this.inventorySystem);
     }
-
-    // public void InfoRemoveItem(int value)
-    // {
-    //     if(value == 99) infoSlot.RemoveFromStack(infoSlot.stackSize);
-    //     else infoSlot.RemoveFromStack(value);
-
-    //     RefreshDynamicInventory(this.inventorySystem);
-    //     // infoPanel.SetActive(false);
-    //     // isInfoOpen = false;
-    // }
-
-    // public void ToggleInfo(_InventorySlot AssignedInventorySlot, bool rightClick)
-    // {
-    //     if(rightClick)
-    //     {
-    //         if(!infoPanel) return;
-    //         else if(infoPanel && AssignedInventorySlot.itemId != -1 && !isInfoOpen)
-    //         {
-    //             infoPanel.SetActive(true);
-    //             // isInfoOpen = true;
-    //             infoSlot = AssignedInventorySlot;
-    //             infoPanel.transform.position = Mouse.current.position.ReadValue();
-    //             // nameText.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].name;
-    //             // descriptionText.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].Description;
-    //         }
-    //         else if(infoPanel && AssignedInventorySlot.itemId != -1 && isInfoOpen)
-    //         {
-    //             infoSlot = AssignedInventorySlot;
-    //             infoPanel.transform.position = Mouse.current.position.ReadValue();
-    //             // nameText.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].name;
-    //             // descriptionText.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].Description;
-    //         }
-    //         // else if(infoPanel && isInfoOpen) 
-    //         // {
-    //         //     infoPanel.SetActive(false);
-    //         //     isInfoOpen = false;
-    //         // }
-    //     }
-    //     else
-    //     {
-    //     //    if(infoPanel && isInfoOpen) 
-    //     //    {
-    //     //         infoPanel.SetActive(false);
-    //     //         isInfoOpen = false;
-    //     //    }
-    //     }
-    // }
-    
 }
