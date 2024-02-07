@@ -88,13 +88,14 @@ public class _CraftManager : MonoBehaviour
 
     public void EnterToolMode(int toolIndex)
     {
-        craftToolCanvas.SetActive(true);
         switch(toolIndex)
         {
             case 0:
+                craftToolCanvas.SetActive(true);
                 mortarAndPestle.EnterCraftMode();
                 break;
             case 1:
+                craftToolCanvas.SetActive(true);
                 potionPot.EnterCraftMode();
                 break;
             case 2:
@@ -104,6 +105,7 @@ public class _CraftManager : MonoBehaviour
                 herbPocket.EnterCraftMode();
                 break;
             case 4:
+                craftToolCanvas.SetActive(true);
                 potionSynthesizer.EnterCraftMode();
                 break;
             case 5:
@@ -116,13 +118,14 @@ public class _CraftManager : MonoBehaviour
 
     public void ExitToolMode(int toolIndex)
     {
-        craftToolCanvas.SetActive(false);
         switch(toolIndex)
         {
             case 0:
+                craftToolCanvas.SetActive(false);
                 mortarAndPestle.ExitToolMode();
                 break;
             case 1:
+                craftToolCanvas.SetActive(false);
                 potionPot.ExitToolMode();
                 break;
             case 2:
@@ -132,6 +135,7 @@ public class _CraftManager : MonoBehaviour
                 herbPocket.ExitToolMode();
                 break;
             case 4:
+                craftToolCanvas.SetActive(false);
                 potionSynthesizer.ExitToolMode();
                 break;
             case 5:
