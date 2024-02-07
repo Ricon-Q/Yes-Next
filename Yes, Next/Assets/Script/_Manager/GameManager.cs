@@ -195,8 +195,23 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    [Header("Back To Title Object")]
+    // GameManager
+    [SerializeField] private GameObject _gameManager;
+    // Player
+    [SerializeField] private GameObject _player;
+    // DataManager
+    // FadeInOutManager
+    // DialogueManager
+    [SerializeField] private GameObject _dialogueManager;
+
     public void BackToTitle()
     {
-        
+        // Dont Destroy 오브젝트들 전부 삭제
+        // MainMenu씬으로 이동
+        Destroy(_player);
+        Destroy(_dialogueManager);
+        SceneManager.LoadScene("Main Menu");
+        Destroy(_gameManager);
     }
 }

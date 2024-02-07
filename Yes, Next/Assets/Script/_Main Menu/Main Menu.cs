@@ -67,4 +67,9 @@ public class MainMenu : MonoBehaviour
     {
         saveIndex = -1;
     }
+
+    public void StartGame(int slotIndex)
+    {
+        DataManager.Instance.StartGame(slotIndex);
+    }
 }

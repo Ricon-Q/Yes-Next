@@ -166,7 +166,7 @@ public class _ShopManager : MonoBehaviour
         {
             _itemImage.color = Color.clear;
             _itemName.text = "";
-            _itemDes.text = "";
+            _itemDes.text = "아이템에 마우스를 올려 정보 확인";
         }
         else
         {
