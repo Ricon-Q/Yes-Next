@@ -51,9 +51,8 @@ public class _ShopNpcDisplay : _DynamicInventoryDisplay
     {
         if(clickedUISlot.AssignedInventorySlot.itemId != -1) 
         { 
-            if(buyDisplay.inventorySystem.HasFreeSlot(out _InventorySlot freeSlot))
+            if(buyDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1))
             {
-                buyDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1);
                 buyDisplay.RefreshDynamicInventory(buyDisplay.inventorySystem);
                 
                 totalBuyPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].BuyPrice;

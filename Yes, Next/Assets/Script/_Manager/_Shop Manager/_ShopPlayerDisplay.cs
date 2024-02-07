@@ -49,13 +49,18 @@ public class _ShopPlayerDisplay : _DynamicInventoryDisplay
         // Slot이 빈칸이 아니고, Slot의 아이템이 Shopable일 경우 실행
         if(clickedUISlot.AssignedInventorySlot.itemId != -1 && PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].Shopable)
         {
-            totalSellPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].SellPrice;
-            UpdatePriceText();
+            // totalSellPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].SellPrice;
+            // UpdatePriceText();
 
-            sellDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1);
-            clickedUISlot.AssignedInventorySlot.RemoveFromStack(1);
-            this.RefreshDynamicInventory(this.inventorySystem);
-            sellDisplay.RefreshDynamicInventory(sellDisplay.inventorySystem);
+            if(sellDisplay.inventorySystem.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, 1))
+            {
+                totalSellPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].SellPrice;
+                UpdatePriceText();
+
+                clickedUISlot.AssignedInventorySlot.RemoveFromStack(1);
+                this.RefreshDynamicInventory(this.inventorySystem);
+                sellDisplay.RefreshDynamicInventory(sellDisplay.inventorySystem);
+            }
         }   
     }
 
