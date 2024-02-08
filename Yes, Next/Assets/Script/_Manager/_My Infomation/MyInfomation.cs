@@ -49,6 +49,9 @@ public class MyInfomation : MonoBehaviour
     [SerializeField] private Button _optionButton;
     public bool isMyInfoOpen;
 
+    [Header("Quest")]
+    [SerializeField] private MyInfomationQuestList _myInfomationQuestList;
+    [SerializeField] private MyInfoQuestDescription _myInfoQuestDescription;
 
     private void Start() 
     {
@@ -149,6 +152,8 @@ public class MyInfomation : MonoBehaviour
         isMyInfoOpen = true;
         
         UiManager.Instance.ToggleUiCanvas(false);
+        _myInfomationQuestList.EnterMyInfoQuest();
+        _myInfoQuestDescription.DeallocateQuestData();
     }
 
     public void MyInfoEscape()

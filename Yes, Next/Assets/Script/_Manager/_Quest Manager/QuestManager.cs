@@ -133,6 +133,11 @@ public class QuestManager : MonoBehaviour
         RemoveQuest(_questIndex);
     }
 
+    public void GiveUpQuest(QuestData questData)
+    {
+        _playerQuestDictionary.Remove(questData._questId);
+    }
+
     public List<int> GetRandomQuests(int count)
     {
         List<int> randomQuests = new List<int>();
