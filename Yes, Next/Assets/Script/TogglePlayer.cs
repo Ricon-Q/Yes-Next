@@ -8,6 +8,6 @@ public class TogglePlayer : MonoBehaviour
     void Start()
     {
         _PlayerManager.Instance.TogglePlayer(true);
-        PlayerInputManager.Instance.SetInputMode(true);
+        PlayerInputManager.SetInputMode(true);
     }
 }

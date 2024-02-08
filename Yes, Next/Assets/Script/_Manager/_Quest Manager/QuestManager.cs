@@ -59,6 +59,8 @@ public class QuestManager : MonoBehaviour
     public void EnterGuildQuestList()
     {
         _guildQuestDisplay.EnterGuildQuestList();
+        MyInfomation.Instance.ExitMyInfomation();
+        PlayerInputManager.SetPlayerInput(false);
     }
 
     public void AddQuestToList(int _questIndex)
@@ -181,6 +183,9 @@ public class QuestManager : MonoBehaviour
 
     public void EnterQuestMenu()
     {
+        MyInfomation.Instance.ExitMyInfomation();
+        PlayerInputManager.SetPlayerInput(false);
+
         _questMenuObject.SetActive(true);
         _inventoryDisplay.EnterQuestMenu();
         _questMenuQuestList.EnterQuestMenu();
@@ -191,6 +196,8 @@ public class QuestManager : MonoBehaviour
     {
         _inventoryDisplay.ExitQuestMenu();
         _questMenuObject.SetActive(false);
+
+        PlayerInputManager.SetPlayerInput(true);
     }
 
     public void ChangeInventory(int index)

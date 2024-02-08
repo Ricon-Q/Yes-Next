@@ -61,6 +61,12 @@ public class _ShopManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _itemName;
     [SerializeField] private TextMeshProUGUI _itemDes;
 
+    [Header("Inventory Button")]
+    [SerializeField] private Button _mainInventoryButton;
+    [SerializeField] private Button _herbInventoryButton;
+    [SerializeField] private Button _potionInventoryButton;
+
+
     private void Start()
     {
         confirmPanel.SetActive(false);
@@ -76,7 +82,9 @@ public class _ShopManager : MonoBehaviour
 
     public void EnterShopMode(npcInventoryHolder npcInventoryHolder)
     {
-        UiManager.Instance.ToggleUiCanvas(false);
+        MyInfomation.Instance.ExitMyInfomation();
+        PlayerInputManager.SetPlayerInput(false);
+        
         shopPanel.SetActive(true);
         this.npcInventoryHolder = npcInventoryHolder;
         isShopMode = true;
@@ -87,8 +95,8 @@ public class _ShopManager : MonoBehaviour
 
     public void ExitShopMode()
     {
-        
-        UiManager.Instance.ToggleUiCanvas(true);
+        PlayerInputManager.SetPlayerInput(true);
+
         shopPlayerDisplay.ExitShopMode();
         buyDisplay.ExitShopMode();
         sellDisplay.ExitShopMode();
@@ -141,23 +149,34 @@ public class _ShopManager : MonoBehaviour
 
     public void ChangeInventory(int index)
     {
+        EnableAllButton();
         switch (index)
         {
             case 0:
                 shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.playerInventory;
                 shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                _mainInventoryButton.interactable = false;
                 break;
             case 1:
                 shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.herbInventory;
                 shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                _herbInventoryButton.interactable = false;
                 break;
             case 2:
                 shopPlayerDisplay.inventorySystem = PlayerInventoryManager.Instance.potionInventory;
                 shopPlayerDisplay.RefreshDynamicInventory(shopPlayerDisplay.inventorySystem);
+                _potionInventoryButton.interactable = false;
                 break;
             default:
                 break;
         }
+    }
+
+    private void EnableAllButton()
+    {
+        _mainInventoryButton.interactable = true;
+        _herbInventoryButton.interactable = true;
+        _potionInventoryButton.interactable = true;
     }
 
     public void UpdateItemPanel(int itemId)

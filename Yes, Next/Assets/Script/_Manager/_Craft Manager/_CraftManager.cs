@@ -43,6 +43,9 @@ public class _CraftManager : MonoBehaviour
 
     public void EnterCraftMode()
     {
+        MyInfomation.Instance.ExitMyInfomation();
+        PlayerInputManager.SetPlayerInput(false);
+
         craftModeCanvas.SetActive(true);
     }
 
@@ -52,9 +55,7 @@ public class _CraftManager : MonoBehaviour
         craftToolCanvas.SetActive(false);
 
         for (int i = 0; i < 6; i++)
-        {
             ExitToolMode(i);
-        }
 
         object_MortarAndPestle.SetActive(false);
         object_PotionPot.SetActive(false);
@@ -64,6 +65,8 @@ public class _CraftManager : MonoBehaviour
         object_PotionRecipebook.SetActive(false);
 
         warningPanel.SetActive(false);
+        
+        PlayerInputManager.SetPlayerInput(true);
     }
 
     [Header("Potion Making Tool Panel")]

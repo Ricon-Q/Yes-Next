@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementDirection;
     private Vector2 lastMovementDirection;
 
+    static private bool _canMove;
+
     void Update()
     {
         // Input
@@ -20,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
         Animate();
     }
 
-    
     private void FixedUpdate() 
     {
         // Movement
+        if(_canMove == false) return; 
         HandleMove();
     }
 
@@ -60,4 +62,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("LastMoveVertical", lastMovementDirection.y);
     }
 
+    static public void SetMoveMode(bool value)
+    {
+        _canMove = value;
+    }
 }

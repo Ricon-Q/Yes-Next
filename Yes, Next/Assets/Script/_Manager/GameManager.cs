@@ -108,7 +108,8 @@ public class GameManager : MonoBehaviour
             // InventoryManager.Instance.UpdateCharacterInfo();
 
             // 플레이어 Input모드 변경
-            PlayerInputManager.Instance.SetInputMode(true);
+            // PlayerInputManager.Instance.SetInputMode(true);
+            PlayerInputManager.SetPlayerInput(true);
             
             // 인벤토리 불러오기 및 핫바 새로고침
             DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);

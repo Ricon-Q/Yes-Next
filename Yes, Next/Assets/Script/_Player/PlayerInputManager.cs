@@ -31,7 +31,7 @@ public class PlayerInputManager : MonoBehaviour
         }
     }
     
-    private bool inputMode = false;
+    static private bool inputMode = false;
     private void Update()
     {
         Input();
@@ -41,20 +41,27 @@ public class PlayerInputManager : MonoBehaviour
     {
         if(inputMode == false) return;
 
-
         else
         {
             InputMyInfomation();
         }
     }
 
-    public void SetInputMode(bool active)
+    static public void SetInputMode(bool active)
     {
         inputMode = active;
     }
     public bool GetInputMode()
     {
         return inputMode;
+    }
+
+    static public void SetPlayerInput(bool value)
+    {
+        // UI Canvas, 플레이어 이동, 플레이어 입력 제어
+        UiManager.Instance.ToggleUiCanvas(value);
+        inputMode = value;
+        PlayerMovement.SetMoveMode(value);
     }
 
     public void InputMyInfomation()
@@ -76,6 +83,6 @@ public class PlayerInputManager : MonoBehaviour
         }
         else
             if (InputManager.Instance.GetToggleInventoryPressed() || InputManager.Instance.GetEscapePressed())
-                MyInfomation.Instance.OffMainPanel();
+                MyInfomation.Instance.ExitMyInfomation();
     }
 }

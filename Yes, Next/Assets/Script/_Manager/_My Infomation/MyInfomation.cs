@@ -55,16 +55,17 @@ public class MyInfomation : MonoBehaviour
 
     private void Start() 
     {
-        OffMainPanel();
+        ExitMyInfomation();
     }
 
-    public void OffMainPanel()
+    public void ExitMyInfomation()
     {
         UiManager.Instance.ToggleUiCanvas(true);
         OffAllPanel();
         _mainPanel.SetActive(false);
         isMyInfoOpen = false;
     }
+
     public void OffAllPanel()
     {
         _inventoryPanel.SetActive(false);
@@ -158,7 +159,7 @@ public class MyInfomation : MonoBehaviour
 
     public void MyInfoEscape()
     {
-        if(isMyInfoOpen) OffMainPanel();
+        if(isMyInfoOpen) ExitMyInfomation();
         else if(!isMyInfoOpen)  ToggleOption();
     }
 }

@@ -58,5 +58,6 @@ public class GuildQuestDisplay : MonoBehaviour
     public void ExitGuildQuestList()
     {
         this.gameObject.SetActive(false);
+        PlayerInputManager.SetPlayerInput(true);
     }
 }

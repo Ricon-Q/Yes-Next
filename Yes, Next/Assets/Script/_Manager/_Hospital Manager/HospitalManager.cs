@@ -52,6 +52,9 @@ public class HospitalManager : MonoBehaviour
         
         _infoUiDisplay.EnterHospitalMode();
         _dialoguePanel.EnterHospitalMode();
+
+        MyInfomation.Instance.ExitMyInfomation();
+        PlayerInputManager.SetPlayerInput(false);
     }
 
     public void ExitHospitalMode()
@@ -60,5 +63,7 @@ public class HospitalManager : MonoBehaviour
         _dialoguePanel.ExitHospitalMode();
 
         _hospitalCanvas.SetActive(false);
+        
+        PlayerInputManager.SetPlayerInput(true);
     }
 }

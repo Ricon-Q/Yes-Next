@@ -11,7 +11,11 @@ public class Interaction_Bed : InteractionDialogue
         else
         {
             // Debug.Log("Interaction");
-            PlayerInputManager.Instance.SetInputMode(false);
+            // PlayerInputManager.Instance.SetInputMode(false);
+            
+            MyInfomation.Instance.ExitMyInfomation();
+            PlayerInputManager.SetPlayerInput(false);
+            
             DialogueLua.SetVariable("CurrentTime_Hour", _TimeManager.Instance.timeData.hour);   
             dialogueSystemController.standardDialogueUI = nonNpcDialogueUi;
             dialogueSystemTrigger.OnUse();
@@ -49,6 +53,7 @@ public class Interaction_Bed : InteractionDialogue
             default:
                 break;
         }
-        PlayerInputManager.Instance.SetInputMode(true);
+        // PlayerInputManager.Instance.SetInputMode(true);
+        PlayerInputManager.SetPlayerInput(true);
     }
 }

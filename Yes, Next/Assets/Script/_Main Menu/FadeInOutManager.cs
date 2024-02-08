@@ -83,16 +83,17 @@ public class FadeInOutManager : MonoBehaviour
     {
         // Debug.Log("In");
         fadeInOutAnimation.DOPlayById("In");
+        // PlayerInputManager.Instance.SetInputMode(true);
         
-        PlayerInputManager.Instance.SetInputMode(true);
-
+        PlayerInputManager.SetPlayerInput(true);
         return;
     }
 
     public void FadeOut()
     {
         Debug.Log("Out");
-        PlayerInputManager.Instance.SetInputMode(false);
+        // PlayerInputManager.Instance.SetInputMode(false);
+        PlayerInputManager.SetPlayerInput(false);
         fadeInOutCanvas.SetActive(true);
         fadeInOutAnimation.DOPlayById("Out");
 
