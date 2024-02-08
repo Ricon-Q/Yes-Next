@@ -263,7 +263,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: "\uD734\uC2DD - \uBCA4\uCE58"
+  conversation: "Object/\uD734\uC2DD - \uBCA4\uCE58"
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1

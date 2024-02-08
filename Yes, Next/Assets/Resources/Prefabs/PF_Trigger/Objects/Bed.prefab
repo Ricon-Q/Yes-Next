@@ -116,7 +116,7 @@ Transform:
   - {fileID: 2531941508935180056}
   - {fileID: 225667621938371608}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7768975453477424492
 GameObject:
@@ -263,7 +263,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: "\uD734\uC2DD, \uC800\uC7A5"
+  conversation: "Object/\uD734\uC2DD, \uC800\uC7A5 - \uCE68\uB300"
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
