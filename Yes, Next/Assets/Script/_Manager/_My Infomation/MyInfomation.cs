@@ -37,21 +37,18 @@ public class MyInfomation : MonoBehaviour
     [SerializeField] private GameObject _mainPanel;
     [SerializeField] private GameObject _inventoryPanel;
     [SerializeField] private GameObject _guideBookPanel;
+    [SerializeField] private GameObject _questPanel;
     [SerializeField] private GameObject _hospitalInfoPanel;
     [SerializeField] private GameObject _optionPanel;
 
     [Header("Button Grid")]
     [SerializeField] private Button _inventoryButton;
     [SerializeField] private Button _guideBookButton;
+    [SerializeField] private Button _questButton;
     [SerializeField] private Button _hospitalInfoButton;
     [SerializeField] private Button _optionButton;
     public bool isMyInfoOpen;
 
-    [Header("Button Text Frame")]
-    [SerializeField] private GameObject _inventoryTextFrame;
-    [SerializeField] private GameObject _guideTextFrame;
-    [SerializeField] private GameObject _hospitalTextFrame;
-    [SerializeField] private GameObject _optionTextFrame;
 
     private void Start() 
     {
@@ -69,6 +66,7 @@ public class MyInfomation : MonoBehaviour
     {
         _inventoryPanel.SetActive(false);
         _guideBookPanel.SetActive(false);
+        _questPanel.SetActive(false);
         _hospitalInfoPanel.SetActive(false);
         _optionPanel.SetActive(false);
     }
@@ -76,6 +74,7 @@ public class MyInfomation : MonoBehaviour
     {
         _inventoryButton.interactable = true;
         _guideBookButton.interactable = true;
+        _questButton.interactable = true;
         _hospitalInfoButton.interactable = true;
         _optionButton.interactable = true;
     }
@@ -138,46 +137,23 @@ public class MyInfomation : MonoBehaviour
         UiManager.Instance.ToggleUiCanvas(false);
     }
 
+    public void ToggleQuest()
+    {
+        InteractableAllButton();
+        _questButton.interactable = false;
+
+        _mainPanel.SetActive(true);
+        OffAllPanel();  
+        _questPanel.SetActive(true);
+
+        isMyInfoOpen = true;
+        
+        UiManager.Instance.ToggleUiCanvas(false);
+    }
+
     public void MyInfoEscape()
     {
         if(isMyInfoOpen) OffMainPanel();
         else if(!isMyInfoOpen)  ToggleOption();
-    }
-
-    // 버튼에 마우스 올려둘시 텍스트 출력
-    public void OnInventoryTextFrame()
-    {
-        _inventoryTextFrame.SetActive(true);
-    }
-    public void OffInventoryTextFrame()
-    {
-        _inventoryTextFrame.SetActive(false);
-    }
-
-    public void OnGuideTextFrame()
-    {
-        _guideTextFrame.SetActive(true);
-    }
-    public void OffGuideTextFrame()
-    {
-        _guideTextFrame.SetActive(false);
-    }
-
-    public void OnHospitalTextFrame()
-    {
-        _hospitalTextFrame.SetActive(true);
-    }
-    public void OffHospitalTextFrame()
-    {
-        _hospitalTextFrame.SetActive(false);
-    }
-
-    public void OnOptionTextFrame()
-    {
-        _optionTextFrame.SetActive(true);
-    }
-    public void OffOptionTextFrame()
-    {
-        _optionTextFrame.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using ES3PlayMaker;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ES3Types;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class DataManager : MonoBehaviour
 {
@@ -143,7 +144,7 @@ public class DataManager : MonoBehaviour
     {
         QuestSaveData _questSaveData = new QuestSaveData();
         _questSaveData._questDatas = QuestManager.Instance._playerQuestDictionary;
-
+        _questSaveData._isQeustRefresh = QuestManager.Instance._guildQuestDisplay._isQeustRefresh;
         path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
         ES3.Save("QuestSaveData", _questSaveData, path);
     }
@@ -235,10 +236,11 @@ public class DataManager : MonoBehaviour
             _loadQuestData = ES3.Load<QuestSaveData>("QuestSaveData", path);
             
             QuestManager.Instance._playerQuestDictionary = _loadQuestData._questDatas;
+            QuestManager.Instance._guildQuestDisplay._isQeustRefresh = _loadQuestData._isQeustRefresh;
         }
     }
 
-    public void LoadGuildQuestData(int loadIndex)
+    public bool LoadGuildQuestData(int loadIndex)
     {
         GuildQuestData _loadGuildQuestData;
         currentSaveIndex = loadIndex;
@@ -249,8 +251,13 @@ public class DataManager : MonoBehaviour
             _loadGuildQuestData = ES3.Load<GuildQuestData>("GuildQuestData", path);
             
             if(_loadGuildQuestData._questDatas.Count != 0)
+            {
                 QuestManager.Instance._guildQuestDisplay._questDatas = _loadGuildQuestData._questDatas;
+                return true;
+            }
+            return false;
         }
+        return false;
     }
 
     // ========================================================================== //
@@ -315,6 +322,7 @@ public class ObjectSaveData
 
 public class QuestSaveData
 {
+    public bool _isQeustRefresh;
     public Dictionary<int, _TimeData> _questDatas;
 }
 public class GuildQuestData

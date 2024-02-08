@@ -32,9 +32,17 @@ public class GuildQuestDisplay : MonoBehaviour
         // 게임 불러오기를 했다면 저장했던 길드 퀘스트 불러오기
         if(_haveLoadData)
         {
-            DataManager.Instance.LoadGuildQuestData(DataManager.Instance.currentSaveIndex);
-            _haveLoadData = false;
-            return;
+            if(DataManager.Instance.LoadGuildQuestData(DataManager.Instance.currentSaveIndex))
+            {
+                _haveLoadData = false;
+                return;
+            }
+            else
+            {
+                RefreshGuildQuestList();
+                _haveLoadData = false;
+                return;
+            }
         }
         // Gamemanager에서 isQeustRefresh true로 설정했다면 새로고침
         if(_isQeustRefresh)
