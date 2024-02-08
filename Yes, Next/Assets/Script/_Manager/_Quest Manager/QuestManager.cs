@@ -177,12 +177,14 @@ public class QuestManager : MonoBehaviour
     public QuestMenuPlayerInventoryDisplay _inventoryDisplay;
     public QuestMenuQuestList _questMenuQuestList;
     public GameObject _questMenuObject;
+    [SerializeField] QuestMenuDescription _questMenuDescription;
 
     public void EnterQuestMenu()
     {
         _questMenuObject.SetActive(true);
         _inventoryDisplay.EnterQuestMenu();
         _questMenuQuestList.EnterQuestMenu();
+        _questMenuDescription.DeallocateQuestData();
     }
 
     public void ExitQuestMenu()

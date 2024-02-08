@@ -22,11 +22,21 @@ public class QuestMenuDescription : MonoBehaviour
         // if(timeData)
         _description.text = _questData._questDescription;
     }
+
+    public void DeallocateQuestData()
+    {
+        _questData = null;
+        _questName.text = "";
+        _description.text = "퀘스트를 선택하여 정보 확인";
+
+    }
     
     public void CheckQuestItem()
     {
+        if(_questData==null) return; // 퀘스트 데이터가 없을 시
         if(_questDesSlotDisplay.inventorySystem.inventorySlots[0].itemId == _questData._requireItemData.ID && _questDesSlotDisplay.inventorySystem.inventorySlots[0].stackSize > _questData._stackSize )
         {
+            // 아이템의 종류는 같고 수량이 더 많을시 -> 남은 수량만큼 Player의 인벤토리로
             PlayerInventoryManager.Instance.AddToInventory(_questDesSlotDisplay.inventorySystem.inventorySlots[0].itemId, _questDesSlotDisplay.inventorySystem.inventorySlots[0].stackSize - _questData._stackSize);
             
 
@@ -40,7 +50,7 @@ public class QuestMenuDescription : MonoBehaviour
         }
         else if(_questDesSlotDisplay.inventorySystem.inventorySlots[0].itemId == _questData._requireItemData.ID && _questDesSlotDisplay.inventorySystem.inventorySlots[0].stackSize == _questData._stackSize)
         {
-
+            // 아이템 종류 같고 수량이 같을 시 -> Clear
             _questDesSlotDisplay.inventorySystem.inventorySlots[0].ClearSlot();
 
             QuestManager.Instance.CompleteQuest(_questData._questId);
@@ -49,6 +59,8 @@ public class QuestMenuDescription : MonoBehaviour
             _questDesSlotDisplay.RefreshDynamicInventory(_questDesSlotDisplay.inventorySystem);
             return;
         }
+        // 종류가 다르거나 수량이 적을 시
+        PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("올바르지 않습니다.");
         return;
     }
 }
