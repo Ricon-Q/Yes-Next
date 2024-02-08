@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Toggle Quest",
+                    "type": "Button",
+                    "id": "cddef091-3a05-45a3-94db-6974015980d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Escape",
                     "type": "Button",
                     "id": "84e6bae6-fd2c-4f8a-a7e6-86fe474200f1",
@@ -316,6 +325,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d39abeb-d627-423b-a148-4fac7128f23c",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Quest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

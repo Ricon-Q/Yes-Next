@@ -17,11 +17,12 @@ public class InputManager : MonoBehaviour
     private bool submitPressed = false;
 
     // My Infomation
-    private bool toggleInventoryPressed = false;
-    private bool toggleGuideBookPressed = false;
+    private bool _toggleInventoryPressed = false;
+    private bool _toggleGuideBookPressed = false;
 
-    private bool toggleHospitalInfoPressed = false;
-    private bool toggleOptionPressed = false;
+    private bool _toggleHospitalInfoPressed = false;
+    private bool _toggleOptionPressed = false;
+    private bool _toggleQuestPressed = false;
     private bool _escapePressed = false;
 
     // Hotbar
@@ -130,44 +131,56 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            toggleInventoryPressed = true;
+            _toggleInventoryPressed = true;
         }
         else if (context.canceled)
         {
-            toggleInventoryPressed = false;
+            _toggleInventoryPressed = false;
         } 
     }
     public void ToggleGuideBookPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            toggleGuideBookPressed = true;
+            _toggleGuideBookPressed = true;
         }
         else if (context.canceled)
         {
-            toggleGuideBookPressed = false;
+            _toggleGuideBookPressed = false;
         } 
     }
     public void ToggleHospitalInfoPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            toggleHospitalInfoPressed = true;
+            _toggleHospitalInfoPressed = true;
         }
         else if (context.canceled)
         {
-            toggleHospitalInfoPressed = false;
+            _toggleHospitalInfoPressed = false;
         } 
     }
     public void ToggleOptionPressed(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            toggleOptionPressed = true;
+            _toggleOptionPressed = true;
         }
         else if (context.canceled)
         {
-            toggleOptionPressed = false;
+            _toggleOptionPressed = false;
+        } 
+    }
+
+    public void ToggleQuestPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _toggleQuestPressed = true;
+        }
+        else if (context.canceled)
+        {
+            _toggleQuestPressed = false;
         } 
     }
 
@@ -238,26 +251,33 @@ public class InputManager : MonoBehaviour
     // ================== My Infomation  =================//
     public bool GetToggleInventoryPressed()
     {
-        bool result = toggleInventoryPressed;
-        toggleInventoryPressed = false;
+        bool result = _toggleInventoryPressed;
+        _toggleInventoryPressed = false;
         return result;
     }
     public bool GetToggleGuideBookPressed()
     {
-        bool result = toggleGuideBookPressed;
-        toggleGuideBookPressed = false;
+        bool result = _toggleGuideBookPressed;
+        _toggleGuideBookPressed = false;
         return result;
     }
     public bool GetToggleHospitalInfoPressed()
     {
-        bool result = toggleHospitalInfoPressed;
-        toggleHospitalInfoPressed = false;
+        bool result = _toggleHospitalInfoPressed;
+        _toggleHospitalInfoPressed = false;
         return result;
     }
     public bool GetToggleOptionPressed()
     {
-        bool result = toggleOptionPressed;
-        toggleOptionPressed = false;
+        bool result = _toggleOptionPressed;
+        _toggleOptionPressed = false;
+        return result;
+    }
+
+    public bool GetToggleQeustPressed()
+    {
+        bool result = _toggleQuestPressed;
+        _toggleQuestPressed = false;
         return result;
     }
 

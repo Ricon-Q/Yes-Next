@@ -65,6 +65,8 @@ public class PlayerInputManager : MonoBehaviour
                 MyInfomation.Instance.ToggleInventory();
             else if(InputManager.Instance.GetToggleGuideBookPressed())
                 MyInfomation.Instance.ToggleGuideBook();
+            else if(InputManager.Instance.GetToggleQeustPressed())
+                MyInfomation.Instance.ToggleQuest();
             else if(InputManager.Instance.GetToggleHospitalInfoPressed())
                 MyInfomation.Instance.ToggleHospitalInfo();
             else if(InputManager.Instance.GetToggleOptionPressed())
