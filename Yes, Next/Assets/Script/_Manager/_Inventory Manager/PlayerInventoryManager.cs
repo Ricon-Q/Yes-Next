@@ -78,13 +78,13 @@ public class PlayerInventoryManager : MonoBehaviour
         switch (herbInventoryLevel)
         {
             case 1:
-                herbInventory = new _InventorySystem(5);
-                break;
-            case 2:
                 herbInventory = new _InventorySystem(10);
                 break;
-            case 3:
+            case 2:
                 herbInventory = new _InventorySystem(20);
+                break;
+            case 3:
+                herbInventory = new _InventorySystem(30);
                 break;
             default:
                 break;
@@ -93,13 +93,13 @@ public class PlayerInventoryManager : MonoBehaviour
         switch (potionInventoryLevel)
         {
             case 1:
-                potionInventory = new _InventorySystem(5);
-                break;
-            case 2:
                 potionInventory = new _InventorySystem(10);
                 break;
-            case 3:
+            case 2:
                 potionInventory = new _InventorySystem(20);
+                break;
+            case 3:
+                potionInventory = new _InventorySystem(30);
                 break;
             default:
                 break;
@@ -306,6 +306,8 @@ public class _InventorySlot
 {
     [SerializeField] public int itemId;
     [SerializeField] public int stackSize;
+    
+    public bool isCraftResultSlot = false;
 
     public _InventorySlot(int itemId, int stackSize)
     {

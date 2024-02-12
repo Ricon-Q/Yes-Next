@@ -5,11 +5,13 @@ using TMPro;
 using System;
 using System.Linq;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 public class _DynamicInventoryDisplay : _InventoryDisplay
 {
     [Header("Slot Prefab")]
     [SerializeField] protected _InventorySlot_UI slotPrefab;
+
     protected override void Start()
     {
         base.Start();

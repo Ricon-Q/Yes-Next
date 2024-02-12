@@ -16,8 +16,6 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
     public ItemType type = default;
     public UnityEvent onRightClick;
 
-    public bool isCraftResultSlot = false;
-
     private Button button;
 
     public _InventorySlot AssignedInventorySlot => assignedInventorySlot;

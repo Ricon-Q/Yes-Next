@@ -10,6 +10,10 @@ public class HotBarSelected : MonoBehaviour
 
     [Header("Slot X Position")]
     [SerializeField] private List<float> _slotXPositions;
+    [Header("Camera")]
+    [SerializeField] private Camera _camera;
+
+    // public bool canInteract;
 
     private void Start() 
     {
@@ -18,6 +22,7 @@ public class HotBarSelected : MonoBehaviour
     private void Update() 
     {
         ChangeHotBar();
+        // if(canInteract)
         HandleInteract();
     }
 
@@ -79,7 +84,7 @@ public class HotBarSelected : MonoBehaviour
         // 마우스 위치 설정, uiMouseObject의 프리뷰를 Grid에 Snap
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
-        Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector3 worldMousePosition = _camera.ScreenToWorldPoint(mousePos);
         worldMousePosition.z = 0;
 
         _uiMouseObject.transform.position = RoundVector3(worldMousePosition);

@@ -126,15 +126,14 @@ public class GameManager : MonoBehaviour
             // 저장 데이터가 없을 경우
 
             // 인트로 씬으로 이동
-            FadeInOutManager.Instance.ChangeScene("Intro Scene");
-
+            FadeInOutManager.Instance.ChangeScene("Intro Scene", default, false);
             // 인벤토리 설정
             PlayerInventoryManager.Instance.GeneratePlayerInventory();
             
             // Player 비활성화 (컷신을 위해서)
             _PlayerManager.Instance.TogglePlayer(false);
             // UI 비활성화 (컷신을 위해서)
-            UiManager.Instance.ToggleUiCanvas();
+            UiManager.Instance.ToggleUiCanvas(false);
             
             // Player Camera 비활성화 (컷신을 위해서)
             CameraManager.Instance.TogglePlayerCamera(false);

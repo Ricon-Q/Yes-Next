@@ -47,7 +47,7 @@ public class _ShopPlayerDisplay : _DynamicInventoryDisplay
     public override void SlotClicked(_InventorySlot_UI clickedUISlot)
     {
         // Slot이 빈칸이 아니고, Slot의 아이템이 Shopable일 경우 실행
-        if(clickedUISlot.AssignedInventorySlot.itemId != -1 && PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].Shopable)
+        if(clickedUISlot.AssignedInventorySlot.itemId != -1 && PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].Sellable)
         {
             // totalSellPrice += PlayerInventoryManager.Instance.itemDataBase.Items[clickedUISlot.AssignedInventorySlot.itemId].SellPrice;
             // UpdatePriceText();

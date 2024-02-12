@@ -29,7 +29,8 @@ public class InventoryItemData : ScriptableObject
     public Sprite _previewSprite;
     public int MaxStackSize;
     
-    public bool Shopable;
+    public bool Sellable;
+    public bool Buyable;
     public long SellPrice;
     public long BuyPrice;
 

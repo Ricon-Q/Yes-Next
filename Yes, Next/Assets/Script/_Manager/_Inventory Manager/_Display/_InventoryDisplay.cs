@@ -45,10 +45,15 @@ public abstract class _InventoryDisplay : MonoBehaviour
         bool isShiftPressd = Keyboard.current.leftShiftKey.isPressed;
         bool isCtrlPressed = Keyboard.current.leftCtrlKey.isPressed;
 
-        // 제작용 슬롯 확인
-        if(clickedUISlot.isCraftResultSlot && clickedUISlot.AssignedInventorySlot.itemId == -1)
+        // 제작용 슬롯 확인 - 제작용 슬롯이고, 마우스 슬롯 != null 일시 리턴
+        if(clickedUISlot.AssignedInventorySlot.isCraftResultSlot == true && mouseInventoryItem.AssignedInventorySlot.itemId != -1)
             return;
-
+        // 제작용 슬롯이고, 슬롯 할당되어 있고, 마우스 슬롯 == -1일 경우 -> 마우스로  
+        if(clickedUISlot.AssignedInventorySlot.isCraftResultSlot == true && clickedUISlot.AssignedInventorySlot.itemId != -1 && mouseInventoryItem.AssignedInventorySlot.itemId == -1)
+        {
+            PlayerInventoryManager.Instance.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, clickedUISlot.AssignedInventorySlot.stackSize);
+            clickedUISlot.ClearSlot();
+        }
         // Clicked slot has an item - mouse doesn't have an item - pick up that item.
         if(clickedUISlot.AssignedInventorySlot.itemId != -1 && mouseInventoryItem.AssignedInventorySlot.itemId == -1)
         {
@@ -125,7 +130,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
         onSlotClicked?.Invoke();
     }
 
-    private void SwapSlots(_InventorySlot_UI clickedUISlot)
+    protected void SwapSlots(_InventorySlot_UI clickedUISlot)
     {
         var clonedSlot = new _InventorySlot(
             mouseInventoryItem.AssignedInventorySlot.itemId, 

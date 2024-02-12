@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 
 // 약초 카테고리만 이용 가능
@@ -10,6 +11,7 @@ public class MortarAndPestle : _DynamicInventoryDisplay
     [SerializeField] private RecipeDatabase recipeDatabase;
     [SerializeField] private GameObject visualStaminaTime;
     [SerializeField] private TextMeshProUGUI visualStaminaTimeText;
+    [SerializeField] private GameObject _toolButtonImage;
 
     // Input칸 1개와 Output칸 1개 필요, Output칸에는 아이템을 넣을 수 없음
     // InventorySystem[0]은 Main herb
@@ -22,6 +24,26 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         _CraftManager.Instance.herbPocket.EnterCraftMode();
     }
 
+    override public void CreateInventorySlot()
+    {
+        slotDictionary = new Dictionary<_InventorySlot_UI, _InventorySlot>();
+
+        if(inventorySystem == null) return;
+
+        for (int i = 0; i < inventorySystem.inventorySize; i++)
+        {
+            var uiSlot = Instantiate(slotPrefab, transform);
+            slotDictionary.Add(uiSlot, inventorySystem.inventorySlots[i]);
+            uiSlot.Init(inventorySystem.inventorySlots[i]);
+            uiSlot.UpdateUISlot();
+            if(i == inventorySystem.inventorySize-1)
+            { 
+                inventorySystem.inventorySlots[i].isCraftResultSlot = true;
+                Debug.Log("isCraftResult");
+            }
+        }
+    }
+
     public void ExitToolMode()
     {
         // [0], [1] 슬롯에 아이템이 남아 있다면 아이템들을 플레이어 인벤토리로 옮긴 이후에 종료
@@ -31,25 +53,27 @@ public class MortarAndPestle : _DynamicInventoryDisplay
             {
                 // PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
                 // item.ClearSlot();
-                switch(PlayerInventoryManager.Instance.itemDataBase.Items[item.itemId].ItemType)
-                {
-                    case ItemType.Herb:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
-                        break;
-                    case ItemType.Seed:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
-                        break;
-                    case ItemType.Potion:
-                        PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
-                        break;
-                    default:
-                        PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);            
-                        break;
-                }
+                // switch(PlayerInventoryManager.Instance.itemDataBase.Items[item.itemId].ItemType)
+                // {
+                //     case ItemType.Herb:
+                //         PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                //         break;
+                //     case ItemType.Seed:
+                //         PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
+                //         break;
+                //     case ItemType.Potion:
+                //         PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
+                //         break;
+                //     default:
+                //         PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);            
+                //         break;
+                // }
+                PlayerInventoryManager.Instance.AddToInventory(item.itemId, item.stackSize);
                 item.ClearSlot();
             }
         }
         RefreshDynamicInventory(this.inventorySystem);
+        _toolButtonImage.SetActive(true);
 
         _CraftManager.Instance.object_MortarAndPestle.SetActive(false);
         _CraftManager.Instance.herbPocket.ExitToolMode();
@@ -82,9 +106,10 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         // [1] 슬롯이 할당되어있을때 - [1]번 슬롯 아이템을 인벤토리로 이동
         if(inventorySystem.inventorySlots[1].itemId != -1)
         {
-            PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[1].itemId, inventorySystem.inventorySlots[1].stackSize);
+            PlayerInventoryManager.Instance.AddToInventory(inventorySystem.inventorySlots[1].itemId, inventorySystem.inventorySlots[1].stackSize);
             inventorySystem.inventorySlots[1].ClearSlot();
             _CraftManager.Instance.herbPocket.RefreshDynamicInventory(_CraftManager.Instance.herbPocket.inventorySystem);
+            _CraftManager.Instance.potionStand.RefreshDynamicInventory(_CraftManager.Instance.potionStand.inventorySystem);
             RefreshDynamicInventory(inventorySystem);
         }
 

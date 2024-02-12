@@ -47,7 +47,7 @@ public class FadeInOutManager : MonoBehaviour
         fadeInOutCanvas.SetActive(false);    
     }
 
-    public IEnumerator IEnum_ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3))
+    public IEnumerator IEnum_ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3), bool playerInput = true)
     {
         // Debug.Log("Changing to Scene: " + sceneName);
         FadeOutZero();
@@ -59,12 +59,12 @@ public class FadeInOutManager : MonoBehaviour
         // CameraManager.Instance.ChangeCameraBorder(_PlayerManager.Instance.playerData.currentArea);
         
         // 로드가 완료된 후에 페이드 아웃을 시작합니다.
-        FadeIn();
+        FadeIn(playerInput);
     }
 
-    public void ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3))
+    public void ChangeScene(string sceneName, Vector3 spawnPoint = default(Vector3), bool playerInput = true)
     {
-        StartCoroutine(IEnum_ChangeScene(sceneName, spawnPoint));
+        StartCoroutine(IEnum_ChangeScene(sceneName, spawnPoint, playerInput));
     }
 
     public void FadeInOut(int time)
@@ -79,13 +79,13 @@ public class FadeInOutManager : MonoBehaviour
         FadeIn();
     }
 
-    public void FadeIn()
+    public void FadeIn(bool playerInput = true)
     {
         // Debug.Log("In");
         fadeInOutAnimation.DOPlayById("In");
         // PlayerInputManager.Instance.SetInputMode(true);
         
-        PlayerInputManager.SetPlayerInput(true);
+        PlayerInputManager.SetPlayerInput(playerInput);
         return;
     }
 
