@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 805110858194448557}
   - component: {fileID: 4813255034776858268}
   - component: {fileID: 4794441675216757778}
+  - component: {fileID: 1429344725805541952}
   m_Layer: 0
   m_Name: Silvia
   m_TagString: NPC
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2063395367
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_Sprite: {fileID: -1796218673, guid: 81b22b00c61218b46b53a416f6657022, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -199,6 +200,23 @@ MonoBehaviour:
   _rb: {fileID: 4791419850362195144}
   _animator: {fileID: 4813255034776858268}
   _movementDirection: {x: 0, y: 0}
+--- !u!114 &1429344725805541952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813690424170003795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4310575cdb680744a8d42ba92d6d1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcInventory: {fileID: 11400000, guid: 33ff4bdca554a0041942dd70cb0063cb, type: 2}
+  inventorySystem:
+    inventoryLevel: 1
+    inventorySlots: []
+    inventorySize: 0
 --- !u!1 &4304768803253456135
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +228,8 @@ GameObject:
   - component: {fileID: 5617473291983960339}
   - component: {fileID: 1187590491205435263}
   - component: {fileID: 742381798836530145}
-  - component: {fileID: 6020782305034266791}
+  - component: {fileID: 6780609096827510048}
+  - component: {fileID: 8077711553324711255}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -326,7 +345,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: "Object/\uD734\uC2DD, \uC800\uC7A5 - \uCE68\uB300"
+  conversation: NPC/Silvia/Main Conversation
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
@@ -351,8 +370,8 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 683482863864a464db86e9ffc02149f9, type: 2}
---- !u!114 &6020782305034266791
+  selectedDatabase: {fileID: 11400000, guid: 1f62a833050c0dd4c94f8b74095d42b1, type: 2}
+--- !u!114 &6780609096827510048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +380,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4304768803253456135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015834965b3487741a948cebf7344509, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e40de71651cb344d97252a519b4ea9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 8971559663839715177}
@@ -369,6 +388,93 @@ MonoBehaviour:
   dialogueSystemController: {fileID: 0}
   npcDialogueUi: {fileID: 0}
   nonNpcDialogueUi: {fileID: 0}
+  _npcInventoryHolder: {fileID: 1429344725805541952}
+--- !u!114 &8077711553324711255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304768803253456135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: 2
+  condition:
+    luaConditions: []
+    questConditions: []
+    acceptedTags: []
+    acceptedGameObjects: []
+    luaWizardIndex: -1
+    lastEvaluationValue: 0
+  setQuestState: 1
+  questName: 
+  questState: 0
+  setQuestEntryState: 0
+  questEntryNumber: 1
+  questEntryState: 0
+  setAnotherQuestEntryState: 0
+  anotherQuestEntryNumber: 1
+  anotherQuestEntryState: 0
+  luaCode: 
+  sequence: 
+  sequenceSpeaker: {fileID: 0}
+  sequenceListener: {fileID: 0}
+  waitOneFrameOnStartOrEnable: 1
+  alertMessage: 
+  textTable: {fileID: 0}
+  alertDuration: 0
+  sendMessages: []
+  barkSource: 0
+  barkConversation: 
+  barkText: 
+  barkTextSequence: 
+  barker: {fileID: 0}
+  barkTarget: {fileID: 0}
+  barkOrder: 0
+  allowBarksDuringConversations: 0
+  skipBarkIfNoValidEntries: 0
+  cacheBarkLines: 0
+  conversation: 
+  conversationConversant: {fileID: 0}
+  conversationActor: {fileID: 0}
+  startConversationEntryID: -1
+  startConversationEntryTitle: 
+  exclusive: 0
+  replace: 0
+  queue: 0
+  skipIfNoValidEntries: 0
+  preventRestartOnSameFrameEnded: 0
+  stopConversationOnTriggerExit: 0
+  stopConversationIfTooFar: 0
+  maxConversationDistance: 5
+  monitorConversationDistanceFrequency: 1
+  showCursorDuringConversation: 0
+  pauseGameDuringConversation: 0
+  setActiveActions: []
+  setEnabledActions: []
+  setAnimatorStateActions: []
+  onExecute:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6780609096827510048}
+        m_TargetAssemblyTypeName: ShopDialogueTrigger, Assembly-CSharp
+        m_MethodName: EndConversation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  useConversationTitlePicker: 1
+  useBarkTitlePicker: 1
+  useQuestNamePicker: 1
+  selectedDatabase: {fileID: 11400000, guid: 1f62a833050c0dd4c94f8b74095d42b1, type: 2}
 --- !u!1 &8971559663839715177
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +548,7 @@ SpriteRenderer:
   m_SortingLayerID: 2063395367
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1186376110, guid: 80b32f010263c0d4f8853d3e70ec4b1a, type: 3}
+  m_Sprite: {fileID: -1669232116, guid: 80b32f010263c0d4f8853d3e70ec4b1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
