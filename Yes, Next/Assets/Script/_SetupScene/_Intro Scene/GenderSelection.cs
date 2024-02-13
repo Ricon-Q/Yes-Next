@@ -49,7 +49,7 @@ public class GenderSelection : MonoBehaviour
         _PlayerManager.Instance.playerData.lastName = nameInput.text;
         // _PlayerManager.Instance.playerData.playerPortrait = mainPortrait.sprite;
         // InventoryManager.Instance.UpdateCharacterInfo();
-        FadeInOutManager.Instance.ChangeScene("Intro Cutscene");
+        FadeInOutManager.Instance.ChangeScene("Intro Cutscene", default, false);
     }
 }
 

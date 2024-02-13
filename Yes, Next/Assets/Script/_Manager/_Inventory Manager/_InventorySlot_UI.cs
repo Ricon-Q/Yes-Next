@@ -126,7 +126,7 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
         if(!itemName) return;
         else
         {
-            itemName.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].name.ToString();
+            itemName.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].DisplayName.ToString();
             itemPrice.text = PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId].BuyPrice.ToString();
         }
     }

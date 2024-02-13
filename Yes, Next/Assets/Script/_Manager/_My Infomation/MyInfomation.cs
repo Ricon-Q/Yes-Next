@@ -95,6 +95,7 @@ public class MyInfomation : MonoBehaviour
 
         isMyInfoOpen = true;
 
+        PlayerInventoryManager.Instance.playerInvToDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInvToDisplay.inventorySystem);
         UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
         
         UiManager.Instance.ToggleUiCanvas(false);

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using System.Collections;
+using UnityEngine.UI;
 
 // 약초 카테고리만 이용 가능
 // 한 종류의 약초를 갈아서 약초 가루로 변경 가능
@@ -12,6 +14,10 @@ public class MortarAndPestle : _DynamicInventoryDisplay
     [SerializeField] private GameObject visualStaminaTime;
     [SerializeField] private TextMeshProUGUI visualStaminaTimeText;
     [SerializeField] private GameObject _toolButtonImage;
+
+    [Header("Tool Panel")]
+    [SerializeField] private Button _activeButton;
+    [SerializeField] private Animator _animator;
 
     // Input칸 1개와 Output칸 1개 필요, Output칸에는 아이템을 넣을 수 없음
     // InventorySystem[0]은 Main herb
@@ -51,23 +57,6 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         {
             if(item.itemId != -1)
             {
-                // PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);
-                // item.ClearSlot();
-                // switch(PlayerInventoryManager.Instance.itemDataBase.Items[item.itemId].ItemType)
-                // {
-                //     case ItemType.Herb:
-                //         PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
-                //         break;
-                //     case ItemType.Seed:
-                //         PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
-                //         break;
-                //     case ItemType.Potion:
-                //         PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
-                //         break;
-                //     default:
-                //         PlayerInventoryManager.Instance.playerInventory.AddToInventory(item.itemId, item.stackSize);            
-                //         break;
-                // }
                 PlayerInventoryManager.Instance.AddToInventory(item.itemId, item.stackSize);
                 item.ClearSlot();
             }
@@ -117,7 +106,7 @@ public class MortarAndPestle : _DynamicInventoryDisplay
 
         if(foundedRecipe != null)
         {
-            SuccessCraft(foundedRecipe);
+            StartCoroutine(PlayCraftAnimation_Success(foundedRecipe));
             return;
         }
         
@@ -161,13 +150,40 @@ public class MortarAndPestle : _DynamicInventoryDisplay
         // [0]슬롯이 비어져 있지 않다면 - 시간, 피로도 소모 O, 기존 약초 삭제
         if(inventorySystem.inventorySlots[0].itemId != -1)
         {
-            _PlayerManager.Instance.playerData.currentStamina -= 5;
-            _TimeManager.Instance.increaseMinute(5);
+            StartCoroutine(PlayCraftAnimation_Fail());
+            // _PlayerManager.Instance.playerData.currentStamina -= 5;
+            // _TimeManager.Instance.increaseMinute(5);
 
-            inventorySystem.inventorySlots[0].ClearSlot();
-            RefreshDynamicInventory(this.inventorySystem);
+            // inventorySystem.inventorySlots[0].ClearSlot();
+            // RefreshDynamicInventory(this.inventorySystem);
 
             return;
         }
+    }
+
+    private IEnumerator PlayCraftAnimation_Success(RecipeData recipe)
+    {
+        _activeButton.interactable = false;
+        _animator.SetTrigger("PlayAnimation");
+        yield return new WaitForSeconds(1.0f);
+        _activeButton.interactable = true;
+        _animator.SetTrigger("StopAnimation");
+
+        SuccessCraft(recipe);
+    }
+
+    private IEnumerator PlayCraftAnimation_Fail()
+    {
+        _activeButton.interactable = false;
+        _animator.SetTrigger("PlayAnimation");
+        yield return new WaitForSeconds(1.0f);
+        _activeButton.interactable = true;
+        _animator.SetTrigger("StopAnimation");
+
+        _PlayerManager.Instance.playerData.currentStamina -= 5;
+        _TimeManager.Instance.increaseMinute(5);
+
+        inventorySystem.inventorySlots[0].RemoveFromStack(1);
+        RefreshDynamicInventory(this.inventorySystem);
     }
 }

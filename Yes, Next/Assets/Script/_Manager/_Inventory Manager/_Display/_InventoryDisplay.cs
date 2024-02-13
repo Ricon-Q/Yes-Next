@@ -54,10 +54,10 @@ public abstract class _InventoryDisplay : MonoBehaviour
             PlayerInventoryManager.Instance.AddToInventory(clickedUISlot.AssignedInventorySlot.itemId, clickedUISlot.AssignedInventorySlot.stackSize);
             clickedUISlot.ClearSlot();
         }
-        // Clicked slot has an item - mouse doesn't have an item - pick up that item.
+        // 클릭 슬롯 아이템 O - 마우스 슬롯 아이템 X - pick up that item.
         if(clickedUISlot.AssignedInventorySlot.itemId != -1 && mouseInventoryItem.AssignedInventorySlot.itemId == -1)
         {
-            // If player is holding Shift key? split the stack
+            // Shift키 누른채로 클릭시 절반 나누기
             if(isShiftPressd && clickedUISlot.AssignedInventorySlot.SplitStack(out _InventorySlot halfStackSlot))
             {
                 mouseInventoryItem.UpdateMouseSlot(halfStackSlot);
@@ -65,6 +65,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
 
                 return;
             }
+            // Ctrl키 누른채로 클릭시 1개만 가져감
             else if(isCtrlPressed && clickedUISlot.AssignedInventorySlot.PickUpOneStack(out _InventorySlot oneStack))
             {
                 Debug.Log("Ctrl Pressed");
@@ -73,6 +74,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
 
                 return;
             }
+            // 그냥 클릭시 전부 가져감
             else
             {
                 mouseInventoryItem.UpdateMouseSlot(clickedUISlot.AssignedInventorySlot);
@@ -81,7 +83,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
             }
         }
 
-        // Clicked slot doesn't have an item - Mouse does have item - place the mouse item into the empty slot.
+        // 클릭 슬롯 아이템 X - 마우스 슬롯 아이템 O - 클릭 슬롯으로 아이템 이동.
         if(clickedUISlot.AssignedInventorySlot.itemId == -1 && mouseInventoryItem.AssignedInventorySlot.itemId != -1)
         {
             clickedUISlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
@@ -90,13 +92,15 @@ public abstract class _InventoryDisplay : MonoBehaviour
             mouseInventoryItem.ClearSlot();
         }
         
-        // Both slots have an item - decide what to do
+        // 모든 슬롯에 아이템 있을 경우 - decide what to do
         if(clickedUISlot.AssignedInventorySlot.itemId != -1 && mouseInventoryItem.AssignedInventorySlot.itemId != -1)
         {
-            // Are both item the same? If so combine them
+            // 같은 아이템일 경우, If so combine them
             bool isSameItem = clickedUISlot.AssignedInventorySlot.itemId == mouseInventoryItem.AssignedInventorySlot.itemId;
-            if(isSameItem && clickedUISlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.itemId))
+            Debug.Log(isSameItem);
+            if(isSameItem && clickedUISlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.stackSize))
             {
+                Debug.Log("test 1");
                 // Is the slot stack size + mouse stack size > the slot Max Stack size? if so, take from mouse
                 clickedUISlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
                 clickedUISlot.UpdateUISlot();
@@ -110,6 +114,7 @@ public abstract class _InventoryDisplay : MonoBehaviour
                 if(leftInStack < 1) SwapSlots(clickedUISlot); // Stack is full, so swap the item
                 else    // Slot is not at max, so take what's need from the mouse inventory.
                 {
+                    Debug.Log("test 2");
                     int remainingOnMouse = mouseInventoryItem.AssignedInventorySlot.stackSize - leftInStack;
 
                     clickedUISlot.AssignedInventorySlot.AddToStack(leftInStack);
