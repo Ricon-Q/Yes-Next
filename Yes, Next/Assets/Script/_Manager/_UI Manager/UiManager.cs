@@ -98,7 +98,7 @@ public class UiManager : MonoBehaviour
 
     public void ToggleUiCanvas(bool value)
     {
-        Debug.Log("Toggle : " + value);
+        // Debug.Log("Toggle : " + value);
         uiCanvas.SetActive(value);
         isUiCanvasOn = value;
     }

@@ -15,8 +15,8 @@ public class npcDialogueTrigger : InteractionDialogue
         }
     }
 
-    public void EndConversation()
+    public virtual void EndConversation()
     {
-        PlayerInputManager.SetPlayerInput(true);
+        PlayerInputManager.SetPlayerInput(true) ;
     }
 }
