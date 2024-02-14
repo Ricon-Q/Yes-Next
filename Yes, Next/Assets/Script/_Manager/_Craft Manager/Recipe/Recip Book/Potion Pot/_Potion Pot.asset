@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6b0d16f2b296445a501638611396d3, type: 3}
   m_Name: _Potion Pot
   m_EditorClassIdentifier: 
-  recipeData: []
+  recipeData:
+  - {fileID: 11400000, guid: afff6816158334c499f15e6cb982ec7d, type: 2}
