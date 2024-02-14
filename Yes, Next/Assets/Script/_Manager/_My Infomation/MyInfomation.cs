@@ -53,6 +53,9 @@ public class MyInfomation : MonoBehaviour
     [SerializeField] private MyInfomationQuestList _myInfomationQuestList;
     [SerializeField] private MyInfoQuestDescription _myInfoQuestDescription;
 
+    [Header("Guide Book")]
+    [SerializeField] private GuideBook _guideBook;
+
     private void Start() 
     {
         ExitMyInfomation();
@@ -110,6 +113,8 @@ public class MyInfomation : MonoBehaviour
         _guideBookPanel.SetActive(true);
 
         isMyInfoOpen = true;
+
+        _guideBook.OpenGuideBook();
 
         UiManager.Instance.ToggleUiCanvas(false);
     }
