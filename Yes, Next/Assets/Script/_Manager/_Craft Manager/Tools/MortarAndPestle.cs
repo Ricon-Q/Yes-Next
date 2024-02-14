@@ -45,7 +45,28 @@ public class MortarAndPestle : _DynamicInventoryDisplay
             if(i == inventorySystem.inventorySize-1)
             { 
                 inventorySystem.inventorySlots[i].isCraftResultSlot = true;
-                Debug.Log("isCraftResult");
+                // Debug.Log("isCraftResult");
+            }
+        }
+    }
+
+    public override void AssignSlot(_InventorySystem invToDisplay)
+    {
+        slotDictionary = new Dictionary<_InventorySlot_UI, _InventorySlot>();
+
+        if(invToDisplay == null) return;
+
+        for (int i = 0; i < invToDisplay.inventorySize; i++)
+        {
+            var uiSlot = Instantiate(slotPrefab, transform);
+            slotDictionary.Add(uiSlot, invToDisplay.inventorySlots[i]);
+            uiSlot.Init(invToDisplay.inventorySlots[i]);
+            uiSlot.UpdateUISlot();
+
+            if(i == inventorySystem.inventorySize-1)
+            { 
+                inventorySystem.inventorySlots[i].isCraftResultSlot = true;
+                // Debug.Log("isCraftResult");
             }
         }
     }
