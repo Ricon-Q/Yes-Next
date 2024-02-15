@@ -40,6 +40,8 @@ public class HospitalManager : MonoBehaviour
     public InfoUiDisplay _infoUiDisplay;
     public DialoguePanel _dialoguePanel;
     public DiagnosisPanel _diagnosisPanel;
+    [SerializeField] private Hospital_InventoryDisplay _hospital_InventoryDisplay;
+    [SerializeField] private HospitalGuideBook _hospitalGuideBook;
     
     private void Start()
     {
@@ -55,6 +57,8 @@ public class HospitalManager : MonoBehaviour
 
         MyInfomation.Instance.ExitMyInfomation();
         PlayerInputManager.SetPlayerInput(false);
+        _hospital_InventoryDisplay.ChangeInventory(0);
+        _hospitalGuideBook.EnterHospitalMode();
     }
 
     public void ExitHospitalMode()
@@ -63,7 +67,7 @@ public class HospitalManager : MonoBehaviour
         _dialoguePanel.ExitHospitalMode();
 
         _hospitalCanvas.SetActive(false);
-        
+        _hospitalGuideBook.CloseGuideBook();        
         PlayerInputManager.SetPlayerInput(true);
     }
 }

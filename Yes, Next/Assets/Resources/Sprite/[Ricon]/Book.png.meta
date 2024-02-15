@@ -277,6 +277,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Book_0
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 35
+        width: 42
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 17, y: 29, z: 17, w: 29}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fb52c366ae8eb468b899430c314a97
+      internalID: -1232362188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Book_9
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 79
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9be79fd8eb6f4247a89769ce6ca9b9d
+      internalID: 979734034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -288,6 +330,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Book_0: -1232362188
       Book_1: 1133315432
       Book_2: 1154578407
       Book_3: 1186799653
@@ -296,6 +339,7 @@ TextureImporter:
       Book_6: 1699521218
       Book_7: 1229788017
       Book_8: 1085886353
+      Book_9: 979734034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
