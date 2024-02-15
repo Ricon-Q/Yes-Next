@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Recipe Data", menuName = "Craft System/Recipe Data")]
@@ -10,7 +11,8 @@ public class RecipeData : ScriptableObject
     public string recipeName;
     [TextArea(10, 10)]
     public string description;
-
+    [Tooltip("0 : Mortar and Pestle\n1 : Potion Pot\n2 : Potion Synthesizer")]
+    public int toolType; // 0 : Mortar and Pestle | 1 : Potion Pot | 2 : Potion Synthesizer
     [Header("Stamina, Time")]
     public int useStamina;
     public int useTimeMinute;

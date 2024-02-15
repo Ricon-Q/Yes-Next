@@ -136,7 +136,7 @@ public class PotionPot : _DynamicInventoryDisplay
         // }
         // return null;
 
-        foreach (var recipe in recipeDatabase.recipeData)
+        foreach (var recipe in recipeDatabase.recipeDatas)
         {
             bool recipeMatch = true; // 레시피가 일치하는지 추적합니다.
 

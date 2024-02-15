@@ -87,7 +87,7 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
 
     public RecipeData CheckRecipe()
     {
-        foreach (var item in recipeDatabase.recipeData)
+        foreach (var item in recipeDatabase.recipeDatas)
         {
             if(
                 inventorySystem.inventorySlots[0].itemId == item.inputItemDatas[0].ID &&

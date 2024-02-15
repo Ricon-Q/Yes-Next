@@ -54,7 +54,7 @@ public class MyInfomation : MonoBehaviour
     [SerializeField] private MyInfoQuestDescription _myInfoQuestDescription;
 
     [Header("Guide Book")]
-    [SerializeField] private GuideBook _guideBook;
+    public GuideBook _guideBook;
 
     private void Start() 
     {

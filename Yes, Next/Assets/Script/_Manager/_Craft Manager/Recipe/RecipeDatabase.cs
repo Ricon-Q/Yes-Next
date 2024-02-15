@@ -7,5 +7,5 @@ public class RecipeDatabase : ScriptableObject
 {
     // 포션 제작에 쓰이는 레시피 북
     // 도구별로 나뉘며 Morta And Pestle, Potion Pot, Potion Systhesizer이 있다
-    public RecipeData[] recipeData;
+    public List<RecipeData> recipeDatas;
 }

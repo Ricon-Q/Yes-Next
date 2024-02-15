@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6b0d16f2b296445a501638611396d3, type: 3}
   m_Name: _Martar and Pestle Recipe Book
   m_EditorClassIdentifier: 
-  recipeData:
+  recipeDatas:
   - {fileID: 11400000, guid: 7b1e97eab2ce50f4aaeaea00b35f3e1f, type: 2}
   - {fileID: 11400000, guid: 2c214e00573b0e1469423ee5bc32e8ec, type: 2}
