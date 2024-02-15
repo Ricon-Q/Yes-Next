@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Patient Database", menuName = "Hospital System/Patient Database")]
+[CreateAssetMenu(fileName = "New Patient Database", menuName = "Hospital System/Patient/Patient Database")]
 public class PatientDatabase : ScriptableObject
 {
     public List<PatientData> _patientDatas;

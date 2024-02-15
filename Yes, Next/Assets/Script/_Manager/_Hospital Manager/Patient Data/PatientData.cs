@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New Patient Data", menuName = "Hospital System/Patient Data")]
+[CreateAssetMenu(fileName = "New Patient Data", menuName = "Hospital System/Patient/Patient Data")]
 public class PatientData : ScriptableObject
 {
     [Header("Patient Data")]
