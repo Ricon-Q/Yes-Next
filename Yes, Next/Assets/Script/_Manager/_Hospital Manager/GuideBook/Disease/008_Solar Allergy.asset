@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec9d1e8e0e8d224caf353ca3e435ee4, type: 3}
+  m_Name: 008_Solar Allergy
+  m_EditorClassIdentifier: 
+  _diseaseName: "\uD0DC\uC591 \uC54C\uB808\uB974\uAE30"
+  _description: "\uD0DC\uC591 \uAD11\uC120\uC5D0 \uB178\uCD9C\uB418\uC5C8\uC744 \uB54C
+    \uBC1C\uC0DD\uD558\uB294 \uACFC\uBBFC \uBC18\uC751\uC73C\uB85C, \uD53C\uBD80
+    \uBC1C\uC9C4, \uD654\uC0C1, \uAC00\uB824\uC6C0 \uB4F1\uC744 \uC720\uBC1C\uD569\uB2C8\uB2E4.
+    \uD2B9\uD788 \uD761\uD608\uADC0\uC640 \uAC19\uC774 \uD0DC\uC591\uC5D0 \uBBFC\uAC10\uD55C
+    \uC885\uC871\uC5D0\uC11C \uC790\uC8FC \uBC1C\uC0DD\uD569\uB2C8\uB2E4."
+  _symptomDatas:
+  - {fileID: 11400000, guid: 98a9794d40a8340438747786f81d0758, type: 2}
+  - {fileID: 11400000, guid: df9c32632ad03804e85844b052bda373, type: 2}
+  - {fileID: 11400000, guid: da6cb6c0157c1164da7cee28eb9f6a6b, type: 2}
+  - {fileID: 11400000, guid: 288c1e002aa850a45b2c1915166ac541, type: 2}
+  - {fileID: 11400000, guid: 82090a907908805449c1848e39ee1adc, type: 2}
+  - {fileID: 11400000, guid: 8892e6622683f084c82a7113c5383fe8, type: 2}

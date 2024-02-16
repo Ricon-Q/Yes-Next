@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e633b23a02bd84e959d2f3d360e85b, type: 3}
+  m_Name: Race_Werewolf
+  m_EditorClassIdentifier: 
+  _name: "\uB291\uB300\uC778\uAC04 "
+  _description: "\uC778\uAC04\uACFC \uB291\uB300\uC758 \uD615\uD0DC\uB97C \uC790\uC720\uC790\uC7AC\uB85C
+    \uBCC0\uD658\uD560 \uC218 \uC788\uB294 \uC874\uC7AC. \uD2B9\uD788 \uB9CC\uC6D4\uC77C
+    \uACBD\uC6B0 \uAC15\uB825\uD55C \uD798\uC744 \uBC1C\uD718\uD55C\uB2E4. \uB291\uB300\uC758
+    \uD615\uD0DC\uC77C\uB54C \uB3D9\uBB3C\uC5D0\uAC8C \uBC1C\uACAC\uB418\uB294 \uC9C8\uBCD1\uC5D0
+    \uC27D\uAC8C \uB178\uCD9C\uB41C\uB2E4."
