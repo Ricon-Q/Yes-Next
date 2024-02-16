@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New GuideBook Database", menuName = "Hospital System/Guide Book/GuideBook Database")]
 public class GuideBookDatabase : ScriptableObject
 {
-    public List<GuideBook> _guideBookDatas;
+    public List<GuideBookData> _guideBookDatas;
 }
