@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec9d1e8e0e8d224caf353ca3e435ee4, type: 3}
+  m_Name: 005_Acute Indigestion
+  m_EditorClassIdentifier: 
+  _name: "\uAE09\uC131 \uC18C\uD654 \uBD88\uB7C9"
+  _description: "\uC2DD\uC0AC \uD6C4\uC5D0 \uBC1C\uC0DD\uD558\uB294 \uC18C\uD654
+    \uBD88\uB7C9\uC73C\uB85C, \uBCF5\uD1B5, \uBA54\uC2A4\uAEBC\uC6C0, \uC18C\uD654
+    \uBD88\uB7C9, \uAC00\uC2B4 \uC553\uC774 \uB4F1\uC758 \uC99D\uC0C1\uC744 \uBCF4\uC784.
+    \uC8FC\uB85C \uACFC\uC2DD\uC774\uB098 \uAE09\uC2DD, \uD2B9\uC815 \uC74C\uC2DD\uC5D0
+    \uB300\uD55C \uBD88\uB0B4\uC131\uC73C\uB85C \uBC1C\uBCD1."
+  _symptomDatas:
+  - {fileID: 11400000, guid: 319a61a0afa8a7144a087c6192f46e49, type: 2}
+  - {fileID: 11400000, guid: 011c9b30bfae0c84cb33422c4f72b430, type: 2}
+  - {fileID: 11400000, guid: bdf9033d81eb66d4eb31e17b33e6aa68, type: 2}
+  - {fileID: 11400000, guid: 9452deacecacc9d4795264d52a495c54, type: 2}

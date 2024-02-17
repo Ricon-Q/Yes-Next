@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec9d1e8e0e8d224caf353ca3e435ee4, type: 3}
+  m_Name: 006_Environmental Adaptation Disorder
+  m_EditorClassIdentifier: 
+  _name: "\uD658\uACBD \uC801\uC751 \uC7A5\uC560"
+  _description: "\uC0C8\uB85C\uC6B4 \uD658\uACBD\uC5D0 \uC801\uC751\uD558\uB824\uB294
+    \uACFC\uC815\uC5D0\uC11C \uBC1C\uC0DD\uD558\uB294 \uC2A4\uD2B8\uB808\uC2A4 \uBC18\uC751\uC73C\uB85C,
+    \uC54C\uB808\uB974\uAE30 \uBC18\uC751, \uC2EC\uB9AC\uC801 \uBD88\uC548, \uC2E0\uCCB4\uC801
+    \uBD88\uD3B8\uD568 \uB4F1\uC744 \uD3EC\uD568."
+  _symptomDatas:
+  - {fileID: 11400000, guid: 98a9794d40a8340438747786f81d0758, type: 2}
+  - {fileID: 11400000, guid: d428087b8a996954890a0b29469c1d4a, type: 2}
+  - {fileID: 11400000, guid: df9c32632ad03804e85844b052bda373, type: 2}
+  - {fileID: 11400000, guid: 5a4095dd176a42f4e96f0efab9759ca4, type: 2}
+  - {fileID: 11400000, guid: 057e1a4599fb52047ab1909c27e35a7f, type: 2}
+  - {fileID: 11400000, guid: 8892e6622683f084c82a7113c5383fe8, type: 2}

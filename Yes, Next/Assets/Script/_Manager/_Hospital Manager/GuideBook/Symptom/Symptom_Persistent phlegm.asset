@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e633b23a02bd84e959d2f3d360e85b, type: 3}
+  m_Name: Symptom_Persistent phlegm
+  m_EditorClassIdentifier: 
+  _name: "\uC9C0\uC18D\uC801\uC778 \uAC00\uB798"
+  _description: "\uD638\uD761\uAE30\uC5D0\uC11C \uC9C0\uC18D\uC801\uC73C\uB85C \uAC00\uB798\uAC00
+    \uBC1C\uC0DD\uD558\uB294 \uC0C1\uD0DC\uB85C, \uAC10\uAE30, \uD3D0 \uC9C8\uD658
+    \uB4F1\uC5D0 \uC758\uD574 \uC720\uBC1C."

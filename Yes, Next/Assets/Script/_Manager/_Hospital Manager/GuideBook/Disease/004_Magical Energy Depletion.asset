@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec9d1e8e0e8d224caf353ca3e435ee4, type: 3}
+  m_Name: 004_Magical Energy Depletion
+  m_EditorClassIdentifier: 
+  _name: "\uB9C8\uBC95 \uC5D0\uB108\uC9C0 \uC18C\uC2E4\uC99D"
+  _description: "\uB9C8\uBC95 \uC0AC\uC6A9\uC790\uAC00 \uAC15\uB825\uD55C \uB9C8\uBC95\uC744
+    \uC0AC\uC6A9\uD55C \uD6C4 \uB9C8\uBC95 \uC5D0\uB108\uC9C0\uAC00 \uAC11\uC790\uAE30
+    \uC18C\uC2E4\uB418\uB294 \uD604\uC0C1\uC73C\uB85C, \uC77C\uC2DC\uC801\uC778 \uBB34\uB825\uAC10,
+    \uC758\uC2DD \uC0C1\uC2E4, \uC5D0\uB108\uC9C0 \uC800\uD558\uC640 \uAC19\uC740
+    \uB2E4\uC591\uD55C \uC99D\uC0C1 \uBC1C\uACAC."
+  _symptomDatas:
+  - {fileID: 11400000, guid: d428087b8a996954890a0b29469c1d4a, type: 2}
+  - {fileID: 11400000, guid: 8620898a92089ab429d0e3cd10de597d, type: 2}
+  - {fileID: 11400000, guid: 40374bd5e75febb42ac154781d5745ae, type: 2}
+  - {fileID: 11400000, guid: df9c32632ad03804e85844b052bda373, type: 2}
+  - {fileID: 11400000, guid: 5a4095dd176a42f4e96f0efab9759ca4, type: 2}
+  - {fileID: 11400000, guid: c16f818f91e67704caa562622cd571c4, type: 2}
+  - {fileID: 11400000, guid: 22e885c7f9b7fd0498de323105f8dbf3, type: 2}
+  - {fileID: 11400000, guid: 0c53b80bbe25bb9499cb22d809776522, type: 2}
+  - {fileID: 11400000, guid: 675e765ebfc12d24da0d646b43c3b97a, type: 2}
+  - {fileID: 11400000, guid: 8892e6622683f084c82a7113c5383fe8, type: 2}

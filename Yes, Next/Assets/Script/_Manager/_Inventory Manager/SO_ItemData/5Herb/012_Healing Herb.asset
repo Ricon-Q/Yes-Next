@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 012_Healing Herb
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 4
+  DisplayName: "\uCE58\uC720\uCD08"
+  Description: "\uBC1D\uC740 \uB179\uC0C9\uC758 \uC57D\uCD08. \uB192\uC740 \uBC88\uC2DD\uB825\uC73C\uB85C
+    \uC0B0 \uC18D\uC5D0\uC11C \uD754\uD558\uAC8C \uCC3E\uC744 \uC218 \uC788\uB2E4.
+    \uCE58\uC720 \uD6A8\uACFC\uAC00 \uC788\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: fc0a2ff6b2df30a4b9b71664a08f44bd, type: 3}
+  _previewSprite: {fileID: 21300000, guid: fc0a2ff6b2df30a4b9b71664a08f44bd, type: 3}
+  MaxStackSize: 5
+  Sellable: 1
+  Buyable: 1
+  SellPrice: 10
+  BuyPrice: 50

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e633b23a02bd84e959d2f3d360e85b, type: 3}
+  m_Name: Race_HalfElf
+  m_EditorClassIdentifier: 
+  _name: "\uD558\uD504 \uC5D8\uD504"
+  _description: "\uC778\uAC04\uACFC \uC5D8\uD504\uC758 \uD63C\uD608\uB85C, \uB450
+    \uC885\uC871\uC758 \uD2B9\uC131\uC744 \uD63C\uD569\uD558\uC5EC \uAC00\uC9C0\uACE0
+    \uC788\uB2E4. \uC5D8\uD504\uC758 \uC678\uBAA8\uC640 \uC778\uAC04\uC758 \uC801\uC751\uB825\uC744
+    \uAC00\uC9C0\uACE0 \uC788\uB294 \uACBD\uC6B0\uAC00 \uBCF4\uD1B5\uC774\uB2E4.
+    \uD558\uC9C0\uB9CC \uD63C\uD608\uC774\uB77C\uB294 \uC0AC\uC2E4\uC774 \uC815\uCCB4\uC131
+    \uD63C\uB780\uACFC \uC2EC\uB9AC\uC801 \uC2A4\uD2B8\uB808\uC2A4\uB97C \uC900\uB2E4"
