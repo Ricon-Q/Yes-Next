@@ -17,6 +17,9 @@ public class HospitalGuideBook : MonoBehaviour
     {
         _guideBookObject.SetActive(true);
         _categoryDisplay.OpenGuideBook();
+        
+        _diseasePanel.SetActive(false);
+        _raceSymptomPanel.SetActive(false);
     }
 
     public void CloseGuideBook()
@@ -32,9 +35,26 @@ public class HospitalGuideBook : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _raceSymptomNameText;
     [SerializeField] private TextMeshProUGUI _raceSymptomDescriptionText;
 
-    [Header("DataBase")]
-    [SerializeField] private GuideBookDatabase _raceDatabase;
-    [SerializeField] private GuideBookDatabase _raceSymptomDatabase; 
-    [SerializeField] private DiseaseDatabase _diseaseDatabase;
+    // [Header("DataBase")]
+    // [SerializeField] private GuideBookDatabase _raceDatabase;
+    // [SerializeField] private GuideBookDatabase _raceSymptomDatabase; 
+    // [SerializeField] private DiseaseDatabase _diseaseDatabase;
 
+    public void DisplayDisease(DiseaseData diseaseData)
+    {
+        _diseasePanel.SetActive(true);
+        _raceSymptomPanel.SetActive(false);
+
+        _diseaseNameText.text = diseaseData._name;
+        _diseaseDescriptionText.text = diseaseData._description;
+    }
+
+    public void DisplayRaceSymptom(GuideBookData guideBookData)
+    {
+        _diseasePanel.SetActive(false);
+        _raceSymptomPanel.SetActive(true);
+
+        _raceSymptomNameText.text = guideBookData._name;
+        _raceSymptomDescriptionText.text = guideBookData._description;
+    }
 }

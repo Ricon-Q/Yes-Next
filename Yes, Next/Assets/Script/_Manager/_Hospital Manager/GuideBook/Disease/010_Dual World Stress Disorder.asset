@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec9d1e8e0e8d224caf353ca3e435ee4, type: 3}
   m_Name: 010_Dual World Stress Disorder
   m_EditorClassIdentifier: 
-  _diseaseName: "\uC774\uC911 \uC138\uACC4 \uC2A4\uD2B8\uB808\uC2A4 \uC7A5\uC560"
+  _name: "\uC774\uC911 \uC138\uACC4 \uC2A4\uD2B8\uB808\uC2A4 \uC7A5\uC560"
   _description: "\uB450 \uAC1C\uC758 \uC11C\uB85C \uB2E4\uB978 \uC138\uACC4\uB098
     \uBB38\uD654 \uC0AC\uC774\uC5D0\uC11C \uC0B4\uC544\uAC00\uB294 \uACFC\uC815\uC5D0\uC11C
     \uBC1C\uC0DD\uD558\uB294 \uC2A4\uD2B8\uB808\uC2A4\uB85C \uC778\uD55C \uC7A5\uC560\uB85C,
     \uC815\uCCB4\uC131 \uD63C\uB780, \uC18C\uC18D\uAC10 \uBD80\uC871, \uC2EC\uB9AC\uC801
-    \uBD88\uC548\uC815 \uB4F1\uC744 \uC720\uBC1C"
+    \uBD88\uC548\uC815 \uB4F1\uC744 \uC720\uBC1C."
   _symptomDatas:
   - {fileID: 11400000, guid: d428087b8a996954890a0b29469c1d4a, type: 2}
   - {fileID: 11400000, guid: 8620898a92089ab429d0e3cd10de597d, type: 2}

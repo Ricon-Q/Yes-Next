@@ -40,8 +40,8 @@ public class HospitalManager : MonoBehaviour
     public InfoUiDisplay _infoUiDisplay;
     public DialoguePanel _dialoguePanel;
     public DiagnosisPanel _diagnosisPanel;
-    [SerializeField] private Hospital_InventoryDisplay _hospital_InventoryDisplay;
-    [SerializeField] private HospitalGuideBook _hospitalGuideBook;
+    public Hospital_InventoryDisplay _hospital_InventoryDisplay;
+    public HospitalGuideBook _hospitalGuideBook;
     
     private void Start()
     {
