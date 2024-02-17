@@ -7,4 +7,12 @@ using UnityEngine;
 public class GuideBookDatabase : ScriptableObject
 {
     public List<GuideBookData> _guideBookDatas;
+    public GuideBookData FindData(string name)
+    {
+        foreach (var item in _guideBookDatas)
+        {
+            if (item._name == name) return item;
+        }
+        return null;
+    }
 }

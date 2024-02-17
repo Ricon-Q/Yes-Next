@@ -3245,7 +3245,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2127402614}
+        m_TargetAssemblyTypeName: DiagnosisPanel, Assembly-CSharp
+        m_MethodName: ChangeRace
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 194626248}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &194626249
 MonoBehaviour:
@@ -26549,7 +26561,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2127402614}
+        m_TargetAssemblyTypeName: DiagnosisPanel, Assembly-CSharp
+        m_MethodName: ChangeDisease
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1079611357}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!224 &1079611358
 RectTransform:
@@ -30753,7 +30777,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2127402614}
+        m_TargetAssemblyTypeName: DiagnosisPanel, Assembly-CSharp
+        m_MethodName: ChangeSymptom1
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1295422523}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1295422524
 MonoBehaviour:
@@ -35587,7 +35623,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2127402614}
+        m_TargetAssemblyTypeName: DiagnosisPanel, Assembly-CSharp
+        m_MethodName: ChangeSymptom0
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1558998904}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!224 &1558998905
 RectTransform:
@@ -37646,7 +37694,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2127402614}
+        m_TargetAssemblyTypeName: DiagnosisPanel, Assembly-CSharp
+        m_MethodName: ChangeSymptom2
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1662865107}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_Dropdown, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &1662865108
 MonoBehaviour:
@@ -48198,7 +48258,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _allocatedPatientData: {fileID: 0}
-  _disaseDropdown: {fileID: 0}
+  _raceDatabase: {fileID: 11400000, guid: 078612f9e24ac554780c694c9718888c, type: 2}
+  _symptomDatabase: {fileID: 11400000, guid: bfdb4bf9acce8834d874da7aacec17fe, type: 2}
+  _diseaseDatabase: {fileID: 11400000, guid: 940b678eafacf3949b8c1043f60aa5c3, type: 2}
 --- !u!114 &2127402615
 MonoBehaviour:
   m_ObjectHideFlags: 0

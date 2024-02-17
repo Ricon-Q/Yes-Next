@@ -59,6 +59,8 @@ public class HospitalManager : MonoBehaviour
         PlayerInputManager.SetPlayerInput(false);
         _hospital_InventoryDisplay.ChangeInventory(0);
         _hospitalGuideBook.EnterHospitalMode();
+
+        _diagnosisPanel._diagnosisData = new DiagnosisData();
     }
 
     public void ExitHospitalMode()
