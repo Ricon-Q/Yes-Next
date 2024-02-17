@@ -8,11 +8,11 @@ using UnityEngine.EventSystems;
 
 public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private Image itemSprite;
-    [SerializeField] private TextMeshProUGUI itemCount;
-    [SerializeField] private _InventorySlot assignedInventorySlot;
-    [SerializeField] private TextMeshProUGUI itemName = null;
-    [SerializeField] private TextMeshProUGUI itemPrice = null;
+    [SerializeField] protected Image itemSprite;
+    [SerializeField] protected TextMeshProUGUI itemCount;
+    [SerializeField] protected _InventorySlot assignedInventorySlot;
+    [SerializeField] protected TextMeshProUGUI itemName = null;
+    [SerializeField] protected TextMeshProUGUI itemPrice = null;
     public ItemType type = default;
     public UnityEvent onRightClick;
 
@@ -34,7 +34,7 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
         assignedInventorySlot = slot;
         UpdateUISlot(slot);
     }
-    public void UpdateUISlot(_InventorySlot slot)
+    public virtual void UpdateUISlot(_InventorySlot slot)
     {
         if(type == default)
         {
@@ -100,11 +100,11 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
             }
         }
     }
-    public void UpdateUISlot()
+    public virtual void UpdateUISlot()
     {
         if(assignedInventorySlot != null) UpdateUISlot(assignedInventorySlot);
     }
-    public void ClearSlot()
+    public virtual void ClearSlot()
     {
         assignedInventorySlot?.ClearSlot();
         itemSprite.sprite = null;
