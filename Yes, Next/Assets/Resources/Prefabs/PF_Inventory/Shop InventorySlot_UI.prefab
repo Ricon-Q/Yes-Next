@@ -177,7 +177,7 @@ MonoBehaviour:
   m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -354,13 +354,13 @@ MonoBehaviour:
   assignedInventorySlot:
     itemId: -1
     stackSize: -1
+    isCraftResultSlot: 0
   itemName: {fileID: 111700712157578339}
   itemPrice: {fileID: 4338244343569140614}
   type: 0
   onRightClick:
     m_PersistentCalls:
       m_Calls: []
-  isCraftResultSlot: 0
 --- !u!114 &7396860284890347971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
