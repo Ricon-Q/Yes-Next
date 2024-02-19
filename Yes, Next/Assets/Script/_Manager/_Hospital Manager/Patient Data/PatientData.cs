@@ -8,13 +8,13 @@ public class PatientData : ScriptableObject
     // 환자 이름
     public string _name;
     // 종족
-    
+    public GuideBookData _race;
     [Header("Conversation")]
     public string _conversationTitle;
 
     [Header("Disase")]
     // 질병 종류
-    public string _disaseName;
+    public DiseaseData _diseaseData;
     // 포션 데이터
     public InventoryItemData _potionItemData;
 }

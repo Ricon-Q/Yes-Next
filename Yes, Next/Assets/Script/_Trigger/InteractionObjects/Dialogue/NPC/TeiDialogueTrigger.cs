@@ -14,4 +14,9 @@ public class TeiDialogueTrigger : npcDialogueTrigger
         else
             HospitalManager.Instance.EnterHospitalMode();
     }
+
+    public void SetVariable()
+    {
+        DialogueLua.SetVariable("CurrentTime_Hour", _TimeManager.Instance.timeData.hour);
+    }
 }

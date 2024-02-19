@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,17 @@ public class DiagnosisPanel : MonoBehaviour
     [SerializeField] private GuideBookDatabase _symptomDatabase; 
     [SerializeField] private DiseaseDatabase _diseaseDatabase;
 
+    [Header("Drop Down")]
+    [SerializeField] private TMP_Dropdown _raceDropdown;
+    [SerializeField] private List<TMP_Dropdown> _symptomDropdowns;
+    [SerializeField] private TMP_Dropdown _diseaseDropdown;
+
+    [Header("Diagnosis Slot Display")]
+    [SerializeField] private DiagnosisSlotDisplay _diagnosisSlotDisplay;
+
+    [Header("Submit Button")]
+    [SerializeField] Button _submitButton;
+
     public DiagnosisData _diagnosisData;
     public void AllocatePatientData(PatientData patientData)
     {
@@ -22,37 +34,89 @@ public class DiagnosisPanel : MonoBehaviour
         _allocatedPatientData = patientData;
     }
 
+    private void Update() 
+    {
+        if(DialogueLua.GetVariable("_giveupDiagnosis").asBool)
+            GiveupPatient();
+    }
+
     public void SubmitDiagnosis()
     {
         CheckDiagnosis();
+        // DialogueSystemController.SendMessage("Continue", "NodeName");
         HospitalManager.Instance._dialoguePanel.EndConversation();
-        _diagnosisData = new DiagnosisData();
+
+        HospitalManager.Instance._yesNext.interactable = true;
+        HospitalManager.Instance._endHospital.interactable = true;
+        _submitButton.interactable = false;
+
+        if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != -1)
+            _diagnosisSlotDisplay.inventorySystem.inventorySlots[0].RemoveFromStack(1);
+    }
+
+    public void NextPatient()
+    {
+        SetupDiagnosis();
+        HospitalManager.Instance._dialoguePanel.StartConversation();
+
+        HospitalManager.Instance._yesNext.interactable = false;
+        HospitalManager.Instance._endHospital.interactable = false;
+        
+        _submitButton.interactable = true;
+    }
+
+    public void GiveupPatient()
+    {
+        DialogueLua.SetVariable("_giveupDiagnosis", false);
+        HospitalManager.Instance._dialoguePanel.EndConversation();
+
+        HospitalManager.Instance._yesNext.interactable = true;
+        HospitalManager.Instance._endHospital.interactable = true;
+        _submitButton.interactable = false;
     }
     
     public void CheckDiagnosis()
     {
+        int _score = 0;
+        if(_diagnosisData._race == _allocatedPatientData._race) 
+            _score += 20;
         
+        foreach (var item in _diagnosisData._symptoms)
+            if(_allocatedPatientData._diseaseData._symptomDatas.Contains(item)) 
+                _score += 20;
+
+        if(_diagnosisData._diseaseData == _allocatedPatientData._diseaseData)
+            _score += 20;
+        
+        if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId == _allocatedPatientData._potionItemData.ID)
+            _score += 20;
+        else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != _allocatedPatientData._potionItemData.ID)
+            _score += -10;
+        else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId == -1)
+            _score += 0;
+        Debug.Log(_score);
+    }
+    public void SetupDiagnosis()
+    {
+        ChangeRace();
+        ChangeDisease();
+        for (int i = 0; i < 3; i++)
+        {
+            ChangeSymptom(i);
+        }
     }
 
-    public void ChangeRace(TMP_Dropdown change)
+    public void ChangeRace()
     {
-        _diagnosisData._race = _raceDatabase.FindData(change.options[change.value].text);
+        _diagnosisData._race = _raceDatabase.FindData(_raceDropdown.options[_raceDropdown.value].text);
     }
-    public void ChangeDisease(TMP_Dropdown change)
+    public void ChangeDisease()
     {
-        _diagnosisData._diseaseData = _diseaseDatabase.FindData(change.options[change.value].text);
+        _diagnosisData._diseaseData = _diseaseDatabase.FindData(_diseaseDropdown.options[_diseaseDropdown.value].text);
     }
-    public void ChangeSymptom0(TMP_Dropdown change)
+    public void ChangeSymptom(int index)
     {
-        _diagnosisData._symptom0 = _symptomDatabase.FindData(change.options[change.value].text);
-    }
-    public void ChangeSymptom1(TMP_Dropdown change)
-    {
-        _diagnosisData._symptom1 = _symptomDatabase.FindData(change.options[change.value].text);
-    }
-    public void ChangeSymptom2(TMP_Dropdown change)
-    {
-        _diagnosisData._symptom2 = _symptomDatabase.FindData(change.options[change.value].text);
+        _diagnosisData._symptoms[index] = _symptomDatabase.FindData(_symptomDropdowns[index].options[_symptomDropdowns[index].value].text);
     }
 }
 
@@ -62,17 +126,17 @@ public class DiagnosisData
     // 증상 1, 2, 3
     // 질병
     public GuideBookData _race;
-    public GuideBookData _symptom0;
-    public GuideBookData _symptom1;
-    public GuideBookData _symptom2;
+    public List<GuideBookData> _symptoms;
     public DiseaseData _diseaseData;
 
     public DiagnosisData()
     {
         _race = null;
-        _symptom0 = null;
-        _symptom1 = null;
-        _symptom2 = null;
+        _symptoms = new List<GuideBookData>(3);
+        for (int i = 0; i < 3; i++)
+        {
+            _symptoms.Add(null); 
+        }
         _diseaseData = null;
     }
 }

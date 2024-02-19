@@ -40,12 +40,20 @@ public class DialoguePanel : MonoBehaviour
             _patientIndex++;
         }
         else
+        {
+            HospitalManager.Instance._diagnosisPanel.AllocatePatientData(null);
             return;
+        }
     }
 
     public void EndConversation()
     {
         _dialogueSystemController.StopConversation();
-        GetNextPatient();
+        _TimeManager.Instance.increaseMinute(Random.Range(20, 30));
+        HospitalManager.Instance._infoUiDisplay.RefreshTimeDisplay();
     }
+    public void StartConversation()
+    {
+        GetNextPatient();
+    }    
 }

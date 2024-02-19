@@ -4992,6 +4992,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1646518113}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetVariable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TeiDialogueTrigger, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6987029156043944297, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+      propertyPath: onExecute.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7924383737242675424, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
       propertyPath: m_Size.y
       value: 2.4546652
@@ -5010,6 +5038,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2189973553554040357, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
   m_PrefabInstance: {fileID: 1646518111}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1646518113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5103211547405606368, guid: cd4f5abe1b95d32488cfb88ad081a009, type: 3}
+  m_PrefabInstance: {fileID: 1646518111}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38ace1f3619c9fc45a117265f70cda13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1651682701
 GameObject:
   m_ObjectHideFlags: 0

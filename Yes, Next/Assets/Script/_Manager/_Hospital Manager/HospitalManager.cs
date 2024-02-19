@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HospitalManager : MonoBehaviour
 {
@@ -42,6 +43,10 @@ public class HospitalManager : MonoBehaviour
     public DiagnosisPanel _diagnosisPanel;
     public Hospital_InventoryDisplay _hospital_InventoryDisplay;
     public HospitalGuideBook _hospitalGuideBook;
+
+    [Header("Button")]
+    public Button _yesNext;
+    public Button _endHospital;
     
     private void Start()
     {
@@ -61,6 +66,10 @@ public class HospitalManager : MonoBehaviour
         _hospitalGuideBook.EnterHospitalMode();
 
         _diagnosisPanel._diagnosisData = new DiagnosisData();
+        _diagnosisPanel.SetupDiagnosis();
+
+        _yesNext.interactable = false;
+        _endHospital.interactable = false;
     }
 
     public void ExitHospitalMode()

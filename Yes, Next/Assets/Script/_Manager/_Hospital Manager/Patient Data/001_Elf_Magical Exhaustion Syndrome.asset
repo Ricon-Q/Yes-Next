@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f289f03462e493949bfa011f0481c1ff, type: 3}
+  m_Name: 001_Elf_Magical Exhaustion Syndrome
+  m_EditorClassIdentifier: 
+  _name: 
+  _race: {fileID: 11400000, guid: 5d6f40bcab3ae2a439a7a0031a0186f6, type: 2}
+  _conversationTitle: Hospital/001_Magical Exhaustion Syndrome
+  _diseaseData: {fileID: 11400000, guid: 2807434686e072e4f9661be92141876c, type: 2}
+  _potionItemData: {fileID: 11400000, guid: 10f6d58eb524a56428d0f0d045f98897, type: 2}
