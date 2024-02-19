@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 2587768108638670814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.75, z: 0}
-  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2189973553554040357}
@@ -452,4 +452,4 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 7428389daba218e4da8a975ce0693185, type: 2}
+  selectedDatabase: {fileID: 11400000, guid: 1f62a833050c0dd4c94f8b74095d42b1, type: 2}

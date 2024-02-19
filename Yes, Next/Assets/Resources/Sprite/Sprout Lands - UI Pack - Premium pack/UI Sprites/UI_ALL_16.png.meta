@@ -1273,7 +1273,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1281,6 +1281,27 @@ TextureImporter:
       bones: []
       spriteID: 9ab1f53b875ac49479dedfd5a03a105b
       internalID: -1669232116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_ALL_16_40
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76221fb235e640446a32612a90b12508
+      internalID: 552180895
       vertices: []
       indices: 
       edges: []
@@ -1340,6 +1361,7 @@ TextureImporter:
       UI_ALL_16_38: 1186376110
       UI_ALL_16_39: -1669232116
       UI_ALL_16_4: 1380829534
+      UI_ALL_16_40: 552180895
       UI_ALL_16_5: 1574974874
       UI_ALL_16_6: 2075990147
       UI_ALL_16_7: -1203269253

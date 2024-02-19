@@ -10158,7 +10158,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u2022\uAE38\uB4DC\uB780?"
+        value: "\u2022 \uAE38\uB4DC\uB780?"
         type: 0
         typeString: CustomFieldType_Text
       - title: Sequence
