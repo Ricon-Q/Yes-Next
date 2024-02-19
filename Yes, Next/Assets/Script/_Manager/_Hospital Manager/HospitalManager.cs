@@ -70,6 +70,7 @@ public class HospitalManager : MonoBehaviour
 
         _yesNext.interactable = false;
         _endHospital.interactable = false;
+        _diagnosisPanel._submitButton.interactable = true;
     }
 
     public void ExitHospitalMode()

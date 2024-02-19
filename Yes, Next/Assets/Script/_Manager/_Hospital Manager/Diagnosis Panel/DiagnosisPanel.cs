@@ -25,7 +25,7 @@ public class DiagnosisPanel : MonoBehaviour
     [SerializeField] private DiagnosisSlotDisplay _diagnosisSlotDisplay;
 
     [Header("Submit Button")]
-    [SerializeField] Button _submitButton;
+    public Button _submitButton;
 
     public DiagnosisData _diagnosisData;
     public void AllocatePatientData(PatientData patientData)
@@ -51,7 +51,10 @@ public class DiagnosisPanel : MonoBehaviour
         _submitButton.interactable = false;
 
         if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != -1)
+        {
             _diagnosisSlotDisplay.inventorySystem.inventorySlots[0].RemoveFromStack(1);
+            _diagnosisSlotDisplay.RefreshDynamicInventory(_diagnosisSlotDisplay.inventorySystem);
+        }
     }
 
     public void NextPatient()
@@ -90,10 +93,10 @@ public class DiagnosisPanel : MonoBehaviour
         
         if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId == _allocatedPatientData._potionItemData.ID)
             _score += 20;
-        else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != _allocatedPatientData._potionItemData.ID)
-            _score += -10;
         else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId == -1)
             _score += 0;
+        else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != _allocatedPatientData._potionItemData.ID)
+            _score += -10;
         Debug.Log(_score);
     }
     public void SetupDiagnosis()

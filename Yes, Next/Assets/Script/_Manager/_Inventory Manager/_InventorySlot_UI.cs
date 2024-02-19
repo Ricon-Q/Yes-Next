@@ -153,4 +153,14 @@ public class _InventorySlot_UI : MonoBehaviour, IPointerClickHandler
     {
         _ShopManager.Instance.UpdateItemPanel(-1);
     }
+
+    public virtual void HospitalUpdateItemPanel()
+    {
+        if(AssignedInventorySlot.itemId != -1)
+            HospitalManager.Instance._infoUiDisplay.AllocateItemData(PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId]);
+    }
+    public void HospitalDisableItemPanel()
+    {
+        HospitalManager.Instance._infoUiDisplay.DisallocateItemData();
+    }
 }

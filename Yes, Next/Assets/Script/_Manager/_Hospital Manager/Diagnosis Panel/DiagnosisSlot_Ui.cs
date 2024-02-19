@@ -33,4 +33,11 @@ public class DiagnosisSlot_Ui : _InventorySlot_UI
         itemSprite.color = Color.white;
         itemCount.text = "";
     }
+    override public void HospitalUpdateItemPanel()
+    {
+        if(AssignedInventorySlot.itemId != -1)
+            HospitalManager.Instance._infoUiDisplay.AllocateItemData(PlayerInventoryManager.Instance.itemDataBase.Items[AssignedInventorySlot.itemId]);
+        else
+            HospitalManager.Instance._infoUiDisplay.BasicPotion(_basePotionSprite);
+    }
 }
