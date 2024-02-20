@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 003_Jasmine Extract
+  m_EditorClassIdentifier: 
+  recipeName: "\uC73C\uAE6C \uC790\uC2A4\uBBFC \uAF43"
+  description: "\uC790\uC2A4\uBBFC\uC744 \uBE7B\uC740 \uBB3C\uC57D \uC7AC\uB8CC\uC774\uB2E4.
+    \n\uB9CE\uC740 \uC0AC\uB78C\uB4E4\uC774 \uC774 \uAF43 \uD5A5\uAE30\uB97C \uC88B\uC544\uD55C\uB2E4."
+  toolType: 0
+  useStamina: 2
+  useTimeMinute: 4
+  inputItemDatas:
+  - {fileID: 11400000, guid: f38a0d6c00b55ba439862ef1b664a7cb, type: 2}
+  requireInputStackSize: 01000000
+  outputItemData: {fileID: 11400000, guid: 765977d46f1627643b636d85f29b6ee1, type: 2}
+  outputItemStackSize: 1

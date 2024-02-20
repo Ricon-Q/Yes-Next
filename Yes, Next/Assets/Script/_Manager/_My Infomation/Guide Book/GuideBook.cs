@@ -8,6 +8,7 @@ public class GuideBook : MonoBehaviour
 {
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI _recipeNameText;
+    [SerializeField] private TextMeshProUGUI _descriptionText;
 
     [Header("Mortar and Pestle")]
     [SerializeField] private GameObject _mortarAndPestleBook;
@@ -48,6 +49,7 @@ public class GuideBook : MonoBehaviour
         _recipeNameText.text = recipeData.recipeName;
         _mortarAndPestleItemImage.sprite = recipeData.inputItemDatas[0].Icon;
         _mortarAndPestleItemAmount.text = recipeData.requireInputStackSize[0].ToString();
+        _descriptionText.text = recipeData.description;
     }
 
     public void AllocateRecipeDataPotionPot(RecipeData recipeData)
@@ -62,6 +64,7 @@ public class GuideBook : MonoBehaviour
         _potionPotItemAmount1.text = recipeData.requireInputStackSize[1].ToString();
         _potionPotItemImage2.sprite = recipeData.inputItemDatas[2].Icon;
         _potionPotItemAmount2.text = recipeData.requireInputStackSize[2].ToString();
+        _descriptionText.text = recipeData.description;
     }
 
     public void OffAllBook()

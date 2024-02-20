@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 008_Strawberry Juice
+  m_EditorClassIdentifier: 
+  recipeName: "\uB538\uAE30\uC999"
+  description: "\uB538\uAE30\uC744 \uBE7B\uC544 \uCD94\uCD9C\uD55C \uC999. \n\uB2EC\uB2EC\uD55C
+    \uB9DB\uC774 \uB290\uAEF4\uC9C4\uB2E4. \n\uD3EC\uC158\uC5D0 \uB9DB\uC744 \uAC00\uBBF8\uD574\uBA70
+    \uC2A4\uD2B8\uB808\uC2A4\uB97C \uC904\uC5EC\uC900\uB2E4."
+  toolType: 0
+  useStamina: 2
+  useTimeMinute: 4
+  inputItemDatas:
+  - {fileID: 11400000, guid: f38cc96a9109109419f4ceb7591f59f6, type: 2}
+  requireInputStackSize: 01000000
+  outputItemData: {fileID: 11400000, guid: 61ae79f8e02c0594d86266bc0ff0958a, type: 2}
+  outputItemStackSize: 1

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 044_Healing Herb Powder
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 4
+  DisplayName: "\uCE58\uC720\uCD08 \uAC00\uB8E8"
+  Description: "\uCE58\uC720\uCD08\uB97C \uBE7B\uC740 \uAC00\uB8E8. \uC57D\uCD08\uC758
+    \uC999\uC774 \uC57D\uAC04 \uC2A4\uBA70\uB4E4\uC5C8\uB2E4. \uBB3C\uC57D\uC73C\uB85C
+    \uC0AC\uC6A9\uD560\uB54C \uC0C1\uCC98 \uBD80\uC704\uC5D0 \uD070 \uCE58\uC720
+    \uD6A8\uACFC\uB97C\uAC00\uC9C4\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: 80c16c3b9d85c0d4487b0f28aefb68ff, type: 3}
+  _previewSprite: {fileID: 21300000, guid: 80c16c3b9d85c0d4487b0f28aefb68ff, type: 3}
+  MaxStackSize: 5
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 15
+  BuyPrice: 0

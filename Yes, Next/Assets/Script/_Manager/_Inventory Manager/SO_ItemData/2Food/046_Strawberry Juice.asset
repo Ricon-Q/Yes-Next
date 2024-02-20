@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 046_Strawberry Juice
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 1
+  DisplayName: "\uB538\uAE30 \uC999"
+  Description: "\uB538\uAE30\uC744 \uBE7B\uC544 \uCD94\uCD9C\uD55C \uC999. \uB2EC\uB2EC\uD55C
+    \uB9DB\uC774 \uB290\uAEF4\uC9C4\uB2E4. \uD3EC\uC158\uC5D0 \uB9DB\uC744 \uAC00\uBBF8\uD574\uBA70
+    \uC2A4\uD2B8\uB808\uC2A4\uB97C \uC904\uC5EC\uC900\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: a993522c08e4c8a41bd55ee202072a61, type: 3}
+  _previewSprite: {fileID: 21300000, guid: a993522c08e4c8a41bd55ee202072a61, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 30
+  BuyPrice: 50

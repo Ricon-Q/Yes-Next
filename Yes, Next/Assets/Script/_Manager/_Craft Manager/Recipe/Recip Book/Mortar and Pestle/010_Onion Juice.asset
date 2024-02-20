@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 010_Onion Juice
+  m_EditorClassIdentifier: 
+  recipeName: "\uC591\uD30C\uC999"
+  description: "\uC591\uD30C\uB97C \uBE7B\uC544 \uCD94\uCD9C\uD55C \uC999.\n \uD3EC\uC158\uACFC
+    \uC870\uD569\uD558\uBA74 \uD53C\uB85C \uD68C\uBCF5\uC5D0 \uD798\uC744 \uAC00\uD574\uC900\uB2E4."
+  toolType: 0
+  useStamina: 2
+  useTimeMinute: 4
+  inputItemDatas:
+  - {fileID: 11400000, guid: c3ffe70c596c2bc46aab5a529550ffd3, type: 2}
+  requireInputStackSize: 01000000
+  outputItemData: {fileID: 11400000, guid: ffa7e1dca4fa05a43a92204dbe63e21f, type: 2}
+  outputItemStackSize: 1

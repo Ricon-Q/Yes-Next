@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
   m_Name: 036_Tomato
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 36
   ItemType: 1
   DisplayName: "\uD1A0\uB9C8\uD1A0"
   Description: "\uBE68\uAC04 \uD1A0\uB9C8\uD1A0\uB2E4. \uC0C8\uCF64\uD55C \uB9DB\uC774
@@ -23,5 +23,5 @@ MonoBehaviour:
   MaxStackSize: 10
   Sellable: 1
   Buyable: 1
-  SellPrice: 25
-  BuyPrice: 50
+  SellPrice: 15
+  BuyPrice: 35

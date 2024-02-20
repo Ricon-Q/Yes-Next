@@ -15,3 +15,12 @@ MonoBehaviour:
   recipeDatas:
   - {fileID: 11400000, guid: 7b1e97eab2ce50f4aaeaea00b35f3e1f, type: 2}
   - {fileID: 11400000, guid: 2c214e00573b0e1469423ee5bc32e8ec, type: 2}
+  - {fileID: 11400000, guid: 33551d7aabf4e414283b6ea0087d95cf, type: 2}
+  - {fileID: 11400000, guid: 2f65c1584ff7fcc41af171b3af4cedc9, type: 2}
+  - {fileID: 11400000, guid: 535aaa305858dda4fa3bc093c196ecef, type: 2}
+  - {fileID: 11400000, guid: c6f02c3d0207e2b4f97b7c3d6ba36601, type: 2}
+  - {fileID: 11400000, guid: 8b1a541305bd85b4585b19013478e738, type: 2}
+  - {fileID: 11400000, guid: 0b110781dd03eae44b5a0afe49f1d9be, type: 2}
+  - {fileID: 11400000, guid: 67d2d1d00f452324d93a5240b5b1dfe4, type: 2}
+  - {fileID: 11400000, guid: ee1e27e5f9a5d7a4a8ee53ebd7cfb86c, type: 2}
+  - {fileID: 11400000, guid: da40c64ec66b6ac439c7aa7e833a2fd3, type: 2}
