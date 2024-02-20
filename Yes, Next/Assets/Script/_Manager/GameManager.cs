@@ -184,9 +184,10 @@ public class GameManager : MonoBehaviour
         // 하루가 지날때 해당 함수 호출, 침대에서 취침하거나 기절하여 하루가 지날때 호출
 
         // Day가 7의 배수라면 퀘스트 새로고침
-        if(_TimeManager.Instance.timeData.day % 7 == 1)
+        if(_TimeManager.Instance.timeData.day == 1 || _TimeManager.Instance.timeData.day == 7 || _TimeManager.Instance.timeData.day == 14 || _TimeManager.Instance.timeData.day == 21 ||_TimeManager.Instance.timeData.day == 28)
         {
             QuestManager.Instance._guildQuestDisplay._isQeustRefresh = true;
+            QuestManager.Instance._guildQuestDisplay._questDatas = new List<int>(5);
         }
     }
 

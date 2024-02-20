@@ -163,6 +163,7 @@ public class QuestManager : MonoBehaviour
             int randomIndex = Random.Range(0, copyOfQuests.Count);
 
             if(_playerQuestDictionary.ContainsKey(randomIndex)) continue;
+            if(randomQuests.Contains(randomIndex)) continue;
             randomQuests.Add(randomIndex);
             copyOfQuests.RemoveAt(randomIndex);
             i++;

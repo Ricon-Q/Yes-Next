@@ -47,6 +47,7 @@ public class QuestDescription : MonoBehaviour
         if(!QuestManager.Instance._playerQuestDictionary.ContainsKey(_questData._questId))
         {
             QuestManager.Instance.AddQuestToList(_questData._questId);
+            QuestManager.Instance._guildQuestDisplay.DisableQuest(_questData._questId);
         }
         else PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("이미 추가된 퀘스트입니다.");
     }
