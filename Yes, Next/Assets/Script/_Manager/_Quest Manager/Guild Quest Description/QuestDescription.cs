@@ -12,7 +12,7 @@ public class QuestDescription : MonoBehaviour
     public InventoryItemData _rewardItemData;
     public GameObject _rewardItemDataObject;
     public TextMeshProUGUI _rewardItemDataText;
-    public TextMeshProUGUI _rewardExp;
+    public TextMeshProUGUI _rewardMoney;
 
     private QuestData _questData;
 
@@ -39,7 +39,7 @@ public class QuestDescription : MonoBehaviour
         {
             _rewardItemDataObject.SetActive(false);
         }
-        _rewardExp.text = "Exp : " + _questData._rewardExp.ToString();
+        _rewardMoney.text = _questData._rewardMoney.ToString("n0");
     }
 
     public void AcceptQuest()

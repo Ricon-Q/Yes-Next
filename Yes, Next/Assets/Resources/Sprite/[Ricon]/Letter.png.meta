@@ -298,6 +298,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Letter_0
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 203
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620fb11060cd57c4392a41b86c475648
+      internalID: 1482759385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -309,6 +330,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Letter_0: 1482759385
       Letter_Closed: 491796432
       Letter_Closed_Outline: -1513535646
       Letter_Dialogue: 642327675

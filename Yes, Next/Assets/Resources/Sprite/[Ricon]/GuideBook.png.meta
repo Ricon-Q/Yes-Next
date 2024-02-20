@@ -114,7 +114,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 66
         width: 32
         height: 80
       alignment: 0
@@ -135,7 +135,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
+        y: 146
         width: 32
         height: 16
       alignment: 0
@@ -156,9 +156,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
-        width: 48
-        height: 64
+        y: 66
+        width: 50
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,12 +176,12 @@ TextureImporter:
       name: GuideBook_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 48
-        height: 64
+        x: 82
+        y: 66
+        width: 50
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: GuideBook_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 48
-        height: 64
+        x: 132
+        y: 66
+        width: 50
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -218,12 +218,12 @@ TextureImporter:
       name: GuideBook_5
       rect:
         serializedVersion: 2
-        x: 176
-        y: 0
-        width: 48
-        height: 64
+        x: 182
+        y: 66
+        width: 50
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,12 +239,12 @@ TextureImporter:
       name: GuideBook_6
       rect:
         serializedVersion: 2
-        x: 224
-        y: 0
-        width: 48
-        height: 64
+        x: 232
+        y: 66
+        width: 50
+        height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -252,6 +252,132 @@ TextureImporter:
       bones: []
       spriteID: 8af9afc8d3450af4e87b89890a4b5aae
       internalID: -1402520301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_7
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 66
+        width: 48
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 23, y: 31, z: 23, w: 31}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436407be4c2c40a499ac9f3b0ab2c3e1
+      internalID: -1517365755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2849bde441012584899cc3cc42c4feec
+      internalID: -1795590670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fc4c150c9ebf4f4c88313d853761fba
+      internalID: 1312860209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_10
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 0
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae97dc8153caee444ab85417d71d0a8b
+      internalID: 1465779582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_11
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 0
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a282a36cdf9e37d49a3f9c9251e83a45
+      internalID: -188206809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GuideBook_12
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 50
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fc7ede14f195d4e8ba34e201d3f9b7
+      internalID: -683157316
       vertices: []
       indices: 
       edges: []
@@ -269,11 +395,17 @@ TextureImporter:
     nameFileIdTable:
       GuideBook_0: 51969699
       GuideBook_1: -125054206
+      GuideBook_10: 1465779582
+      GuideBook_11: -188206809
+      GuideBook_12: -683157316
       GuideBook_2: 235426478
       GuideBook_3: -154578488
       GuideBook_4: -666382920
       GuideBook_5: 1747554996
       GuideBook_6: -1402520301
+      GuideBook_7: -1517365755
+      GuideBook_8: -1795590670
+      GuideBook_9: 1312860209
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
