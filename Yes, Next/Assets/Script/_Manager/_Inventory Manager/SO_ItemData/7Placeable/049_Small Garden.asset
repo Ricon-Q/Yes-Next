@@ -21,10 +21,18 @@ MonoBehaviour:
     \uC774\uC6A9\uD558\uC5EC \uC124\uCE58)"
   tag: 
   Icon: {fileID: 2120501735, guid: 0941b696a83057c47989a9392fd22075, type: 3}
-  _previewSprite: {fileID: -1239696284, guid: 0941b696a83057c47989a9392fd22075, type: 3}
   MaxStackSize: 1
   Sellable: 0
   Buyable: 1
   SellPrice: 0
   BuyPrice: 300
-  _placeObject: {fileID: 6287083459036744888, guid: 245e7898ee54f304b8e8961de0983f2e, type: 3}
+  _placeObjects:
+  - {fileID: 6287083459036744888, guid: 245e7898ee54f304b8e8961de0983f2e, type: 3}
+  - {fileID: 6287083459036744888, guid: 3b8636e29af1f1a40a5ce0e53f184c63, type: 3}
+  - {fileID: 6287083459036744888, guid: 41050493f2e2ef140a424b7d847bf7cd, type: 3}
+  - {fileID: 6287083459036744888, guid: 7a6e7c32cdee4f8408d337bbcd14061f, type: 3}
+  _previewSprites:
+  - {fileID: -1239696284, guid: 0941b696a83057c47989a9392fd22075, type: 3}
+  - {fileID: 1000720879, guid: 0941b696a83057c47989a9392fd22075, type: 3}
+  - {fileID: -838046533, guid: 0941b696a83057c47989a9392fd22075, type: 3}
+  - {fileID: 276759703, guid: 0941b696a83057c47989a9392fd22075, type: 3}

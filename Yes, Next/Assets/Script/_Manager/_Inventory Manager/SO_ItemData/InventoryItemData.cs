@@ -26,7 +26,7 @@ public class InventoryItemData : ScriptableObject
     public string Description;
     public string tag;
     public Sprite Icon;
-    public Sprite _previewSprite;
+    // public Sprite _previewSprite;
     public int MaxStackSize;
     
     public bool Sellable;
@@ -38,7 +38,7 @@ public class InventoryItemData : ScriptableObject
     {
     }
 
-    public virtual void Interact(Vector3 _mousePosition)
+    public virtual void Interact(Vector3 _mousePosition, int index)
     {
 
     }

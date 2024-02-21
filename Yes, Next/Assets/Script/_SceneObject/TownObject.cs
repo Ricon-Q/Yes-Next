@@ -15,7 +15,7 @@ public class TownObject : MonoBehaviour
         {
             if(item._spawnScene != "Town") continue;
             _PlaceableItemData _PlaceableItemData = PlayerInventoryManager.Instance.itemDataBase.Items[item._placeableItemDataId] as _PlaceableItemData;
-            Instantiate(_PlaceableItemData._placeObject, item._position, _PlaceableItemData._placeObject.transform.rotation);     
+            Instantiate(_PlaceableItemData._placeObjects[item._previewIndex], item._position, _PlaceableItemData._placeObjects[item._previewIndex].transform.rotation);     
             Debug.Log("Spawn");
         }
     }

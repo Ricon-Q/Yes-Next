@@ -6,14 +6,15 @@ using UnityEngine;
 public class _PlaceableItemData : InventoryItemData
 {
     [Header("PlaceableObject")]
-    public _PlaceableHolder _placeObject;
+    public List<_PlaceableHolder> _placeObjects;
+    public List<Sprite> _previewSprites;
     // public BoxCollider2D _previewCollider;
 
 
-    public override void Interact(Vector3 _mousePosition)
+    public override void Interact(Vector3 _mousePosition, int previewIndex)
     {
         Debug.Log("Interact Placeable Item Data : " + DisplayName);
-        Instantiate(_placeObject, _mousePosition, _placeObject.transform.rotation);     
+        Instantiate(_placeObjects[previewIndex], _mousePosition, _placeObjects[previewIndex].transform.rotation);     
     }
 
     public override void Replaceable()

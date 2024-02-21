@@ -40,13 +40,14 @@ public class PlaceableObject
     public string _spawnScene;
     public int _placeableItemDataId;
     public Vector3 _position;
-    
+    public int _previewIndex;
 
-    public PlaceableObject(string _spawnScene, int _placeableItemDataId, Vector3 _position)
+    public PlaceableObject(string _spawnScene, int _placeableItemDataId, Vector3 _position, int _previewIndex)
     {
         Debug.Log(_spawnScene + " : " + _placeableItemDataId + " : " + _position);
         this._spawnScene = _spawnScene;
         this._placeableItemDataId = _placeableItemDataId;
         this._position = _position;
+        this._previewIndex = _previewIndex; 
     }
 }

@@ -13,17 +13,24 @@ public class HotBarSelected : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private Camera _camera;
 
-    // public bool canInteract;
+    private int _previewIndex = 0;
 
     private void Start() 
     {
         MoveImage();    
+        ChagnePreview();
     }
     private void Update() 
     {
         ChangeHotBar();
         // if(canInteract)
         HandleInteract();
+        
+        if(InputManager.Instance.GetTurnPlaceable()) 
+        {
+            _previewIndex++;
+            ChagnePreview();
+        }
     }
 
     private int SelectedIndex
@@ -73,7 +80,9 @@ public class HotBarSelected : MonoBehaviour
         if(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType == ItemType.Placeable)
         {
             _PlaceableItemData _tmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _PlaceableItemData;
-            _uiMouseObject.AllocateSprite(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex]._previewSprite, _tmp._placeObject);
+            _previewIndex = _previewIndex % _tmp._previewSprites.Count;
+            Debug.Log(_previewIndex);
+            _uiMouseObject.AllocateSprite(_tmp._previewSprites[_previewIndex], _tmp._placeObjects[_previewIndex]);
         }
         // 이외라면 X
         else
@@ -104,8 +113,8 @@ public class HotBarSelected : MonoBehaviour
                     case ItemType.Placeable:
                         if(_uiMouseObject._canPlace == true)
                         {
-                            ObjectManager.Instance._placeableObjects.Add(new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position));
-                            PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position);
+                            ObjectManager.Instance._placeableObjects.Add(new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex));
+                            PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
                         }
                         break;
                     case ItemType.Default:

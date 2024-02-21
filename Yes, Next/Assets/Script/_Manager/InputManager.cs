@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
     // Hotbar
     private bool _hotBarInteractPressed = false;
     private Vector2 _mouseScroll = Vector2.zero;
+    private bool _turnPlaceable = false;
+    
     // private bool onLeftClick = false;
 
     private static InputManager instance;
@@ -210,6 +212,19 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void TurnPlaceablePressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _turnPlaceable = true;
+        }
+        else if (context.canceled)
+        {
+            _turnPlaceable = false;
+        } 
+    }
+
+    
     // Get
     public Vector2 GetMoveDirection() 
     {
@@ -300,4 +315,10 @@ public class InputManager : MonoBehaviour
         return _mouseScroll;
     }
 
+    public bool GetTurnPlaceable()
+    {
+        bool result = _turnPlaceable;
+        _turnPlaceable = false;
+        return result;
+    }
 }
