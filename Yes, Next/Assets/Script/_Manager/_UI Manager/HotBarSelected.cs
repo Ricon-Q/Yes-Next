@@ -113,7 +113,8 @@ public class HotBarSelected : MonoBehaviour
                     case ItemType.Placeable:
                         if(_uiMouseObject._canPlace == true)
                         {
-                            ObjectManager.Instance._placeableObjects.Add(new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex));
+                            PlaceableObject tmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
+                            ObjectManager.Instance._placeableObjects.Add(tmp);
                             PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
                         }
                         break;
