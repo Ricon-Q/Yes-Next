@@ -30,7 +30,7 @@ public class UiMouseObject : MonoBehaviour
     public virtual void EnablePreview()
     {
         _canPlace = true;
-        _spriteRenderer.color = Color.green;
+        _spriteRenderer.color = Color.white;
     }
 
     public virtual void DisablePreview()

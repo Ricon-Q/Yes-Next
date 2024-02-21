@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9f87be97220bc4f8ffb632d4007a9c, type: 3}
   m_Name: 049_Small Garden
   m_EditorClassIdentifier: 
-  ID: 16
+  ID: 49
   ItemType: 6
   DisplayName: "\uC791\uC740 \uD143\uBC1C"
   Description: "3X3 \uC0AC\uC774\uC988\uC758 \uC791\uC740 \uD143\uBC2D \uC138\uD2B8.
@@ -28,9 +28,9 @@ MonoBehaviour:
   BuyPrice: 300
   _placeObjects:
   - {fileID: 6287083459036744888, guid: 245e7898ee54f304b8e8961de0983f2e, type: 3}
-  - {fileID: 6287083459036744888, guid: 3b8636e29af1f1a40a5ce0e53f184c63, type: 3}
-  - {fileID: 6287083459036744888, guid: 41050493f2e2ef140a424b7d847bf7cd, type: 3}
   - {fileID: 6287083459036744888, guid: 7a6e7c32cdee4f8408d337bbcd14061f, type: 3}
+  - {fileID: 6287083459036744888, guid: 41050493f2e2ef140a424b7d847bf7cd, type: 3}
+  - {fileID: 6287083459036744888, guid: 3b8636e29af1f1a40a5ce0e53f184c63, type: 3}
   _previewSprites:
   - {fileID: -1239696284, guid: 0941b696a83057c47989a9392fd22075, type: 3}
   - {fileID: 1000720879, guid: 0941b696a83057c47989a9392fd22075, type: 3}
