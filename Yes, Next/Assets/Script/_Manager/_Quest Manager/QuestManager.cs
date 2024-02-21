@@ -121,9 +121,6 @@ public class QuestManager : MonoBehaviour
                 case ItemType.Herb:
                     PlayerInventoryManager.Instance.herbInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
                     break;
-                case ItemType.Seed:
-                    PlayerInventoryManager.Instance.herbInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
-                    break;
                 case ItemType.Potion:
                     PlayerInventoryManager.Instance.potionInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
                     break;

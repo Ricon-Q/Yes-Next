@@ -65,16 +65,6 @@ public class _BuyDisplay : _DynamicInventoryDisplay
                         else
                             Debug.Log("No Free Slot");
                         break;
-                    case ItemType.Seed:
-                        if(PlayerInventoryManager.Instance.herbInventory.HasFreeSlot(out _InventorySlot freeSlot01))
-                        {
-                            PlayerInventoryManager.Instance.herbInventory.AddToInventory(itemSlot.itemId, itemSlot.stackSize);
-                            price += PlayerInventoryManager.Instance.itemDataBase.Items[itemSlot.itemId].BuyPrice * itemSlot.stackSize;
-                            itemSlot.ClearSlot();
-                        }
-                        else
-                            Debug.Log("No Free Slot");
-                        break;
                     case ItemType.Potion:
                         if(PlayerInventoryManager.Instance.potionInventory.HasFreeSlot(out _InventorySlot freeSlot02))
                         {

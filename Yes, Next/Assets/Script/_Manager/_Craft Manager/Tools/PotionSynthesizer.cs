@@ -40,9 +40,6 @@ public class PotionSynthesizer : _DynamicInventoryDisplay
                     case ItemType.Herb:
                         PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
                         break;
-                    case ItemType.Seed:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(item.itemId, item.stackSize);
-                        break;
                     case ItemType.Potion:
                         PlayerInventoryManager.Instance.potionInventory.AddToInventory(item.itemId, item.stackSize);
                         break;

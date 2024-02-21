@@ -156,9 +156,6 @@ public class PlayerInventoryManager : MonoBehaviour
     {
         switch (itemDataBase.Items[itemIdToAdd].ItemType)
         {
-            case ItemType.Seed:
-                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
-                break;
             case ItemType.Herb:
                 herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
                 break;

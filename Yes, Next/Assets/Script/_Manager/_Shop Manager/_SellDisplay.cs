@@ -50,9 +50,6 @@ public class _SellDisplay : _DynamicInventoryDisplay
                     case ItemType.Herb:
                         PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
                         break;
-                    case ItemType.Seed:
-                        PlayerInventoryManager.Instance.herbInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
-                        break;
                     case ItemType.Potion:
                         PlayerInventoryManager.Instance.potionInventory.AddToInventory(inventorySystem.inventorySlots[i].itemId, inventorySystem.inventorySlots[i].stackSize);
                         break;

@@ -113,9 +113,18 @@ public class HotBarSelected : MonoBehaviour
                     case ItemType.Placeable:
                         if(_uiMouseObject._canPlace == true)
                         {
-                            PlaceableObject tmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
-                            ObjectManager.Instance._placeableObjects.Add(tmp);
+                            PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
+                            ObjectManager.Instance._placeableObjects.Add(placeableTmp);
                             PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
+                        }
+                        break;
+                    case ItemType.Tool:
+                        float distanceToPlayer = Vector3.Distance(worldMousePosition, _PlayerManager.Instance.transform.position);
+                        if (distanceToPlayer <= 2f) // Check if the distance is less than or equal to 1
+                        {
+                            _ToolItemData toolTmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _ToolItemData;
+                            if (toolTmp != null)
+                                toolTmp.Interact();
                         }
                         break;
                     case ItemType.Default:
