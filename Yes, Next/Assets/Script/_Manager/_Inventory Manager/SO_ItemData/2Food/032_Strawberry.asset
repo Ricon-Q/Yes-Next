@@ -19,8 +19,8 @@ MonoBehaviour:
     \uBAA8\uB4E0 \uC774\uB4E4\uC774 \uC88B\uC544\uD558\uB294 \uCC44\uC18C\uC778 \uAC83
     \uAC19\uB2E4."
   tag: 
-  Icon: {fileID: 21300000, guid: 3128d3c9183605e4e8aa53df7734761d, type: 3}
-  _previewSprite: {fileID: 21300000, guid: 3128d3c9183605e4e8aa53df7734761d, type: 3}
+  Icon: {fileID: 1379066116, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
+  _previewSprite: {fileID: 1379066116, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
   MaxStackSize: 10
   Sellable: 1
   Buyable: 1

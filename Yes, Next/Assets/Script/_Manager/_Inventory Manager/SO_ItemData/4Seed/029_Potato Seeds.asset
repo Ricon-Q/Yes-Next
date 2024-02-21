@@ -18,8 +18,8 @@ MonoBehaviour:
   Description: "\uAC10\uC790 \uC528\uAC00 \uB4E4\uC5B4\uC788\uB2E4. \uD55C \uC528\uC557\uC5D0
     \uC5EC\uB7EC \uAC1C\uCCB4\uAC00 \uC790\uB780\uB2E4."
   tag: 
-  Icon: {fileID: 21300000, guid: 7eb8196a696106e4ca3062640241d3fc, type: 3}
-  _previewSprite: {fileID: 21300000, guid: 7eb8196a696106e4ca3062640241d3fc, type: 3}
+  Icon: {fileID: -1242437542, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
+  _previewSprite: {fileID: -1242437542, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
   MaxStackSize: 5
   Sellable: 1
   Buyable: 1

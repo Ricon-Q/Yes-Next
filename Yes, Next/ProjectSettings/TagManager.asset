@@ -17,8 +17,8 @@ TagManager:
   - UI
   - Interactable
   - UI_Front
-  - 
-  - 
+  - Mouse_Placeable
+  - Collision
   - 
   - 
   - 

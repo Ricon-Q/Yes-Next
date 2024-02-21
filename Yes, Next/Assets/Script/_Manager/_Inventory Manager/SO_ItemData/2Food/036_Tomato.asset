@@ -18,8 +18,8 @@ MonoBehaviour:
   Description: "\uBE68\uAC04 \uD1A0\uB9C8\uD1A0\uB2E4. \uC0C8\uCF64\uD55C \uB9DB\uC774
     \uB098\uB294 \uCC44\uC18C\uC774\uBA70, \uD558\uD50C\uB9C1\uB4E4\uC774 \uC88B\uC544\uD55C\uB2E4."
   tag: 
-  Icon: {fileID: 21300000, guid: eaccb16c60e1f8046aa30ab45c46f4b3, type: 3}
-  _previewSprite: {fileID: 21300000, guid: eaccb16c60e1f8046aa30ab45c46f4b3, type: 3}
+  Icon: {fileID: -1039112333, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
+  _previewSprite: {fileID: -1039112333, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
   MaxStackSize: 10
   Sellable: 1
   Buyable: 1

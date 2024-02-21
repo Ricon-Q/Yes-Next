@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97008dce40bf9f40bd141a8cc811d8b, type: 3}
   m_Name: Silvia_Shop
   m_EditorClassIdentifier: 
-  inventory: []
+  inventory:
+  - {fileID: 11400000, guid: 67a2a7c692567db42983d385541fa0c6, type: 2}
