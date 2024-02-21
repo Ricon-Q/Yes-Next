@@ -91,6 +91,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 4017470936780769624}
+  _object: {fileID: 2343311952837747430}
+  _itemId: 49
 --- !u!1 &2343311952837747430
 GameObject:
   m_ObjectHideFlags: 0

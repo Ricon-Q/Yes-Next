@@ -852,6 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 7169638171995469609}
+  _object: {fileID: 2343311952837747430}
+  _itemId: 49
 --- !u!1 &3602974658995468249
 GameObject:
   m_ObjectHideFlags: 0
