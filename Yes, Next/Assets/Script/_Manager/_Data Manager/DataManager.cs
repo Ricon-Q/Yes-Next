@@ -109,6 +109,9 @@ public class DataManager : MonoBehaviour
 
         // 길드 퀘스트 데이터 저장
         SaveGuildQuestData();
+
+        // 식물 데이터 저장
+        SavePlantData();
         
         // Debug.Log(saveIndex + " Save to : " + path);
     }
@@ -159,6 +162,15 @@ public class DataManager : MonoBehaviour
         ES3.Save("GuildQuestData", _guildQuestData, path);
     }
 
+    public void SavePlantData()
+    {
+        PlantSaveData _plantSaveData = new PlantSaveData();
+        _plantSaveData._plantDatas = PlantManager.Instance._plantDatas;
+
+        path = "Saves/SaveSlot" + currentSaveIndex.ToString() + ".es3";
+        ES3.Save("PlantData", _plantSaveData, path);
+    }
+
     // ========================================================================== //
     // ========================================================================== //
 
@@ -184,6 +196,9 @@ public class DataManager : MonoBehaviour
 
             // QuestData불러오기
             LoadQuestData(loadIndex);
+
+            // 식물 데이터 불러오기
+            LoadPlantData(loadIndex);
         }            
     }
 
@@ -260,6 +275,23 @@ public class DataManager : MonoBehaviour
         return false;
     }
 
+    public void LoadPlantData(int loadIndex)
+    {
+        PlantSaveData _loadPlantData;
+        currentSaveIndex = loadIndex;
+
+        path = "Saves/SaveSlot" + loadIndex.ToString() + ".es3";
+        if(ES3.FileExists(path))
+        {
+            _loadPlantData = ES3.Load<PlantSaveData>("PlantData", path);
+            
+            if(_loadPlantData._plantDatas.Count != 0)
+            {
+                PlantManager.Instance._plantDatas = _loadPlantData._plantDatas;
+            }
+        }
+    }
+
     // ========================================================================== //
     // ========================================================================== //
 
@@ -328,4 +360,9 @@ public class QuestSaveData
 public class GuildQuestData
 {
     public List<int> _questDatas;
+}
+
+public class PlantSaveData
+{
+    public List<PlantData> _plantDatas;
 }

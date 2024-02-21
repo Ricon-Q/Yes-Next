@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlantManager : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class PlantManager : MonoBehaviour
     [Header("Seed Prefab")]
     [SerializeField] private _SeedPrefab _seedItemData;
 
+    public List<PlantData> _plantDatas = new List<PlantData>();
 
     public void SetPlantMode(bool val)
     {
@@ -66,12 +68,25 @@ public class PlantManager : MonoBehaviour
         // 프리팹 생성
         var Plant = Instantiate(_seedItemData, mousePosition, PlantManager.instance.transform.rotation);
         Plant.SetData(mousePosition, seedItemData, _TimeManager.Instance.timeData);
+
         // 프리팹에 아이템 데이터 전달
         // 씨앗 데이터 (위치, 씬, 심은 날짜, seedItemData 저장)
+        _plantDatas.Add(new PlantData(SceneManager.GetActiveScene().name, mousePosition, seedItemData.ID, _TimeManager.Instance.timeData));
     }
 }
 
 public class PlantData
 {
-    
+    public string _sceneName;
+    public Vector3 _position;
+    public int _itemDataId;
+    public _TimeData _plantedDay;
+
+    public PlantData(string sceneName, Vector3 position, int itemDataId, _TimeData timeData)
+    {
+        _sceneName =sceneName;
+        _position =position;
+        _itemDataId =itemDataId;
+        _plantedDay =timeData;
+    }
 }
