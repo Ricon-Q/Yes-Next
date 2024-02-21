@@ -25,7 +25,11 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate() 
     {
         // Movement
-        if(_canMove == false) return; 
+        if(_canMove == false) 
+        {
+            rb.velocity = Vector2.zero;
+            return; 
+        }
         HandleMove();
     }
 

@@ -12,6 +12,9 @@ public class HotBarSelected : MonoBehaviour
     [SerializeField] private List<float> _slotXPositions;
     [Header("Camera")]
     [SerializeField] private Camera _camera;
+    
+    [Header("PlantSystem")]
+    public bool _ableToPlant = false;
 
     private int _previewIndex = 0;
 
@@ -95,6 +98,7 @@ public class HotBarSelected : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 0;
         Vector3 worldMousePosition = _camera.ScreenToWorldPoint(mousePos);
+
         worldMousePosition.z = 0;
 
         _uiMouseObject.transform.position = RoundVector3(worldMousePosition);
@@ -127,6 +131,10 @@ public class HotBarSelected : MonoBehaviour
                                 toolTmp.Interact();
                         }
                         break;
+                    case ItemType.Seed:
+                        if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
+                            PlantManager.Instance.SeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
+                        break;
                     case ItemType.Default:
                         break;
                 }
@@ -136,10 +144,25 @@ public class HotBarSelected : MonoBehaviour
 
     Vector3 RoundVector3(Vector3 inputVector)
     {
-        float roundedX = Mathf.Round(inputVector.x);
-        float roundedY = Mathf.Round(inputVector.y);
+        float roundedX = Mathf.Round(inputVector.x + 0.5f) - 0.5f;
+        float roundedY = Mathf.Round(inputVector.y + 0.5f) - 0.5f;
         float roundedZ = Mathf.Round(inputVector.z);
 
         return new Vector3(roundedX, roundedY, roundedZ);
+    }
+
+    bool CheckArea(Vector3 worldMousePosition)
+    {
+        float minX = PlantManager.Instance._areaCenter.x - PlantManager.Instance._areaWidth / 2;
+        float maxX = PlantManager.Instance._areaCenter.x + PlantManager.Instance._areaWidth / 2;
+        
+        // 사각형 영역의 y좌표 경계값 계산
+        float minY = PlantManager.Instance._areaCenter.y - PlantManager.Instance._areaHeight / 2;
+        float maxY = PlantManager.Instance._areaCenter.y + PlantManager.Instance._areaHeight / 2;
+        
+        // 마우스 위치가 사각형 영역 안에 있는지 확인
+        if (worldMousePosition.x >= minX && worldMousePosition.x <= maxX &&
+            worldMousePosition.y >= minY && worldMousePosition.y <= maxY) return true;
+        return false;
     }
 }

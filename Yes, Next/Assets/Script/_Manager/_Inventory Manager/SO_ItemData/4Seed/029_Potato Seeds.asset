@@ -9,19 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c3daba6f74259f4589a4937f08c79c3, type: 3}
   m_Name: 029_Potato Seeds
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 29
   ItemType: 3
   DisplayName: "\uAC10\uC790 \uC528\uC557"
   Description: "\uAC10\uC790 \uC528\uAC00 \uB4E4\uC5B4\uC788\uB2E4. \uD55C \uC528\uC557\uC5D0
     \uC5EC\uB7EC \uAC1C\uCCB4\uAC00 \uC790\uB780\uB2E4."
   tag: 
   Icon: {fileID: -1242437542, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
-  _previewSprite: {fileID: -1242437542, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
   MaxStackSize: 5
   Sellable: 1
   Buyable: 1
   SellPrice: 1
   BuyPrice: 15
+  _sprites: []
