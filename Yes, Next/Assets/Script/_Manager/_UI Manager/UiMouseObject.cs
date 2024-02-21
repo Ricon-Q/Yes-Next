@@ -7,13 +7,16 @@ public class UiMouseObject : MonoBehaviour
 {
     public SpriteRenderer _spriteRenderer;
     [SerializeField] private BoxCollider2D _boxCollider2D;
+    private _PlaceableHolder _placeableHolder;
 
     public bool _canPlace = false;
     //Placeable 아이템이라면 
-    public void AllocateSprite(Sprite _previewSprite)
+    public void AllocateSprite(Sprite _previewSprite, _PlaceableHolder placeableItemData)
     {
+        _placeableHolder = placeableItemData;
         _spriteRenderer.sprite = _previewSprite;
-        _boxCollider2D.size = new Vector2(_previewSprite.rect.width/16, _previewSprite.rect.height/16);
+        _boxCollider2D.offset = placeableItemData._previewCollider.offset;
+        _boxCollider2D.size = placeableItemData._previewCollider.size;
     }
     public void DeallocateSprite()
     {
@@ -38,13 +41,21 @@ public class UiMouseObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) 
     {
-        // Debug.Log(collider.gameObject.name);
+        Debug.Log(collider.gameObject.name);
+        DisablePreview();
+    }
+    private void OnTriggerStay2D(Collider2D other) 
+    {
         DisablePreview();
     }
 
     private void OnTriggerExit2D(Collider2D collider) 
     {
-        EnablePreview();
+        AreaData tmp = CameraManager.Instance.areaDatabase.findArea(_PlayerManager.Instance.playerData.currentArea);
+        if(_placeableHolder.areaDatas.Contains(tmp))
+            EnablePreview();
+        else
+            DisablePreview();
     }
 
 }

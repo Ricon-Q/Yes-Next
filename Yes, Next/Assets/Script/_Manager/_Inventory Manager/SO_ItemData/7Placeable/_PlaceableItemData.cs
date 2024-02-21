@@ -5,7 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Inventory System/Inventory Item/Placeable Item")]
 public class _PlaceableItemData : InventoryItemData
 {
-    public GameObject _placeObject;
+    [Header("PlaceableObject")]
+    public _PlaceableHolder _placeObject;
+    // public BoxCollider2D _previewCollider;
+
 
     public override void Interact(Vector3 _mousePosition)
     {

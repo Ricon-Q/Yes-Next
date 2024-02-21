@@ -72,7 +72,8 @@ public class HotBarSelected : MonoBehaviour
         // Placeable이라면 PreviewSprite 표시
         if(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType == ItemType.Placeable)
         {
-            _uiMouseObject.AllocateSprite(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex]._previewSprite);
+            _PlaceableItemData _tmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _PlaceableItemData;
+            _uiMouseObject.AllocateSprite(PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex]._previewSprite, _tmp._placeObject);
         }
         // 이외라면 X
         else
