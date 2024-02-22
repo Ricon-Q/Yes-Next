@@ -35,7 +35,7 @@ public class PlantManager : MonoBehaviour
     public bool _plantMode;
 
     [Header("Plant Area")]
-    public Vector2 _areaCenter;
+    public Vector3 _areaCenter;
     public float _areaWidth;
     public float _areaHeight;
 
@@ -44,6 +44,45 @@ public class PlantManager : MonoBehaviour
     public List<_SeedPrefab> _seedPrefabs;
 
     public List<PlantData> _plantDatas = new List<PlantData>();
+
+    [Header("Destroy Garden")]
+    [SerializeField] private GameObject _destroyGardenPanel;
+
+    private void Start() 
+    {
+        CloseDestroyGardenPanel();
+    }
+
+    public void OpenDestroyGardenPanel()
+    {
+        _destroyGardenPanel.SetActive(true);
+    }
+    public void CloseDestroyGardenPanel()
+    {
+        _destroyGardenPanel.SetActive(false);
+    }
+
+    public void DestroyGarden()
+    {
+        _PlaceableHolder[] gardens = FindObjectsOfType<_PlaceableHolder>();
+        DeletePlantsInArea(SceneManager.GetActiveScene().name);
+
+        // 각 _SeedPrefab 오브젝트를 순회합니다.
+        foreach (var garden in gardens)
+        {
+            // _SeedPrefab의 _position이 주어진 position과 같은지 검사합니다.
+            if (garden.transform.position == _areaCenter) // Vector3 비교는 정밀도에 따라 수정이 필요할 수 있습니다.
+                // 같다면 해당 오브젝트를 삭제합니다.
+                {
+                    ObjectManager.Instance.RemoveObject(garden._originalItemData.ID, garden.transform.position);
+                    Destroy(garden.gameObject);
+                }
+        }
+            
+
+        PlayerMovement.SetMoveMode(true);
+        CloseDestroyGardenPanel();
+    }
 
     public void SetPlantMode(bool val)
     {
@@ -155,6 +194,39 @@ public class PlantManager : MonoBehaviour
             if (seedPrefab._position == position) // Vector3 비교는 정밀도에 따라 수정이 필요할 수 있습니다.
                 // 같다면 해당 오브젝트를 삭제합니다.
                 Destroy(seedPrefab.gameObject);
+    }
+
+    public void DeletePlantsInArea(string sceneName)
+    {
+        List<PlantData> plantsToRemove = new List<PlantData>();
+
+        // 영역 안에 있는 식물 찾기
+        foreach (var plantData in _plantDatas)
+        {
+            if (plantData._sceneName == sceneName && IsPlantInArea(plantData._position))
+            {
+                Debug.Log("Add Plant To Remove : " + plantData._position);
+                plantsToRemove.Add(plantData);
+            }
+        }
+
+        // 찾은 식물 삭제
+        foreach (var plant in plantsToRemove)
+        {
+            _plantDatas.Remove(plant);
+            DeleteSeedPrefabAtPosition(plant._position);
+        }
+    }
+
+    private bool IsPlantInArea(Vector3 plantPosition)
+    {
+        float halfWidth = _areaWidth / 2;
+        float halfHeight = _areaHeight / 2;
+        
+        return plantPosition.x >= _areaCenter.x - halfWidth &&
+            plantPosition.x <= _areaCenter.x + halfWidth &&
+            plantPosition.z >= _areaCenter.z - halfHeight &&
+            plantPosition.z <= _areaCenter.z + halfHeight;
     }
 }
 

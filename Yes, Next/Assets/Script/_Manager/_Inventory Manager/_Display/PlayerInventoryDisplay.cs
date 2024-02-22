@@ -52,4 +52,11 @@ public class PlayerInventoryDisplay : _DynamicInventoryDisplay
     {
         
     }
+
+    public void ClearMouseItem()
+    {
+        InventoryItemData tmp = PlayerInventoryManager.Instance.itemDataBase.Items[mouseInventoryItem.AssignedInventorySlot.itemId];
+        if(tmp.ItemType == ItemType.KeyItem) PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("버릴 수 없는 아이템 입니다.");
+        else mouseInventoryItem.ClearSlot();
+    }
 }

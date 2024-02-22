@@ -10,10 +10,12 @@ public class SmallGardenTrigger : PlaceableTrigger
     [SerializeField] private int _itemId;
 
     [Header("Line")]
-    [SerializeField] private GameObject _line;
+    public GameObject _line;
 
     public override void Interaction()
     {
+        PlayerMovement.SetMoveMode(false);
+        PlantManager.Instance.OpenDestroyGardenPanel();
     }
 
     private void OnTriggerEnter2D(Collider2D collider) 

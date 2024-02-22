@@ -146,6 +146,7 @@ MonoBehaviour:
   _previewCollider: {fileID: 7747492251637628440}
   areaDatas:
   - {fileID: 11400000, guid: 68d048816ea373c49a21392c61d035d3, type: 2}
+  _originalItemData: {fileID: 11400000, guid: 67a2a7c692567db42983d385541fa0c6, type: 2}
 --- !u!61 &7747492251637628440
 BoxCollider2D:
   m_ObjectHideFlags: 0
