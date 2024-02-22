@@ -3325,7 +3325,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 5604.134, y: 3112.8777}
+    canvasScrollPosition: {x: 5689.801, y: 2834.8435}
     canvasZoom: 0.84999985
   - id: 7
     fields:
@@ -7637,7 +7637,7 @@ MonoBehaviour:
         typeString: CustomFieldType_Text
       - title: Dialogue Text
         value: "\uD2B9\uBCC4\uD55C \uC77C? \uADF8\uAC70\uB77C\uBA74.. \uC5B4\uC81C
-          \uD3C9\uC18C\uBCF4\uB2E4 \uC880 \uB9CE\uC774 \uAD11\uC5ED \uB9C8\uBC95\uC744
+          \uD3C9\uC18C\uBCF4\uB2E4 \uC880 \uC624\uB798 \uAD11\uC5ED \uB9C8\uBC95\uC744
           \uC0AC\uC6A9\uD558\uAE34 \uD588\uB294\uB370.. \uADF8 \uC815\uB3C4\uB294
           \uD574\uC57C\uC9C0 \uB9C8\uBC95\uC0AC\uB77C\uACE0 \uD560 \uC218 \uC788\uC9C0
           \uC54A\uACA0\uC5B4?"
@@ -7782,7 +7782,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 87.5, y: 120.45453}
+    canvasScrollPosition: {x: 246.59091, y: 80.68182}
     canvasZoom: 0.88000005
   - id: 11
     fields:
@@ -8533,7 +8533,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 44.329895, y: 127.83505}
+    canvasScrollPosition: {x: 90.72165, y: 79.38144}
     canvasZoom: 0.97
   - id: 12
     fields:
@@ -9386,7 +9386,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 103.09277, y: 196.22693}
+    canvasScrollPosition: {x: 190.72165, y: 141.58774}
     canvasZoom: 0.97
   - id: 13
     fields:
@@ -12124,8 +12124,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 564.572
-        y: 338.879
+        x: 527.72986
+        y: 394.14212
         width: 160
         height: 30
     - id: 30
@@ -12181,8 +12181,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 350.367
-        y: 437.81512
+        x: 280.6302
+        y: 499.65723
         width: 160
         height: 30
     - id: 31
@@ -12310,8 +12310,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 750.4941
-        y: 363.7088
+        x: 708.38885
+        y: 461.0772
         width: 160
         height: 30
     - id: 33
@@ -12392,7 +12392,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\uD6C4\uD6C4, \uB18D\uB2F4\uC774\uACE0, \uD78C\uD2B8\uB97C \uC918\uBCFC\uAE4C~\n\uB9C8\uBC95\uC740
+        value: "\uD6C4\uD6C4, \uB18D\uB2F4\uC774\uACE0, \uD78C\uD2B8\uB97C \uC904\uAC8C.\n\uB9C8\uBC95\uC740
           \uC4F0\uC9C0\uB9CC, \uC5D8\uD504\uB294 \uC544\uB2C8\uC57C. \uD639\uC2DC
           \uB354 \uD544\uC694\uD574?"
         type: 0
@@ -12422,8 +12422,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 890.9168
-        y: 473.5799
+        x: 846.18005
+        y: 568.3167
         width: 160
         height: 30
     - id: 35
@@ -12478,8 +12478,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 669.6402
-        y: 525.7075
+        x: 667.0086
+        y: 669.12854
         width: 160
         height: 30
     - id: 36
@@ -12541,8 +12541,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 208.86072, y: 22.78482}
-    canvasZoom: 0.79000026
+    canvasScrollPosition: {x: 340.01764, y: 0}
+    canvasZoom: 0.7600003
   - id: 19
     fields:
     - title: Title
@@ -12695,8 +12695,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 301.6377
-        y: 343.90137
+        x: 288.78055
+        y: 399.61563
         width: 160
         height: 30
     - id: 23
@@ -13099,8 +13099,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 300.60678
-        y: 393.90137
+        x: 247.74966
+        y: 498.18707
         width: 160
         height: 30
     - id: 30
@@ -13155,8 +13155,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 4.7304993
-        y: 389.26215
+        x: 86.159035
+        y: 412.1193
         width: 160
         height: 30
     - id: 31
@@ -13286,8 +13286,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 480.45697
-        y: 493.16705
+        x: 467.59985
+        y: 463.16705
         width: 160
         height: 30
     - id: 33
@@ -13348,8 +13348,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 24.74231, y: 119.63922}
-    canvasZoom: 0.97
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.7000003
   - id: 20
     fields:
     - title: Title
@@ -13502,8 +13502,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 262.6377
-        y: 247.90137
+        x: 250.6377
+        y: 301.90137
         width: 160
         height: 30
     - id: 23
@@ -13906,8 +13906,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 261.6377
-        y: 304.90137
+        x: 189.6377
+        y: 443.90137
         width: 160
         height: 30
     - id: 30
@@ -13963,8 +13963,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 83.637695
-        y: 342.90137
+        x: 80.637695
+        y: 299.90137
         width: 160
         height: 30
     - id: 31
@@ -14155,7 +14155,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
+    canvasScrollPosition: {x: 185, y: 0}
     canvasZoom: 1
   - id: 21
     fields:
@@ -14959,8 +14959,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 16, y: 66}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 38.268032, y: 23.154655}
+    canvasZoom: 0.97
   - id: 22
     fields:
     - title: Title
@@ -15113,8 +15113,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 401.6377
-        y: 361.90137
+        x: 385.182
+        y: 445.44565
         width: 160
         height: 30
     - id: 23
@@ -15517,8 +15517,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 398.6377
-        y: 445.90137
+        x: 356.86554
+        y: 520.5849
         width: 160
         height: 30
     - id: 30
@@ -15572,8 +15572,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 192.6377
-        y: 488.90137
+        x: 120.48581
+        y: 477.50897
         width: 160
         height: 30
     - id: 31
@@ -15702,8 +15702,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 580.5498
-        y: 494.198
+        x: 584.3473
+        y: 575.21063
         width: 160
         height: 30
     - id: 33
@@ -15763,8 +15763,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 44.941223}
-    canvasZoom: 0.85000014
+    canvasScrollPosition: {x: 118.46611, y: 0}
+    canvasZoom: 0.79000014
   - id: 23
     fields:
     - title: Title
@@ -16569,8 +16569,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 22}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 6.2983246, y: 0}
+    canvasZoom: 0.8500001
   syncInfo:
     syncActors: 0
     syncItems: 0
