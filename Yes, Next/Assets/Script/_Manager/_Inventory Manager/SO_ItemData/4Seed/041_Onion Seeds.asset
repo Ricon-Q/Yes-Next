@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c3daba6f74259f4589a4937f08c79c3, type: 3}
-  m_Name: 041_Onion Seeds 1
+  m_Name: 041_Onion Seeds
   m_EditorClassIdentifier: 
   ID: 41
   ItemType: 3
@@ -24,4 +24,9 @@ MonoBehaviour:
   Buyable: 1
   SellPrice: 1
   BuyPrice: 5
-  _sprites: []
+  _sprites:
+  - {fileID: -1993294955, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: -493122669, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: 843586783, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: 1060392651, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: 1625080064, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}

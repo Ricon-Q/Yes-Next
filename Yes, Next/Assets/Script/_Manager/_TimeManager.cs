@@ -109,6 +109,15 @@ public class _TimeManager : MonoBehaviour
         timeData.hour = hour;
         timeData.minute = minute;
     }
+
+    public int DaysSince(_TimeData other)
+    {
+        // 간단한 예제로, 실제 애플리케이션에서는 더 정확한 날짜 계산 로직이 필요할 수 있습니다.
+        // 여기서는 각 월을 30일로 가정하고 계산합니다.
+        int daysThis = timeData.year * 28*4 + timeData.month * 28 + timeData.day;
+        int daysOther = other.year * 28*4 + other.month * 28 + other.day;
+        return daysThis - daysOther;
+    }
 }
 
 public class _TimeData
@@ -126,5 +135,13 @@ public class _TimeData
         this.day = 1;
         this.hour = 6;
         this.minute = 0;
+    }
+    public _TimeData(_TimeData timeData)
+    {   
+        this.year = timeData.year;
+        this.month = timeData.month;
+        this.day = timeData.day;
+        this.hour = timeData.hour;
+        this.minute = timeData.minute;
     }
 }

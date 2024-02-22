@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if(_canMove == false) 
         {
             rb.velocity = Vector2.zero;
+            animator.SetFloat("Speed", 0);
             return; 
         }
         HandleMove();

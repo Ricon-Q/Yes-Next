@@ -14,23 +14,28 @@ public class SmallGardenTrigger : PlaceableTrigger
 
     public override void Interaction()
     {
-        
-        if(!PlantManager.Instance._plantMode)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) 
+    {
+        if(collider.gameObject.tag == "Player")
         {
+            playerInRange = true;
+
             _line.SetActive(true);
             PlantManager.Instance.SetPlantMode(true);
             PlantManager.Instance.SetArea(_line.transform.position, 3f, 3f);
-            PlayerMovement.SetMoveMode(false);
         }
-        else
+    }
+    private void OnTriggerExit2D(Collider2D collider) 
+    {
+         if(collider.gameObject.tag == "Player")
         {
+            playerInRange = false;
+
             _line.SetActive(false);
             PlantManager.Instance.SetPlantMode(false);
             PlantManager.Instance.SetAreaZero();
-            PlayerMovement.SetMoveMode(true);
-            
         }
-        // ObjectManager.Instance.RemoveObject(_itemId, _object.transform.position);
-        // Destroy(_object);
     }
 }

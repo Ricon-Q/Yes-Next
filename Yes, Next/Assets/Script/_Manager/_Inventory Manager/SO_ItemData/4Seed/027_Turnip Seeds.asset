@@ -24,4 +24,9 @@ MonoBehaviour:
   Buyable: 1
   SellPrice: 1
   BuyPrice: 10
-  _sprites: []
+  _sprites:
+  - {fileID: -795084496, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: 904370873, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: -284667923, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: 1544590963, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}
+  - {fileID: -199005892, guid: 766a5b86dc49d184d93012a924e2b8ec, type: 3}

@@ -133,7 +133,7 @@ public class HotBarSelected : MonoBehaviour
                         break;
                     case ItemType.Seed:
                         if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
-                            PlantManager.Instance.SeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
+                            PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
                         break;
                     case ItemType.Default:
                         break;

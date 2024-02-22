@@ -63,6 +63,18 @@ public class PlantManager : MonoBehaviour
         _areaHeight = 0f;
     }
 
+    public void TrySeedPlant(Vector3 mousePosition, _SeedItemData seedItemData)
+    {
+        // 현재 씬 이름 가져오기
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        // 식물을 심을 수 있는지 확인
+        if (CanPlantSeed(mousePosition, currentSceneName))
+            SeedPlant(mousePosition, seedItemData); // 조건을 만족하면 식물 심기
+        else
+            PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("이미 해당 위치에 식물이 존재합니다.");
+    }
+
     public void SeedPlant(Vector3 mousePosition, _SeedItemData seedItemData)
     {
         // 프리팹 생성
@@ -71,7 +83,20 @@ public class PlantManager : MonoBehaviour
 
         // 프리팹에 아이템 데이터 전달
         // 씨앗 데이터 (위치, 씬, 심은 날짜, seedItemData 저장)
-        _plantDatas.Add(new PlantData(SceneManager.GetActiveScene().name, mousePosition, seedItemData.ID, _TimeManager.Instance.timeData));
+        _plantDatas.Add(new PlantData(SceneManager.GetActiveScene().name, mousePosition, seedItemData.ID, new _TimeData(_TimeManager.Instance.timeData)));
+    }
+
+    public bool CanPlantSeed(Vector3 position, string sceneName)
+    {
+        foreach (var plantData in _plantDatas)
+        {
+            // 동일한 씬(scene)과 위치에 식물이 존재하는지 확인
+            if (plantData._sceneName == sceneName && plantData._position == position)
+            {
+                return false; // 동일한 위치에 식물이 이미 존재함
+            }
+        }
+        return true; // 식물을 심을 수 있음
     }
 }
 
