@@ -112,31 +112,61 @@ public class HotBarSelected : MonoBehaviour
         {
             if(_hotbarIndex != -1)
             {
-                switch (PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType)
+                ItemType _tmpType = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType;
+                // switch (PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType)
+                // {
+                //     case ItemType.Placeable:
+                //         if(_uiMouseObject._canPlace == true)
+                //         {
+                //             PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
+                //             ObjectManager.Instance._placeableObjects.Add(placeableTmp);
+                //             PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
+                //         }
+                //         break;
+                //     // case ItemType.Tool:
+                //     //     float distanceToPlayer = Vector3.Distance(worldMousePosition, _PlayerManager.Instance.transform.position);
+                //     //     if (distanceToPlayer <= 2f) // Check if the distance is less than or equal to 1
+                //     //     {
+                //     //         _ToolItemData toolTmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _ToolItemData;
+                //     //         if (toolTmp != null)
+                //     //             toolTmp.Interact();
+                //     //     }
+                //         // return;
+                //     case ItemType.Seed:
+                //         if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
+                //             PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
+                //         break;
+                //     case ItemType.Default:
+                //         break;
+                // }
+
+                if(_tmpType == ItemType.Placeable)
                 {
-                    case ItemType.Placeable:
-                        if(_uiMouseObject._canPlace == true)
-                        {
-                            PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
-                            ObjectManager.Instance._placeableObjects.Add(placeableTmp);
-                            PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
-                        }
-                        break;
-                    case ItemType.Tool:
-                        float distanceToPlayer = Vector3.Distance(worldMousePosition, _PlayerManager.Instance.transform.position);
-                        if (distanceToPlayer <= 2f) // Check if the distance is less than or equal to 1
-                        {
-                            _ToolItemData toolTmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _ToolItemData;
-                            if (toolTmp != null)
-                                toolTmp.Interact();
-                        }
-                        break;
-                    case ItemType.Seed:
-                        if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
-                            PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
-                        break;
-                    case ItemType.Default:
-                        break;
+                    if(_uiMouseObject._canPlace == true)
+                    {
+                        PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
+                        ObjectManager.Instance._placeableObjects.Add(placeableTmp);
+                        PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
+                    }
+                }
+                else if(_tmpType == ItemType.Seed)
+                {
+                    if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
+                        PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
+                }
+                else
+                {
+                    if(PlantManager.Instance._plantMode)
+                        PlantManager.Instance.CanHarvest(_uiMouseObject.transform.position, SceneManager.GetActiveScene().name);
+                }
+
+            }
+            else
+            {
+                //손에 아무것도 없고 PlantMode일 경우 - 작물 수확
+                if(PlantManager.Instance._plantMode)
+                {
+                    PlantManager.Instance.CanHarvest(_uiMouseObject.transform.position, SceneManager.GetActiveScene().name);
                 }
             }
         }

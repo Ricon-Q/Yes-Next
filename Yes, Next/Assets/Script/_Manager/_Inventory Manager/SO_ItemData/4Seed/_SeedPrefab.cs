@@ -18,7 +18,7 @@ public class _SeedPrefab : MonoBehaviour
     {
         UpdateSprite();
     }
-
+    
     public void SetData(Vector3 position, _SeedItemData seedItemData, _TimeData today)
     {
         _position = position;

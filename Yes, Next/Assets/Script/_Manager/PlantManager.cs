@@ -41,6 +41,7 @@ public class PlantManager : MonoBehaviour
 
     [Header("Seed Prefab")]
     [SerializeField] private _SeedPrefab _seedItemData;
+    public List<_SeedPrefab> _seedPrefabs;
 
     public List<PlantData> _plantDatas = new List<PlantData>();
 
@@ -97,6 +98,63 @@ public class PlantManager : MonoBehaviour
             }
         }
         return true; // 식물을 심을 수 있음
+    }
+
+    public void CanHarvest(Vector3 position, string sceneName)
+    {
+        foreach (var plantData in _plantDatas)
+        {
+            // 동일한 씬(scene)과 위치에 식물이 존재하는지 확인
+            if (plantData._sceneName == sceneName && plantData._position == position)
+            {
+                // 위치에 식물이 있다면 해당 식물이 수확 가능한지 (식물의 스프라이트가 최대인지) 확인
+                int daysSincePlanted = _TimeManager.Instance.DaysSince(plantData._plantedDay);
+                _SeedItemData tmpSeedData = PlayerInventoryManager.Instance.itemDataBase.Items[plantData._itemDataId] as _SeedItemData;
+                if(daysSincePlanted >= tmpSeedData._sprites.Count-1)
+                {
+                    // 인벤토리에 공간이 있다면 작물 수확
+                    if(PlayerInventoryManager.Instance.AddToInventory(tmpSeedData._outputItem.ID, 1))
+                    {
+                        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+
+                        // 위치에 있는 작물 데이터 삭제
+                        DeletePlant(position, sceneName);
+                    }
+                    // 인벤토리에 공간이 없다면 수확 실패
+                    else
+                        PixelCrushers.DialogueSystem.DialogueManager.ShowAlert("인벤토리에 공간이 없습니다.");
+
+                    return;
+                }
+            }
+        }
+    }
+
+    public void DeletePlant(Vector3 position, string sceneName)
+    {
+        foreach (var plantData in _plantDatas)
+        {
+            // 동일한 씬(scene)과 위치에 식물이 존재하는지 확인
+            if (plantData._sceneName == sceneName && plantData._position == position)
+            {
+                _plantDatas.Remove(plantData);
+                DeleteSeedPrefabAtPosition(position);
+                return;
+            }
+        }
+    }
+
+    public void DeleteSeedPrefabAtPosition(Vector3 position)
+    {
+        // _SeedPrefab 컴포넌트를 가진 모든 오브젝트를 찾습니다.
+        _SeedPrefab[] seedPrefabs = FindObjectsOfType<_SeedPrefab>();
+
+        // 각 _SeedPrefab 오브젝트를 순회합니다.
+        foreach (var seedPrefab in seedPrefabs)
+            // _SeedPrefab의 _position이 주어진 position과 같은지 검사합니다.
+            if (seedPrefab._position == position) // Vector3 비교는 정밀도에 따라 수정이 필요할 수 있습니다.
+                // 같다면 해당 오브젝트를 삭제합니다.
+                Destroy(seedPrefab.gameObject);
     }
 }
 

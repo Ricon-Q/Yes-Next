@@ -5,6 +5,7 @@ using UnityEngine;
 public class TownObject : MonoBehaviour
 {
     [SerializeField] private _SeedPrefab _seedPrefab;
+
     private void Start()
     {
         InitiateObject();

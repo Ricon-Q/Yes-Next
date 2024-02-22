@@ -6,4 +6,5 @@ using UnityEngine;
 public class _SeedItemData : InventoryItemData
 {
     public List<Sprite> _sprites;
+    public InventoryItemData _outputItem;
 }

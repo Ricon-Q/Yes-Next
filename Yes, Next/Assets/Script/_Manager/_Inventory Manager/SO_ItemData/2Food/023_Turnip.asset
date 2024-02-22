@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 023_Turnip
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 1
+  DisplayName: "\uC21C\uBB34"
+  Description: "\uBB35\uC9C1\uD558\uACE0 \uB465\uADF8\uB7F0 \uC0C8\uD558\uC580 \uC21C\uBB34\uB2E4.
+    \uC18C\uD654\uC640 \uC704 \uAC74\uAC15\uC5D0 \uB3C4\uC6C0\uC744 \uC8FC\uB294
+    \uC131\uBD84\uC774 \uD48D\uBD80\uD558\uB2E4"
+  tag: 
+  Icon: {fileID: 21300000, guid: e56ff8adf823a194e8dcefd04a8864a0, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 1
+  SellPrice: 15
+  BuyPrice: 35

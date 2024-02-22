@@ -26,7 +26,7 @@ public class PlayerInventoryDisplay : _DynamicInventoryDisplay
         if(inventorySystem != null) { inventorySystem.OnInventorySlotChanged += UpdateSlot; }
         AssignSlot(invToDisplay);
 
-        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+        // UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
     }
 
     public void SlotRightClicked(_InventorySlot assignedSlot)

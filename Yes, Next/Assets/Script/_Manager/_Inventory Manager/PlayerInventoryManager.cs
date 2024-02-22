@@ -152,20 +152,16 @@ public class PlayerInventoryManager : MonoBehaviour
         _potionInventoryButton.interactable = true;
     }
 
-    public void AddToInventory(int itemIdToAdd, int amountToAdd)
+    public bool AddToInventory(int itemIdToAdd, int amountToAdd)
     {
-        switch (itemDataBase.Items[itemIdToAdd].ItemType)
-        {
-            case ItemType.Herb:
-                herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
-                break;
-            case ItemType.Potion:
-                potionInventory.AddToInventory(itemIdToAdd, amountToAdd);
-                break;
-            case ItemType.Default:
-                playerInventory.AddToInventory(itemIdToAdd, amountToAdd);
-                break;
-        }
+        if(itemDataBase.Items[itemIdToAdd].ItemType == ItemType.Herb)
+            return herbInventory.AddToInventory(itemIdToAdd, amountToAdd);
+
+        else if(itemDataBase.Items[itemIdToAdd].ItemType == ItemType.Potion)
+            return potionInventory.AddToInventory(itemIdToAdd, amountToAdd);
+            
+        else
+            return playerInventory.AddToInventory(itemIdToAdd, amountToAdd);
     }
 }
 

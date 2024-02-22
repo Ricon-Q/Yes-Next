@@ -67,6 +67,8 @@ public class MyInfomation : MonoBehaviour
         OffAllPanel();
         _mainPanel.SetActive(false);
         isMyInfoOpen = false;
+        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(PlayerInventoryManager.Instance.playerInventory);
+        
     }
 
     public void OffAllPanel()
