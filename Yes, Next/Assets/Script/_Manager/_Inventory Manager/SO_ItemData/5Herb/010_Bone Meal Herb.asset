@@ -20,8 +20,7 @@ MonoBehaviour:
     \uC218 \uC788\uB2E4. \uC644\uD654 \uD6A8\uACFC\uAC00 \uC788\uB2E4."
   tag: 
   Icon: {fileID: 21300000, guid: f7d81fb29e1f8964fb3a30b01d163d1d, type: 3}
-  _previewSprite: {fileID: 21300000, guid: f7d81fb29e1f8964fb3a30b01d163d1d, type: 3}
-  MaxStackSize: 5
+  MaxStackSize: 10
   Sellable: 1
   Buyable: 1
   SellPrice: 10

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 04_Overflowing Mana
+  m_EditorClassIdentifier: 
+  recipeName: "\uB118\uCE58\uB294 \uB9C8\uB825 "
+  description: "\uB9C8\uB974\uC9C0 \uC54A\uB294 \uB9C8\uB825'\uC758 \uC0C1\uC704
+    \uD3EC\uC158, \uBCF5\uC6A9\uC790\uC5D0\uAC8C \uB9C8\uB825 \uC99D\uAC15\uC744
+    \uBD80\uC5EC\uD558\uBA70, \uC2E0\uCCB4\uC801, \uC815\uC2E0\uC801 \uD53C\uB85C\uB97C
+    \uD6A8\uACFC\uC801\uC73C\uB85C \uD574\uC18C\uD574\uC900\uB2E4."
+  toolType: 1
+  useStamina: 0
+  useTimeMinute: 0
+  inputItemDatas:
+  - {fileID: 11400000, guid: b096f6d962460ae48bfc187cf8df30d7, type: 2}
+  - {fileID: 11400000, guid: 40fc98523630176499a7e061b15c494d, type: 2}
+  - {fileID: 11400000, guid: ffa7e1dca4fa05a43a92204dbe63e21f, type: 2}
+  requireInputStackSize: 010000000100000001000000
+  outputItemData: {fileID: 11400000, guid: 01b7a222270bd2a408b89e41f376188f, type: 2}
+  outputItemStackSize: 1

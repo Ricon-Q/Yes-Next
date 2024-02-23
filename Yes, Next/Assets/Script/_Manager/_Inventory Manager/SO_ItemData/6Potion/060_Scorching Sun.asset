@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 060_Scorching Sun
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 5
+  DisplayName: "\uB728\uAC70\uC6B4 \uD0DC\uC591 "
+  Description: "\uD0DC\uC591\uCC98\uB7FC \uBD89\uC740 \uD3EC\uC158. \uD0DC\uC591\uAD11\uC5D0
+    \uB300\uD55C \uACFC\uBBFC \uBC18\uC751\uC744 \uC904\uC774\uACE0, \uD53C\uBD80\uB97C
+    \uBCF4\uD638\uD55C\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: a9c7ee25f4e25c54ca25c7f4cb15dac9, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 80
+  BuyPrice: 0

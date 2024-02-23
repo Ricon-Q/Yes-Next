@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
-  m_Name: Test Potion 3
+  m_Name: 062_Awakening Potion
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 0
   ItemType: 5
-  DisplayName: Test Potion 3
-  Description: "\uD14C\uC2A4\uD2B8\uC6A9 \uD3EC"
+  DisplayName: "\uAC01\uC131 \uD3EC\uC158 "
+  Description: "\uC815\uC2E0\uC774 \uBC88\uCA4D \uB4DC\uB294 \uAC01\uC131 \uD3EC\uC158."
   tag: 
-  Icon: {fileID: 21300000, guid: ba9c55652bde0284585d1694f48c8ecd, type: 3}
-  _previewSprite: {fileID: 21300000, guid: ba9c55652bde0284585d1694f48c8ecd, type: 3}
-  MaxStackSize: 50
-  Shopable: 1
-  SellPrice: 100
-  BuyPrice: 150
+  Icon: {fileID: 21300000, guid: a1a34a6b9ae89cd46988cc0478211f6f, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 1
+  SellPrice: 30
+  BuyPrice: 40

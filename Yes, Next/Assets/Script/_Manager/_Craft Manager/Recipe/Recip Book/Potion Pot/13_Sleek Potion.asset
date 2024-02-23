@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 13_Sleek Potion
+  m_EditorClassIdentifier: 
+  recipeName: "\uB9E4\uB048 \uD3EC\uC158 "
+  description: "\uD2B9\uC774\uD558\uAC8C \uBA39\uB294 \uD3EC\uC158\uC774 \uC544\uB2C8\uB77C
+    \uD53C\uBD80\uC5D0 \uBC14\uB974\uB294 \uD3EC\uC158. \uD53C\uBD80 \uC9C8\uD658\uC744
+    \uC644\uD654\uD574\uC900\uB2E4."
+  toolType: 1
+  useStamina: 0
+  useTimeMinute: 0
+  inputItemDatas:
+  - {fileID: 11400000, guid: 3c28c9d9d9b8398429ae123106c9b4dc, type: 2}
+  - {fileID: 11400000, guid: 087faf78f3734bb459fa32a0111e41af, type: 2}
+  - {fileID: 0}
+  requireInputStackSize: 010000000100000001000000
+  outputItemData: {fileID: 11400000, guid: 2b0da32cafe8c4145b5d949a13747c78, type: 2}
+  outputItemStackSize: 1

@@ -21,7 +21,7 @@ MonoBehaviour:
     \uC54A\uB294\uB2E4."
   tag: 
   Icon: {fileID: 1840682658, guid: f99d9b9a1cec28d4ab35fe4c28996b53, type: 3}
-  MaxStackSize: 5
+  MaxStackSize: 10
   Sellable: 1
   Buyable: 1
   SellPrice: 1

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 055_Mighty Morning
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 5
+  DisplayName: "\uAC15\uD558\uACE0 \uD798\uC13C \uC544\uCE68 "
+  Description: "\uC774\uB984\uB2F5\uAC8C \uC544\uCE68\uC5D0 \uB9C8\uC2DC\uBA74 \uC0C1\uCF8C\uD55C
+    \uAE30\uBD84\uC774 \uB418\uB294 \uD3EC\uC158. \uC2E0\uCCB4\uC758 \uD68C\uBCF5
+    \uC18D\uB3C4\uB97C \uB192\uC774\uACE0 \uD1B5\uC99D\uC744 \uC904\uC778\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: 04ae3fb3f2cdea14fa55333f9056b0da, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 80
+  BuyPrice: 0

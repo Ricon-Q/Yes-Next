@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 057_Halfling's Guise
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 5
+  DisplayName: "\uD558\uD50C\uB9C1\uC758 \uC704\uC7A5 "
+  Description: "\uACE8\uBD84\uCD08\uC640 \uD1A0\uB9C8\uD1A0\uB97C \uCCA8\uAC00\uD55C
+    \uD3EC\uC158. \uC704\uC7A5\uC744 \uBD80\uB4DC\uB7FD\uAC8C \uAC10\uC2F8 \uC18C\uD654
+    \uAE30\uAD00\uC744 \uD3B8\uC548\uD558\uAC8C \uD574\uC8FC\uACE0 \uBCF5\uD1B5 \uBC0F
+    \uBA54\uC2A4\uAEBC\uC6C0\uC744 \uC644\uD654\uD574\uC900\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: d90fb43694bf43442bfb7d04f7d2a7d3, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 80
+  BuyPrice: 0

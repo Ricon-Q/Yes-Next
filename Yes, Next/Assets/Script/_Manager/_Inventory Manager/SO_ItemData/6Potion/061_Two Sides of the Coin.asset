@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1f2420e9ae674585c36178b79828f, type: 3}
+  m_Name: 061_Two Sides of the Coin
+  m_EditorClassIdentifier: 
+  ID: 0
+  ItemType: 5
+  DisplayName: "\uB3D9\uC804\uC758 \uC591\uBA74 "
+  Description: "\uB450 \uC0C9\uC774 \uACF5\uC874\uD558\uB294 \uD2B9\uC774\uD55C \uD3EC\uC158,
+    \uBCF5\uC6A9\uC790\uC758 \uC2A4\uD2B8\uB808\uC2A4\uB97C \uC644\uD654\uD558\uBA70
+    \uC774\uB97C \uD1B5\uD574 \uD63C\uB780\uC744 \uAC00\uB77C\uC549\uD78C\uB2E4."
+  tag: 
+  Icon: {fileID: 21300000, guid: e63e7d714438e8d418d2cb346bf59a0c, type: 3}
+  MaxStackSize: 10
+  Sellable: 1
+  Buyable: 0
+  SellPrice: 80
+  BuyPrice: 0

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cdbe5f95537745991abbaaba335a1, type: 3}
+  m_Name: 09_Two Sides of the Coin
+  m_EditorClassIdentifier: 
+  recipeName: "\uB3D9\uC804\uC758 \uC591\uBA74 "
+  description: "\uB450 \uC0C9\uC774 \uACF5\uC874\uD558\uB294 \uD2B9\uC774\uD55C \uD3EC\uC158,
+    \uBCF5\uC6A9\uC790\uC758 \uC2A4\uD2B8\uB808\uC2A4\uB97C \uC644\uD654\uD558\uBA70
+    \uC774\uB97C \uD1B5\uD574 \uD63C\uB780\uC744 \uAC00\uB77C\uC549\uD78C\uB2E4."
+  toolType: 1
+  useStamina: 0
+  useTimeMinute: 0
+  inputItemDatas:
+  - {fileID: 11400000, guid: 979857af45f3c7c4b9c3a79ca972ed58, type: 2}
+  - {fileID: 11400000, guid: 505ccdf6ae38c6a41959d2db2a8258c1, type: 2}
+  - {fileID: 11400000, guid: ffa7e1dca4fa05a43a92204dbe63e21f, type: 2}
+  requireInputStackSize: 010000000100000001000000
+  outputItemData: {fileID: 11400000, guid: ad3098a84adcc58469a463890553c287, type: 2}
+  outputItemStackSize: 1

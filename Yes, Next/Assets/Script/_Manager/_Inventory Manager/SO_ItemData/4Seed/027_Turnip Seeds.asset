@@ -19,7 +19,7 @@ MonoBehaviour:
     \uC528\uC557\uC5D0 \uD55C \uAC1C\uCCB4\uAC00 \uC790\uB780\uB2E4."
   tag: 
   Icon: {fileID: 21300000, guid: 41fc5ca9edad47e46928ea2533af9b46, type: 3}
-  MaxStackSize: 5
+  MaxStackSize: 10
   Sellable: 1
   Buyable: 1
   SellPrice: 1

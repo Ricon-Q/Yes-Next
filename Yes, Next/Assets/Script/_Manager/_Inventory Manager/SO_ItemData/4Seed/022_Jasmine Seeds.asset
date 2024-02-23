@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c3daba6f74259f4589a4937f08c79c3, type: 3}
-  m_Name: 022_Jasmine Seeds 1
+  m_Name: 022_Jasmine Seeds
   m_EditorClassIdentifier: 
   ID: 22
   ItemType: 3
@@ -18,7 +18,7 @@ MonoBehaviour:
   Description: "\uC790\uC2A4\uBBFC\uC744 \uC2EC\uC744 \uC218 \uC788\uB294 \uC528\uC557\uC774\uB2E4."
   tag: 
   Icon: {fileID: 21300000, guid: 87105ff5cc36a9d41afcf4f07488e18e, type: 3}
-  MaxStackSize: 5
+  MaxStackSize: 10
   Sellable: 1
   Buyable: 1
   SellPrice: 1

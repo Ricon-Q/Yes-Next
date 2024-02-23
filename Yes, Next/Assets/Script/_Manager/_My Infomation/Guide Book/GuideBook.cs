@@ -14,16 +14,16 @@ public class GuideBook : MonoBehaviour
     [SerializeField] private GameObject _mortarAndPestleBook;
     [SerializeField] private Image _mortarAndPestleItemImage;
     [SerializeField] private TextMeshProUGUI _mortarAndPestleItemAmount;
+    [SerializeField] private TextMeshProUGUI _mortarItemName;
+    
 
     
     [Header("Potion Pot")]
     [SerializeField] private GameObject _potionPotBook;
-    [SerializeField] private Image _potionPotItemImage0;
-    [SerializeField] private TextMeshProUGUI _potionPotItemAmount0;
-    [SerializeField] private Image _potionPotItemImage1;
-    [SerializeField] private TextMeshProUGUI _potionPotItemAmount1;
-    [SerializeField] private Image _potionPotItemImage2;
-    [SerializeField] private TextMeshProUGUI _potionPotItemAmount2;
+    [SerializeField] private List<Image> _potionPotItemImages;
+    [SerializeField] private List<TextMeshProUGUI> _potionPotItemAmounts;
+    [SerializeField] private List<TextMeshProUGUI> _potionPotItemName;
+    
 
     private RecipeData _recipeData;
 
@@ -39,6 +39,7 @@ public class GuideBook : MonoBehaviour
 
         OffAllBook();
         _recipeNameText.text = "레시피 확인";
+        _descriptionText.text = "";
     }
 
     public void AllocateRecipeDataMortar(RecipeData recipeData)
@@ -50,6 +51,8 @@ public class GuideBook : MonoBehaviour
         _mortarAndPestleItemImage.sprite = recipeData.inputItemDatas[0].Icon;
         _mortarAndPestleItemAmount.text = recipeData.requireInputStackSize[0].ToString();
         _descriptionText.text = recipeData.description;
+
+        AllocateMortarItemName(recipeData);
     }
 
     public void AllocateRecipeDataPotionPot(RecipeData recipeData)
@@ -58,13 +61,46 @@ public class GuideBook : MonoBehaviour
         _potionPotBook.SetActive(true);
 
         _recipeNameText.text = recipeData.recipeName;
-        _potionPotItemImage0.sprite = recipeData.inputItemDatas[0].Icon;
-        _potionPotItemAmount0.text = recipeData.requireInputStackSize[0].ToString();
-        _potionPotItemImage1.sprite = recipeData.inputItemDatas[1].Icon;
-        _potionPotItemAmount1.text = recipeData.requireInputStackSize[1].ToString();
-        _potionPotItemImage2.sprite = recipeData.inputItemDatas[2].Icon;
-        _potionPotItemAmount2.text = recipeData.requireInputStackSize[2].ToString();
+
+        for (int i = 0; i < 3; i++)
+        {
+            if(recipeData.inputItemDatas[i] == null)
+            {
+                _potionPotItemImages[i].sprite = null;
+                _potionPotItemImages[i].color = Color.clear; 
+                _potionPotItemAmounts[i].text = "";
+            }
+            else
+            {
+                _potionPotItemImages[i].color = Color.white; 
+                _potionPotItemImages[i].sprite = recipeData.inputItemDatas[i].Icon;;
+                _potionPotItemAmounts[i].text = recipeData.requireInputStackSize[0].ToString();
+            }
+        }
+        
         _descriptionText.text = recipeData.description;
+
+        AllocatePotionPotItemName(recipeData);
+    }
+
+    public void AllocateMortarItemName(RecipeData recipeData)
+    {
+        _mortarItemName.text = recipeData.inputItemDatas[0].DisplayName;
+    }
+
+    public void AllocatePotionPotItemName(RecipeData recipeData)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if(recipeData.inputItemDatas[i] == null)
+            {
+                _potionPotItemName[i].text = "";
+            }
+            else
+            {
+                _potionPotItemName[i].text =recipeData.inputItemDatas[i].DisplayName;
+            }
+        }
     }
 
     public void OffAllBook()

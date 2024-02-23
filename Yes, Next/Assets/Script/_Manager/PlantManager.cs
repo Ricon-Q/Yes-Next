@@ -60,6 +60,7 @@ public class PlantManager : MonoBehaviour
     public void CloseDestroyGardenPanel()
     {
         _destroyGardenPanel.SetActive(false);
+        PlayerMovement.SetMoveMode(true);
     }
 
     public void DestroyGarden()
