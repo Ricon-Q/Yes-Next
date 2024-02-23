@@ -285,7 +285,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 720622050, guid: 5af348f9e31eb814e9dc6b82f4c2ea53, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -846956228, guid: 5af348f9e31eb814e9dc6b82f4c2ea53, type: 3}
+  m_Sprite: {fileID: -1653332295, guid: 5af348f9e31eb814e9dc6b82f4c2ea53, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

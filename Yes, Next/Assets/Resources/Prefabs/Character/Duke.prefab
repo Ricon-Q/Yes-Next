@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 805110858194448557}
   - component: {fileID: 4813255034776858268}
   - component: {fileID: 605906116306949538}
+  - component: {fileID: -937407158253024722}
   m_Layer: 0
   m_Name: Duke
   m_TagString: NPC
@@ -199,6 +200,23 @@ MonoBehaviour:
   _rb: {fileID: 4791419850362195144}
   _animator: {fileID: 4813255034776858268}
   _movementDirection: {x: 0, y: 0}
+--- !u!114 &-937407158253024722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813690424170003795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4310575cdb680744a8d42ba92d6d1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcInventory: {fileID: 11400000, guid: f22ce225b634d35489ea1ae6e98f70d3, type: 2}
+  inventorySystem:
+    inventoryLevel: 1
+    inventorySlots: []
+    inventorySize: 0
 --- !u!1 &4229128674250592071
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +312,7 @@ GameObject:
   - component: {fileID: 4734473464097978915}
   - component: {fileID: 2562136489647531198}
   - component: {fileID: 2576136838228537884}
-  - component: {fileID: 8756369697992032968}
+  - component: {fileID: 7251977200268526356}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -435,8 +453,8 @@ MonoBehaviour:
   useConversationTitlePicker: 1
   useBarkTitlePicker: 1
   useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 9072e2a7b908b644b8ca69c30ef054a9, type: 2}
---- !u!114 &8756369697992032968
+  selectedDatabase: {fileID: 11400000, guid: 1f62a833050c0dd4c94f8b74095d42b1, type: 2}
+--- !u!114 &7251977200268526356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,7 +463,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8541911220425039497}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015834965b3487741a948cebf7344509, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e40de71651cb344d97252a519b4ea9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 4229128674250592071}
@@ -453,3 +471,4 @@ MonoBehaviour:
   dialogueSystemController: {fileID: 0}
   npcDialogueUi: {fileID: 0}
   nonNpcDialogueUi: {fileID: 0}
+  _npcInventoryHolder: {fileID: -937407158253024722}

@@ -13,6 +13,19 @@ MonoBehaviour:
   m_Name: Silvia_Shop
   m_EditorClassIdentifier: 
   inventory:
-  - {fileID: 11400000, guid: 67a2a7c692567db42983d385541fa0c6, type: 2}
-  - {fileID: 11400000, guid: 27f53c5a50d220f46b5f03dd7ec255b0, type: 2}
+  - {fileID: 11400000, guid: 844e10ab75b04944fb51e42485701c79, type: 2}
+  - {fileID: 11400000, guid: 91e25d7f9312f8846ac0b428393809b1, type: 2}
+  - {fileID: 11400000, guid: 62b45d2acbf6e5a4ca3ba99a62867070, type: 2}
   - {fileID: 11400000, guid: 595683ea327196743a439ceb3c142d67, type: 2}
+  - {fileID: 11400000, guid: 3f7193dce86cb2347a30f7c01fb14364, type: 2}
+  - {fileID: 11400000, guid: 4644ff48b35ecce4ea2a85c6f85d2519, type: 2}
+  - {fileID: 11400000, guid: f38cc96a9109109419f4ceb7591f59f6, type: 2}
+  - {fileID: 11400000, guid: dae100ff3129fbf4fadae5dabcc6de6a, type: 2}
+  - {fileID: 11400000, guid: d8ebdfc4aa039174d88a33f1cdbca0ef, type: 2}
+  - {fileID: 11400000, guid: a97fa5a47fac149489b26ee40356346a, type: 2}
+  - {fileID: 11400000, guid: 6d0c0c48a3445804baed10d596a7ac15, type: 2}
+  - {fileID: 11400000, guid: 5bbd6564dcbef0141911252062c63882, type: 2}
+  - {fileID: 11400000, guid: 911a1471e6265b144a33d8dd7f2b9784, type: 2}
+  - {fileID: 11400000, guid: 7bb225fc5baa48c4a9d9458778023498, type: 2}
+  - {fileID: 11400000, guid: c3ffe70c596c2bc46aab5a529550ffd3, type: 2}
+  - {fileID: 11400000, guid: dc300fd75363d55438bf32ba0c920bd0, type: 2}

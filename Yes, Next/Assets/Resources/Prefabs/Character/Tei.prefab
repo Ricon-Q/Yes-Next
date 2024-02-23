@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 805110858194448557}
   - component: {fileID: 4813255034776858268}
   - component: {fileID: -8253524129525877975}
+  - component: {fileID: 5930507963910362488}
   m_Layer: 0
   m_Name: Tei
   m_TagString: NPC
@@ -283,6 +284,23 @@ MonoBehaviour:
   _rb: {fileID: 4791419850362195144}
   _animator: {fileID: 4813255034776858268}
   _movementDirection: {x: 0, y: 0}
+--- !u!114 &5930507963910362488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813690424170003795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4310575cdb680744a8d42ba92d6d1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcInventory: {fileID: 11400000, guid: c70029233351c7f4ea63f175d102f9aa, type: 2}
+  inventorySystem:
+    inventoryLevel: 1
+    inventorySlots: []
+    inventorySize: 0
 --- !u!1 &4166157334474195352
 GameObject:
   m_ObjectHideFlags: 0

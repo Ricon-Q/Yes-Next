@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 805110858194448557}
   - component: {fileID: 4813255034776858268}
   - component: {fileID: -3504264194091273718}
+  - component: {fileID: 7299661638941012382}
   m_Layer: 0
   m_Name: Herby
   m_TagString: NPC
@@ -199,6 +200,23 @@ MonoBehaviour:
   _rb: {fileID: 4791419850362195144}
   _animator: {fileID: 4813255034776858268}
   _movementDirection: {x: 0, y: 0}
+--- !u!114 &7299661638941012382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813690424170003795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4310575cdb680744a8d42ba92d6d1fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcInventory: {fileID: 11400000, guid: 01f4cad070f60f344b4276e36f35cf13, type: 2}
+  inventorySystem:
+    inventoryLevel: 1
+    inventorySlots: []
+    inventorySize: 0
 --- !u!1 &7676232677405270785
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,8 +311,8 @@ GameObject:
   m_Component:
   - component: {fileID: 577795459574275445}
   - component: {fileID: 7850175468003314858}
-  - component: {fileID: 1773396057623852660}
   - component: {fileID: 1136782991820562793}
+  - component: {fileID: 3876399368545360653}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -362,80 +380,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &1773396057623852660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973718680389855419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: 32
-  condition:
-    luaConditions: []
-    questConditions: []
-    acceptedTags: []
-    acceptedGameObjects: []
-    luaWizardIndex: -1
-    lastEvaluationValue: 0
-  setQuestState: 1
-  questName: 
-  questState: 0
-  setQuestEntryState: 0
-  questEntryNumber: 1
-  questEntryState: 0
-  setAnotherQuestEntryState: 0
-  anotherQuestEntryNumber: 1
-  anotherQuestEntryState: 0
-  luaCode: 
-  sequence: 
-  sequenceSpeaker: {fileID: 0}
-  sequenceListener: {fileID: 0}
-  waitOneFrameOnStartOrEnable: 1
-  alertMessage: 
-  textTable: {fileID: 0}
-  alertDuration: 0
-  sendMessages: []
-  barkSource: 0
-  barkConversation: 
-  barkText: 
-  barkTextSequence: 
-  barker: {fileID: 0}
-  barkTarget: {fileID: 0}
-  barkOrder: 0
-  allowBarksDuringConversations: 0
-  skipBarkIfNoValidEntries: 0
-  cacheBarkLines: 0
-  conversation: "Object/\uD734\uC2DD, \uC800\uC7A5 - \uCE68\uB300"
-  conversationConversant: {fileID: 0}
-  conversationActor: {fileID: 0}
-  startConversationEntryID: -1
-  startConversationEntryTitle: 
-  exclusive: 0
-  replace: 0
-  queue: 0
-  skipIfNoValidEntries: 0
-  preventRestartOnSameFrameEnded: 0
-  stopConversationOnTriggerExit: 0
-  stopConversationIfTooFar: 0
-  maxConversationDistance: 5
-  monitorConversationDistanceFrequency: 1
-  showCursorDuringConversation: 0
-  pauseGameDuringConversation: 0
-  setActiveActions: []
-  setEnabledActions: []
-  setAnimatorStateActions: []
-  onExecute:
-    m_PersistentCalls:
-      m_Calls: []
-  useConversationTitlePicker: 1
-  useBarkTitlePicker: 1
-  useQuestNamePicker: 1
-  selectedDatabase: {fileID: 11400000, guid: 1f62a833050c0dd4c94f8b74095d42b1, type: 2}
 --- !u!114 &1136782991820562793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +393,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 7676232677405270785}
-  dialogueSystemTrigger: {fileID: 1773396057623852660}
+  dialogueSystemTrigger: {fileID: 0}
   dialogueSystemController: {fileID: 0}
   npcDialogueUi: {fileID: 0}
   nonNpcDialogueUi: {fileID: 0}
+--- !u!114 &3876399368545360653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973718680389855419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e40de71651cb344d97252a519b4ea9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visualCue: {fileID: 7676232677405270785}
+  dialogueSystemTrigger: {fileID: 0}
+  dialogueSystemController: {fileID: 0}
+  npcDialogueUi: {fileID: 0}
+  nonNpcDialogueUi: {fileID: 0}
+  _npcInventoryHolder: {fileID: 7299661638941012382}

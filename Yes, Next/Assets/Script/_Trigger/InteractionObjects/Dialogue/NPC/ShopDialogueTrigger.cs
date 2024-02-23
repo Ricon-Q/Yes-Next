@@ -9,9 +9,9 @@ public class ShopDialogueTrigger : npcDialogueTrigger
     [SerializeField] private npcInventoryHolder _npcInventoryHolder;
     override public void EndConversation()
     {
-        bool _isHospitalTrigger = DialogueLua.GetVariable("shopTrigger").asBool;
+        bool _isShopTrigger = DialogueLua.GetVariable("shopTrigger").asBool;
         // Debug.Log(_isHospitalTrigger);
-        if(!_isHospitalTrigger)
+        if(!_isShopTrigger)
             PlayerInputManager.SetPlayerInput(true) ;
         else
             _ShopManager.Instance.EnterShopMode(_npcInventoryHolder);
