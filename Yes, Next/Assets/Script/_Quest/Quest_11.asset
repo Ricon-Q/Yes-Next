@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277267a50f4e3114e9a1c556f78f160b, type: 3}
+  m_Name: Quest_11
+  m_EditorClassIdentifier: 
+  _questName: "\uB9CE\uC774 \uBA39\uC744 \uC218 \uC788\uB294 \uBC29\uBC95?"
+  _questId: 0
+  _questDescription: "\uACE7 \uC788\uC73C\uBA74 \uC655\uB3C4\uC5D0\uC11C \uB9CE\uC774
+    \uBA39\uAE30 \uB300\uD68C\uAC00 \uC5F4\uB824\uC694. \uC774\uAE30\uAE30 \uC704\uD574\uC11C
+    \uC18C\uD654\uC81C\uAC19\uC740\uAC78 \uBA39\uC73C\uBA74 \uC88B\uC744 \uAC70 \uAC19\uC544\uC694.
+    2\uAC1C\uC815\uB3C4\uBA74 \uB418\uACA0\uC8E0?"
+  _deadline: 5
+  _requireItemData: {fileID: 11400000, guid: 3fc0140774d9aa048b9a6e3c0adc4b56, type: 2}
+  _stackSize: 2
+  _rewardMoney: 200
+  _rewardItemData: {fileID: 0}
+  _rewardItemCount: 0
+  _rewardExp: 10

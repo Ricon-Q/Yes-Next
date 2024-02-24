@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277267a50f4e3114e9a1c556f78f160b, type: 3}
+  m_Name: Quest_08
+  m_EditorClassIdentifier: 
+  _questName: "\uBAA9\uC774 \uB108\uBB34 \uC544\uD30C!"
+  _questId: 0
+  _questDescription: "\uBAA9\uAC10\uAE30\uC5D0 \uAC78\uB838\uB294\uC9C0 \uBAA9\uC774
+    \uB108\uBB34 \uC544\uD30C.. \uCC28\uB85C \uB9C8\uC2DC\uB824\uB294\uB370 \uBBFC\uB4E4\uB808
+    \uBFCC\uB9AC3\uAC1C\uB9CC \uC880 \uAC16\uB2E4\uC8FC\uB77C!"
+  _deadline: 2
+  _requireItemData: {fileID: 11400000, guid: d7023035c8d5d8641af7a744e4b5e9a6, type: 2}
+  _stackSize: 3
+  _rewardMoney: 40
+  _rewardItemData: {fileID: 0}
+  _rewardItemCount: 0
+  _rewardExp: 10
