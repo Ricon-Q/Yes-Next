@@ -31,16 +31,16 @@ public class QuestDescription : MonoBehaviour
 
         _questDeadline.text = _questData._deadline.ToString() + "일";
 
-        if(_questData._rewardItemData != null)
-        {
-            _rewardItemDataObject.SetActive(true);
-            _rewardItemData = _questData._rewardItemData;
-            _rewardItemDataText.text = _questData._rewardItemData.DisplayName + " X " + _questData._rewardItemCount.ToString();
-        }
-        else
-        {
+        // if(_questData._rewardItemData != null)
+        // {
+        //     _rewardItemDataObject.SetActive(true);
+        //     _rewardItemData = _questData._rewardItemData;
+        //     _rewardItemDataText.text = _questData._rewardItemData.DisplayName + " X " + _questData._rewardItemCount.ToString();
+        // }
+        // else
+        // {
             _rewardItemDataObject.SetActive(false);
-        }
+        // }
         _rewardMoney.text = _questData._rewardMoney.ToString("n0");
     }
 

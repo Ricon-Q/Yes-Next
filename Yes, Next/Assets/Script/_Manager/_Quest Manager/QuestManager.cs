@@ -124,21 +124,21 @@ public class QuestManager : MonoBehaviour
         // 퀘스트 랭크 증가 확인
 
         //퀘스트 보상 아이템 존재시 인벤토리에 추가
-        if(_questData._rewardItemData != null)
-        {
-            switch (_questData._rewardItemData.ItemType)
-            {
-                case ItemType.Herb:
-                    PlayerInventoryManager.Instance.herbInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
-                    break;
-                case ItemType.Potion:
-                    PlayerInventoryManager.Instance.potionInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
-                    break;
-                case ItemType.Default:
-                    PlayerInventoryManager.Instance.playerInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
-                    break;
-            }
-        }
+        // if(_questData._rewardItemData != null)
+        // {
+        //     switch (_questData._rewardItemData.ItemType)
+        //     {
+        //         case ItemType.Herb:
+        //             PlayerInventoryManager.Instance.herbInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
+        //             break;
+        //         case ItemType.Potion:
+        //             PlayerInventoryManager.Instance.potionInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
+        //             break;
+        //         case ItemType.Default:
+        //             PlayerInventoryManager.Instance.playerInventory.AddToInventory(_questData._rewardItemData.ID, _questData._rewardItemCount);
+        //             break;
+        //     }
+        // }
         RemoveQuest(_questIndex);
     }
 

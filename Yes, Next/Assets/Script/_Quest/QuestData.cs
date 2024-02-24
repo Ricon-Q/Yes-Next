@@ -19,7 +19,7 @@ public class QuestData : ScriptableObject
 
     [Header("Reward Item Info")]
     public int _rewardMoney;
-    public InventoryItemData _rewardItemData;
-    public int _rewardItemCount;
+    // public InventoryItemData _rewardItemData;
+    // public int _rewardItemCount;
     public int _rewardExp;
 }

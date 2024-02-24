@@ -8,7 +8,7 @@ public class QuestMenuDescription : MonoBehaviour
 {
     [Header("Quest Description")]
     public TextMeshProUGUI _questName;
-    // public TextMeshProUGUI _deadline;
+    public TextMeshProUGUI _deadline;
     public TextMeshProUGUI _description;
     private QuestData _questData;
     // private _TimeData _timeData;
@@ -19,8 +19,19 @@ public class QuestMenuDescription : MonoBehaviour
     {
         _questData = questData;
         _questName.text = _questData._questName;
-        // if(timeData)
+        int day = -CalculateDeadline(questData);
+        _deadline.text = day <= 0 ? "D-Day" : "D-" + day.ToString();
         _description.text = _questData._questDescription;
+    }
+
+    public int CalculateDeadline(QuestData questData)
+    {
+        _TimeData questAcceptDay = new _TimeData(QuestManager.Instance._playerQuestDictionary[questData._questId]);
+        questAcceptDay.increaseDay(questData._deadline);
+
+        int calculatedDeadline = _TimeManager.Instance.DaysSince(questAcceptDay);
+        // Debug.Log(calculatedDeadline);
+        return calculatedDeadline;
     }
 
     public void DeallocateQuestData()
@@ -28,7 +39,7 @@ public class QuestMenuDescription : MonoBehaviour
         _questData = null;
         _questName.text = "";
         _description.text = "퀘스트를 선택하여 정보 확인";
-
+        _deadline.text = "";
     }
     
     public void CheckQuestItem()
