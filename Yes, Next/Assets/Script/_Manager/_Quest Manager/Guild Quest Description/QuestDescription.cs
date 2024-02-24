@@ -29,6 +29,8 @@ public class QuestDescription : MonoBehaviour
         _questName.text = _questData._questName;
         _questDescription.text = _questData._questDescription;
 
+        _questDeadline.text = _questData._deadline.ToString() + "일";
+
         if(_questData._rewardItemData != null)
         {
             _rewardItemDataObject.SetActive(true);

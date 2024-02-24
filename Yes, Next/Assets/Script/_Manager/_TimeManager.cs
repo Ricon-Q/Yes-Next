@@ -41,16 +41,10 @@ public class _TimeManager : MonoBehaviour
 
     public void SetTargetTimeHour(int targetHour)
     {
-         if (timeData.hour >= targetHour)
-        {
-            // If yes, set the target hour for the next day
-            SetTimeData(timeData.year, timeData.month, timeData.day + 1, targetHour, 0);
-        }
-        else
-        {
-            // If not, set the target hour for the current day
-            SetTimeData(timeData.year, timeData.month, timeData.day, targetHour, 0);
-        }
+        SetTimeData(timeData.year, timeData.month, timeData.day, targetHour, 0);
+        
+        if (timeData.hour >= targetHour)
+            increaseDay(1);
     }
 
 
@@ -143,5 +137,51 @@ public class _TimeData
         this.day = timeData.day;
         this.hour = timeData.hour;
         this.minute = timeData.minute;
+    }
+    public void increaseMinute(int minute)
+    {
+        this.minute += minute;
+
+        if(this.minute >= 60)
+        {
+            this.minute = this.minute - 60;
+            increaseHour(1);
+        }
+    }
+
+    public void increaseHour(int hour)
+    {
+        this.hour += hour;
+
+        if(this.hour >= 24)
+        {
+            this.hour = this.hour - 24;
+            increaseDay(1);
+        }
+    }
+
+    public void increaseDay(int day)
+    {
+        this.day += day;
+        if(this.day > 28)
+        {
+            this.day = this.day - 28;
+            increaseMonth(1);
+        }
+    }
+
+    public void increaseMonth(int month)
+    {
+        this.month += month;
+        if(this.month > 4)
+        {
+            this.month = this.month - 4;
+            increaseYear(1);
+        }
+    }
+
+    public void increaseYear(int year)
+    {
+        this.year += year;
     }
 }

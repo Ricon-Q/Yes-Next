@@ -71,7 +71,8 @@ public class QuestManager : MonoBehaviour
         // Dictionary의 크기가 5 이하라면 퀘스트 추가
         if(_playerQuestDictionary.Count <= 5)
         {
-            _playerQuestDictionary.Add(_questIndex, _TimeManager.Instance.timeData);
+            _TimeData tmp = new _TimeData(_TimeManager.Instance.timeData);
+            _playerQuestDictionary.Add(_questIndex, tmp);
             return;
         }   
         // Dictionary의 크기가 5 초과라면 퀘스트 추가 불가
@@ -92,16 +93,25 @@ public class QuestManager : MonoBehaviour
     public void CheckDeadline()
     {
         // 하루가 지날때마다 퀘스트 마감일 확인
+        List<int> questToRemove = new List<int>();
         foreach (var item in _playerQuestDictionary)
         {
-            if(
-                _TimeManager.Instance.timeData.year >= item.Value.year &&
-                _TimeManager.Instance.timeData.month >= item.Value.month &&
-                _TimeManager.Instance.timeData.day >= item.Value.day
-                ) continue;
+            _TimeData questAcceptDay = new _TimeData(item.Value);
+            questAcceptDay.increaseDay(_questDataBase.FindQuestData(item.Key)._deadline);
+            int calculatedDeadline = -(_TimeManager.Instance.DaysSince(questAcceptDay));
+            if(calculatedDeadline >= 0)
+                continue;
+            else
+                questToRemove.Add(item.Key);
+        }
+        if(questToRemove.Count == 0) return;
 
-            // 마감일 초과시 삭제
-            else RemoveQuest(item.Key);
+        foreach (var item in questToRemove)
+        {
+            string alert = $"\"{_questDataBase.FindQuestData(item)._questName}\" 퀘스트의 마감일이 지나 삭제되었습니다.";
+            PixelCrushers.DialogueSystem.DialogueManager.ShowAlert(alert);
+        
+            RemoveQuest(item);
         }
     }
 

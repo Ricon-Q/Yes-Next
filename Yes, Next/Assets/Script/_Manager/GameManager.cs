@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
      private void Start()
     {
         StartCoroutine(IEnum_ManagerCheck());
+        QuestManager.Instance._questDataBase.UpdateQuestData();
     }
 
     IEnumerator IEnum_ManagerCheck()
@@ -120,6 +121,7 @@ public class GameManager : MonoBehaviour
 
             // 씬 불러오기
             FadeInOutManager.Instance.ChangeScene(DataManager.Instance.loadData.LastSceneName, DataManager.Instance.loadData.playerPosition);
+            StartNewDay();
         }
         else
         {
@@ -189,6 +191,9 @@ public class GameManager : MonoBehaviour
             QuestManager.Instance._guildQuestDisplay._isQeustRefresh = true;
             QuestManager.Instance._guildQuestDisplay._questDatas = new List<int>(5);
         }
+
+        // 퀘스트 마감일 계산
+        QuestManager.Instance.CheckDeadline();
     }
 
     public void QuitGame()
