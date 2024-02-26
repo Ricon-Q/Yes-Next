@@ -4,6 +4,7 @@ using DG.Tweening;
 using PixelCrushers.DialogueSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class DiagnosisPanel : MonoBehaviour
@@ -98,6 +99,7 @@ public class DiagnosisPanel : MonoBehaviour
         else if(_diagnosisSlotDisplay.inventorySystem.inventorySlots[0].itemId != _allocatedPatientData._potionItemData.ID)
             _score += -10;
         Debug.Log(_score);
+        _PlayerManager.Instance.playerData.money += _score;
     }
     public void SetupDiagnosis()
     {
