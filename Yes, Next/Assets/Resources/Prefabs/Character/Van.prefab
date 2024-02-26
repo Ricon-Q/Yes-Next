@@ -427,7 +427,7 @@ MonoBehaviour:
   allowBarksDuringConversations: 0
   skipBarkIfNoValidEntries: 0
   cacheBarkLines: 0
-  conversation: "Object/\uD734\uC2DD, \uC800\uC7A5 - \uCE68\uB300"
+  conversation: NPC/Van/Main Conversation
   conversationConversant: {fileID: 0}
   conversationActor: {fileID: 0}
   startConversationEntryID: -1
