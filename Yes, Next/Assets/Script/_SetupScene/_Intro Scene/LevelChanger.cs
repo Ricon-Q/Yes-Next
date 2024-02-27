@@ -11,7 +11,8 @@ public class LevelChanger : MonoBehaviour
         CameraManager.Instance.TogglePlayerCamera(true);
 
         _PlayerManager.Instance.playerData.currentArea = townArea.areaName;
-        FadeInOutManager.Instance.ChangeScene("Town", new Vector3(5, 0, 0));
+        CameraManager.Instance.ChangeCameraBorder("Home");
+        FadeInOutManager.Instance.ChangeScene("Town", new Vector3(-58.5f, -23f, 0));
         UiManager.Instance.ToggleUiCanvas(true);
     }   
 }
