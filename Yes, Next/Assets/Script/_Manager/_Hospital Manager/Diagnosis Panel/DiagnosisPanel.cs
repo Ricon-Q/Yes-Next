@@ -100,6 +100,8 @@ public class DiagnosisPanel : MonoBehaviour
             _score += -10;
         Debug.Log(_score);
         _PlayerManager.Instance.playerData.money += _score;
+        _PlayerManager.Instance.playerData.currentStamina -= 3;
+        
     }
     public void SetupDiagnosis()
     {

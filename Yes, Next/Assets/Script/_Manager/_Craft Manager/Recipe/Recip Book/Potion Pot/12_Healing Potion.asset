@@ -15,8 +15,8 @@ MonoBehaviour:
   recipeName: "\uCE58\uC720 \uD3EC\uC158 "
   description: "\uBC94\uC6A9\uC131 \uB192\uC740 \uCE58\uC720 \uD3EC\uC158"
   toolType: 1
-  useStamina: 0
-  useTimeMinute: 0
+  useStamina: 2
+  useTimeMinute: 5
   inputItemDatas:
   - {fileID: 11400000, guid: 3c28c9d9d9b8398429ae123106c9b4dc, type: 2}
   - {fileID: 11400000, guid: 7d38ac932092dec43a5b76a05c197a06, type: 2}

@@ -113,32 +113,6 @@ public class HotBarSelected : MonoBehaviour
             if(_hotbarIndex != -1)
             {
                 ItemType _tmpType = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType;
-                // switch (PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].ItemType)
-                // {
-                //     case ItemType.Placeable:
-                //         if(_uiMouseObject._canPlace == true)
-                //         {
-                //             PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
-                //             ObjectManager.Instance._placeableObjects.Add(placeableTmp);
-                //             PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
-                //         }
-                //         break;
-                //     // case ItemType.Tool:
-                //     //     float distanceToPlayer = Vector3.Distance(worldMousePosition, _PlayerManager.Instance.transform.position);
-                //     //     if (distanceToPlayer <= 2f) // Check if the distance is less than or equal to 1
-                //     //     {
-                //     //         _ToolItemData toolTmp = PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _ToolItemData;
-                //     //         if (toolTmp != null)
-                //     //             toolTmp.Interact();
-                //     //     }
-                //         // return;
-                //     case ItemType.Seed:
-                //         if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
-                //             PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
-                //         break;
-                //     case ItemType.Default:
-                //         break;
-                // }
 
                 if(_tmpType == ItemType.Placeable)
                 {
@@ -147,12 +121,20 @@ public class HotBarSelected : MonoBehaviour
                         PlaceableObject placeableTmp = new PlaceableObject(SceneManager.GetActiveScene().name, _hotbarIndex, _uiMouseObject.transform.position, _previewIndex);
                         ObjectManager.Instance._placeableObjects.Add(placeableTmp);
                         PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex].Interact(_uiMouseObject.transform.position, _previewIndex);
+                        UiManager.Instance.inventoryHotBarDisplay._inventorySystem.inventorySlots[_hotBarSelected].RemoveFromStack(1);
+                        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(UiManager.Instance.inventoryHotBarDisplay._inventorySystem);
+                    
                     }
                 }
                 else if(_tmpType == ItemType.Seed)
                 {
                     if(PlantManager.Instance._plantMode && CheckArea(worldMousePosition))
+                    {
                         PlantManager.Instance.TrySeedPlant(_uiMouseObject.transform.position, PlayerInventoryManager.Instance.itemDataBase.Items[_hotbarIndex] as _SeedItemData);
+                        
+                        UiManager.Instance.inventoryHotBarDisplay._inventorySystem.inventorySlots[_hotBarSelected].RemoveFromStack(1);
+                        UiManager.Instance.inventoryHotBarDisplay.RefreshDynamicInventory(UiManager.Instance.inventoryHotBarDisplay._inventorySystem);
+                    }
                 }
                 else
                 {

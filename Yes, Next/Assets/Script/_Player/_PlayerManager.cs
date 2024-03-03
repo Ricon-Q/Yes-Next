@@ -53,19 +53,19 @@ public class _PlayerManager : MonoBehaviour
         playerObject.SetActive(active);
     }
 
-    private void Update() 
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            DataManager.Instance.SaveSlot();
-            Debug.Log("Saved");
-        }   
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
-            Debug.Log("Saved");
-        }  
-    }
+    // private void Update() 
+    // {
+    //     if(Input.GetKeyDown(KeyCode.Space))
+    //     {
+    //         DataManager.Instance.SaveSlot();
+    //         Debug.Log("Saved");
+    //     }   
+    //     if(Input.GetKeyDown(KeyCode.P))
+    //     {
+    //         DataManager.Instance.LoadInventory(DataManager.Instance.currentSaveIndex);
+    //         Debug.Log("Saved");
+    //     }  
+    // }
 }
 
 public class PlayerData
@@ -90,12 +90,12 @@ public class PlayerData
         isMale = true;
         // playerPortrait = null;
         hospitalLevel = 0;
-        money = 50000;
+        money = 3000;
 
         maxHealth = 100;
         currentHealth = 100;    
-        maxStamina = 100;       
-        currentStamina = 100;
+        maxStamina = 200;       
+        currentStamina = 200;
     }
 
     // // =========SetFunc=========

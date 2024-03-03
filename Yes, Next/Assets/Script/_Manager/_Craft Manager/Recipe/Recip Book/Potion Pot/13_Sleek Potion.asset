@@ -17,8 +17,8 @@ MonoBehaviour:
     \uD53C\uBD80\uC5D0 \uBC14\uB974\uB294 \uD3EC\uC158. \uD53C\uBD80 \uC9C8\uD658\uC744
     \uC644\uD654\uD574\uC900\uB2E4."
   toolType: 1
-  useStamina: 0
-  useTimeMinute: 0
+  useStamina: 2
+  useTimeMinute: 5
   inputItemDatas:
   - {fileID: 11400000, guid: 3c28c9d9d9b8398429ae123106c9b4dc, type: 2}
   - {fileID: 11400000, guid: 087faf78f3734bb459fa32a0111e41af, type: 2}

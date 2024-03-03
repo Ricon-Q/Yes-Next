@@ -18,8 +18,8 @@ MonoBehaviour:
     \uAE30\uAD00\uC744 \uD3B8\uC548\uD558\uAC8C \uD574\uC8FC\uACE0 \uBCF5\uD1B5 \uBC0F
     \uBA54\uC2A4\uAEBC\uC6C0\uC744 \uC644\uD654\uD574\uC900\uB2E4."
   toolType: 1
-  useStamina: 0
-  useTimeMinute: 0
+  useStamina: 2
+  useTimeMinute: 5
   inputItemDatas:
   - {fileID: 11400000, guid: 979857af45f3c7c4b9c3a79ca972ed58, type: 2}
   - {fileID: 11400000, guid: 6d0c0c48a3445804baed10d596a7ac15, type: 2}
